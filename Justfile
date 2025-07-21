@@ -20,7 +20,7 @@ test:
     zig build test --summary all
 
 test-valgrind:
-    rm /tmp/runner*.fifo || true
+    rm -f /tmp/runner*.fifo
 
     clang -O3 example/main.c dist/core.c -I includes/ -o clang-main && ./clang-main
     valgrind ./clang-main
