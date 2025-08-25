@@ -5,7 +5,8 @@ clean:
     rm -rf example/build
 
 build:
-    zig build
+    # Use a fixed traversal seed for reproducible transpilation output
+    zig build --seed 12345
 
 build-example:
     cd example && mkdir -p build && cd build && cmake .. && make -j
