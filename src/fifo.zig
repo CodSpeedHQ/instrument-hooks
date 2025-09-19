@@ -154,40 +154,6 @@ pub const UnixPipe = struct {
     }
 };
 
-pub const BenchGuard = struct {
-    ctl_writer: UnixPipe.Writer,
-    ack_reader: UnixPipe.Reader,
-    allocator: Allocator,
-
-    pub fn init(allocator: Allocator, ctl_fifo_path: []const u8, ack_fifo_path: []const u8) !*BenchGuard {
-        var self = try allocator.create(BenchGuard);
-        errdefer allocator.destroy(self);
-
-        self.allocator = allocator;
-        self.ctl_writer = try UnixPipe.openWrite(allocator, ctl_fifo_path);
-        self.ack_reader = try UnixPipe.openRead(allocator, ack_fifo_path);
-
-        try self.sendCmd(Command.StartBenchmark);
-        return self;
-    }
-
-    pub fn initWithRunnerFifo(allocator: Allocator) !*BenchGuard {
-        return try BenchGuard.init(allocator, shared.RUNNER_CTL_FIFO, shared.RUNNER_ACK_FIFO);
-    }
-
-    pub fn deinit(self: *BenchGuard) void {
-        self.sendCmd(Command.StopBenchmark) catch {};
-        self.ctl_writer.deinit();
-        self.ack_reader.deinit();
-        self.allocator.destroy(self);
-    }
-
-    fn sendCmd(self: *BenchGuard, cmd: Command) !void {
-        try self.ctl_writer.sendCmd(cmd);
-        try self.ack_reader.waitForAck(null);
-    }
-};
-
 pub fn sendCmd(allocator: Allocator, cmd: Command) !void {
     var writer = try UnixPipe.openWrite(allocator, shared.RUNNER_CTL_FIFO);
     defer writer.deinit();
