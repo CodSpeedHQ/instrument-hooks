@@ -29,6 +29,15 @@ pub fn sleep(nanoseconds: u64) void {
     }
 }
 
+pub fn clock_gettime_monotonic() u64 {
+    var ts: c.struct_timespec = undefined;
+    const ret = c.clock_gettime(c.CLOCK_MONOTONIC, &ts);
+    if (ret != 0) {
+        @panic("clock_gettime failed");
+    }
+    return @as(u64, @intCast(ts.tv_sec)) * std.time.ns_per_s + @as(u64, @intCast(ts.tv_nsec));
+}
+
 test "sleep for at least 1 second" {
     const start = try std.time.Instant.now();
     sleep(1 * std.time.ns_per_s);

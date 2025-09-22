@@ -2,7 +2,9 @@ const instruments = @import("./instruments/root.zig");
 const InstrumentHooks = instruments.InstrumentHooks;
 const builtin = @import("builtin");
 const features = @import("./features.zig");
+const shared = @import("./shared.zig");
 const std = @import("std");
+const utils = @import("./utils.zig");
 
 pub const panic = if (builtin.is_test) std.debug.FullPanic(std.debug.defaultPanic) else std.debug.no_panic;
 const allocator = if (builtin.is_test) std.testing.allocator else std.heap.c_allocator;
@@ -77,6 +79,32 @@ pub export fn instrument_hooks_set_integration(hooks: ?*InstrumentHooks, name: [
         };
     }
     return 0;
+}
+
+pub const MARKER_TYPE_SAMPLE_START: u8 = 0;
+pub const MARKER_TYPE_SAMPLE_END: u8 = 1;
+pub const MARKER_TYPE_BENCHMARK_START: u8 = 2;
+pub const MARKER_TYPE_BENCHMARK_END: u8 = 3;
+
+pub export fn instrument_hooks_add_marker(hooks: ?*InstrumentHooks, pid: u32, marker_type: u8, timestamp: u64) u8 {
+    if (hooks) |h| {
+        const timestamp_u64 = @as(u64, @intCast(timestamp));
+        const marker_enum = switch (marker_type) {
+            MARKER_TYPE_SAMPLE_START => shared.MarkerType{ .SampleStart = timestamp_u64 },
+            MARKER_TYPE_SAMPLE_END => shared.MarkerType{ .SampleEnd = timestamp_u64 },
+            MARKER_TYPE_BENCHMARK_START => shared.MarkerType{ .BenchmarkStart = timestamp_u64 },
+            MARKER_TYPE_BENCHMARK_END => shared.MarkerType{ .BenchmarkEnd = timestamp_u64 },
+            else => return 1, // Invalid marker type
+        };
+        h.add_marker(pid, marker_enum) catch {
+            return 1;
+        };
+    }
+    return 0;
+}
+
+pub export fn instrument_hooks_current_timestamp() u64 {
+    return utils.clock_gettime_monotonic();
 }
 
 test "no crash when not instrumented" {

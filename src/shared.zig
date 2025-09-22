@@ -5,6 +5,54 @@ const std = @import("std");
 pub const RUNNER_CTL_FIFO = "/tmp/runner.ctl.fifo";
 pub const RUNNER_ACK_FIFO = "/tmp/runner.ack.fifo";
 
+// The different markers that can be set in the perf.data.
+//
+// `SampleStart/End`: Marks the start and end of a sampling period. This is used to differentiate between benchmarks.
+// `BenchmarkStart/End`: Marks the start and end of a benchmark. This is used to measure the duration of a benchmark, without the benchmark harness code.
+pub const MarkerType = union(enum) {
+    SampleStart: u64,
+    SampleEnd: u64,
+    BenchmarkStart: u64,
+    BenchmarkEnd: u64,
+
+    pub fn format(
+        self: MarkerType,
+        comptime fmt: []const u8,
+        options: std.fmt.FormatOptions,
+        writer: anytype,
+    ) !void {
+        _ = fmt;
+        _ = options;
+        switch (self) {
+            .SampleStart => |ts| try writer.print("SampleStart({d})", .{ts}),
+            .SampleEnd => |ts| try writer.print("SampleEnd({d})", .{ts}),
+            .BenchmarkStart => |ts| try writer.print("BenchmarkStart({d})", .{ts}),
+            .BenchmarkEnd => |ts| try writer.print("BenchmarkEnd({d})", .{ts}),
+        }
+    }
+
+    pub fn equal(self: MarkerType, other: MarkerType) bool {
+        return switch (self) {
+            .SampleStart => |self_ts| switch (other) {
+                .SampleStart => |other_ts| self_ts == other_ts,
+                else => false,
+            },
+            .SampleEnd => |self_ts| switch (other) {
+                .SampleEnd => |other_ts| self_ts == other_ts,
+                else => false,
+            },
+            .BenchmarkStart => |self_ts| switch (other) {
+                .BenchmarkStart => |other_ts| self_ts == other_ts,
+                else => false,
+            },
+            .BenchmarkEnd => |self_ts| switch (other) {
+                .BenchmarkEnd => |other_ts| self_ts == other_ts,
+                else => false,
+            },
+        };
+    }
+};
+
 pub const Command = union(enum) {
     ExecutedBenchmark: struct {
         pid: u32,
@@ -19,6 +67,10 @@ pub const Command = union(enum) {
         version: []const u8,
     },
     Err,
+    AddMarker: struct {
+        pid: u32,
+        marker: MarkerType,
+    },
 
     pub fn deinit(self: Command, allocator: std.mem.Allocator) void {
         switch (self) {
@@ -47,6 +99,7 @@ pub const Command = union(enum) {
             .PingPerf => try writer.writeAll("PingPerf"),
             .SetIntegration => |data| try writer.print("SetIntegration {{ name: {s}, version: {s} }}", .{ data.name, data.version }),
             .Err => try writer.writeAll("Err"),
+            .AddMarker => |data| try writer.print("AddMarker {{ pid: {d}, marker: {} }}", .{ data.pid, data.marker }),
         }
     }
 
@@ -80,6 +133,10 @@ pub const Command = union(enum) {
             },
             .Err => switch (other) {
                 .Err => true,
+                else => false,
+            },
+            .AddMarker => |self_data| switch (other) {
+                .AddMarker => |other_data| self_data.pid == other_data.pid and self_data.marker.equal(other_data.marker),
                 else => false,
             },
         };
