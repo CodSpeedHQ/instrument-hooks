@@ -2,6 +2,7 @@ const std = @import("std");
 const builtin = @import("builtin");
 const perf = @import("perf.zig");
 const valgrind = @import("valgrind.zig");
+const shared = @import("../shared.zig");
 const ValgrindInstrument = valgrind.ValgrindInstrument;
 
 pub const InstrumentHooks = union(enum) {
@@ -74,6 +75,12 @@ pub const InstrumentHooks = union(enum) {
             .valgrind => try self.valgrind.set_integration(name, version),
             .perf => try self.perf.set_integration(name, version),
             .none => {},
+        }
+    }
+
+    pub inline fn add_marker(self: *Self, pid: u32, marker: shared.MarkerType) !void {
+        if (self.* == .perf) {
+            return self.perf.add_marker(pid, marker);
         }
     }
 };

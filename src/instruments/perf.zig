@@ -64,6 +64,14 @@ pub const PerfInstrument = struct {
         } });
         try self.reader.waitForAck(null);
     }
+
+    pub fn add_marker(self: *Self, pid: u32, marker: shared.MarkerType) !void {
+        try self.writer.sendCmd(fifo.Command{ .AddMarker = .{
+            .pid = pid,
+            .marker = marker,
+        } });
+        try self.reader.waitForAck(null);
+    }
 };
 
 test "perf integration" {
