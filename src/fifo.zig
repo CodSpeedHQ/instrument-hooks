@@ -164,6 +164,11 @@ pub fn sendCmd(allocator: Allocator, cmd: Command) !void {
     try reader.waitForAck(null);
 }
 
+pub fn sendVersion(allocator: Allocator, protocol_version: u64) !void {
+    const cmd = Command{ .SetVersion = protocol_version };
+    try sendCmd(allocator, cmd);
+}
+
 test "fail if doesn't exist" {
     const allocator = std.testing.allocator;
 

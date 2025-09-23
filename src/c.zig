@@ -9,6 +9,8 @@ const utils = @import("./utils.zig");
 pub const panic = if (builtin.is_test) std.debug.FullPanic(std.debug.defaultPanic) else std.debug.no_panic;
 const allocator = if (builtin.is_test) std.testing.allocator else std.heap.c_allocator;
 
+pub const PROTOCOL_VERSION: u64 = 1;
+
 pub export fn instrument_hooks_set_feature(feature: u64, enabled: bool) void {
     const feature_enum = @as(features.Feature, @enumFromInt(feature));
     features.set_feature(feature_enum, enabled);
@@ -23,6 +25,11 @@ pub export fn instrument_hooks_init() ?*InstrumentHooks {
         allocator.destroy(hooks);
         return null;
     };
+
+    if (hooks.* == .perf) {
+        hooks.perf.send_version(PROTOCOL_VERSION) catch {};
+    }
+
     return hooks;
 }
 

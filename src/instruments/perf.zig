@@ -72,6 +72,11 @@ pub const PerfInstrument = struct {
         } });
         try self.reader.waitForAck(null);
     }
+
+    pub fn send_version(self: *Self, protocol_version: u64) !void {
+        try self.writer.sendCmd(fifo.Command{ .SetVersion = protocol_version });
+        try self.reader.waitForAck(null);
+    }
 };
 
 test "perf integration" {

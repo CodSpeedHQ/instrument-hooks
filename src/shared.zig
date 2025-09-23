@@ -54,6 +54,7 @@ pub const Command = union(enum) {
         pid: u32,
         marker: MarkerType,
     },
+    SetVersion: u64,
 
     pub fn deinit(self: Command, allocator: std.mem.Allocator) void {
         switch (self) {
@@ -62,6 +63,7 @@ pub const Command = union(enum) {
                 allocator.free(data.version);
             },
             .ExecutedBenchmark => |data| allocator.free(data.uri),
+            .SetVersion => {},
             else => {},
         }
     }
@@ -83,6 +85,7 @@ pub const Command = union(enum) {
             .SetIntegration => |data| try writer.print("SetIntegration {{ name: {s}, version: {s} }}", .{ data.name, data.version }),
             .Err => try writer.writeAll("Err"),
             .AddMarker => |data| try writer.print("AddMarker {{ pid: {d}, marker: {} }}", .{ data.pid, data.marker }),
+            .SetVersion => |data| try writer.print("SetVersion {{ protocol_version: {d} }}", .{data}),
         }
     }
 
@@ -120,6 +123,10 @@ pub const Command = union(enum) {
             },
             .AddMarker => |self_data| switch (other) {
                 .AddMarker => |other_data| self_data.pid == other_data.pid and self_data.marker.equal(other_data.marker),
+                else => false,
+            },
+            .SetVersion => |self_data| switch (other) {
+                .SetVersion => |other_data| self_data == other_data,
                 else => false,
             },
         };
