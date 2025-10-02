@@ -8,6 +8,13 @@
 
 #include "core.h"
 
+static int fib(int n) {
+  if (n <= 1) return n;
+  return fib(n - 1) + fib(n - 2);
+}
+
+static void expensive_setup(void) { fib(30); }
+
 void example_function() {
   // Simulate some work
   for (volatile int i = 0; i < 100000; i++)
@@ -39,8 +46,21 @@ int main() {
     return 1;
   }
 
+  uint32_t pid = getpid();
   for (int i = 0; i < 10; i++) {
+    // This won't be displayed in the flamegraph, because it's outside
+    // the benchmark marker regions.
+    expensive_setup();
+
+    uint64_t start_time = instrument_hooks_current_timestamp();
     example_function();
+    uint64_t end_time = instrument_hooks_current_timestamp();
+
+    // Add the markers which mark when the benchmarked function was running
+    instrument_hooks_add_marker(hooks, pid, MARKER_TYPE_BENCHMARK_START,
+                                start_time);
+    instrument_hooks_add_marker(hooks, pid, MARKER_TYPE_BENCHMARK_END,
+                                end_time);
   }
 
   if (instrument_hooks_stop_benchmark_inline(hooks) != 0) {
@@ -49,7 +69,6 @@ int main() {
     return 1;
   }
 
-  int32_t pid = getpid();
   if (instrument_hooks_set_executed_benchmark(hooks, pid,
                                               "example_benchmark") != 0) {
     printf("Failed to report benchmark execution\n");

@@ -42,6 +42,13 @@ uint8_t instrument_hooks_set_integration(InstrumentHooks* hooks,
 void instrument_hooks_set_feature(InstrumentHooks* hooks, uint64_t feature,
                                   bool enabled) {}
 
+uint64_t instrument_hooks_current_timestamp() { return 0; }
+
+uint8_t instrument_hooks_add_marker(InstrumentHooks* hooks, uint32_t pid,
+                                    uint8_t marker_type, uint64_t timestamp) {
+  return 0;
+}
+
 #else
 #define ZIG_TARGET_MAX_INT_ALIGNMENT 16
 #include "zig.h"
