@@ -1,6 +1,7 @@
 const std = @import("std");
 const c = @cImport(@cInclude("time.h"));
 const errno = @cImport(@cInclude("errno.h"));
+const fcntl_h = @cImport(@cInclude("fcntl.h"));
 
 extern "c" fn nanosleep(nanos: u64) c_int;
 
@@ -27,6 +28,12 @@ pub fn sleep(nanoseconds: u64) void {
             return;
         }
     }
+}
+
+pub fn setNonBlocking(fd: std.posix.fd_t) void {
+    const current_flags = fcntl_h.fcntl(fd, fcntl_h.F_GETFL, @as(c_int, 0));
+    const new_flags = current_flags | fcntl_h.O_NONBLOCK;
+    _ = fcntl_h.fcntl(fd, fcntl_h.F_SETFL, new_flags);
 }
 
 // Returns monotonic time since boot in nanoseconds.

@@ -35,18 +35,30 @@ pub const UnixPipe = struct {
         pub fn recvCmd(self: *Reader) !Command {
             // First read the length (u32 = 4 bytes)
             var len_buffer: [4]u8 = undefined;
-            _ = try self.file.readAll(&len_buffer);
+            const len_read = self.file.readAll(&len_buffer) catch |err| {
+                // Convert blocking/broken pipe errors to something the timeout logic can handle
+                return switch (err) {
+                    error.WouldBlock, error.BrokenPipe => error.NotReady,
+                    else => err,
+                };
+            };
+            if (len_read < 4) {
+                return error.UnexpectedEof;
+            }
             const message_len = std.mem.readInt(u32, &len_buffer, std.builtin.Endian.little);
 
             // Read the message
             const buffer = try self.allocator.alloc(u8, message_len);
             defer self.allocator.free(buffer);
 
-            while (true) {
-                _ = self.file.readAll(buffer) catch {
-                    continue;
+            const msg_read = self.file.readAll(buffer) catch |err| {
+                return switch (err) {
+                    error.WouldBlock, error.BrokenPipe => error.NotReady,
+                    else => err,
                 };
-                break;
+            };
+            if (msg_read < message_len) {
+                return error.UnexpectedEof;
             }
 
             var stream = std.io.fixedBufferStream(buffer);
@@ -63,10 +75,16 @@ pub const UnixPipe = struct {
                     return error.AckTimeout;
                 }
 
-                const cmd = self.recvCmd() catch {
-                    const utils = @import("utils.zig");
-                    utils.sleep(std.time.ns_per_ms * 10);
-                    continue;
+                const cmd = self.recvCmd() catch |err| {
+                    // Only retry on transient errors, propagate fatal ones
+                    switch (err) {
+                        error.NotReady, error.UnexpectedEof => {
+                            const utils = @import("utils.zig");
+                            utils.sleep(std.time.ns_per_ms * 10);
+                            continue;
+                        },
+                        else => return err,
+                    }
                 };
 
                 return cmd;
@@ -136,20 +154,26 @@ pub const UnixPipe = struct {
         }
     }
 
-    pub fn openRead(allocator: Allocator, path: []const u8) !Reader {
+    fn openPipe(path: []const u8) !fs.File {
         try fs.accessAbsolute(path, .{ .mode = .read_write });
+        const file = try fs.openFileAbsolute(path, .{
+            .mode = .read_write,
+        });
 
-        const file = try fs.openFileAbsolute(path, .{ .mode = .read_write, .lock = .shared, .lock_nonblocking = true });
+        // Zig doesn't set the nonblocking flag correctly, so we have to do it manually.
+        const utils = @import("utils.zig");
+        utils.setNonBlocking(file.handle);
+
+        return file;
+    }
+
+    pub fn openRead(allocator: Allocator, path: []const u8) !Reader {
+        const file = try openPipe(path);
         return Reader.init(file, allocator);
     }
 
     pub fn openWrite(allocator: Allocator, path: []const u8) !Writer {
-        try fs.accessAbsolute(path, .{ .mode = .read_write });
-
-        // DO NOT REMOVE the .lock, as nonblocking will have no effect otherwise. This can lead to
-        // deadlocks invalid/broken FIFOs are opened.
-        // See: https://github.com/ziglang/zig/blob/ffd85ffcda3c36b2cda0783ab285ede8b0fc55af/lib/std/fs/Dir.zig#L872-L887
-        const file = try fs.openFileAbsolute(path, .{ .mode = .read_write, .lock = .shared, .lock_nonblocking = true });
+        const file = try openPipe(path);
         return Writer.init(file, allocator);
     }
 };
@@ -231,4 +255,22 @@ test "unix pipe send recv cmd" {
     defer cmd.deinit(writer.allocator);
 
     try std.testing.expectEqual(Command.StartBenchmark, cmd);
+}
+
+test "unix pipe send without ack" {
+    const allocator = std.testing.allocator;
+    const test_path = "/tmp/test_no_ack.fifo";
+
+    try UnixPipe.create(test_path);
+
+    // Open both reader and writer so they don't block on open
+    var reader = try UnixPipe.openRead(allocator, test_path);
+    defer reader.deinit();
+
+    var writer = try UnixPipe.openWrite(allocator, test_path);
+    defer writer.deinit();
+
+    // Writer doesn't send anything, so waitForResponse should timeout
+    const result = reader.waitForResponse(std.time.ns_per_ms * 100);
+    try std.testing.expectError(error.AckTimeout, result);
 }
