@@ -19,7 +19,7 @@ jobs:
   tests:
     strategy:
       matrix:
-        os: [ubuntu-latest, ubuntu-24.04-arm]
+        os: [ubuntu-latest, ubuntu-24.04-arm, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
@@ -29,6 +29,7 @@ jobs:
         run: zig build test --summary all
 
       - name: Run valgrind tests
+        if: runner.os == 'Linux'
         run: |
           sudo apt-get update
           sudo apt-get install -y valgrind
@@ -37,7 +38,7 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [ubuntu-latest, ubuntu-24.04-arm]
+        os: [ubuntu-latest, ubuntu-24.04-arm, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
@@ -55,6 +56,10 @@ jobs:
 
           - name: Linux Clang
             os: ubuntu-latest
+            compiler: clang
+
+          - name: macOS Clang
+            os: macos-latest
             compiler: clang
 
           - name: Windows MSVC
@@ -108,6 +113,8 @@ jobs:
         include:
           - name: Linux
             os: ubuntu-latest
+          - name: macOS
+            os: macos-latest
           - name: Windows
             os: windows-latest
     runs-on: ${{ matrix.os }}

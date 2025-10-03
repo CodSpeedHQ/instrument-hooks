@@ -1,4 +1,4 @@
-// Windows stub implementations - instrumentation not supported on Windows
+// Stub implementations - instrumentation not supported on Windows/macOS
 #include <stdbool.h>
 #include <stdint.h>
 
