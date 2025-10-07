@@ -131,6 +131,15 @@ jobs:
           # Share repository cache between workflows.
           repository-cache: true
 
+      # Symlinks on windows are broken with bazel
+      - name: Fix symlink on Windows
+        if: runner.os == 'Windows'
+        shell: powershell
+        run: |
+          Get-ChildItem -Path example/instrument-hooks -Force | Remove-Item -Recurse -Force -ErrorAction SilentlyContinue
+          Copy-Item -Path dist -Destination example/instrument-hooks/dist -Recurse
+          Copy-Item -Path includes -Destination example/instrument-hooks/includes -Recurse
+
       - name: Build benchmarks
         working-directory: example
         run: |
