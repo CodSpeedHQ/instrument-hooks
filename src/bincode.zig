@@ -1,6 +1,7 @@
 // Taken from here: https://github.com/qbradley/bincode-zig/blob/main/bincode.zig
 
 const std = @import("std");
+const utils = @import("./utils.zig");
 
 pub fn deserializeAlloc(stream: anytype, allocator: std.mem.Allocator, comptime T: type) !T {
     return switch (@typeInfo(T)) {
@@ -464,7 +465,8 @@ fn unsupportedType(comptime T: type) noreturn {
 }
 
 fn invalidProtocol(comptime message: []const u8) noreturn {
-    @panic("Invalid protocol detected: " ++ message);
+    _ = utils.printf("Invalid protocol detected: %.*s\n", message.len, message.ptr);
+    std.process.exit(1);
 }
 
 test "example" {

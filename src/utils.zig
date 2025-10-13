@@ -5,6 +5,10 @@ const fcntl_h = @cImport(@cInclude("fcntl.h"));
 
 extern "c" fn nanosleep(nanos: u64) c_int;
 
+// Note: Using printf to avoid the extra code from std.log/std.debug. Those won't
+// compile because they are internally using syscalls (for Mutexes) which aren't cross-platform.
+pub extern "c" fn printf(format: [*c]const u8, ...) c_int;
+
 // Adaptation of [`std.Thread.sleep`](https://ziglang.org/documentation/0.14.0/std/#std.Thread.sleep)
 // to ensure that the C code is architecture-independent. The stdlib implementation uses inline syscalls,
 // which only works on a single architecture and is not portable.

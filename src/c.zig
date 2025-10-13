@@ -6,10 +6,6 @@ const shared = @import("./shared.zig");
 const std = @import("std");
 const utils = @import("./utils.zig");
 
-// Note: Using printf to avoid the extra code from std.log/std.debug. Those won't
-// compile because they are internally using syscalls (for Mutexes) which aren't cross-platform.
-extern "c" fn printf(format: [*c]const c_char, ...) c_int;
-
 pub const panic = if (builtin.is_test) std.debug.FullPanic(std.debug.defaultPanic) else std.debug.no_panic;
 const allocator = if (builtin.is_test) std.testing.allocator else std.heap.c_allocator;
 
@@ -32,8 +28,8 @@ pub export fn instrument_hooks_init() ?*InstrumentHooks {
 
     if (hooks.* == .perf) {
         hooks.perf.send_version(PROTOCOL_VERSION) catch {
-            _ = printf(@as([*c]const c_char, @ptrCast("[ERROR] instrument-hooks: failed to communicate with CodSpeed runner\n")));
-            _ = printf(@as([*c]const c_char, @ptrCast("[ERROR] instrument-hooks: please update the CodSpeed action to the latest version\n")));
+            _ = utils.printf("[ERROR] instrument-hooks: failed to communicate with CodSpeed runner\n");
+            _ = utils.printf("[ERROR] instrument-hooks: please update the CodSpeed action to the latest version\n");
 
             hooks.deinit();
             allocator.destroy(hooks);
