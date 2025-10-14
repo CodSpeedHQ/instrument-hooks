@@ -150,6 +150,65 @@ jobs:
         run: |
           bazel run //:example
 
+  cross-compile:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        target:
+          # Linux targets - x86/x64
+          - { arch: x86_64-linux-gnu, name: "Linux x86_64 (glibc)" }
+          - { arch: x86_64-linux-musl, name: "Linux x86_64 (musl)" }
+          - { arch: x86-linux-gnu, name: "Linux x86 (32-bit)" }
+
+          # Linux targets - ARM
+          - { arch: aarch64-linux-gnu, name: "Linux ARM64 (glibc)" }
+          - { arch: aarch64-linux-musl, name: "Linux ARM64 (musl)" }
+          - { arch: arm-linux-gnueabihf, name: "Linux ARM (hard-float)" }
+          - { arch: arm-linux-gnueabi, name: "Linux ARM (soft-float)" }
+
+          # Linux targets - RISC-V
+          - { arch: riscv64-linux-gnu, name: "Linux RISC-V 64 (glibc)" }
+          - { arch: riscv64-linux-musl, name: "Linux RISC-V 64 (musl)" }
+
+          # Linux targets - Other architectures
+          - { arch: powerpc64le-linux-gnu, name: "Linux PowerPC64 LE" }
+          - { arch: s390x-linux-gnu, name: "Linux s390x (IBM Z)" }
+          - { arch: mips64el-linux-gnuabi64, name: "Linux MIPS64 LE" }
+          - { arch: loongarch64-linux-gnu, name: "Linux LoongArch64" }
+
+          # macOS targets
+          - { arch: x86_64-macos, name: "macOS x86_64 (Intel)" }
+          - { arch: aarch64-macos, name: "macOS ARM64 (Apple Silicon)" }
+
+          # Windows targets
+          - { arch: x86_64-windows-gnu, name: "Windows x86_64" }
+          - { arch: x86-windows-gnu, name: "Windows x86 (32-bit)" }
+
+          # BSD targets
+          - { arch: x86_64-freebsd, name: "FreeBSD x86_64" }
+          - { arch: aarch64-freebsd, name: "FreeBSD ARM64" }
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: mlugg/setup-zig@v2
+
+      - name: Compile instrument-hooks
+        run: |
+          zig cc -c dist/core.c \
+            -I includes/ \
+            -Wno-incompatible-library-redeclaration \
+            -target ${{ matrix.target.arch }} \
+            -o core.o
+
+      - name: Compile the example
+        run: |
+          zig cc example/main.c dist/core.c \
+            -I includes/ \
+            -Wno-incompatible-library-redeclaration \
+            -target ${{ matrix.target.arch }} \
+            -o example.out
+
   check:
     runs-on: ubuntu-latest
     if: always()
@@ -159,6 +218,7 @@ jobs:
       - build
       - test-build-cmake
       - test-build-bazel
+      - cross-compile
     steps:
       - uses: re-actors/alls-green@release/v1
         with:
