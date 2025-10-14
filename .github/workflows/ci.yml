@@ -185,10 +185,6 @@ jobs:
           - { arch: x86_64-windows-gnu, name: "Windows x86_64" }
           - { arch: x86-windows-gnu, name: "Windows x86 (32-bit)" }
 
-          # BSD targets
-          - { arch: x86_64-freebsd, name: "FreeBSD x86_64" }
-          - { arch: aarch64-freebsd, name: "FreeBSD ARM64" }
-
     steps:
       - uses: actions/checkout@v4
       - uses: mlugg/setup-zig@v2
