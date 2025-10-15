@@ -28,8 +28,8 @@ pub export fn instrument_hooks_init() ?*InstrumentHooks {
 
     if (hooks.* == .perf) {
         hooks.perf.send_version(PROTOCOL_VERSION) catch {
-            _ = utils.printf("[ERROR] instrument-hooks: failed to communicate with CodSpeed runner\n");
-            _ = utils.printf("[ERROR] instrument-hooks: please update the CodSpeed action to the latest version\n");
+            utils.print("[ERROR] instrument-hooks: failed to communicate with CodSpeed runner\n", .{});
+            utils.print("[ERROR] instrument-hooks: please update the CodSpeed action to the latest version\n", .{});
 
             hooks.deinit();
             allocator.destroy(hooks);

@@ -4,10 +4,26 @@ const errno = @cImport(@cInclude("errno.h"));
 const fcntl_h = @cImport(@cInclude("fcntl.h"));
 
 extern "c" fn nanosleep(nanos: u64) c_int;
+extern "c" fn printf(format: [*c]const c_char, ...) c_int;
 
 // Note: Using printf to avoid the extra code from std.log/std.debug. Those won't
 // compile because they are internally using syscalls (for Mutexes) which aren't cross-platform.
-pub extern "c" fn printf(format: [*c]const u8, ...) c_int;
+//
+// This wrapper converts Zig string literals to null-terminated c_char arrays and handles
+// variadic argument forwarding to the C printf function.
+pub fn print(comptime fmt: []const u8, args: anytype) void {
+    // Create a comptime null-terminated c_char array from the format string
+    const fmt_z = comptime blk: {
+        var buf: [fmt.len:0]c_char = undefined;
+        for (fmt, 0..) |byte, i| {
+            buf[i] = byte;
+        }
+        buf[fmt.len] = 0;
+        break :blk buf;
+    };
+
+    _ = @call(.auto, printf, .{&fmt_z} ++ args);
+}
 
 // Adaptation of [`std.Thread.sleep`](https://ziglang.org/documentation/0.14.0/std/#std.Thread.sleep)
 // to ensure that the C code is architecture-independent. The stdlib implementation uses inline syscalls,
@@ -64,4 +80,18 @@ test "sleep for at least 1 second" {
 
     std.debug.assert(elapsed_s >= 1);
     std.debug.assert(elapsed_s < 2);
+}
+
+test "print function works without crashing" {
+    // Test with no arguments
+    print("Hello, World!\n", .{});
+
+    // Test with string argument
+    print("Hello, %s!\n", .{"Zig"});
+
+    // Test with multiple arguments
+    print("Number: %d, String: %s\n", .{ @as(c_int, 42), "test" });
+
+    // Test with format specifiers that need proper types
+    print("Precision test: %.*s\n", .{ @as(c_int, 5), "HelloWorld" });
 }

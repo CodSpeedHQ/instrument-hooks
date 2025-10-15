@@ -465,7 +465,7 @@ fn unsupportedType(comptime T: type) noreturn {
 }
 
 fn invalidProtocol(comptime message: []const u8) noreturn {
-    _ = utils.printf("Invalid protocol detected: %.*s\n", message.len, message.ptr);
+    utils.print("Invalid protocol detected: %.*s\n", .{ @as(c_int, @intCast(message.len)), message.ptr });
     std.process.exit(1);
 }
 
