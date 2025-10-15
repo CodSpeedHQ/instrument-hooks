@@ -6,6 +6,16 @@ on:
   pull_request:
   workflow_dispatch:
 
+env:
+  COMMON_CFLAGS: >-
+    -Wall
+    -Werror
+    -Wno-format-security
+    -Wno-unused-but-set-variable
+    -Wno-unused-const-variable
+    -Wno-type-limits
+    -Wno-uninitialized
+
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -161,6 +171,48 @@ jobs:
         run: |
           bazel run //:example
 
+  test-gcc-versions:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        version: [15, 14, 13, 12, 11, 10, 9]
+    container:
+      image: gcc:${{ matrix.version }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build example with GCC ${{ matrix.version }}
+        run: |
+          gcc -std=c11 -O3 example/main.c dist/core.c \
+            -I includes/ \
+            ${{ env.COMMON_CFLAGS }} \
+            -o test-example
+
+      - name: Run example
+        run: ./test-example
+
+  test-clang-versions:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        version: [19, 18, 17, 16, 15, 14, 13]
+    container:
+      image: silkeh/clang:${{ matrix.version }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build example with Clang ${{ matrix.version }}
+        run: |
+          clang -std=c11 -O3 example/main.c dist/core.c \
+            -I includes/ \
+            ${{ env.COMMON_CFLAGS }} \
+            -o test-example
+
+      - name: Run example
+        run: ./test-example
+
   cross-compile:
     runs-on: ubuntu-latest
     strategy:
@@ -205,13 +257,7 @@ jobs:
           zig cc example/main.c dist/core.c \
             -I includes/ \
             -target ${{ matrix.target.arch }} \
-            -Wall \
-            -Werror \
-            -Wno-format-security \
-            -Wno-unused-but-set-variable \
-            -Wno-unused-const-variable \
-            -Wno-type-limits \
-            -Wno-uninitialized \
+            ${{ env.COMMON_CFLAGS }} \
             -Wno-constant-conversion \
             -Wno-incompatible-pointer-types \
             -Wno-unused-function \
@@ -226,6 +272,8 @@ jobs:
       - build
       - test-build-cmake
       - test-build-bazel
+      - test-gcc-versions
+      - test-clang-versions
       - cross-compile
     steps:
       - uses: re-actors/alls-green@release/v1
