@@ -28,6 +28,17 @@ jobs:
       - name: Run tests
         run: zig build test --summary all
 
+      # Skip installing package docs to avoid wasting time when installing valgrind
+      #  See: https://github.com/actions/runner-images/issues/10977#issuecomment-2810713336
+      - name: Skip installing package docs
+        if: runner.os == 'Linux'
+        run: |
+          sudo tee /etc/dpkg/dpkg.cfg.d/01_nodoc > /dev/null << 'EOF'
+          path-exclude /usr/share/doc/*
+          path-exclude /usr/share/man/*
+          path-exclude /usr/share/info/*
+          EOF
+
       - name: Run valgrind tests
         if: runner.os == 'Linux'
         run: |
