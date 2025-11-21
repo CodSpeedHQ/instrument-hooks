@@ -60,100 +60,91 @@ struct anon__lazy_57 {
  uint8_t const *ptr;
  uintptr_t len;
 };
-struct fs_File__608;
-typedef struct anon__lazy_75 nav__1073_39;
-typedef struct anon__lazy_57 nav__1073_41;
-struct fs_File__608 {
- int32_t handle;
+struct instruments_valgrind_ValgrindInstrument__554;
+typedef struct anon__lazy_73 nav__739_39;
+struct mem_Allocator__589;
+struct mem_Allocator_VTable__592;
+struct mem_Allocator__589 {
+ void *ptr;
+ struct mem_Allocator_VTable__592 const *vtable;
 };
-struct anon__lazy_75 {
- struct fs_File__608 payload;
+struct instruments_valgrind_ValgrindInstrument__554 {
+ struct mem_Allocator__589 allocator;
+};
+struct anon__lazy_73 {
+ struct instruments_valgrind_ValgrindInstrument__554 payload;
  uint16_t error;
 };
-struct fs_File_OpenFlags__1858;
-struct fs_File_OpenFlags__1858 {
+struct fs_File__636;
+typedef struct anon__lazy_84 nav__1114_39;
+typedef struct anon__lazy_57 nav__1114_41;
+struct fs_File__636 {
+ int32_t handle;
+};
+struct anon__lazy_84 {
+ struct fs_File__636 payload;
+ uint16_t error;
+};
+struct fs_File_OpenFlags__1938;
+struct fs_File_OpenFlags__1938 {
  uint8_t mode;
  uint8_t lock;
  bool lock_nonblocking;
  bool allow_ctty;
 };
-struct fifo_UnixPipe_Writer__600;
-typedef struct anon__lazy_83 nav__1075_39;
-struct mem_Allocator__565;
-typedef struct anon__lazy_57 nav__1075_42;
-struct mem_Allocator_VTable__568;
-struct mem_Allocator__565 {
- void *ptr;
- struct mem_Allocator_VTable__568 const *vtable;
+struct fifo_UnixPipe_Writer__628;
+typedef struct anon__lazy_92 nav__1116_39;
+typedef struct anon__lazy_57 nav__1116_42;
+struct fifo_UnixPipe_Writer__628 {
+ struct mem_Allocator__589 allocator;
+ struct fs_File__636 file;
 };
-struct fifo_UnixPipe_Writer__600 {
- struct mem_Allocator__565 allocator;
- struct fs_File__608 file;
-};
-struct anon__lazy_83 {
- struct fifo_UnixPipe_Writer__600 payload;
+struct anon__lazy_92 {
+ struct fifo_UnixPipe_Writer__628 payload;
  uint16_t error;
 };
-typedef struct anon__lazy_75 nav__1075_54;
-struct fifo_UnixPipe_Reader__602;
-typedef struct anon__lazy_94 nav__1074_39;
-typedef struct anon__lazy_57 nav__1074_42;
-struct fifo_UnixPipe_Reader__602 {
- struct mem_Allocator__565 allocator;
- struct fs_File__608 file;
+typedef struct anon__lazy_84 nav__1116_54;
+struct fifo_UnixPipe_Reader__630;
+typedef struct anon__lazy_98 nav__1115_39;
+typedef struct anon__lazy_57 nav__1115_42;
+struct fifo_UnixPipe_Reader__630 {
+ struct mem_Allocator__589 allocator;
+ struct fs_File__636 file;
 };
-struct anon__lazy_94 {
- struct fifo_UnixPipe_Reader__602 payload;
+struct anon__lazy_98 {
+ struct fifo_UnixPipe_Reader__630 payload;
  uint16_t error;
 };
-typedef struct anon__lazy_75 nav__1074_54;
-struct instruments_perf_PerfInstrument__559;
-typedef struct anon__lazy_100 nav__750_39;
-struct instruments_perf_PerfInstrument__559 {
- struct mem_Allocator__565 allocator;
- struct fifo_UnixPipe_Writer__600 writer;
- struct fifo_UnixPipe_Reader__602 reader;
+typedef struct anon__lazy_84 nav__1115_54;
+struct runner_fifo_RunnerFifo__621;
+typedef struct anon__lazy_104 nav__1082_39;
+struct runner_fifo_RunnerFifo__621 {
+ struct mem_Allocator__589 allocator;
+ struct fifo_UnixPipe_Writer__628 writer;
+ struct fifo_UnixPipe_Reader__630 reader;
 };
-struct anon__lazy_100 {
- struct instruments_perf_PerfInstrument__559 payload;
+struct anon__lazy_104 {
+ struct runner_fifo_RunnerFifo__621 payload;
  uint16_t error;
 };
-typedef struct anon__lazy_57 nav__750_59;
-typedef struct anon__lazy_83 nav__750_61;
-typedef struct anon__lazy_94 nav__750_66;
-struct instruments_root_InstrumentHooks__547;
-typedef struct anon__lazy_111 nav__725_39;
-struct instruments_valgrind_ValgrindInstrument__554;
-struct instruments_valgrind_ValgrindInstrument__554 {
- struct mem_Allocator__565 allocator;
-};
-struct instruments_root_InstrumentHooks__547 {
- union {
-  struct instruments_valgrind_ValgrindInstrument__554 valgrind;
-  struct instruments_perf_PerfInstrument__559 perf;
- } payload;
- uint8_t tag;
-};
-struct anon__lazy_111 {
- struct instruments_root_InstrumentHooks__547 payload;
- uint16_t error;
-};
-typedef struct anon__lazy_100 nav__725_60;
-struct shared_Command__1946;
-struct shared_Command__struct_1949__1949;
-typedef struct anon__lazy_57 nav__1079_44;
-struct shared_Command__struct_1949__1949 {
+typedef struct anon__lazy_57 nav__1082_59;
+typedef struct anon__lazy_92 nav__1082_61;
+typedef struct anon__lazy_98 nav__1082_66;
+struct shared_Command__2014;
+struct shared_Command__struct_2017__2017;
+typedef struct anon__lazy_57 nav__1120_44;
+struct shared_Command__struct_2017__2017 {
  struct anon__lazy_57 uri;
  uint32_t pid;
 };
-struct shared_Command__struct_1950__1950;
-struct shared_Command__struct_1950__1950 {
+struct shared_Command__struct_2018__2018;
+struct shared_Command__struct_2018__2018 {
  struct anon__lazy_57 name;
  struct anon__lazy_57 version;
 };
-struct shared_Command__struct_1951__1951;
-struct shared_MarkerType__1953;
-struct shared_MarkerType__1953 {
+struct shared_Command__struct_2019__2019;
+struct shared_MarkerType__2021;
+struct shared_MarkerType__2021 {
  union {
   uint64_t SampleStart;
   uint64_t SampleEnd;
@@ -162,567 +153,610 @@ struct shared_MarkerType__1953 {
  } payload;
  uint8_t tag;
 };
-struct shared_Command__struct_1951__1951 {
- struct shared_MarkerType__1953 marker;
+struct shared_Command__struct_2019__2019 {
+ struct shared_MarkerType__2021 marker;
  uint32_t pid;
 };
-struct shared_Command__1946 {
+struct shared_Command__2014 {
  union {
-  struct shared_Command__struct_1949__1949 ExecutedBenchmark;
-  struct shared_Command__struct_1950__1950 SetIntegration;
-  struct shared_Command__struct_1951__1951 AddMarker;
+  struct shared_Command__struct_2017__2017 ExecutedBenchmark;
+  struct shared_Command__struct_2018__2018 SetIntegration;
+  struct shared_Command__struct_2019__2019 AddMarker;
   uint64_t SetVersion;
+  uint8_t IntegrationModeResponse;
  } payload;
  uint8_t tag;
 };
-struct array_list_ArrayListAligned_28u8_2cnull_29__1974;
-typedef struct anon__lazy_135 nav__1079_60;
-struct anon__lazy_135 {
+struct array_list_ArrayListAligned_28u8_2cnull_29__2043;
+typedef struct anon__lazy_130 nav__1120_60;
+struct anon__lazy_130 {
  uint8_t *ptr;
  uintptr_t len;
 };
-struct array_list_ArrayListAligned_28u8_2cnull_29__1974 {
- struct anon__lazy_135 items;
+struct array_list_ArrayListAligned_28u8_2cnull_29__2043 {
+ struct anon__lazy_130 items;
  uintptr_t capacity;
- struct mem_Allocator__565 allocator;
+ struct mem_Allocator__589 allocator;
 };
-struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005;
-struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 {
- struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *context;
+struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074;
+struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 {
+ struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *context;
 };
-typedef struct anon__lazy_144 nav__4176_38;
-struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201;
-struct anon__lazy_144 {
+typedef struct anon__lazy_139 nav__4212_38;
+struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265;
+struct anon__lazy_139 {
  uint32_t payload;
  uint16_t error;
 };
-struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178;
-struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 {
- struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 *context;
+struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241;
+struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 {
+ struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 *context;
 };
-struct io_Reader__2337;
-typedef struct anon__lazy_156 nav__4176_50;
-typedef struct anon__lazy_135 nav__4176_52;
-struct io_Reader__2337 {
+struct io_Reader__2411;
+typedef struct anon__lazy_151 nav__4212_50;
+typedef struct anon__lazy_130 nav__4212_52;
+struct io_Reader__2411 {
  void const *context;
- struct anon__lazy_156 (*readFn)(void const *, struct anon__lazy_135);
+ struct anon__lazy_151 (*readFn)(void const *, struct anon__lazy_130);
 };
-struct anon__lazy_156 {
+struct anon__lazy_151 {
  uintptr_t payload;
  uint16_t error;
 };
-typedef struct anon__lazy_166 nav__4176_64;
-struct anon__lazy_166 {
+typedef struct anon__lazy_161 nav__4212_64;
+struct anon__lazy_161 {
  uint16_t error;
  uint8_t payload[4];
 };
-typedef struct anon__lazy_144 nav__4175_38;
-typedef struct anon__lazy_135 nav__4218_39;
-typedef struct anon__lazy_170 nav__4218_40;
-struct anon__lazy_170 {
- struct anon__lazy_135 payload;
+typedef struct anon__lazy_139 nav__4211_38;
+typedef struct anon__lazy_130 nav__4254_39;
+typedef struct anon__lazy_165 nav__4254_40;
+struct anon__lazy_165 {
+ struct anon__lazy_130 payload;
  uint16_t error;
 };
-typedef struct anon__lazy_156 nav__4218_59;
-typedef struct anon__lazy_175 nav__4218_69;
-struct anon__lazy_175 {
+typedef struct anon__lazy_151 nav__4254_59;
+typedef struct anon__lazy_170 nav__4254_69;
+struct anon__lazy_170 {
  uint64_t payload;
  uint16_t error;
 };
-typedef struct anon__lazy_178 nav__4218_72;
-struct anon__lazy_178 {
+typedef struct anon__lazy_173 nav__4254_72;
+struct anon__lazy_173 {
  uint16_t error;
  uint8_t payload[8];
 };
-typedef struct anon__lazy_57 nav__4217_39;
-typedef struct anon__lazy_181 nav__4217_40;
-struct anon__lazy_181 {
+typedef struct anon__lazy_57 nav__4253_39;
+typedef struct anon__lazy_176 nav__4253_40;
+struct anon__lazy_176 {
  struct anon__lazy_57 payload;
  uint16_t error;
 };
-typedef struct anon__lazy_135 nav__4217_55;
-typedef struct anon__lazy_170 nav__4217_57;
-typedef struct anon__lazy_185 nav__4216_39;
-typedef struct anon__lazy_57 nav__4216_44;
-struct anon__lazy_185 {
- struct shared_Command__struct_1949__1949 payload;
+typedef struct anon__lazy_130 nav__4253_55;
+typedef struct anon__lazy_165 nav__4253_57;
+typedef struct anon__lazy_180 nav__4252_39;
+typedef struct anon__lazy_57 nav__4252_44;
+struct anon__lazy_180 {
+ struct shared_Command__struct_2017__2017 payload;
  uint16_t error;
 };
-typedef struct anon__lazy_144 nav__4216_57;
-typedef struct anon__lazy_181 nav__4216_60;
-typedef struct anon__lazy_185 nav__4215_39;
-typedef struct anon__lazy_57 nav__4215_44;
-typedef struct anon__lazy_193 nav__4223_39;
-typedef struct anon__lazy_57 nav__4223_44;
-struct anon__lazy_193 {
- struct shared_Command__struct_1950__1950 payload;
+typedef struct anon__lazy_139 nav__4252_57;
+typedef struct anon__lazy_176 nav__4252_60;
+typedef struct anon__lazy_180 nav__4251_39;
+typedef struct anon__lazy_57 nav__4251_44;
+typedef struct anon__lazy_188 nav__4259_39;
+typedef struct anon__lazy_57 nav__4259_44;
+struct anon__lazy_188 {
+ struct shared_Command__struct_2018__2018 payload;
  uint16_t error;
 };
-typedef struct anon__lazy_181 nav__4223_57;
-typedef struct anon__lazy_193 nav__4222_39;
-typedef struct anon__lazy_57 nav__4222_44;
-typedef struct anon__lazy_175 nav__4229_38;
-typedef struct anon__lazy_156 nav__4229_50;
-typedef struct anon__lazy_135 nav__4229_52;
-typedef struct anon__lazy_178 nav__4229_64;
-typedef struct anon__lazy_175 nav__4228_38;
-typedef struct anon__lazy_201 nav__4227_39;
-struct anon__lazy_201 {
- struct shared_MarkerType__1953 payload;
+typedef struct anon__lazy_176 nav__4259_57;
+typedef struct anon__lazy_188 nav__4258_39;
+typedef struct anon__lazy_57 nav__4258_44;
+typedef struct anon__lazy_170 nav__4265_38;
+typedef struct anon__lazy_151 nav__4265_50;
+typedef struct anon__lazy_130 nav__4265_52;
+typedef struct anon__lazy_173 nav__4265_64;
+typedef struct anon__lazy_170 nav__4264_38;
+typedef struct anon__lazy_196 nav__4263_39;
+struct anon__lazy_196 {
+ struct shared_MarkerType__2021 payload;
  uint16_t error;
 };
-typedef struct anon__lazy_144 nav__4227_54;
-typedef struct anon__lazy_175 nav__4227_56;
-typedef struct anon__lazy_201 nav__4226_39;
-typedef struct anon__lazy_205 nav__4225_39;
+typedef struct anon__lazy_139 nav__4263_54;
+typedef struct anon__lazy_170 nav__4263_56;
+typedef struct anon__lazy_196 nav__4262_39;
+typedef struct anon__lazy_200 nav__4261_39;
+struct anon__lazy_200 {
+ struct shared_Command__struct_2019__2019 payload;
+ uint16_t error;
+};
+typedef struct anon__lazy_139 nav__4261_57;
+typedef struct anon__lazy_196 nav__4261_60;
+typedef struct anon__lazy_200 nav__4260_39;
+typedef struct anon__lazy_205 nav__4267_38;
 struct anon__lazy_205 {
- struct shared_Command__struct_1951__1951 payload;
+ uint16_t error;
+ uint8_t payload;
+};
+typedef struct anon__lazy_139 nav__4267_46;
+typedef struct anon__lazy_205 nav__4266_38;
+typedef struct anon__lazy_211 nav__4210_39;
+typedef struct anon__lazy_57 nav__4210_45;
+struct anon__lazy_211 {
+ struct shared_Command__2014 payload;
  uint16_t error;
 };
-typedef struct anon__lazy_144 nav__4225_57;
-typedef struct anon__lazy_201 nav__4225_60;
-typedef struct anon__lazy_205 nav__4224_39;
-typedef struct anon__lazy_210 nav__4174_39;
-typedef struct anon__lazy_57 nav__4174_45;
-struct anon__lazy_210 {
- struct shared_Command__1946 payload;
- uint16_t error;
-};
-typedef struct anon__lazy_144 nav__4174_66;
-typedef struct anon__lazy_185 nav__4174_68;
-typedef struct anon__lazy_193 nav__4174_70;
-typedef struct anon__lazy_205 nav__4174_72;
-typedef struct anon__lazy_175 nav__4174_74;
-typedef struct anon__lazy_210 nav__4173_39;
-typedef struct anon__lazy_57 nav__4173_45;
-typedef struct anon__lazy_210 nav__1084_39;
-typedef struct anon__lazy_57 nav__1084_45;
-typedef struct anon__lazy_135 nav__1084_71;
-typedef struct anon__lazy_156 nav__1084_74;
-typedef struct anon__lazy_170 nav__1084_78;
-struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 {
- struct anon__lazy_135 buffer;
+typedef struct anon__lazy_139 nav__4210_66;
+typedef struct anon__lazy_180 nav__4210_68;
+typedef struct anon__lazy_188 nav__4210_70;
+typedef struct anon__lazy_200 nav__4210_72;
+typedef struct anon__lazy_170 nav__4210_74;
+typedef struct anon__lazy_205 nav__4210_76;
+typedef struct anon__lazy_211 nav__4209_39;
+typedef struct anon__lazy_57 nav__4209_45;
+typedef struct anon__lazy_211 nav__1125_39;
+typedef struct anon__lazy_57 nav__1125_45;
+typedef struct anon__lazy_130 nav__1125_71;
+typedef struct anon__lazy_151 nav__1125_74;
+typedef struct anon__lazy_165 nav__1125_78;
+struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 {
+ struct anon__lazy_130 buffer;
  uintptr_t pos;
 };
-typedef struct anon__lazy_210 nav__1085_39;
-typedef struct anon__lazy_219 nav__1085_42;
-typedef struct anon__lazy_57 nav__1085_46;
-struct anon__lazy_219 {
+typedef struct anon__lazy_211 nav__1126_39;
+typedef struct anon__lazy_220 nav__1126_42;
+typedef struct anon__lazy_57 nav__1126_46;
+struct anon__lazy_220 {
  uint64_t payload;
  bool is_null;
 };
-typedef struct anon__lazy_219 nav__1086_40;
-typedef struct anon__lazy_57 nav__1086_48;
-typedef struct anon__lazy_210 nav__1086_60;
-typedef struct anon__lazy_57 nav__759_58;
-typedef struct anon__lazy_219 nav__759_71;
-typedef struct anon__lazy_230 nav__238_46;
-struct anon__lazy_230 {
+typedef struct anon__lazy_205 nav__1093_38;
+typedef struct anon__lazy_57 nav__1093_61;
+typedef struct anon__lazy_220 nav__1093_74;
+typedef struct anon__lazy_211 nav__1093_76;
+struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581;
+typedef struct anon__lazy_229 nav__773_39;
+struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 {
+ struct runner_fifo_RunnerFifo__621 fifo;
+};
+struct anon__lazy_229 {
+ struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 payload;
+ uint16_t error;
+};
+typedef struct anon__lazy_104 nav__773_57;
+typedef struct anon__lazy_205 nav__773_60;
+struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572;
+typedef struct anon__lazy_235 nav__760_39;
+struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 {
+ struct runner_fifo_RunnerFifo__621 fifo;
+};
+struct anon__lazy_235 {
+ struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 payload;
+ uint16_t error;
+};
+typedef struct anon__lazy_104 nav__760_57;
+typedef struct anon__lazy_205 nav__760_60;
+struct instruments_root_InstrumentHooks__547;
+typedef struct anon__lazy_241 nav__726_39;
+struct instruments_root_InstrumentHooks__547 {
+ union {
+  struct instruments_valgrind_ValgrindInstrument__554 valgrind;
+  struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 perf;
+  struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 analysis;
+ } payload;
+ uint8_t tag;
+};
+struct anon__lazy_241 {
+ struct instruments_root_InstrumentHooks__547 payload;
+ uint16_t error;
+};
+typedef struct anon__lazy_73 nav__726_64;
+typedef struct anon__lazy_229 nav__726_66;
+typedef struct anon__lazy_235 nav__726_68;
+typedef struct anon__lazy_249 nav__237_46;
+struct anon__lazy_249 {
  struct instruments_root_InstrumentHooks__547 *payload;
  uint16_t error;
 };
-typedef struct anon__lazy_135 nav__238_51;
-struct mem_Allocator_VTable__568 {
+typedef struct anon__lazy_130 nav__237_51;
+struct mem_Allocator_VTable__592 {
  uint8_t *(*alloc)(void *, uintptr_t, uint8_t, uintptr_t);
- bool (*resize)(void *, struct anon__lazy_135, uint8_t, uintptr_t, uintptr_t);
- uint8_t *(*remap)(void *, struct anon__lazy_135, uint8_t, uintptr_t, uintptr_t);
- void (*free)(void *, struct anon__lazy_135, uint8_t, uintptr_t);
+ bool (*resize)(void *, struct anon__lazy_130, uint8_t, uintptr_t, uintptr_t);
+ uint8_t *(*remap)(void *, struct anon__lazy_130, uint8_t, uintptr_t, uintptr_t);
+ void (*free)(void *, struct anon__lazy_130, uint8_t, uintptr_t);
 };
-typedef struct anon__lazy_111 nav__238_72;
-typedef struct anon__lazy_230 nav__3576_40;
-typedef struct anon__lazy_244 nav__3576_51;
-struct anon__lazy_244 {
+typedef struct anon__lazy_241 nav__237_75;
+typedef struct anon__lazy_249 nav__3617_40;
+typedef struct anon__lazy_262 nav__3617_51;
+struct anon__lazy_262 {
  uint8_t *payload;
  uint16_t error;
 };
-typedef struct anon__lazy_57 nav__1141_39;
-struct fs_Dir__1860;
-struct fs_Dir__1860 {
+typedef struct anon__lazy_57 nav__1182_39;
+struct fs_Dir__1940;
+struct fs_Dir__1940 {
  int32_t fd;
 };
-typedef struct anon__lazy_75 nav__1138_39;
-typedef struct anon__lazy_57 nav__1138_41;
-typedef struct anon__lazy_57 nav__752_44;
-typedef struct anon__lazy_219 nav__752_72;
-typedef struct anon__lazy_57 nav__753_45;
-typedef struct anon__lazy_135 nav__3890_42;
-typedef struct anon__lazy_57 nav__4064_46;
-typedef struct anon__lazy_135 nav__3892_41;
-typedef struct anon__lazy_57 nav__1232_40;
-typedef struct anon__lazy_156 nav__1232_47;
-struct os_linux_timespec__struct_2927__2927;
-struct os_linux_timespec__struct_2927__2927 {
+typedef struct anon__lazy_84 nav__1179_39;
+typedef struct anon__lazy_57 nav__1179_41;
+typedef struct anon__lazy_130 nav__3926_42;
+typedef struct anon__lazy_57 nav__4100_46;
+typedef struct anon__lazy_130 nav__3928_41;
+typedef struct anon__lazy_57 nav__1273_40;
+typedef struct anon__lazy_151 nav__1273_47;
+struct os_linux_timespec__struct_3026__3026;
+struct os_linux_timespec__struct_3026__3026 {
  intptr_t sec;
  intptr_t nsec;
 };
-typedef struct anon__lazy_281 nav__4078_41;
-struct anon__lazy_281 {
- struct os_linux_timespec__struct_2927__2927 payload;
+typedef struct anon__lazy_294 nav__4114_41;
+struct anon__lazy_294 {
+ struct os_linux_timespec__struct_3026__3026 payload;
  uint16_t error;
 };
-typedef struct anon__lazy_156 nav__1222_38;
-typedef struct anon__lazy_135 nav__1222_41;
-typedef struct anon__lazy_135 nav__4106_39;
-typedef struct anon__lazy_170 nav__4106_40;
-typedef struct anon__lazy_244 nav__4106_51;
-typedef struct anon__lazy_135 nav__4107_40;
-typedef struct anon__lazy_135 nav__4139_40;
-typedef struct anon__lazy_156 nav__4172_38;
-typedef struct anon__lazy_135 nav__4172_41;
-typedef struct anon__lazy_166 nav__4214_39;
-typedef struct anon__lazy_156 nav__4214_44;
-typedef struct anon__lazy_135 nav__4214_46;
-typedef struct anon__lazy_178 nav__4219_39;
-typedef struct anon__lazy_156 nav__4219_44;
-typedef struct anon__lazy_135 nav__4219_46;
-typedef struct anon__lazy_156 nav__4179_38;
-typedef struct anon__lazy_135 nav__4179_41;
-struct cimport_struct_timespec__3025;
-struct cimport_struct_timespec__3025 {
+typedef struct anon__lazy_151 nav__1263_38;
+typedef struct anon__lazy_130 nav__1263_41;
+typedef struct anon__lazy_130 nav__4142_39;
+typedef struct anon__lazy_165 nav__4142_40;
+typedef struct anon__lazy_262 nav__4142_51;
+typedef struct anon__lazy_130 nav__4143_40;
+typedef struct anon__lazy_130 nav__4175_40;
+typedef struct anon__lazy_151 nav__4208_38;
+typedef struct anon__lazy_130 nav__4208_41;
+typedef struct anon__lazy_161 nav__4250_39;
+typedef struct anon__lazy_151 nav__4250_44;
+typedef struct anon__lazy_130 nav__4250_46;
+typedef struct anon__lazy_173 nav__4255_39;
+typedef struct anon__lazy_151 nav__4255_44;
+typedef struct anon__lazy_130 nav__4255_46;
+typedef struct anon__lazy_151 nav__4215_38;
+typedef struct anon__lazy_130 nav__4215_41;
+struct cimport_struct_timespec__3132;
+struct cimport_struct_timespec__3132 {
  long tv_sec;
  long tv_nsec;
 };
-typedef struct anon__lazy_312 nav__3833_42;
-struct anon__lazy_312 {
+typedef struct anon__lazy_325 nav__3869_42;
+struct anon__lazy_325 {
  long payload;
  bool is_null;
 };
-typedef struct anon__lazy_57 nav__3838_43;
-typedef struct anon__lazy_135 nav__4232_52;
-typedef struct anon__lazy_244 nav__4233_39;
-typedef struct anon__lazy_135 nav__4233_52;
-typedef struct anon__lazy_57 nav__4268_39;
-typedef struct anon__lazy_57 nav__3782_40;
-typedef struct anon__lazy_337 nav__3782_49;
-struct anon__lazy_337 {
+typedef struct anon__lazy_57 nav__3874_43;
+typedef struct anon__lazy_262 nav__4268_39;
+typedef struct anon__lazy_130 nav__4268_52;
+typedef struct anon__lazy_57 nav__4303_39;
+typedef struct anon__lazy_57 nav__3818_40;
+typedef struct anon__lazy_342 nav__3818_49;
+struct anon__lazy_342 {
  uint16_t error;
  uint8_t payload[4096];
 };
-typedef struct anon__lazy_75 nav__3718_39;
-typedef struct anon__lazy_57 nav__3718_42;
-typedef struct anon__lazy_337 nav__3718_53;
-typedef struct anon__lazy_57 nav__5251_46;
-typedef struct anon__lazy_135 nav__3938_39;
-typedef struct anon__lazy_156 nav__1231_38;
-typedef struct anon__lazy_57 nav__1231_41;
-typedef struct anon__lazy_281 nav__1632_39;
-typedef struct anon__lazy_156 nav__1221_38;
-typedef struct anon__lazy_135 nav__1221_41;
-typedef struct anon__lazy_244 nav__5252_39;
-typedef struct anon__lazy_156 nav__5252_49;
-typedef struct anon__lazy_135 nav__5253_39;
-typedef struct anon__lazy_156 nav__4131_38;
-typedef struct anon__lazy_135 nav__4131_42;
-typedef struct anon__lazy_135 nav__4181_40;
-typedef struct anon__lazy_156 nav__4181_43;
-typedef struct anon__lazy_156 nav__4180_38;
-typedef struct anon__lazy_135 nav__4180_41;
-typedef struct anon__lazy_312 nav__6176_38;
-typedef struct anon__lazy_57 nav__6945_40;
-typedef struct anon__lazy_135 nav__6945_51;
-typedef struct anon__lazy_57 nav__4274_39;
-typedef struct anon__lazy_337 nav__1716_39;
-typedef struct anon__lazy_57 nav__1716_41;
-typedef struct anon__lazy_135 nav__1716_47;
-typedef struct anon__lazy_75 nav__3719_39;
-typedef struct anon__lazy_372 nav__3719_50;
-struct anon__lazy_372 {
+typedef struct anon__lazy_84 nav__3754_39;
+typedef struct anon__lazy_57 nav__3754_42;
+typedef struct anon__lazy_342 nav__3754_53;
+typedef struct anon__lazy_57 nav__5298_46;
+typedef struct anon__lazy_130 nav__3974_39;
+typedef struct anon__lazy_151 nav__1272_38;
+typedef struct anon__lazy_57 nav__1272_41;
+typedef struct anon__lazy_294 nav__1673_39;
+typedef struct anon__lazy_151 nav__1262_38;
+typedef struct anon__lazy_130 nav__1262_41;
+typedef struct anon__lazy_262 nav__5299_39;
+typedef struct anon__lazy_151 nav__5299_49;
+typedef struct anon__lazy_130 nav__5300_39;
+typedef struct anon__lazy_151 nav__4167_38;
+typedef struct anon__lazy_130 nav__4167_42;
+typedef struct anon__lazy_130 nav__4217_40;
+typedef struct anon__lazy_151 nav__4217_43;
+typedef struct anon__lazy_151 nav__4216_38;
+typedef struct anon__lazy_130 nav__4216_41;
+typedef struct anon__lazy_325 nav__6235_38;
+typedef struct anon__lazy_57 nav__7016_40;
+typedef struct anon__lazy_130 nav__7016_51;
+typedef struct anon__lazy_57 nav__4309_39;
+typedef struct anon__lazy_342 nav__1757_39;
+typedef struct anon__lazy_57 nav__1757_41;
+typedef struct anon__lazy_130 nav__1757_47;
+typedef struct anon__lazy_84 nav__3755_39;
+typedef struct anon__lazy_379 nav__3755_50;
+struct anon__lazy_379 {
  int32_t payload;
  uint16_t error;
 };
-typedef struct anon__lazy_57 nav__6961_45;
-typedef struct anon__lazy_57 nav__6963_45;
-typedef struct anon__lazy_156 nav__1451_38;
-typedef struct anon__lazy_57 nav__1451_40;
-typedef struct anon__lazy_156 nav__1443_38;
-typedef struct anon__lazy_135 nav__1443_40;
-typedef struct anon__lazy_156 nav__7033_38;
-typedef struct anon__lazy_396 nav__7033_42;
-struct anon__lazy_396 {
+typedef struct anon__lazy_57 nav__7030_45;
+typedef struct anon__lazy_57 nav__7032_45;
+typedef struct anon__lazy_151 nav__1492_38;
+typedef struct anon__lazy_57 nav__1492_40;
+typedef struct anon__lazy_151 nav__1484_38;
+typedef struct anon__lazy_130 nav__1484_40;
+typedef struct anon__lazy_151 nav__7103_38;
+typedef struct anon__lazy_405 nav__7103_42;
+struct anon__lazy_405 {
  uintptr_t f0;
  uint8_t f1;
 };
-typedef struct anon__lazy_244 nav__7034_39;
-typedef struct anon__lazy_135 nav__7034_52;
-typedef struct anon__lazy_156 nav__4178_38;
-typedef struct anon__lazy_135 nav__4178_41;
-typedef struct anon__lazy_57 nav__7036_39;
-typedef struct anon__lazy_372 nav__1463_38;
-struct io_Writer__4192;
-typedef struct anon__lazy_156 nav__7097_48;
-typedef struct anon__lazy_57 nav__7097_50;
-struct io_Writer__4192 {
+typedef struct anon__lazy_262 nav__7104_39;
+typedef struct anon__lazy_130 nav__7104_52;
+typedef struct anon__lazy_151 nav__4214_38;
+typedef struct anon__lazy_130 nav__4214_41;
+typedef struct anon__lazy_57 nav__7108_39;
+typedef struct anon__lazy_379 nav__1504_38;
+struct io_Writer__4060;
+typedef struct anon__lazy_151 nav__7169_48;
+typedef struct anon__lazy_57 nav__7169_50;
+struct io_Writer__4060 {
  void const *context;
- struct anon__lazy_156 (*writeFn)(void const *, struct anon__lazy_57);
+ struct anon__lazy_151 (*writeFn)(void const *, struct anon__lazy_57);
 };
-typedef struct anon__lazy_57 nav__7098_45;
-typedef struct anon__lazy_57 nav__7099_45;
-typedef struct anon__lazy_156 nav__7101_48;
-typedef struct anon__lazy_57 nav__7101_50;
-typedef struct anon__lazy_156 nav__4063_38;
-typedef struct anon__lazy_57 nav__4063_41;
-typedef struct anon__lazy_57 nav__7116_40;
-typedef struct anon__lazy_156 nav__7116_43;
-typedef struct anon__lazy_57 nav__7125_40;
-typedef struct anon__lazy_156 nav__3916_38;
-typedef struct anon__lazy_57 nav__3916_42;
-typedef struct anon__lazy_156 nav__7115_38;
-typedef struct anon__lazy_57 nav__7115_41;
-typedef struct anon__lazy_57 nav__7127_40;
-typedef struct anon__lazy_156 nav__7127_51;
-typedef struct anon__lazy_57 nav__3910_41;
-typedef struct anon__lazy_135 nav__3929_43;
-typedef struct anon__lazy_156 nav__3929_52;
-typedef struct anon__lazy_57 nav__3911_41;
-typedef struct anon__lazy_135 nav__3911_47;
-typedef struct anon__lazy_156 nav__3854_38;
-typedef struct anon__lazy_396 nav__3854_42;
-typedef struct anon__lazy_135 nav__3927_43;
-typedef struct anon__lazy_135 nav__3928_43;
-typedef struct anon__lazy_170 nav__3928_55;
-typedef struct anon__lazy_135 nav__7214_39;
-typedef struct anon__lazy_156 nav__7214_50;
-typedef struct anon__lazy_135 nav__7215_39;
-typedef struct anon__lazy_170 nav__7215_40;
-typedef struct anon__lazy_244 nav__7215_51;
-typedef struct anon__lazy_135 nav__7216_39;
-typedef struct anon__lazy_135 nav__239_63;
-typedef struct anon__lazy_57 nav__754_58;
-typedef struct anon__lazy_219 nav__754_71;
-typedef struct anon__lazy_57 nav__755_58;
-typedef struct anon__lazy_219 nav__755_71;
-typedef struct anon__lazy_57 nav__756_56;
-typedef struct anon__lazy_219 nav__756_71;
-typedef struct anon__lazy_57 nav__7221_39;
-typedef struct anon__lazy_457 nav__7223_45;
-struct anon__lazy_457 {
- bool array[32];
+typedef struct anon__lazy_57 nav__7170_45;
+typedef struct anon__lazy_57 nav__7171_45;
+typedef struct anon__lazy_151 nav__7173_48;
+typedef struct anon__lazy_57 nav__7173_50;
+typedef struct anon__lazy_151 nav__4099_38;
+typedef struct anon__lazy_57 nav__4099_41;
+typedef struct anon__lazy_57 nav__7189_40;
+typedef struct anon__lazy_151 nav__7189_43;
+typedef struct anon__lazy_57 nav__7198_40;
+typedef struct anon__lazy_151 nav__3952_38;
+typedef struct anon__lazy_57 nav__3952_42;
+typedef struct anon__lazy_151 nav__7188_38;
+typedef struct anon__lazy_57 nav__7188_41;
+typedef struct anon__lazy_57 nav__7200_40;
+typedef struct anon__lazy_151 nav__7200_51;
+typedef struct anon__lazy_57 nav__3946_41;
+typedef struct anon__lazy_130 nav__3965_43;
+typedef struct anon__lazy_151 nav__3965_52;
+typedef struct anon__lazy_57 nav__3947_41;
+typedef struct anon__lazy_130 nav__3947_47;
+typedef struct anon__lazy_151 nav__3890_38;
+typedef struct anon__lazy_405 nav__3890_42;
+typedef struct anon__lazy_130 nav__3963_43;
+typedef struct anon__lazy_130 nav__3964_43;
+typedef struct anon__lazy_165 nav__3964_55;
+typedef struct anon__lazy_130 nav__7287_39;
+typedef struct anon__lazy_151 nav__7287_50;
+typedef struct anon__lazy_130 nav__7288_39;
+typedef struct anon__lazy_165 nav__7288_40;
+typedef struct anon__lazy_262 nav__7288_51;
+typedef struct anon__lazy_130 nav__7289_39;
+typedef struct anon__lazy_130 nav__238_68;
+typedef struct anon__lazy_130 nav__7290_52;
+typedef struct anon__lazy_220 nav__1127_40;
+typedef struct anon__lazy_57 nav__1127_48;
+typedef struct anon__lazy_211 nav__1127_60;
+typedef struct anon__lazy_57 nav__1087_58;
+typedef struct anon__lazy_220 nav__1087_71;
+typedef struct anon__lazy_57 nav__1088_58;
+typedef struct anon__lazy_220 nav__1088_71;
+typedef struct anon__lazy_57 nav__1089_56;
+typedef struct anon__lazy_220 nav__1089_71;
+typedef struct anon__lazy_57 nav__7295_39;
+typedef struct anon__lazy_483 nav__7297_45;
+struct anon__lazy_483 {
+ bool array[64];
 };
-typedef struct anon__lazy_459 nav__7223_47;
-struct anon__lazy_459 {
+typedef struct anon__lazy_485 nav__7297_47;
+struct anon__lazy_485 {
  bool is_null;
  uint8_t payload;
 };
-typedef struct anon__lazy_459 nav__7589_38;
-typedef struct anon__lazy_457 nav__7589_40;
-typedef struct anon__lazy_57 nav__757_56;
-typedef struct anon__lazy_219 nav__757_71;
-typedef struct anon__lazy_472 nav__245_62;
-struct anon__lazy_472 {
+typedef struct anon__lazy_485 nav__7663_38;
+typedef struct anon__lazy_483 nav__7663_40;
+typedef struct anon__lazy_57 nav__1090_56;
+typedef struct anon__lazy_220 nav__1090_71;
+typedef struct anon__lazy_500 nav__244_66;
+struct anon__lazy_500 {
  uint8_t const *f0;
  uint8_t const *f1;
 };
-typedef struct anon__lazy_135 nav__245_65;
-typedef struct anon__lazy_170 nav__245_67;
-typedef struct anon__lazy_135 nav__7597_39;
-typedef struct anon__lazy_170 nav__7597_40;
-typedef struct anon__lazy_472 nav__7597_43;
-typedef struct anon__lazy_135 nav__7598_40;
-typedef struct anon__lazy_135 nav__7599_39;
-typedef struct anon__lazy_170 nav__7599_40;
-typedef struct anon__lazy_472 nav__7599_43;
-typedef struct anon__lazy_476 nav__7599_54;
-struct anon__lazy_476 {
+typedef struct anon__lazy_130 nav__244_69;
+typedef struct anon__lazy_165 nav__244_71;
+typedef struct anon__lazy_130 nav__7671_39;
+typedef struct anon__lazy_165 nav__7671_40;
+typedef struct anon__lazy_500 nav__7671_43;
+typedef struct anon__lazy_130 nav__7672_40;
+typedef struct anon__lazy_130 nav__7673_39;
+typedef struct anon__lazy_165 nav__7673_40;
+typedef struct anon__lazy_500 nav__7673_43;
+typedef struct anon__lazy_504 nav__7673_54;
+struct anon__lazy_504 {
  uintptr_t payload;
  bool is_null;
 };
-typedef struct anon__lazy_135 nav__7600_39;
-typedef struct anon__lazy_472 nav__7642_40;
-typedef struct anon__lazy_156 nav__7642_43;
-typedef struct anon__lazy_57 nav__7642_44;
-struct fmt_FormatOptions__5201;
-typedef struct anon__lazy_476 nav__7642_55;
-struct fmt_FormatOptions__5201 {
- struct anon__lazy_476 precision;
- struct anon__lazy_476 width;
+typedef struct anon__lazy_130 nav__7674_39;
+typedef struct anon__lazy_500 nav__7716_40;
+typedef struct anon__lazy_151 nav__7716_43;
+typedef struct anon__lazy_57 nav__7716_44;
+struct fmt_FormatOptions__5196;
+typedef struct anon__lazy_504 nav__7716_55;
+struct fmt_FormatOptions__5196 {
+ struct anon__lazy_504 precision;
+ struct anon__lazy_504 width;
  uint32_t fill;
  uint8_t alignment;
 };
-typedef struct anon__lazy_472 nav__7601_39;
-struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4851;
-struct io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29__4843;
-struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4851 {
+typedef struct anon__lazy_500 nav__7675_39;
+struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4847;
+struct io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29__4839;
+struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4847 {
  uint64_t bytes_written;
 };
-struct io_GenericWriter_28_2aio_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29_2cerror_7b_7d_2c_28function_20_27write_27_29_29__4871;
-struct io_GenericWriter_28_2aio_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29_2cerror_7b_7d_2c_28function_20_27write_27_29_29__4871 {
- struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4851 *context;
+struct io_GenericWriter_28_2aio_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29_2cerror_7b_7d_2c_28function_20_27write_27_29_29__4867;
+struct io_GenericWriter_28_2aio_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29_2cerror_7b_7d_2c_28function_20_27write_27_29_29__4867 {
+ struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4847 *context;
 };
-typedef struct anon__lazy_156 nav__7601_53;
-typedef struct anon__lazy_57 nav__7601_54;
-typedef struct anon__lazy_476 nav__7602_38;
-typedef struct anon__lazy_135 nav__7603_39;
-typedef struct anon__lazy_170 nav__7603_40;
-typedef struct anon__lazy_472 nav__7603_42;
-struct io_GenericWriter_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7bNoSpaceLeft_7d_2c_28function_20_27write_27_29_29__5259;
-struct io_GenericWriter_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7bNoSpaceLeft_7d_2c_28function_20_27write_27_29_29__5259 {
- struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 *context;
+typedef struct anon__lazy_151 nav__7675_53;
+typedef struct anon__lazy_57 nav__7675_54;
+typedef struct anon__lazy_504 nav__7676_38;
+typedef struct anon__lazy_130 nav__7677_39;
+typedef struct anon__lazy_165 nav__7677_40;
+typedef struct anon__lazy_500 nav__7677_42;
+struct io_GenericWriter_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7bNoSpaceLeft_7d_2c_28function_20_27write_27_29_29__5254;
+struct io_GenericWriter_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7bNoSpaceLeft_7d_2c_28function_20_27write_27_29_29__5254 {
+ struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 *context;
 };
-typedef struct anon__lazy_156 nav__7603_57;
-typedef struct anon__lazy_57 nav__7603_58;
-typedef struct anon__lazy_156 nav__7641_38;
-typedef struct anon__lazy_57 nav__7641_41;
-typedef struct anon__lazy_476 nav__7810_42;
-typedef struct anon__lazy_156 nav__7810_46;
-typedef struct anon__lazy_57 nav__7810_47;
-typedef struct anon__lazy_156 nav__7823_38;
-typedef struct anon__lazy_57 nav__7823_41;
-typedef struct anon__lazy_135 nav__4137_39;
-typedef struct anon__lazy_156 nav__7626_38;
-typedef struct anon__lazy_57 nav__7626_42;
-typedef struct anon__lazy_517 nav__7654_38;
-struct anon__lazy_517 {
- uint16_t error;
- uint8_t payload;
-};
-typedef struct anon__lazy_156 nav__7670_38;
-typedef struct anon__lazy_57 nav__7670_40;
-typedef struct anon__lazy_517 nav__7670_48;
-typedef struct anon__lazy_144 nav__7670_50;
-typedef struct anon__lazy_57 nav__7824_39;
-typedef struct anon__lazy_476 nav__7824_44;
-typedef struct anon__lazy_156 nav__7824_48;
-typedef struct anon__lazy_135 nav__7824_57;
-typedef struct anon__lazy_517 nav__7824_60;
-typedef struct anon__lazy_156 nav__4132_38;
-typedef struct anon__lazy_57 nav__4132_42;
-typedef struct anon__lazy_135 nav__4132_50;
-typedef struct anon__lazy_156 nav__4041_38;
-typedef struct anon__lazy_57 nav__4041_40;
-typedef struct anon__lazy_144 nav__7660_38;
-typedef struct anon__lazy_57 nav__7660_40;
-typedef struct anon__lazy_532 nav__7660_48;
-struct anon__lazy_532 {
+typedef struct anon__lazy_151 nav__7677_57;
+typedef struct anon__lazy_57 nav__7677_58;
+typedef struct anon__lazy_151 nav__7715_38;
+typedef struct anon__lazy_57 nav__7715_41;
+typedef struct anon__lazy_504 nav__7884_42;
+typedef struct anon__lazy_151 nav__7884_46;
+typedef struct anon__lazy_57 nav__7884_47;
+typedef struct anon__lazy_151 nav__7897_38;
+typedef struct anon__lazy_57 nav__7897_41;
+typedef struct anon__lazy_130 nav__4173_39;
+typedef struct anon__lazy_151 nav__7700_38;
+typedef struct anon__lazy_57 nav__7700_42;
+typedef struct anon__lazy_205 nav__7728_38;
+typedef struct anon__lazy_151 nav__7744_38;
+typedef struct anon__lazy_57 nav__7744_40;
+typedef struct anon__lazy_205 nav__7744_48;
+typedef struct anon__lazy_139 nav__7744_50;
+typedef struct anon__lazy_57 nav__7898_39;
+typedef struct anon__lazy_504 nav__7898_44;
+typedef struct anon__lazy_151 nav__7898_48;
+typedef struct anon__lazy_130 nav__7898_57;
+typedef struct anon__lazy_205 nav__7898_60;
+typedef struct anon__lazy_151 nav__4168_38;
+typedef struct anon__lazy_57 nav__4168_42;
+typedef struct anon__lazy_130 nav__4168_50;
+typedef struct anon__lazy_151 nav__4077_38;
+typedef struct anon__lazy_57 nav__4077_40;
+typedef struct anon__lazy_139 nav__7734_38;
+typedef struct anon__lazy_57 nav__7734_40;
+typedef struct anon__lazy_558 nav__7734_48;
+struct anon__lazy_558 {
  uint8_t array[2];
 };
-typedef struct anon__lazy_534 nav__7660_52;
-struct anon__lazy_534 {
+typedef struct anon__lazy_560 nav__7734_52;
+struct anon__lazy_560 {
  uint8_t array[3];
 };
-typedef struct anon__lazy_536 nav__7660_56;
-struct anon__lazy_536 {
+typedef struct anon__lazy_562 nav__7734_56;
+struct anon__lazy_562 {
  uint8_t array[4];
 };
-typedef struct anon__lazy_517 nav__7653_38;
-typedef struct anon__lazy_517 nav__7825_38;
-typedef struct anon__lazy_135 nav__7825_40;
-typedef struct anon__lazy_517 nav__7655_38;
-typedef struct anon__lazy_135 nav__7655_40;
-typedef struct anon__lazy_57 nav__7120_40;
-typedef struct anon__lazy_156 nav__7120_43;
-typedef struct anon__lazy_144 nav__7662_38;
-typedef struct anon__lazy_532 nav__7662_40;
-typedef struct anon__lazy_144 nav__7664_38;
-typedef struct anon__lazy_534 nav__7664_40;
-typedef struct anon__lazy_144 nav__7668_38;
-typedef struct anon__lazy_536 nav__7668_40;
-typedef struct anon__lazy_144 nav__7666_38;
-typedef struct anon__lazy_534 nav__7666_40;
-typedef struct anon__lazy_57 nav__758_64;
-typedef struct anon__lazy_219 nav__758_72;
-typedef struct anon__lazy_281 nav__3835_41;
-struct Target_Os__625;
-union Target_Os_VersionRange__681;
-struct SemanticVersion_Range__686;
-struct SemanticVersion__684;
-typedef struct anon__lazy_57 nav__264_43;
-struct SemanticVersion__684 {
+typedef struct anon__lazy_205 nav__7727_38;
+typedef struct anon__lazy_205 nav__7899_38;
+typedef struct anon__lazy_130 nav__7899_40;
+typedef struct anon__lazy_205 nav__7729_38;
+typedef struct anon__lazy_130 nav__7729_40;
+typedef struct anon__lazy_57 nav__7193_40;
+typedef struct anon__lazy_151 nav__7193_43;
+typedef struct anon__lazy_139 nav__7736_38;
+typedef struct anon__lazy_558 nav__7736_40;
+typedef struct anon__lazy_139 nav__7738_38;
+typedef struct anon__lazy_560 nav__7738_40;
+typedef struct anon__lazy_139 nav__7742_38;
+typedef struct anon__lazy_562 nav__7742_40;
+typedef struct anon__lazy_139 nav__7740_38;
+typedef struct anon__lazy_560 nav__7740_40;
+typedef struct anon__lazy_57 nav__1091_64;
+typedef struct anon__lazy_220 nav__1091_72;
+typedef struct anon__lazy_294 nav__3871_41;
+struct Target_Os__653;
+union Target_Os_VersionRange__709;
+struct SemanticVersion_Range__714;
+struct SemanticVersion__712;
+typedef struct anon__lazy_57 nav__263_43;
+struct SemanticVersion__712 {
  uintptr_t major;
  uintptr_t minor;
  uintptr_t patch;
  struct anon__lazy_57 pre;
  struct anon__lazy_57 build;
 };
-struct SemanticVersion_Range__686 {
- struct SemanticVersion__684 zig_e_min;
- struct SemanticVersion__684 zig_e_max;
+struct SemanticVersion_Range__714 {
+ struct SemanticVersion__712 zig_e_min;
+ struct SemanticVersion__712 zig_e_max;
 };
-struct Target_Os_HurdVersionRange__688;
-struct Target_Os_HurdVersionRange__688 {
- struct SemanticVersion_Range__686 range;
- struct SemanticVersion__684 glibc;
+struct Target_Os_HurdVersionRange__716;
+struct Target_Os_HurdVersionRange__716 {
+ struct SemanticVersion_Range__714 range;
+ struct SemanticVersion__712 glibc;
 };
-struct Target_Os_LinuxVersionRange__690;
-struct Target_Os_LinuxVersionRange__690 {
- struct SemanticVersion_Range__686 range;
- struct SemanticVersion__684 glibc;
+struct Target_Os_LinuxVersionRange__718;
+struct Target_Os_LinuxVersionRange__718 {
+ struct SemanticVersion_Range__714 range;
+ struct SemanticVersion__712 glibc;
  uint32_t android;
 };
-struct Target_Os_WindowsVersion_Range__746;
-struct Target_Os_WindowsVersion_Range__746 {
+struct Target_Os_WindowsVersion_Range__774;
+struct Target_Os_WindowsVersion_Range__774 {
  uint32_t zig_e_min;
  uint32_t zig_e_max;
 };
-union Target_Os_VersionRange__681 {
- struct SemanticVersion_Range__686 semver;
- struct Target_Os_HurdVersionRange__688 hurd;
- struct Target_Os_LinuxVersionRange__690 linux;
- struct Target_Os_WindowsVersion_Range__746 windows;
+union Target_Os_VersionRange__709 {
+ struct SemanticVersion_Range__714 semver;
+ struct Target_Os_HurdVersionRange__716 hurd;
+ struct Target_Os_LinuxVersionRange__718 linux;
+ struct Target_Os_WindowsVersion_Range__774 windows;
 };
-struct Target_Os__625 {
- union Target_Os_VersionRange__681 version_range;
+struct Target_Os__653 {
+ union Target_Os_VersionRange__709 version_range;
  uint8_t tag;
 };
-struct Target_DynamicLinker__799;
-struct Target_DynamicLinker__799 {
+struct Target_DynamicLinker__828;
+struct Target_DynamicLinker__828 {
  uint8_t buffer[255];
  uint8_t len;
 };
-typedef struct anon__lazy_135 nav__3573_40;
-typedef struct anon__lazy_135 nav__3574_40;
-typedef struct anon__lazy_135 nav__3575_40;
-typedef struct anon__lazy_135 nav__3537_46;
-typedef struct anon__lazy_135 nav__235_46;
-struct Target_Cpu_Feature_Set__816;
-struct Target_Cpu_Feature_Set__816 {
+typedef struct anon__lazy_130 nav__3614_40;
+typedef struct anon__lazy_130 nav__3615_40;
+typedef struct anon__lazy_130 nav__3616_40;
+typedef struct anon__lazy_130 nav__3578_46;
+typedef struct anon__lazy_130 nav__235_46;
+struct Target_Cpu_Feature_Set__845;
+struct Target_Cpu_Feature_Set__845 {
  uintptr_t ints[5];
 };
-struct Target_Cpu__784;
-struct Target_Cpu_Model__811;
-struct Target_Cpu__784 {
- struct Target_Cpu_Model__811 const *model;
- struct Target_Cpu_Feature_Set__816 features;
+struct Target_Cpu__813;
+struct Target_Cpu_Model__840;
+struct Target_Cpu__813 {
+ struct Target_Cpu_Model__840 const *model;
+ struct Target_Cpu_Feature_Set__845 features;
  uint8_t arch;
 };
-typedef struct anon__lazy_57 nav__263_46;
-struct Target_Cpu_Model__811 {
+typedef struct anon__lazy_57 nav__262_46;
+struct Target_Cpu_Model__840 {
  struct anon__lazy_57 name;
  struct anon__lazy_57 llvm_name;
- struct Target_Cpu_Feature_Set__816 features;
+ struct Target_Cpu_Feature_Set__845 features;
 };
-struct Target__623;
-typedef struct anon__lazy_57 nav__265_51;
-struct Target__623 {
- struct Target_Cpu__784 cpu;
- struct Target_Os__625 os;
+struct Target__651;
+typedef struct anon__lazy_57 nav__264_51;
+struct Target__651 {
+ struct Target_Cpu__813 cpu;
+ struct Target_Os__653 os;
  uint8_t abi;
  uint8_t ofmt;
- struct Target_DynamicLinker__799 dynamic_linker;
+ struct Target_DynamicLinker__828 dynamic_linker;
 };
 struct builtin_CallingConvention__266;
 struct builtin_CallingConvention_CommonOptions__268;
-typedef struct anon__lazy_219 nav__464_40;
+typedef struct anon__lazy_220 nav__463_40;
 struct builtin_CallingConvention_CommonOptions__268 {
- struct anon__lazy_219 incoming_stack_alignment;
+ struct anon__lazy_220 incoming_stack_alignment;
 };
 struct builtin_CallingConvention_X86RegparmOptions__270;
 struct builtin_CallingConvention_X86RegparmOptions__270 {
- struct anon__lazy_219 incoming_stack_alignment;
+ struct anon__lazy_220 incoming_stack_alignment;
  uint8_t register_params;
 };
 struct builtin_CallingConvention_ArmInterruptOptions__272;
 struct builtin_CallingConvention_ArmInterruptOptions__272 {
- struct anon__lazy_219 incoming_stack_alignment;
+ struct anon__lazy_220 incoming_stack_alignment;
  uint8_t type;
 };
 struct builtin_CallingConvention_MipsInterruptOptions__274;
 struct builtin_CallingConvention_MipsInterruptOptions__274 {
- struct anon__lazy_219 incoming_stack_alignment;
+ struct anon__lazy_220 incoming_stack_alignment;
  uint8_t mode;
 };
 struct builtin_CallingConvention_RiscvInterruptOptions__276;
 struct builtin_CallingConvention_RiscvInterruptOptions__276 {
- struct anon__lazy_219 incoming_stack_alignment;
+ struct anon__lazy_220 incoming_stack_alignment;
  uint8_t mode;
 };
 struct builtin_CallingConvention__266 {
@@ -799,11 +833,11 @@ struct builtin_CallingConvention__266 {
  } payload;
  uint8_t tag;
 };
-struct std_Options__4542;
-typedef struct anon__lazy_476 nav__97_39;
-struct std_Options__4542 {
- struct anon__lazy_476 page_size_min;
- struct anon__lazy_476 page_size_max;
+struct std_Options__4493;
+typedef struct anon__lazy_504 nav__97_39;
+struct std_Options__4493 {
+ struct anon__lazy_504 page_size_min;
+ struct anon__lazy_504 page_size_max;
  uintptr_t fmt_max_depth;
  bool enable_segfault_handler;
  uint8_t log_level;
@@ -814,376 +848,391 @@ struct std_Options__4542 {
  bool http_enable_ssl_key_log_file;
  uint8_t side_channels_mitigations;
 };
-typedef struct anon__lazy_476 nav__3553_38;
-typedef struct anon__lazy_135 nav__3564_43;
-typedef struct anon__lazy_57 nav__3596_40;
-static uint8_t const __anon_1845[21];
-static uint8_t const __anon_1916[21];
-static char const __anon_3286[70];
-static char const __anon_3405[83];
-static char const __anon_3758[33];
-static uint8_t const __anon_2479[62];
-static uint8_t const __anon_4942[10];
-static uint8_t const __anon_5223[1];
-static uint8_t const __anon_5243[1];
-static uint8_t const __anon_5413[3];
-static uint8_t const __anon_5288[4];
-static uint8_t const __anon_5565[10];
-#define c_instrument_hooks_set_feature__237 instrument_hooks_set_feature
+typedef struct anon__lazy_504 nav__3594_38;
+typedef struct anon__lazy_130 nav__3605_43;
+typedef struct anon__lazy_57 nav__3733_40;
+static uint8_t const __anon_1925[21];
+static uint8_t const __anon_1996[21];
+static char const __anon_3612[33];
+static uint8_t const __anon_2553[62];
+static uint8_t const __anon_4938[10];
+static uint8_t const __anon_5218[1];
+static uint8_t const __anon_5238[1];
+static uint8_t const __anon_5408[3];
+static uint8_t const __anon_5283[4];
+static uint8_t const __anon_5575[7];
+#define c_instrument_hooks_set_feature__236 instrument_hooks_set_feature
 zig_extern void instrument_hooks_set_feature(uint64_t, bool);
-static void features_set_feature__324(uint64_t, bool);
-static void bit_set_IntegerBitSet_2864_29_set__363(uint64_t *, uintptr_t);
-static void bit_set_IntegerBitSet_2864_29_unset__365(uint64_t *, uintptr_t);
+static void features_set_feature__323(uint64_t, bool);
+static void bit_set_IntegerBitSet_2864_29_set__362(uint64_t *, uintptr_t);
+static void bit_set_IntegerBitSet_2864_29_unset__364(uint64_t *, uintptr_t);
 static void debug_assert__180(bool);
-static uint64_t bit_set_IntegerBitSet_2864_29_maskBit__384(uintptr_t);
-static nav__1073_39 fifo_UnixPipe_openPipe__1073(nav__1073_41);
-static nav__1075_39 fifo_UnixPipe_openWrite__1075(struct mem_Allocator__565, nav__1075_42);
-static nav__1074_39 fifo_UnixPipe_openRead__1074(struct mem_Allocator__565, nav__1074_42);
-static nav__750_39 instruments_perf_PerfInstrument_init__750(struct mem_Allocator__565);
-static nav__725_39 instruments_root_InstrumentHooks_init__725(struct mem_Allocator__565);
-static uint16_t fifo_UnixPipe_Writer_sendCmd__1079(struct fifo_UnixPipe_Writer__600 *, struct shared_Command__1946);
-static nav__4176_38 bincode_deserializeInt__anon_2322__4176(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201);
-static nav__4175_38 bincode_deserializeAlloc__anon_2311__4175(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201, struct mem_Allocator__565);
-static nav__4218_40 bincode_deserializePointerAlloc__anon_2448__4218(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201, struct mem_Allocator__565);
-static nav__4217_40 bincode_deserializeAlloc__anon_2435__4217(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201, struct mem_Allocator__565);
-static nav__4216_39 bincode_deserializeStructAlloc__anon_2410__4216(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201, struct mem_Allocator__565);
-static nav__4215_39 bincode_deserializeAlloc__anon_2381__4215(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201, struct mem_Allocator__565);
-static uint16_t bincode_deserializeAlloc__anon_2500__4221(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201, struct mem_Allocator__565);
-static nav__4223_39 bincode_deserializeStructAlloc__anon_2564__4223(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201, struct mem_Allocator__565);
-static nav__4222_39 bincode_deserializeAlloc__anon_2545__4222(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201, struct mem_Allocator__565);
-static nav__4229_38 bincode_deserializeInt__anon_2687__4229(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201);
-static nav__4228_38 bincode_deserializeAlloc__anon_2682__4228(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201, struct mem_Allocator__565);
-static nav__4227_39 bincode_deserializeUnionAlloc__anon_2669__4227(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201, struct mem_Allocator__565);
-static nav__4226_39 bincode_deserializeAlloc__anon_2635__4226(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201, struct mem_Allocator__565);
-static nav__4225_39 bincode_deserializeStructAlloc__anon_2617__4225(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201, struct mem_Allocator__565);
-static nav__4224_39 bincode_deserializeAlloc__anon_2603__4224(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201, struct mem_Allocator__565);
-static nav__4174_39 bincode_deserializeUnionAlloc__anon_2306__4174(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201, struct mem_Allocator__565);
-static nav__4173_39 bincode_deserializeAlloc__anon_2209__4173(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201, struct mem_Allocator__565);
-static nav__1084_39 fifo_UnixPipe_Reader_recvCmd__1084(struct fifo_UnixPipe_Reader__602 *);
-static nav__1085_39 fifo_UnixPipe_Reader_waitForResponse__1085(struct fifo_UnixPipe_Reader__602 *, nav__1085_42);
-static uint16_t fifo_UnixPipe_Reader_waitForAck__1086(struct fifo_UnixPipe_Reader__602 *, nav__1086_40);
-static uint16_t instruments_perf_PerfInstrument_send_version__759(struct instruments_perf_PerfInstrument__559 *, uint64_t);
-#define c_instrument_hooks_init__238 instrument_hooks_init
+static uint64_t bit_set_IntegerBitSet_2864_29_maskBit__383(uintptr_t);
+static nav__739_39 instruments_valgrind_ValgrindInstrument_init__739(struct mem_Allocator__589);
+static nav__1114_39 fifo_UnixPipe_openPipe__1114(nav__1114_41);
+static nav__1116_39 fifo_UnixPipe_openWrite__1116(struct mem_Allocator__589, nav__1116_42);
+static nav__1115_39 fifo_UnixPipe_openRead__1115(struct mem_Allocator__589, nav__1115_42);
+static nav__1082_39 runner_fifo_RunnerFifo_init__1082(struct mem_Allocator__589);
+static uint16_t fifo_UnixPipe_Writer_sendCmd__1120(struct fifo_UnixPipe_Writer__628 *, struct shared_Command__2014);
+static nav__4212_38 bincode_deserializeInt__anon_2396__4212(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265);
+static nav__4211_38 bincode_deserializeAlloc__anon_2385__4211(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265, struct mem_Allocator__589);
+static nav__4254_40 bincode_deserializePointerAlloc__anon_2522__4254(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265, struct mem_Allocator__589);
+static nav__4253_40 bincode_deserializeAlloc__anon_2509__4253(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265, struct mem_Allocator__589);
+static nav__4252_39 bincode_deserializeStructAlloc__anon_2484__4252(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265, struct mem_Allocator__589);
+static nav__4251_39 bincode_deserializeAlloc__anon_2455__4251(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265, struct mem_Allocator__589);
+static uint16_t bincode_deserializeAlloc__anon_2574__4257(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265, struct mem_Allocator__589);
+static nav__4259_39 bincode_deserializeStructAlloc__anon_2638__4259(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265, struct mem_Allocator__589);
+static nav__4258_39 bincode_deserializeAlloc__anon_2619__4258(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265, struct mem_Allocator__589);
+static nav__4265_38 bincode_deserializeInt__anon_2761__4265(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265);
+static nav__4264_38 bincode_deserializeAlloc__anon_2756__4264(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265, struct mem_Allocator__589);
+static nav__4263_39 bincode_deserializeUnionAlloc__anon_2743__4263(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265, struct mem_Allocator__589);
+static nav__4262_39 bincode_deserializeAlloc__anon_2709__4262(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265, struct mem_Allocator__589);
+static nav__4261_39 bincode_deserializeStructAlloc__anon_2691__4261(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265, struct mem_Allocator__589);
+static nav__4260_39 bincode_deserializeAlloc__anon_2677__4260(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265, struct mem_Allocator__589);
+static nav__4267_38 bincode_deserializeEnum__anon_2846__4267(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265);
+static nav__4266_38 bincode_deserializeAlloc__anon_2817__4266(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265, struct mem_Allocator__589);
+static nav__4210_39 bincode_deserializeUnionAlloc__anon_2380__4210(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265, struct mem_Allocator__589);
+static nav__4209_39 bincode_deserializeAlloc__anon_2273__4209(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265, struct mem_Allocator__589);
+static nav__1125_39 fifo_UnixPipe_Reader_recvCmd__1125(struct fifo_UnixPipe_Reader__630 *);
+static nav__1126_39 fifo_UnixPipe_Reader_waitForResponse__1126(struct fifo_UnixPipe_Reader__630 *, nav__1126_42);
+static nav__1093_38 runner_fifo_RunnerFifo_get_integration_mode__1093(struct runner_fifo_RunnerFifo__621 *);
+static nav__773_39 instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29_init__773(struct mem_Allocator__589);
+static nav__760_39 instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29_init__760(struct mem_Allocator__589);
+static nav__726_39 instruments_root_InstrumentHooks_init__726(struct mem_Allocator__589);
+#define c_instrument_hooks_init__237 instrument_hooks_init
 zig_extern struct instruments_root_InstrumentHooks__547 *instrument_hooks_init(void);
-static nav__3576_40 mem_Allocator_create__anon_857__3576(struct mem_Allocator__565);
-static struct instruments_valgrind_ValgrindInstrument__554 instruments_valgrind_ValgrindInstrument_init__738(struct mem_Allocator__565);
-static uint16_t fs_accessAbsolute__1141(nav__1141_39, struct fs_File_OpenFlags__1858);
-static nav__1138_39 fs_openFileAbsolute__1138(nav__1138_41, struct fs_File_OpenFlags__1858);
-static void utils_setNonBlocking__3834(int32_t);
-static struct fifo_UnixPipe_Writer__600 fifo_UnixPipe_Writer_init__1076(struct fs_File__608, struct mem_Allocator__565);
-static struct fifo_UnixPipe_Reader__602 fifo_UnixPipe_Reader_init__1081(struct fs_File__608, struct mem_Allocator__565);
-static uint16_t instruments_perf_PerfInstrument_send_cmd__752(struct instruments_perf_PerfInstrument__559 *, struct shared_Command__1946);
-static bool instruments_perf_PerfInstrument_is_instrumented__753(struct instruments_perf_PerfInstrument__559 *);
-static struct array_list_ArrayListAligned_28u8_2cnull_29__1974 array_list_ArrayListAligned_28u8_2cnull_29_init__3890(struct mem_Allocator__565);
-static struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 array_list_ArrayListAligned_28u8_2cnull_29_writer__3915(struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *);
-static uint16_t bincode_serialize__anon_2015__4064(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005, struct shared_Command__1946);
-static void array_list_ArrayListAligned_28u8_2cnull_29_deinit__3892(struct array_list_ArrayListAligned_28u8_2cnull_29__1974);
-static uint8_t const (*mem_asBytes__anon_2057__4065(uint32_t const *))[4];
-static uint16_t fs_File_writeAll__1232(struct fs_File__608, nav__1232_40);
-static zig_i128 time_nanoTimestamp__4078(void);
-static nav__1222_38 fs_File_readAll__1222(struct fs_File__608, nav__1222_41);
-static nav__4106_40 mem_Allocator_alloc__anon_2153__4106(struct mem_Allocator__565, uintptr_t);
-static void mem_Allocator_free__anon_2159__4107(struct mem_Allocator__565, nav__4107_40);
-static struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 io_fixed_buffer_stream_fixedBufferStream__anon_2181__4139(nav__4139_40);
-static struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_reader__4128(struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 *);
-static nav__4172_38 io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29_typeEras__4172(void const *, nav__4172_41);
-static nav__4214_39 io_Reader_readBytesNoEof__anon_2368__4214(struct io_Reader__2337);
-static nav__4219_39 io_Reader_readBytesNoEof__anon_2461__4219(struct io_Reader__2337);
-static nav__4179_38 io_Reader_readAll__4179(struct io_Reader__2337, nav__4179_41);
-static zig_noreturn void bincode_invalidProtocol__anon_2485__4220(void);
-static void utils_sleep__3833(uint64_t);
-static void shared_Command_deinit__3838(struct shared_Command__1946, struct mem_Allocator__565);
-static void utils_print__anon_2763__4230(void);
-static void utils_print__anon_2768__4231(void);
-static void instruments_perf_PerfInstrument_deinit__751(struct instruments_perf_PerfInstrument__559 *);
-static void mem_Allocator_destroy__anon_2782__4232(struct mem_Allocator__565, struct instruments_root_InstrumentHooks__547 *);
-static zig_noreturn void posix_exit__1441(uint8_t);
-static nav__4233_39 mem_Allocator_allocBytesWithAlignment__anon_2798__4233(struct mem_Allocator__565, uintptr_t, uintptr_t);
-static bool fs_path_isAbsolute__4268(nav__4268_39);
-static struct fs_Dir__1860 fs_cwd__1133(void);
-static uint16_t fs_Dir_access__3782(struct fs_Dir__1860, nav__3782_40, struct fs_File_OpenFlags__1858);
-static nav__3718_39 fs_Dir_openFile__3718(struct fs_Dir__1860, nav__3718_42, struct fs_File_OpenFlags__1858);
-static uint16_t bincode_serializeUnion__anon_2865__5251(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005, struct shared_Command__1946);
-static nav__3938_39 array_list_ArrayListAligned_28u8_2cnull_29_allocatedSlice__3938(struct array_list_ArrayListAligned_28u8_2cnull_29__1974);
-static nav__1231_38 fs_File_write__1231(struct fs_File__608, nav__1231_41);
-static nav__1632_39 posix_clock_gettime__1632(uint32_t);
-static nav__1221_38 fs_File_read__1221(struct fs_File__608, nav__1221_41);
-static nav__5252_39 mem_Allocator_allocWithSizeAndAlignment__anon_2958__5252(struct mem_Allocator__565, uintptr_t, uintptr_t);
-static nav__5253_39 mem_sliceAsBytes__anon_2971__5253(nav__5253_39);
-static uint8_t mem_Alignment_fromByteUnits__1045(uintptr_t);
-static nav__4131_38 io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_read__4131(struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 *, nav__4131_42);
-static uint16_t io_Reader_readNoEof__4181(struct io_Reader__2337, nav__4181_40);
-static nav__4180_38 io_Reader_readAtLeast__4180(struct io_Reader__2337, nav__4180_41, uintptr_t);
-static void utils_print__anon_3010__5254(void);
-static nav__6176_38 math_cast__anon_3038__6176(uint64_t);
-static void mem_Allocator_free__anon_3110__6945(struct mem_Allocator__565, nav__6945_40);
-static void fifo_UnixPipe_Writer_deinit__1080(struct fifo_UnixPipe_Writer__600 *);
-static void fifo_UnixPipe_Reader_deinit__1087(struct fifo_UnixPipe_Reader__602 *);
-static bool fs_path_isAbsolutePosix__4274(nav__4274_39);
-static nav__1716_39 posix_toPosixPath__1716(nav__1716_41);
-static uint16_t fs_Dir_accessZ__3783(struct fs_Dir__1860, uint8_t const *, struct fs_File_OpenFlags__1858);
-static nav__3719_39 fs_Dir_openFileZ__3719(struct fs_Dir__1860, uint8_t const *, struct fs_File_OpenFlags__1858);
-static uint16_t bincode_serialize__anon_3500__6960(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005, uint32_t);
-static uint16_t bincode_serialize__anon_3502__6961(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005, struct shared_Command__struct_1949__1949);
-static uint16_t bincode_serialize__anon_3504__6962(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005);
-static uint16_t bincode_serialize__anon_3506__6963(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005, struct shared_Command__struct_1950__1950);
-static uint16_t bincode_serialize__anon_3508__6964(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005, struct shared_Command__struct_1951__1951);
-static uint16_t bincode_serialize__anon_3510__6965(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005, uint64_t);
-static nav__1451_38 posix_write__1451(int32_t, nav__1451_40);
-static uint16_t posix_errno__anon_3676__7032(int);
-static uint16_t posix_unexpectedErrno__1715(uint16_t);
-static nav__1443_38 posix_read__1443(int32_t, nav__1443_40);
-static nav__7033_38 math_mul__anon_3697__7033(uintptr_t, uintptr_t);
-static nav__7034_39 mem_Allocator_allocBytesWithAlignment__anon_3699__7034(struct mem_Allocator__565, uintptr_t, uintptr_t);
-static bool math_isPowerOfTwo__anon_3711__7035(uintptr_t);
-static nav__4178_38 io_Reader_read__4178(struct io_Reader__2337, nav__4178_41);
-static nav__7036_39 mem_sliceAsBytes__anon_3780__7036(nav__7036_39);
-static void fs_File_close__1178(struct fs_File__608);
-static uint16_t posix_faccessatZ__1607(int32_t, uint8_t const *, uint32_t, uint32_t);
-static nav__1463_38 posix_openatZ__1463(int32_t, uint8_t const *, uint32_t, uintptr_t);
-static uint16_t posix_flock__1624(int32_t, int32_t);
-static void posix_close__1421(int32_t);
-static uint16_t bincode_serializeInt__anon_3918__7097(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005, uint32_t);
-static uint16_t bincode_serializeStruct__anon_3923__7098(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005, struct shared_Command__struct_1949__1949);
-static uint16_t bincode_serializeStruct__anon_3924__7099(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005, struct shared_Command__struct_1950__1950);
-static uint16_t bincode_serializeStruct__anon_3925__7100(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005, struct shared_Command__struct_1951__1951);
-static uint16_t bincode_serializeInt__anon_3926__7101(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005, uint64_t);
-static uint16_t posix_errno__anon_3937__7103(intptr_t);
-static nav__4063_38 io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29___4063(void const *, nav__4063_41);
-static uint16_t io_Writer_writeAll__7116(struct io_Writer__4192, nav__7116_40);
-static uint16_t bincode_serialize__anon_4228__7125(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005, nav__7125_40);
-static uint16_t bincode_serialize__anon_4230__7126(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005, struct shared_MarkerType__1953);
-static nav__3916_38 array_list_ArrayListAligned_28u8_2cnull_29_appendWrite__3916(struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *, nav__3916_42);
-static nav__7115_38 io_Writer_write__7115(struct io_Writer__4192, nav__7115_41);
-static uint16_t bincode_serializePointer__anon_4243__7127(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005, nav__7127_40);
-static uint16_t bincode_serializeUnion__anon_4244__7128(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005, struct shared_MarkerType__1953);
-static uint16_t array_list_ArrayListAligned_28u8_2cnull_29_appendSlice__3910(struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *, nav__3910_41);
-static uint16_t array_list_ArrayListAligned_28u8_2cnull_29_ensureUnusedCapacity__3929(struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *, uintptr_t);
-static void array_list_ArrayListAligned_28u8_2cnull_29_appendSliceAssumeCapacity__3911(struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *, nav__3911_41);
-static nav__3854_38 array_list_addOrOom__3854(uintptr_t, uintptr_t);
-static uint16_t array_list_ArrayListAligned_28u8_2cnull_29_ensureTotalCapacity__3927(struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *, uintptr_t);
-static uintptr_t array_list_ArrayListAlignedUnmanaged_28u8_2cnull_29_growCapacity__7187(uintptr_t, uintptr_t);
-static uint16_t array_list_ArrayListAligned_28u8_2cnull_29_ensureTotalCapacityPrecise__3928(struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *, uintptr_t);
-static nav__7214_39 mem_Allocator_remap__anon_4301__7214(struct mem_Allocator__565, nav__7214_39, uintptr_t);
-static nav__7215_40 mem_Allocator_alignedAlloc__anon_4306__7215(struct mem_Allocator__565, uintptr_t);
-static nav__7216_39 mem_bytesAsSlice__anon_4321__7216(nav__7216_39);
-#define c_instrument_hooks_deinit__239 instrument_hooks_deinit
+static nav__3617_40 mem_Allocator_create__anon_886__3617(struct mem_Allocator__589);
+static uint16_t fs_accessAbsolute__1182(nav__1182_39, struct fs_File_OpenFlags__1938);
+static nav__1179_39 fs_openFileAbsolute__1179(nav__1179_41, struct fs_File_OpenFlags__1938);
+static void utils_setNonBlocking__3870(int32_t);
+static struct fifo_UnixPipe_Writer__628 fifo_UnixPipe_Writer_init__1117(struct fs_File__636, struct mem_Allocator__589);
+static struct fifo_UnixPipe_Reader__630 fifo_UnixPipe_Reader_init__1122(struct fs_File__636, struct mem_Allocator__589);
+static struct array_list_ArrayListAligned_28u8_2cnull_29__2043 array_list_ArrayListAligned_28u8_2cnull_29_init__3926(struct mem_Allocator__589);
+static struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 array_list_ArrayListAligned_28u8_2cnull_29_writer__3951(struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *);
+static uint16_t bincode_serialize__anon_2084__4100(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074, struct shared_Command__2014);
+static void array_list_ArrayListAligned_28u8_2cnull_29_deinit__3928(struct array_list_ArrayListAligned_28u8_2cnull_29__2043);
+static uint8_t const (*mem_asBytes__anon_2126__4101(uint32_t const *))[4];
+static uint16_t fs_File_writeAll__1273(struct fs_File__636, nav__1273_40);
+static zig_i128 time_nanoTimestamp__4114(void);
+static nav__1263_38 fs_File_readAll__1263(struct fs_File__636, nav__1263_41);
+static nav__4142_40 mem_Allocator_alloc__anon_2216__4142(struct mem_Allocator__589, uintptr_t);
+static void mem_Allocator_free__anon_2222__4143(struct mem_Allocator__589, nav__4143_40);
+static struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 io_fixed_buffer_stream_fixedBufferStream__anon_2244__4175(nav__4175_40);
+static struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_reader__4164(struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 *);
+static nav__4208_38 io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29_typeEras__4208(void const *, nav__4208_41);
+static nav__4250_39 io_Reader_readBytesNoEof__anon_2442__4250(struct io_Reader__2411);
+static nav__4255_39 io_Reader_readBytesNoEof__anon_2535__4255(struct io_Reader__2411);
+static nav__4215_38 io_Reader_readAll__4215(struct io_Reader__2411, nav__4215_41);
+static zig_noreturn void bincode_invalidProtocol__anon_2559__4256(void);
+static void utils_sleep__3869(uint64_t);
+static void shared_Command_deinit__3874(struct shared_Command__2014, struct mem_Allocator__589);
+static void runner_fifo_RunnerFifo_deinit__1084(struct runner_fifo_RunnerFifo__621 *);
+static nav__4268_39 mem_Allocator_allocBytesWithAlignment__anon_2904__4268(struct mem_Allocator__589, uintptr_t, uintptr_t);
+static bool fs_path_isAbsolute__4303(nav__4303_39);
+static struct fs_Dir__1940 fs_cwd__1174(void);
+static uint16_t fs_Dir_access__3818(struct fs_Dir__1940, nav__3818_40, struct fs_File_OpenFlags__1938);
+static nav__3754_39 fs_Dir_openFile__3754(struct fs_Dir__1940, nav__3754_42, struct fs_File_OpenFlags__1938);
+static uint16_t bincode_serializeUnion__anon_2964__5298(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074, struct shared_Command__2014);
+static nav__3974_39 array_list_ArrayListAligned_28u8_2cnull_29_allocatedSlice__3974(struct array_list_ArrayListAligned_28u8_2cnull_29__2043);
+static nav__1272_38 fs_File_write__1272(struct fs_File__636, nav__1272_41);
+static nav__1673_39 posix_clock_gettime__1673(uint32_t);
+static nav__1262_38 fs_File_read__1262(struct fs_File__636, nav__1262_41);
+static nav__5299_39 mem_Allocator_allocWithSizeAndAlignment__anon_3057__5299(struct mem_Allocator__589, uintptr_t, uintptr_t);
+static nav__5300_39 mem_sliceAsBytes__anon_3070__5300(nav__5300_39);
+static uint8_t mem_Alignment_fromByteUnits__1066(uintptr_t);
+static nav__4167_38 io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_read__4167(struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 *, nav__4167_42);
+static uint16_t io_Reader_readNoEof__4217(struct io_Reader__2411, nav__4217_40);
+static nav__4216_38 io_Reader_readAtLeast__4216(struct io_Reader__2411, nav__4216_41, uintptr_t);
+static void utils_print__anon_3113__5301(void);
+static zig_noreturn void posix_exit__1482(uint8_t);
+static nav__6235_38 math_cast__anon_3145__6235(uint64_t);
+static void mem_Allocator_free__anon_3218__7016(struct mem_Allocator__589, nav__7016_40);
+static void fifo_UnixPipe_Writer_deinit__1121(struct fifo_UnixPipe_Writer__628 *);
+static void fifo_UnixPipe_Reader_deinit__1128(struct fifo_UnixPipe_Reader__630 *);
+static bool fs_path_isAbsolutePosix__4309(nav__4309_39);
+static nav__1757_39 posix_toPosixPath__1757(nav__1757_41);
+static uint16_t fs_Dir_accessZ__3819(struct fs_Dir__1940, uint8_t const *, struct fs_File_OpenFlags__1938);
+static nav__3755_39 fs_Dir_openFileZ__3755(struct fs_Dir__1940, uint8_t const *, struct fs_File_OpenFlags__1938);
+static uint16_t bincode_serialize__anon_3300__7029(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074, uint32_t);
+static uint16_t bincode_serialize__anon_3302__7030(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074, struct shared_Command__struct_2017__2017);
+static uint16_t bincode_serialize__anon_3304__7031(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074);
+static uint16_t bincode_serialize__anon_3306__7032(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074, struct shared_Command__struct_2018__2018);
+static uint16_t bincode_serialize__anon_3308__7033(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074, struct shared_Command__struct_2019__2019);
+static uint16_t bincode_serialize__anon_3310__7034(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074, uint64_t);
+static uint16_t bincode_serialize__anon_3312__7035(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074, uint8_t);
+static nav__1492_38 posix_write__1492(int32_t, nav__1492_40);
+static uint16_t posix_errno__anon_3478__7102(int);
+static uint16_t posix_unexpectedErrno__1756(uint16_t);
+static nav__1484_38 posix_read__1484(int32_t, nav__1484_40);
+static nav__7103_38 math_mul__anon_3499__7103(uintptr_t, uintptr_t);
+static nav__7104_39 mem_Allocator_allocBytesWithAlignment__anon_3501__7104(struct mem_Allocator__589, uintptr_t, uintptr_t);
+static bool math_isPowerOfTwo__anon_3513__7105(uintptr_t);
+static nav__4214_38 io_Reader_read__4214(struct io_Reader__2411, nav__4214_41);
+static nav__7108_39 mem_sliceAsBytes__anon_3644__7108(nav__7108_39);
+static void fs_File_close__1219(struct fs_File__636);
+static uint16_t posix_faccessatZ__1648(int32_t, uint8_t const *, uint32_t, uint32_t);
+static nav__1504_38 posix_openatZ__1504(int32_t, uint8_t const *, uint32_t, uintptr_t);
+static uint16_t posix_flock__1665(int32_t, int32_t);
+static void posix_close__1462(int32_t);
+static uint16_t bincode_serializeInt__anon_3783__7169(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074, uint32_t);
+static uint16_t bincode_serializeStruct__anon_3788__7170(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074, struct shared_Command__struct_2017__2017);
+static uint16_t bincode_serializeStruct__anon_3789__7171(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074, struct shared_Command__struct_2018__2018);
+static uint16_t bincode_serializeStruct__anon_3790__7172(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074, struct shared_Command__struct_2019__2019);
+static uint16_t bincode_serializeInt__anon_3791__7173(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074, uint64_t);
+static uint16_t bincode_serializeEnum__anon_3794__7174(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074, uint8_t);
+static uint16_t posix_errno__anon_3805__7176(intptr_t);
+static nav__4099_38 io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29___4099(void const *, nav__4099_41);
+static uint16_t io_Writer_writeAll__7189(struct io_Writer__4060, nav__7189_40);
+static uint16_t bincode_serialize__anon_4096__7198(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074, nav__7198_40);
+static uint16_t bincode_serialize__anon_4098__7199(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074, struct shared_MarkerType__2021);
+static nav__3952_38 array_list_ArrayListAligned_28u8_2cnull_29_appendWrite__3952(struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *, nav__3952_42);
+static nav__7188_38 io_Writer_write__7188(struct io_Writer__4060, nav__7188_41);
+static uint16_t bincode_serializePointer__anon_4111__7200(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074, nav__7200_40);
+static uint16_t bincode_serializeUnion__anon_4112__7201(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074, struct shared_MarkerType__2021);
+static uint16_t array_list_ArrayListAligned_28u8_2cnull_29_appendSlice__3946(struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *, nav__3946_41);
+static uint16_t array_list_ArrayListAligned_28u8_2cnull_29_ensureUnusedCapacity__3965(struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *, uintptr_t);
+static void array_list_ArrayListAligned_28u8_2cnull_29_appendSliceAssumeCapacity__3947(struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *, nav__3947_41);
+static nav__3890_38 array_list_addOrOom__3890(uintptr_t, uintptr_t);
+static uint16_t array_list_ArrayListAligned_28u8_2cnull_29_ensureTotalCapacity__3963(struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *, uintptr_t);
+static uintptr_t array_list_ArrayListAlignedUnmanaged_28u8_2cnull_29_growCapacity__7260(uintptr_t, uintptr_t);
+static uint16_t array_list_ArrayListAligned_28u8_2cnull_29_ensureTotalCapacityPrecise__3964(struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *, uintptr_t);
+static nav__7287_39 mem_Allocator_remap__anon_4169__7287(struct mem_Allocator__589, nav__7287_39, uintptr_t);
+static nav__7288_40 mem_Allocator_alignedAlloc__anon_4174__7288(struct mem_Allocator__589, uintptr_t);
+static nav__7289_39 mem_bytesAsSlice__anon_4189__7289(nav__7289_39);
+#define c_instrument_hooks_deinit__238 instrument_hooks_deinit
 zig_extern void instrument_hooks_deinit(struct instruments_root_InstrumentHooks__547 *);
-#define c_instrument_hooks_is_instrumented__240 instrument_hooks_is_instrumented
+static void instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29_deinit__761(struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *);
+static void instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29_deinit__774(struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *);
+static void mem_Allocator_destroy__anon_4214__7290(struct mem_Allocator__589, struct instruments_root_InstrumentHooks__547 *);
+#define c_instrument_hooks_is_instrumented__239 instrument_hooks_is_instrumented
 zig_extern bool instrument_hooks_is_instrumented(struct instruments_root_InstrumentHooks__547 *);
-static zig_cold uint16_t instruments_perf_PerfInstrument_start_benchmark__754(struct instruments_perf_PerfInstrument__559 *);
-#define c_instrument_hooks_start_benchmark__241 instrument_hooks_start_benchmark
+static uint16_t fifo_UnixPipe_Reader_waitForAck__1127(struct fifo_UnixPipe_Reader__630 *, nav__1127_40);
+static zig_cold uint16_t runner_fifo_RunnerFifo_start_benchmark__1087(struct runner_fifo_RunnerFifo__621 *);
+static uint16_t instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29_start_benchmark__763(struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *);
+static uint16_t instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29_start_benchmark__776(struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *);
+#define c_instrument_hooks_start_benchmark__240 instrument_hooks_start_benchmark
 zig_extern uint8_t instrument_hooks_start_benchmark(struct instruments_root_InstrumentHooks__547 *);
-static bool features_is_feature_enabled__325(uint64_t);
-static bool bit_set_IntegerBitSet_2864_29_isSet__360(uint64_t, uintptr_t);
-static zig_cold uint16_t instruments_perf_PerfInstrument_stop_benchmark__755(struct instruments_perf_PerfInstrument__559 *);
-#define c_instrument_hooks_stop_benchmark__242 instrument_hooks_stop_benchmark
+static bool features_is_feature_enabled__324(uint64_t);
+static bool bit_set_IntegerBitSet_2864_29_isSet__359(uint64_t, uintptr_t);
+static zig_cold uint16_t runner_fifo_RunnerFifo_stop_benchmark__1088(struct runner_fifo_RunnerFifo__621 *);
+static uint16_t instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29_stop_benchmark__764(struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *);
+static uint16_t instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29_stop_benchmark__777(struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *);
+#define c_instrument_hooks_stop_benchmark__241 instrument_hooks_stop_benchmark
 zig_extern uint8_t instrument_hooks_stop_benchmark(struct instruments_root_InstrumentHooks__547 *);
-static uint16_t instruments_perf_PerfInstrument_set_executed_benchmark__756(struct instruments_perf_PerfInstrument__559 *, uint32_t, uint8_t const *);
-#define c_instrument_hooks_set_executed_benchmark__243 instrument_hooks_set_executed_benchmark
+static uint16_t runner_fifo_RunnerFifo_set_executed_benchmark__1089(struct runner_fifo_RunnerFifo__621 *, uint32_t, uint8_t const *);
+static uint16_t instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29_set_executed_benchmark__765(struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *, uint32_t, uint8_t const *);
+static uint16_t instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29_set_executed_benchmark__778(struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *, uint32_t, uint8_t const *);
+#define c_instrument_hooks_set_executed_benchmark__242 instrument_hooks_set_executed_benchmark
 zig_extern uint8_t instrument_hooks_set_executed_benchmark(struct instruments_root_InstrumentHooks__547 *, uint32_t, uint8_t const *);
-static nav__7221_39 mem_span__anon_4429__7221(uint8_t const *);
-static uintptr_t mem_len__anon_4438__7222(uint8_t const *);
-static uintptr_t mem_indexOfSentinel__anon_4446__7223(uint8_t const *);
-static bool math_isPowerOfTwo__anon_4457__7224(void);
-static nav__7589_38 simd_firstTrue__anon_4671__7589(nav__7589_40);
-static uintptr_t mem_alignForward__anon_4674__7590(uintptr_t, uintptr_t);
-static bool mem_isAligned__914(uintptr_t, uintptr_t);
-static bool mem_isValidAlignGeneric__anon_4732__7591(uintptr_t);
-static uintptr_t mem_alignBackward__anon_4733__7592(uintptr_t, uintptr_t);
-static bool mem_isAlignedGeneric__anon_4739__7593(uint64_t, uint64_t);
-static uint64_t mem_alignBackward__anon_4741__7594(uint64_t, uint64_t);
-static bool mem_isValidAlignGeneric__anon_4743__7595(uint64_t);
-static bool math_isPowerOfTwo__anon_4744__7596(uint64_t);
-#define c_instrument_hooks_executed_benchmark__244 instrument_hooks_executed_benchmark
+static nav__7295_39 mem_span__anon_4375__7295(uint8_t const *);
+static uintptr_t mem_len__anon_4392__7296(uint8_t const *);
+static uintptr_t mem_indexOfSentinel__anon_4400__7297(uint8_t const *);
+static bool math_isPowerOfTwo__anon_4411__7298(void);
+static nav__7663_38 simd_firstTrue__anon_4623__7663(nav__7663_40);
+static uintptr_t mem_alignForward__anon_4626__7664(uintptr_t, uintptr_t);
+static bool mem_isAligned__935(uintptr_t, uintptr_t);
+static bool mem_isValidAlignGeneric__anon_4715__7665(uintptr_t);
+static uintptr_t mem_alignBackward__anon_4716__7666(uintptr_t, uintptr_t);
+static bool mem_isAlignedGeneric__anon_4722__7667(uint64_t, uint64_t);
+static uint64_t mem_alignBackward__anon_4724__7668(uint64_t, uint64_t);
+static bool mem_isValidAlignGeneric__anon_4726__7669(uint64_t);
+static bool math_isPowerOfTwo__anon_4727__7670(uint64_t);
+#define c_instrument_hooks_executed_benchmark__243 instrument_hooks_executed_benchmark
 zig_extern uint8_t instrument_hooks_executed_benchmark(struct instruments_root_InstrumentHooks__547 *, uint32_t, uint8_t const *);
-static uint16_t instruments_perf_PerfInstrument_set_integration__757(struct instruments_perf_PerfInstrument__559 *, uint8_t const *, uint8_t const *);
-#define c_instrument_hooks_set_integration__245 instrument_hooks_set_integration
+static uint16_t runner_fifo_RunnerFifo_set_integration__1090(struct runner_fifo_RunnerFifo__621 *, uint8_t const *, uint8_t const *);
+static uint16_t instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29_set_integration__766(struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *, uint8_t const *, uint8_t const *);
+static uint16_t instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29_set_integration__779(struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *, uint8_t const *, uint8_t const *);
+#define c_instrument_hooks_set_integration__244 instrument_hooks_set_integration
 zig_extern uint8_t instrument_hooks_set_integration(struct instruments_root_InstrumentHooks__547 *, uint8_t const *, uint8_t const *);
-static nav__7597_40 fmt_allocPrintZ__anon_4781__7597(struct mem_Allocator__565, nav__7597_43);
-static void mem_Allocator_free__anon_4783__7598(struct mem_Allocator__565, nav__7598_40);
-static nav__7599_40 fmt_allocPrint__anon_4808__7599(struct mem_Allocator__565, nav__7599_43);
-static nav__7600_39 mem_sliceAsBytes__anon_4815__7600(nav__7600_39);
-static uint16_t fmt_format__anon_4890__7642(struct io_Writer__4192, nav__7642_40);
-static uint64_t fmt_count__anon_4822__7601(nav__7601_39);
-static nav__7602_38 math_cast__anon_4824__7602(uint64_t);
-static nav__7603_40 fmt_bufPrint__anon_4833__7603(nav__7603_39, nav__7603_42);
-static struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4851 io_counting_writer_countingWriter__anon_4854__7628(void);
-static struct io_GenericWriter_28_2aio_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29_2cerror_7b_7d_2c_28function_20_27write_27_29_29__4871 io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29_writer__7627(struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4851 *);
-static nav__7641_38 io_GenericWriter_28_2aio_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWr__7641(void const *, nav__7641_41);
-static uint16_t fmt_formatType__anon_5215__7810(uint8_t const *, struct fmt_FormatOptions__5201, struct io_Writer__4192, uintptr_t);
-static struct io_GenericWriter_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7bNoSpaceLeft_7d_2c_28function_20_27write_27_29_29__5259 io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_writer__4129(struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 *);
-static nav__7823_38 io_GenericWriter_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7bNoSpaceLeft_7d_2c_28function_20_27write__7823(void const *, nav__7823_41);
-static nav__4137_39 io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_getWritten__4137(struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178);
-static nav__7626_38 io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29_write__7626(struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4851 *, nav__7626_42);
-static nav__7654_38 unicode_utf8ByteSequenceLength__7654(uint8_t);
-static nav__7670_38 unicode_utf8CountCodepoints__7670(nav__7670_40);
-static uint16_t fmt_formatBuf__anon_5315__7824(nav__7824_39, struct fmt_FormatOptions__5201, struct io_Writer__4192);
-static nav__4132_38 io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_write__4132(struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 *, nav__4132_42);
-static nav__4041_38 io_dummyWrite__4041(nav__4041_40);
-static nav__7660_38 unicode_utf8Decode__7660(nav__7660_40);
-static nav__7653_38 unicode_utf8CodepointSequenceLength__7653(uint32_t);
-static nav__7825_38 unicode_utf8EncodeImpl__anon_5445__7825(uint32_t, nav__7825_40);
-static nav__7655_38 unicode_utf8Encode__7655(uint32_t, nav__7655_40);
-static uint16_t io_Writer_writeBytesNTimes__7120(struct io_Writer__4192, nav__7120_40, uintptr_t);
-static nav__7662_38 unicode_utf8Decode2__7662(nav__7662_40);
-static nav__7664_38 unicode_utf8Decode3__7664(nav__7664_40);
-static nav__7668_38 unicode_utf8Decode4__7668(nav__7668_40);
-static bool unicode_isSurrogateCodepoint__7733(uint32_t);
-static nav__7666_38 unicode_utf8Decode3AllowSurrogateHalf__7666(nav__7666_40);
-static uint16_t instruments_perf_PerfInstrument_add_marker__758(struct instruments_perf_PerfInstrument__559 *, uint32_t, struct shared_MarkerType__1953);
-#define c_instrument_hooks_add_marker__250 instrument_hooks_add_marker
+static nav__7671_40 fmt_allocPrintZ__anon_4764__7671(struct mem_Allocator__589, nav__7671_43);
+static void mem_Allocator_free__anon_4766__7672(struct mem_Allocator__589, nav__7672_40);
+static nav__7673_40 fmt_allocPrint__anon_4804__7673(struct mem_Allocator__589, nav__7673_43);
+static nav__7674_39 mem_sliceAsBytes__anon_4811__7674(nav__7674_39);
+static uint16_t fmt_format__anon_4886__7716(struct io_Writer__4060, nav__7716_40);
+static uint64_t fmt_count__anon_4818__7675(nav__7675_39);
+static nav__7676_38 math_cast__anon_4820__7676(uint64_t);
+static nav__7677_40 fmt_bufPrint__anon_4829__7677(nav__7677_39, nav__7677_42);
+static struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4847 io_counting_writer_countingWriter__anon_4850__7702(void);
+static struct io_GenericWriter_28_2aio_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29_2cerror_7b_7d_2c_28function_20_27write_27_29_29__4867 io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29_writer__7701(struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4847 *);
+static nav__7715_38 io_GenericWriter_28_2aio_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWr__7715(void const *, nav__7715_41);
+static uint16_t fmt_formatType__anon_5210__7884(uint8_t const *, struct fmt_FormatOptions__5196, struct io_Writer__4060, uintptr_t);
+static struct io_GenericWriter_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7bNoSpaceLeft_7d_2c_28function_20_27write_27_29_29__5254 io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_writer__4165(struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 *);
+static nav__7897_38 io_GenericWriter_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7bNoSpaceLeft_7d_2c_28function_20_27write__7897(void const *, nav__7897_41);
+static nav__4173_39 io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_getWritten__4173(struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241);
+static nav__7700_38 io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29_write__7700(struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4847 *, nav__7700_42);
+static nav__7728_38 unicode_utf8ByteSequenceLength__7728(uint8_t);
+static nav__7744_38 unicode_utf8CountCodepoints__7744(nav__7744_40);
+static uint16_t fmt_formatBuf__anon_5310__7898(nav__7898_39, struct fmt_FormatOptions__5196, struct io_Writer__4060);
+static nav__4168_38 io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_write__4168(struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 *, nav__4168_42);
+static nav__4077_38 io_dummyWrite__4077(nav__4077_40);
+static nav__7734_38 unicode_utf8Decode__7734(nav__7734_40);
+static nav__7727_38 unicode_utf8CodepointSequenceLength__7727(uint32_t);
+static nav__7899_38 unicode_utf8EncodeImpl__anon_5440__7899(uint32_t, nav__7899_40);
+static nav__7729_38 unicode_utf8Encode__7729(uint32_t, nav__7729_40);
+static uint16_t io_Writer_writeBytesNTimes__7193(struct io_Writer__4060, nav__7193_40, uintptr_t);
+static nav__7736_38 unicode_utf8Decode2__7736(nav__7736_40);
+static nav__7738_38 unicode_utf8Decode3__7738(nav__7738_40);
+static nav__7742_38 unicode_utf8Decode4__7742(nav__7742_40);
+static bool unicode_isSurrogateCodepoint__7807(uint32_t);
+static nav__7740_38 unicode_utf8Decode3AllowSurrogateHalf__7740(nav__7740_40);
+static uint16_t runner_fifo_RunnerFifo_add_marker__1091(struct runner_fifo_RunnerFifo__621 *, uint32_t, struct shared_MarkerType__2021);
+static uint16_t instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29_add_marker__767(struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *, uint32_t, struct shared_MarkerType__2021);
+static uint16_t instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29_add_marker__780(struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *, uint32_t, struct shared_MarkerType__2021);
+#define c_instrument_hooks_add_marker__249 instrument_hooks_add_marker
 zig_extern uint8_t instrument_hooks_add_marker(struct instruments_root_InstrumentHooks__547 *, uint32_t, uint8_t, uint64_t);
-#define c_instrument_hooks_current_timestamp__251 instrument_hooks_current_timestamp
+#define c_instrument_hooks_current_timestamp__250 instrument_hooks_current_timestamp
 zig_extern uint64_t instrument_hooks_current_timestamp(void);
-static uint64_t utils_clock_gettime_monotonic__3835(void);
-static uint64_t const builtin_zig_backend__256;
+static uint64_t utils_clock_gettime_monotonic__3871(void);
+static uint64_t const builtin_zig_backend__255;
 static bool const start_simplified_logic__109;
-static uint8_t const builtin_output_mode__257;
-static uint8_t const builtin_link_mode__258;
-static uint64_t features_features__323;
-static uintptr_t const bit_set_IntegerBitSet_2864_29_bit_length__354;
-static bool const builtin_link_libc__268;
-static bool const posix_use_libc__1284;
-static struct Target_Os__625 const builtin_os__264;
-static uint8_t const c_native_os__1726;
-static struct Target_DynamicLinker__799 const Target_DynamicLinker_none__3448;
-static bool const builtin_is_test__260;
-static uint8_t *heap_CAllocator_alloc__3572(void *, uintptr_t, uint8_t, uintptr_t);
-static bool heap_CAllocator_resize__3573(void *, nav__3573_40, uint8_t, uintptr_t, uintptr_t);
-static uint8_t *heap_CAllocator_remap__3574(void *, nav__3574_40, uint8_t, uintptr_t, uintptr_t);
-static void heap_CAllocator_free__3575(void *, nav__3575_40, uint8_t, uintptr_t);
-static uint8_t *heap_CAllocator_alignedAlloc__3569(uintptr_t, uint8_t);
-static uintptr_t heap_CAllocator_alignedAllocSize__3571(uint8_t *);
-static void heap_CAllocator_alignedFree__3570(uint8_t *);
-static uintptr_t mem_Alignment_toByteUnits__1044(uint8_t);
-static struct mem_Allocator__565 const heap_c_allocator__3537;
-static struct mem_Allocator__565 const c_allocator__235;
-static struct Target_Cpu_Feature_Set__816 const Target_Cpu_Feature_Set_empty__3493;
-static struct Target_Cpu__784 const builtin_cpu__263;
-static uint8_t const builtin_abi__262;
-static uint8_t const builtin_object_format__266;
-static struct Target__623 const builtin_target__265;
-static struct builtin_CallingConvention__266 const builtin_CallingConvention_c__464;
+static uint8_t const builtin_output_mode__256;
+static uint8_t const builtin_link_mode__257;
+static uint64_t features_features__322;
+static uintptr_t const bit_set_IntegerBitSet_2864_29_bit_length__353;
+static bool const builtin_link_libc__267;
+static bool const posix_use_libc__1325;
+static struct Target_Os__653 const builtin_os__263;
+static uint8_t const c_native_os__1767;
+static struct Target_DynamicLinker__828 const Target_DynamicLinker_none__3489;
+static bool const builtin_is_test__259;
+static uint8_t *heap_CAllocator_alloc__3613(void *, uintptr_t, uint8_t, uintptr_t);
+static bool heap_CAllocator_resize__3614(void *, nav__3614_40, uint8_t, uintptr_t, uintptr_t);
+static uint8_t *heap_CAllocator_remap__3615(void *, nav__3615_40, uint8_t, uintptr_t, uintptr_t);
+static void heap_CAllocator_free__3616(void *, nav__3616_40, uint8_t, uintptr_t);
+static uint8_t *heap_CAllocator_alignedAlloc__3610(uintptr_t, uint8_t);
+static uintptr_t heap_CAllocator_alignedAllocSize__3612(uint8_t *);
+static void heap_CAllocator_alignedFree__3611(uint8_t *);
+static uintptr_t mem_Alignment_toByteUnits__1065(uint8_t);
+static struct mem_Allocator__589 const heap_c_allocator__3578;
+static struct mem_Allocator__589 const c_allocator__235;
+static struct Target_Cpu_Feature_Set__845 const Target_Cpu_Feature_Set_empty__3534;
+static struct Target_Cpu__813 const builtin_cpu__262;
+static uint8_t const builtin_abi__261;
+static uint8_t const builtin_object_format__265;
+static struct Target__651 const builtin_target__264;
+static struct builtin_CallingConvention__266 const builtin_CallingConvention_c__463;
 zig_extern uint8_t running_on_valgrind(void);
-static uint8_t const (*const shared_RUNNER_CTL_FIFO__3700)[21];
-static uint8_t const (*const shared_RUNNER_ACK_FIFO__3701)[21];
-static uint64_t const c_PROTOCOL_VERSION__236;
-static uint8_t const mem_native_endian__768;
+static uint8_t const (*const shared_RUNNER_CTL_FIFO__754)[21];
+static uint8_t const (*const shared_RUNNER_ACK_FIFO__755)[21];
+static uint8_t const mem_native_endian__789;
 zig_extern int fcntl(int, int, ...);
-static int const cimport_F_GETFL__5133;
-static int const cimport_O_NONBLOCK__5109;
-static int const cimport_F_SETFL__5134;
-static uint8_t const os_linux_native_arch__2632;
-zig_extern int nanosleep(struct cimport_struct_timespec__3025 const *, struct cimport_struct_timespec__3025 *);
-static int const cimport_EINTR__6813;
+static int const cimport_F_GETFL__5180;
+static int const cimport_O_NONBLOCK__5156;
+static int const cimport_F_SETFL__5181;
+static uint8_t const os_linux_native_arch__2673;
+zig_extern int nanosleep(struct cimport_struct_timespec__3132 const *, struct cimport_struct_timespec__3132 *);
+static int const cimport_EINTR__6884;
+static uint8_t const fs_path_native_os__4282;
+static uint8_t const fs_native_os__1137;
+static uint8_t const fs_Dir_native_os__3860;
+static bool const fs_File_is_windows__1313;
+static uint8_t const posix_native_os__1323;
+zig_extern int clock_gettime(uint32_t, struct os_linux_timespec__struct_3026__3026 *);
 zig_extern int printf(char const *, ...);
 zig_extern zig_noreturn void exit(int);
-static uint8_t const fs_path_native_os__4247;
-static uint8_t const fs_native_os__1096;
-static uint8_t const fs_Dir_native_os__3824;
-static bool const fs_File_is_windows__1272;
-static uint8_t const posix_native_os__1282;
-zig_extern int clock_gettime(uint32_t, struct os_linux_timespec__struct_2927__2927 *);
-static uint8_t const builtin_mode__267;
+static uint8_t const builtin_mode__266;
 static bool const debug_runtime_safety__159;
 zig_extern int flock(int32_t, int);
-static bool const fs_Dir_have_flock__3825;
+static bool const fs_Dir_have_flock__3861;
 zig_extern intptr_t write(int32_t, uint8_t const *, uintptr_t);
-static uint8_t const c_native_abi__1724;
+static uint8_t const c_native_abi__1765;
 zig_extern int *zig_e___errno_location(void) zig_mangled(zig_e___errno_location, "__errno_location");
-static bool const posix_unexpected_error_tracing__1713;
+static bool const posix_unexpected_error_tracing__1754;
 zig_extern intptr_t read(int32_t, uint8_t *, uintptr_t);
 zig_extern int faccessat(int32_t, uint8_t const *, unsigned int, unsigned int);
-static bool const posix_lfs64_abi__1712;
+static bool const posix_lfs64_abi__1753;
 zig_extern int openat64(int, uint8_t const *, uint32_t, ...);
 zig_extern int close(int32_t);
 zig_extern void callgrind_zero_stats(void);
 zig_extern void callgrind_start_instrumentation(void);
 zig_extern void callgrind_stop_instrumentation(void);
 zig_extern void callgrind_dump_stats_at(uint8_t const *);
-static bool const mem_backend_supports_vectors__796;
-static bool const builtin_valgrind_support__271;
+static bool const mem_backend_supports_vectors__817;
+static bool const builtin_valgrind_support__270;
 static bool const debug_default_enable_segfault_handler__205;
-static uint8_t const log_default_level__7358;
-static struct std_Options__4542 const std_options__97;
-static nav__3553_38 const heap_page_size_min_default__3553;
-static uintptr_t const heap_page_size_min__3532;
-static uint16_t const fmt_max_format_args__7426;
-static uint8_t const (*const fmt_ANY__7429)[4];
-static uint8_t const unicode_native_endian__7651;
-static uint32_t const unicode_replacement_character__7652;
-static uint8_t const c_MARKER_TYPE_SAMPLE_START__246;
-static uint8_t const c_MARKER_TYPE_SAMPLE_END__247;
-static uint8_t const c_MARKER_TYPE_BENCHMARK_START__248;
-static uint8_t const c_MARKER_TYPE_BENCHMARK_END__249;
-static struct mem_Allocator_VTable__568 const heap_CAllocator_vtable__3564;
+static uint8_t const log_default_level__7432;
+static struct std_Options__4493 const std_options__97;
+static nav__3594_38 const heap_page_size_min_default__3594;
+static uintptr_t const heap_page_size_min__3573;
+static uint16_t const fmt_max_format_args__7500;
+static uint8_t const (*const fmt_ANY__7503)[4];
+static uint8_t const unicode_native_endian__7725;
+static uint32_t const unicode_replacement_character__7726;
+static uint8_t const c_MARKER_TYPE_SAMPLE_START__245;
+static uint8_t const c_MARKER_TYPE_SAMPLE_END__246;
+static uint8_t const c_MARKER_TYPE_BENCHMARK_START__247;
+static uint8_t const c_MARKER_TYPE_BENCHMARK_END__248;
+static struct mem_Allocator_VTable__592 const heap_CAllocator_vtable__3605;
 zig_extern uintptr_t malloc_usable_size(void const *);
-static bool const heap_CAllocator_supports_malloc_size__3565;
-static bool const heap_CAllocator_supports_posix_memalign__3567;
+static bool const heap_CAllocator_supports_malloc_size__3606;
+static bool const heap_CAllocator_supports_posix_memalign__3608;
 zig_extern int posix_memalign(void **, uintptr_t, uintptr_t);
 zig_extern void free(void *);
-static struct Target_Cpu_Model__811 const Target_x86_cpu_alderlake__3596;
+static struct Target_Cpu_Model__840 const Target_x86_cpu_znver4__3733;
 enum {
- zig_error_OutOfMemory = 1u,
- zig_error_PermissionDenied = 2u,
- zig_error_FileNotFound = 3u,
- zig_error_NameTooLong = 4u,
- zig_error_InputOutput = 5u,
- zig_error_SystemResources = 6u,
- zig_error_BadPathName = 7u,
- zig_error_FileBusy = 8u,
- zig_error_SymLinkLoop = 9u,
- zig_error_ReadOnlyFileSystem = 10u,
- zig_error_InvalidUtf8 = 11u,
- zig_error_InvalidWtf8 = 12u,
- zig_error_Unexpected = 13u,
- zig_error_SharingViolation = 14u,
- zig_error_PathAlreadyExists = 15u,
- zig_error_AccessDenied = 16u,
- zig_error_PipeBusy = 17u,
- zig_error_NoDevice = 18u,
- zig_error_NetworkNotFound = 19u,
- zig_error_AntivirusInterference = 20u,
- zig_error_ProcessFdQuotaExceeded = 21u,
- zig_error_SystemFdQuotaExceeded = 22u,
- zig_error_FileTooBig = 23u,
- zig_error_IsDir = 24u,
- zig_error_NoSpaceLeft = 25u,
- zig_error_NotDir = 26u,
- zig_error_DeviceBusy = 27u,
- zig_error_FileLocksNotSupported = 28u,
- zig_error_WouldBlock = 29u,
- zig_error_DiskQuota = 30u,
- zig_error_InvalidArgument = 31u,
- zig_error_BrokenPipe = 32u,
- zig_error_OperationAborted = 33u,
- zig_error_NotOpenForWriting = 34u,
- zig_error_LockViolation = 35u,
- zig_error_ConnectionResetByPeer = 36u,
- zig_error_ProcessNotFound = 37u,
- zig_error_AckTimeout = 38u,
- zig_error_ConnectionTimedOut = 39u,
- zig_error_NotOpenForReading = 40u,
- zig_error_SocketNotConnected = 41u,
- zig_error_Canceled = 42u,
- zig_error_NotReady = 43u,
- zig_error_UnexpectedEof = 44u,
- zig_error_EndOfStream = 45u,
- zig_error_UnexpectedError = 46u,
- zig_error_UnexpectedResponse = 47u,
- zig_error_UnsupportedClock = 48u,
- zig_error_Overflow = 49u,
- zig_error_Utf8ExpectedContinuation = 50u,
- zig_error_Utf8OverlongEncoding = 51u,
- zig_error_Utf8EncodesSurrogateHalf = 52u,
- zig_error_Utf8CodepointTooLarge = 53u,
- zig_error_Utf8InvalidStartByte = 54u,
- zig_error_TruncatedInput = 55u,
- zig_error_Utf8CannotEncodeSurrogateHalf = 56u,
- zig_error_CodepointTooLarge = 57u,
+ zig_error_ModeError = 1u,
+ zig_error_OutOfMemory = 2u,
+ zig_error_NotInstrumented = 3u,
+ zig_error_PermissionDenied = 4u,
+ zig_error_FileNotFound = 5u,
+ zig_error_NameTooLong = 6u,
+ zig_error_InputOutput = 7u,
+ zig_error_SystemResources = 8u,
+ zig_error_BadPathName = 9u,
+ zig_error_FileBusy = 10u,
+ zig_error_SymLinkLoop = 11u,
+ zig_error_ReadOnlyFileSystem = 12u,
+ zig_error_InvalidUtf8 = 13u,
+ zig_error_InvalidWtf8 = 14u,
+ zig_error_Unexpected = 15u,
+ zig_error_SharingViolation = 16u,
+ zig_error_PathAlreadyExists = 17u,
+ zig_error_AccessDenied = 18u,
+ zig_error_PipeBusy = 19u,
+ zig_error_NoDevice = 20u,
+ zig_error_NetworkNotFound = 21u,
+ zig_error_AntivirusInterference = 22u,
+ zig_error_ProcessFdQuotaExceeded = 23u,
+ zig_error_SystemFdQuotaExceeded = 24u,
+ zig_error_FileTooBig = 25u,
+ zig_error_IsDir = 26u,
+ zig_error_NoSpaceLeft = 27u,
+ zig_error_NotDir = 28u,
+ zig_error_DeviceBusy = 29u,
+ zig_error_FileLocksNotSupported = 30u,
+ zig_error_WouldBlock = 31u,
+ zig_error_DiskQuota = 32u,
+ zig_error_InvalidArgument = 33u,
+ zig_error_BrokenPipe = 34u,
+ zig_error_OperationAborted = 35u,
+ zig_error_NotOpenForWriting = 36u,
+ zig_error_LockViolation = 37u,
+ zig_error_ConnectionResetByPeer = 38u,
+ zig_error_ProcessNotFound = 39u,
+ zig_error_AckTimeout = 40u,
+ zig_error_ConnectionTimedOut = 41u,
+ zig_error_NotOpenForReading = 42u,
+ zig_error_SocketNotConnected = 43u,
+ zig_error_Canceled = 44u,
+ zig_error_NotReady = 45u,
+ zig_error_UnexpectedEof = 46u,
+ zig_error_EndOfStream = 47u,
+ zig_error_UnexpectedResponse = 48u,
+ zig_error_UnsupportedClock = 49u,
+ zig_error_Overflow = 50u,
+ zig_error_UnexpectedError = 51u,
+ zig_error_Utf8ExpectedContinuation = 52u,
+ zig_error_Utf8OverlongEncoding = 53u,
+ zig_error_Utf8EncodesSurrogateHalf = 54u,
+ zig_error_Utf8CodepointTooLarge = 55u,
+ zig_error_Utf8InvalidStartByte = 56u,
+ zig_error_TruncatedInput = 57u,
+ zig_error_Utf8CannotEncodeSurrogateHalf = 58u,
+ zig_error_CodepointTooLarge = 59u,
 };
+static uint8_t const zig_errorName_ModeError[10] = "ModeError";
 static uint8_t const zig_errorName_OutOfMemory[12] = "OutOfMemory";
+static uint8_t const zig_errorName_NotInstrumented[16] = "NotInstrumented";
 static uint8_t const zig_errorName_PermissionDenied[17] = "PermissionDenied";
 static uint8_t const zig_errorName_FileNotFound[13] = "FileNotFound";
 static uint8_t const zig_errorName_NameTooLong[12] = "NameTooLong";
@@ -1228,10 +1277,10 @@ static uint8_t const zig_errorName_Canceled[9] = "Canceled";
 static uint8_t const zig_errorName_NotReady[9] = "NotReady";
 static uint8_t const zig_errorName_UnexpectedEof[14] = "UnexpectedEof";
 static uint8_t const zig_errorName_EndOfStream[12] = "EndOfStream";
-static uint8_t const zig_errorName_UnexpectedError[16] = "UnexpectedError";
 static uint8_t const zig_errorName_UnexpectedResponse[19] = "UnexpectedResponse";
 static uint8_t const zig_errorName_UnsupportedClock[17] = "UnsupportedClock";
 static uint8_t const zig_errorName_Overflow[9] = "Overflow";
+static uint8_t const zig_errorName_UnexpectedError[16] = "UnexpectedError";
 static uint8_t const zig_errorName_Utf8ExpectedContinuation[25] = "Utf8ExpectedContinuation";
 static uint8_t const zig_errorName_Utf8OverlongEncoding[21] = "Utf8OverlongEncoding";
 static uint8_t const zig_errorName_Utf8EncodesSurrogateHalf[25] = "Utf8EncodesSurrogateHalf";
@@ -1240,58 +1289,54 @@ static uint8_t const zig_errorName_Utf8InvalidStartByte[21] = "Utf8InvalidStartB
 static uint8_t const zig_errorName_TruncatedInput[15] = "TruncatedInput";
 static uint8_t const zig_errorName_Utf8CannotEncodeSurrogateHalf[30] = "Utf8CannotEncodeSurrogateHalf";
 static uint8_t const zig_errorName_CodepointTooLarge[18] = "CodepointTooLarge";
-static struct anon__lazy_57 const zig_errorName[58] = {{zig_errorName_OutOfMemory, 11ul}, {zig_errorName_PermissionDenied, 16ul}, {zig_errorName_FileNotFound, 12ul}, {zig_errorName_NameTooLong, 11ul}, {zig_errorName_InputOutput, 11ul}, {zig_errorName_SystemResources, 15ul}, {zig_errorName_BadPathName, 11ul}, {zig_errorName_FileBusy, 8ul}, {zig_errorName_SymLinkLoop, 11ul}, {zig_errorName_ReadOnlyFileSystem, 18ul}, {zig_errorName_InvalidUtf8, 11ul}, {zig_errorName_InvalidWtf8, 11ul}, {zig_errorName_Unexpected, 10ul}, {zig_errorName_SharingViolation, 16ul}, {zig_errorName_PathAlreadyExists, 17ul}, {zig_errorName_AccessDenied, 12ul}, {zig_errorName_PipeBusy, 8ul}, {zig_errorName_NoDevice, 8ul}, {zig_errorName_NetworkNotFound, 15ul}, {zig_errorName_AntivirusInterference, 21ul}, {zig_errorName_ProcessFdQuotaExceeded, 22ul}, {zig_errorName_SystemFdQuotaExceeded, 21ul}, {zig_errorName_FileTooBig, 10ul}, {zig_errorName_IsDir, 5ul}, {zig_errorName_NoSpaceLeft, 11ul}, {zig_errorName_NotDir, 6ul}, {zig_errorName_DeviceBusy, 10ul}, {zig_errorName_FileLocksNotSupported, 21ul}, {zig_errorName_WouldBlock, 10ul}, {zig_errorName_DiskQuota, 9ul}, {zig_errorName_InvalidArgument, 15ul}, {zig_errorName_BrokenPipe, 10ul}, {zig_errorName_OperationAborted, 16ul}, {zig_errorName_NotOpenForWriting, 17ul}, {zig_errorName_LockViolation, 13ul}, {zig_errorName_ConnectionResetByPeer, 21ul}, {zig_errorName_ProcessNotFound, 15ul}, {zig_errorName_AckTimeout, 10ul}, {zig_errorName_ConnectionTimedOut, 18ul}, {zig_errorName_NotOpenForReading, 17ul}, {zig_errorName_SocketNotConnected, 18ul}, {zig_errorName_Canceled, 8ul}, {zig_errorName_NotReady, 8ul}, {zig_errorName_UnexpectedEof, 13ul}, {zig_errorName_EndOfStream, 11ul}, {zig_errorName_UnexpectedError, 15ul}, {zig_errorName_UnexpectedResponse, 18ul}, {zig_errorName_UnsupportedClock, 16ul}, {zig_errorName_Overflow, 8ul}, {zig_errorName_Utf8ExpectedContinuation, 24ul}, {zig_errorName_Utf8OverlongEncoding, 20ul}, {zig_errorName_Utf8EncodesSurrogateHalf, 24ul}, {zig_errorName_Utf8CodepointTooLarge, 21ul}, {zig_errorName_Utf8InvalidStartByte, 20ul}, {zig_errorName_TruncatedInput, 14ul}, {zig_errorName_Utf8CannotEncodeSurrogateHalf, 29ul}, {zig_errorName_CodepointTooLarge, 17ul}};
+static struct anon__lazy_57 const zig_errorName[60] = {{zig_errorName_ModeError, 9ul}, {zig_errorName_OutOfMemory, 11ul}, {zig_errorName_NotInstrumented, 15ul}, {zig_errorName_PermissionDenied, 16ul}, {zig_errorName_FileNotFound, 12ul}, {zig_errorName_NameTooLong, 11ul}, {zig_errorName_InputOutput, 11ul}, {zig_errorName_SystemResources, 15ul}, {zig_errorName_BadPathName, 11ul}, {zig_errorName_FileBusy, 8ul}, {zig_errorName_SymLinkLoop, 11ul}, {zig_errorName_ReadOnlyFileSystem, 18ul}, {zig_errorName_InvalidUtf8, 11ul}, {zig_errorName_InvalidWtf8, 11ul}, {zig_errorName_Unexpected, 10ul}, {zig_errorName_SharingViolation, 16ul}, {zig_errorName_PathAlreadyExists, 17ul}, {zig_errorName_AccessDenied, 12ul}, {zig_errorName_PipeBusy, 8ul}, {zig_errorName_NoDevice, 8ul}, {zig_errorName_NetworkNotFound, 15ul}, {zig_errorName_AntivirusInterference, 21ul}, {zig_errorName_ProcessFdQuotaExceeded, 22ul}, {zig_errorName_SystemFdQuotaExceeded, 21ul}, {zig_errorName_FileTooBig, 10ul}, {zig_errorName_IsDir, 5ul}, {zig_errorName_NoSpaceLeft, 11ul}, {zig_errorName_NotDir, 6ul}, {zig_errorName_DeviceBusy, 10ul}, {zig_errorName_FileLocksNotSupported, 21ul}, {zig_errorName_WouldBlock, 10ul}, {zig_errorName_DiskQuota, 9ul}, {zig_errorName_InvalidArgument, 15ul}, {zig_errorName_BrokenPipe, 10ul}, {zig_errorName_OperationAborted, 16ul}, {zig_errorName_NotOpenForWriting, 17ul}, {zig_errorName_LockViolation, 13ul}, {zig_errorName_ConnectionResetByPeer, 21ul}, {zig_errorName_ProcessNotFound, 15ul}, {zig_errorName_AckTimeout, 10ul}, {zig_errorName_ConnectionTimedOut, 18ul}, {zig_errorName_NotOpenForReading, 17ul}, {zig_errorName_SocketNotConnected, 18ul}, {zig_errorName_Canceled, 8ul}, {zig_errorName_NotReady, 8ul}, {zig_errorName_UnexpectedEof, 13ul}, {zig_errorName_EndOfStream, 11ul}, {zig_errorName_UnexpectedResponse, 18ul}, {zig_errorName_UnsupportedClock, 16ul}, {zig_errorName_Overflow, 8ul}, {zig_errorName_UnexpectedError, 15ul}, {zig_errorName_Utf8ExpectedContinuation, 24ul}, {zig_errorName_Utf8OverlongEncoding, 20ul}, {zig_errorName_Utf8EncodesSurrogateHalf, 24ul}, {zig_errorName_Utf8CodepointTooLarge, 21ul}, {zig_errorName_Utf8InvalidStartByte, 20ul}, {zig_errorName_TruncatedInput, 14ul}, {zig_errorName_Utf8CannotEncodeSurrogateHalf, 29ul}, {zig_errorName_CodepointTooLarge, 17ul}};
 
-static uint8_t const __anon_1845[21] = "/tmp/runner.ctl.fifo";
+static uint8_t const __anon_1925[21] = "/tmp/runner.ctl.fifo";
 
-static uint8_t const __anon_1916[21] = "/tmp/runner.ack.fifo";
+static uint8_t const __anon_1996[21] = "/tmp/runner.ack.fifo";
 
-static char const __anon_3286[70] = {91,69,82,82,79,82,93,32,105,110,115,116,114,117,109,101,110,116,45,104,111,111,107,115,58,32,102,97,105,108,101,100,32,116,111,32,99,111,109,109,117,110,105,99,97,116,101,32,119,105,116,104,32,67,111,100,83,112,101,101,100,32,114,117,110,110,101,114,10,0};
+static char const __anon_3612[33] = {73,110,118,97,108,105,100,32,112,114,111,116,111,99,111,108,32,100,101,116,101,99,116,101,100,58,32,37,46,42,115,10,0};
 
-static char const __anon_3405[83] = {91,69,82,82,79,82,93,32,105,110,115,116,114,117,109,101,110,116,45,104,111,111,107,115,58,32,112,108,101,97,115,101,32,117,112,100,97,116,101,32,116,104,101,32,67,111,100,83,112,101,101,100,32,97,99,116,105,111,110,32,116,111,32,116,104,101,32,108,97,116,101,115,116,32,118,101,114,115,105,111,110,10,0};
+static uint8_t const __anon_2553[62] = "The stream end was found before all required bytes were read.";
 
-static char const __anon_3758[33] = {73,110,118,97,108,105,100,32,112,114,111,116,111,99,111,108,32,100,101,116,101,99,116,101,100,58,32,37,46,42,115,10,0};
+static uint8_t const __anon_4938[10] = "Metadata: ";
 
-static uint8_t const __anon_2479[62] = "The stream end was found before all required bytes were read.";
+static uint8_t const __anon_5218[1] = " ";
 
-static uint8_t const __anon_4942[10] = "Metadata: ";
+static uint8_t const __anon_5238[1] = "\000";
 
-static uint8_t const __anon_5223[1] = " ";
+static uint8_t const __anon_5408[3] = "\357\277\275";
 
-static uint8_t const __anon_5243[1] = "\000";
+static uint8_t const __anon_5283[4] = "any";
 
-static uint8_t const __anon_5413[3] = "\357\277\275";
+static uint8_t const __anon_5575[7] = "znver4";
 
-static uint8_t const __anon_5288[4] = "any";
-
-static uint8_t const __anon_5565[10] = "alderlake";
-
-void c_instrument_hooks_set_feature__237(uint64_t const a0, bool const a1) {
+void c_instrument_hooks_set_feature__236(uint64_t const a0, bool const a1) {
  uint64_t t0;
  t0 = a0;
- features_set_feature__324(t0, a1);
+ features_set_feature__323(t0, a1);
  return;
 }
 
-static void features_set_feature__324(uint64_t const a0, bool const a1) {
+static void features_set_feature__323(uint64_t const a0, bool const a1) {
  uint64_t t0;
  uintptr_t t1;
  if (a1) {
   t0 = a0;
   t1 = t0;
-  bit_set_IntegerBitSet_2864_29_set__363(&features_features__323, t1);
+  bit_set_IntegerBitSet_2864_29_set__362(&features_features__322, t1);
   goto zig_block_0;
  }
  t0 = a0;
  t1 = t0;
- bit_set_IntegerBitSet_2864_29_unset__365(&features_features__323, t1);
+ bit_set_IntegerBitSet_2864_29_unset__364(&features_features__322, t1);
  goto zig_block_0;
 
  zig_block_0:;
  return;
 }
 
-static void bit_set_IntegerBitSet_2864_29_set__363(uint64_t *const a0, uintptr_t const a1) {
+static void bit_set_IntegerBitSet_2864_29_set__362(uint64_t *const a0, uintptr_t const a1) {
  uint64_t *const *t1;
  uint64_t t2;
  uint64_t t5;
@@ -1306,13 +1351,13 @@ static void bit_set_IntegerBitSet_2864_29_set__363(uint64_t *const a0, uintptr_t
  t4 = (*t1);
  t4 = (uint64_t *)((uint8_t *)t4 + (uintptr_t)0ul);
  t2 = (*t4);
- t5 = bit_set_IntegerBitSet_2864_29_maskBit__384(a1);
+ t5 = bit_set_IntegerBitSet_2864_29_maskBit__383(a1);
  t5 = t2 | t5;
  (*t4) = t5;
  return;
 }
 
-static void bit_set_IntegerBitSet_2864_29_unset__365(uint64_t *const a0, uintptr_t const a1) {
+static void bit_set_IntegerBitSet_2864_29_unset__364(uint64_t *const a0, uintptr_t const a1) {
  uint64_t *const *t1;
  uint64_t t2;
  uint64_t t5;
@@ -1327,7 +1372,7 @@ static void bit_set_IntegerBitSet_2864_29_unset__365(uint64_t *const a0, uintptr
  t4 = (*t1);
  t4 = (uint64_t *)((uint8_t *)t4 + (uintptr_t)0ul);
  t2 = (*t4);
- t5 = bit_set_IntegerBitSet_2864_29_maskBit__384(a1);
+ t5 = bit_set_IntegerBitSet_2864_29_maskBit__383(a1);
  t5 = zig_not_u64(t5, UINT8_C(64));
  t5 = t2 & t5;
  (*t4) = t5;
@@ -1346,7 +1391,7 @@ static void debug_assert__180(bool const a0) {
  return;
 }
 
-static uint64_t bit_set_IntegerBitSet_2864_29_maskBit__384(uintptr_t const a0) {
+static uint64_t bit_set_IntegerBitSet_2864_29_maskBit__383(uintptr_t const a0) {
  uint64_t t1;
  uint8_t t0;
  t0 = (uint8_t)a0;
@@ -1354,103 +1399,123 @@ static uint64_t bit_set_IntegerBitSet_2864_29_maskBit__384(uintptr_t const a0) {
  return t1;
 }
 
-static nav__1073_39 fifo_UnixPipe_openPipe__1073(nav__1073_41 const a0) {
- nav__1073_39 t1;
- struct fs_File__608 t2;
+static nav__739_39 instruments_valgrind_ValgrindInstrument_init__739(struct mem_Allocator__589 const a0) {
+ struct instruments_valgrind_ValgrindInstrument__554 t2;
+ nav__739_39 t3;
+ uint8_t t0;
+ bool t1;
+ t0 = running_on_valgrind();
+ t1 = t0 > UINT8_C(0);
+ t1 = !t1;
+ if (t1) {
+  return (nav__739_39){{{((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__592 const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul)}},zig_error_NotInstrumented};
+ }
+ goto zig_block_0;
+
+ zig_block_0:;
+ t2.allocator = a0;
+ t3.payload = t2;
+ t3.error = UINT16_C(0);
+ return t3;
+}
+
+static nav__1114_39 fifo_UnixPipe_openPipe__1114(nav__1114_41 const a0) {
+ nav__1114_39 t1;
+ struct fs_File__636 t2;
  int32_t t3;
  uint16_t t0;
- t0 = fs_accessAbsolute__1141(a0, (struct fs_File_OpenFlags__1858){UINT8_C(2),UINT8_C(0),false,false});
+ t0 = fs_accessAbsolute__1182(a0, (struct fs_File_OpenFlags__1938){UINT8_C(2),UINT8_C(0),false,false});
  if (t0) {
-  t1.payload = (struct fs_File__608){-INT32_C(0x55555556)};
+  t1.payload = (struct fs_File__636){-INT32_C(0x55555556)};
   t1.error = t0;
   return t1;
  }
- t1 = fs_openFileAbsolute__1138(a0, (struct fs_File_OpenFlags__1858){UINT8_C(2),UINT8_C(0),false,false});
+ t1 = fs_openFileAbsolute__1179(a0, (struct fs_File_OpenFlags__1938){UINT8_C(2),UINT8_C(0),false,false});
  if (t1.error) {
   t0 = t1.error;
-  t1.payload = (struct fs_File__608){-INT32_C(0x55555556)};
+  t1.payload = (struct fs_File__636){-INT32_C(0x55555556)};
   t1.error = t0;
   return t1;
  }
  t2 = t1.payload;
  t3 = t2.handle;
- utils_setNonBlocking__3834(t3);
+ utils_setNonBlocking__3870(t3);
  t1.payload = t2;
  t1.error = UINT16_C(0);
  return t1;
 }
 
-static nav__1075_39 fifo_UnixPipe_openWrite__1075(struct mem_Allocator__565 const a0, nav__1075_42 const a1) {
- nav__1075_39 t2;
- struct fifo_UnixPipe_Writer__600 t4;
- nav__1075_54 t0;
- struct fs_File__608 t3;
+static nav__1116_39 fifo_UnixPipe_openWrite__1116(struct mem_Allocator__589 const a0, nav__1116_42 const a1) {
+ nav__1116_39 t2;
+ struct fifo_UnixPipe_Writer__628 t4;
+ nav__1116_54 t0;
+ struct fs_File__636 t3;
  uint16_t t1;
- t0 = fifo_UnixPipe_openPipe__1073(a1);
+ t0 = fifo_UnixPipe_openPipe__1114(a1);
  if (t0.error) {
   t1 = t0.error;
-  t2.payload = (struct fifo_UnixPipe_Writer__600){{((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__568 const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul)},{-INT32_C(0x55555556)}};
+  t2.payload = (struct fifo_UnixPipe_Writer__628){{((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__592 const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul)},{-INT32_C(0x55555556)}};
   t2.error = t1;
   return t2;
  }
  t3 = t0.payload;
- t4 = fifo_UnixPipe_Writer_init__1076(t3, a0);
+ t4 = fifo_UnixPipe_Writer_init__1117(t3, a0);
  t2.payload = t4;
  t2.error = UINT16_C(0);
  return t2;
 }
 
-static nav__1074_39 fifo_UnixPipe_openRead__1074(struct mem_Allocator__565 const a0, nav__1074_42 const a1) {
- nav__1074_39 t2;
- struct fifo_UnixPipe_Reader__602 t4;
- nav__1074_54 t0;
- struct fs_File__608 t3;
+static nav__1115_39 fifo_UnixPipe_openRead__1115(struct mem_Allocator__589 const a0, nav__1115_42 const a1) {
+ nav__1115_39 t2;
+ struct fifo_UnixPipe_Reader__630 t4;
+ nav__1115_54 t0;
+ struct fs_File__636 t3;
  uint16_t t1;
- t0 = fifo_UnixPipe_openPipe__1073(a1);
+ t0 = fifo_UnixPipe_openPipe__1114(a1);
  if (t0.error) {
   t1 = t0.error;
-  t2.payload = (struct fifo_UnixPipe_Reader__602){{((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__568 const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul)},{-INT32_C(0x55555556)}};
+  t2.payload = (struct fifo_UnixPipe_Reader__630){{((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__592 const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul)},{-INT32_C(0x55555556)}};
   t2.error = t1;
   return t2;
  }
  t3 = t0.payload;
- t4 = fifo_UnixPipe_Reader_init__1081(t3, a0);
+ t4 = fifo_UnixPipe_Reader_init__1122(t3, a0);
  t2.payload = t4;
  t2.error = UINT16_C(0);
  return t2;
 }
 
-static nav__750_39 instruments_perf_PerfInstrument_init__750(struct mem_Allocator__565 const a0) {
- struct instruments_perf_PerfInstrument__559 *t1;
- struct mem_Allocator__565 *t2;
- struct fifo_UnixPipe_Writer__600 *t3;
- nav__750_61 t4;
- nav__750_39 t6;
- nav__750_39 t0;
- struct fifo_UnixPipe_Writer__600 t7;
- struct fifo_UnixPipe_Reader__602 *t8;
- nav__750_66 t9;
- struct fifo_UnixPipe_Reader__602 t10;
+static nav__1082_39 runner_fifo_RunnerFifo_init__1082(struct mem_Allocator__589 const a0) {
+ struct runner_fifo_RunnerFifo__621 *t1;
+ struct mem_Allocator__589 *t2;
+ struct fifo_UnixPipe_Writer__628 *t3;
+ nav__1082_61 t4;
+ nav__1082_39 t6;
+ nav__1082_39 t0;
+ struct fifo_UnixPipe_Writer__628 t7;
+ struct fifo_UnixPipe_Reader__630 *t8;
+ nav__1082_66 t9;
+ struct fifo_UnixPipe_Reader__630 t10;
  uint16_t t5;
  t0.error = UINT16_C(0);
  t1 = &t0.payload;
- t2 = (struct mem_Allocator__565 *)&t1->allocator;
+ t2 = (struct mem_Allocator__589 *)&t1->allocator;
  (*t2) = a0;
- t3 = (struct fifo_UnixPipe_Writer__600 *)&t1->writer;
- t4 = fifo_UnixPipe_openWrite__1075(a0, (nav__750_59){(uint8_t const *)&__anon_1845,(uintptr_t)20ul});
+ t3 = (struct fifo_UnixPipe_Writer__628 *)&t1->writer;
+ t4 = fifo_UnixPipe_openWrite__1116(a0, (nav__1082_59){(uint8_t const *)&__anon_1925,(uintptr_t)20ul});
  if (t4.error) {
   t5 = t4.error;
-  t6.payload = (struct instruments_perf_PerfInstrument__559){{((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__568 const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul)},{{((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__568 const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul)},{-INT32_C(0x55555556)}},{{((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__568 const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul)},{-INT32_C(0x55555556)}}};
+  t6.payload = (struct runner_fifo_RunnerFifo__621){{((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__592 const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul)},{{((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__592 const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul)},{-INT32_C(0x55555556)}},{{((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__592 const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul)},{-INT32_C(0x55555556)}}};
   t6.error = t5;
   return t6;
  }
  t7 = t4.payload;
  (*t3) = t7;
- t8 = (struct fifo_UnixPipe_Reader__602 *)&t1->reader;
- t9 = fifo_UnixPipe_openRead__1074(a0, (nav__750_59){(uint8_t const *)&__anon_1916,(uintptr_t)20ul});
+ t8 = (struct fifo_UnixPipe_Reader__630 *)&t1->reader;
+ t9 = fifo_UnixPipe_openRead__1115(a0, (nav__1082_59){(uint8_t const *)&__anon_1996,(uintptr_t)20ul});
  if (t9.error) {
   t5 = t9.error;
-  t6.payload = (struct instruments_perf_PerfInstrument__559){{((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__568 const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul)},{{((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__568 const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul)},{-INT32_C(0x55555556)}},{{((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__568 const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul)},{-INT32_C(0x55555556)}}};
+  t6.payload = (struct runner_fifo_RunnerFifo__621){{((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__592 const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul)},{{((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__592 const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul)},{-INT32_C(0x55555556)}},{{((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__592 const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul)},{-INT32_C(0x55555556)}}};
   t6.error = t5;
   return t6;
  }
@@ -1459,166 +1524,117 @@ static nav__750_39 instruments_perf_PerfInstrument_init__750(struct mem_Allocato
  return t0;
 }
 
-static nav__725_39 instruments_root_InstrumentHooks_init__725(struct mem_Allocator__565 const a0) {
- struct instruments_valgrind_ValgrindInstrument__554 t2;
- struct instruments_root_InstrumentHooks__547 t3;
- nav__725_39 t4;
- struct instruments_perf_PerfInstrument__559 t6;
- struct instruments_perf_PerfInstrument__559 t8;
- struct instruments_perf_PerfInstrument__559 t5;
- nav__725_60 t7;
- uint8_t t0;
- bool t1;
- t0 = running_on_valgrind();
- t1 = t0 > UINT8_C(0);
- if (t1) {
-  t2 = instruments_valgrind_ValgrindInstrument_init__738(a0);
-  t3.tag = UINT8_C(0);
-  t3.payload.valgrind = t2;
-  t4.payload = t3;
-  t4.error = UINT16_C(0);
-  return t4;
- }
- goto zig_block_0;
-
- zig_block_0:;
- t7 = instruments_perf_PerfInstrument_init__750(a0);
- t1 = t7.error == UINT16_C(0);
- if (t1) {
-  t8 = t7.payload;
-  t6 = t8;
-  goto zig_block_1;
- }
- return (nav__725_39){{{{{((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__568 const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul)}}},UINT8_C(2)},0};
-
- zig_block_1:;
- t5 = t6;
- t1 = instruments_perf_PerfInstrument_is_instrumented__753(&t5);
- if (t1) {
-  t6 = t5;
-  t3.tag = UINT8_C(1);
-  t3.payload.perf = t6;
-  t4.payload = t3;
-  t4.error = UINT16_C(0);
-  return t4;
- }
- goto zig_block_2;
-
- zig_block_2:;
- return (nav__725_39){{{{{((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__568 const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul)}}},UINT8_C(2)},0};
-}
-
-static uint16_t fifo_UnixPipe_Writer_sendCmd__1079(struct fifo_UnixPipe_Writer__600 *const a0, struct shared_Command__1946 const a1) {
- struct fifo_UnixPipe_Writer__600 *const *t1;
- struct mem_Allocator__565 *t3;
- struct mem_Allocator__565 t4;
- struct array_list_ArrayListAligned_28u8_2cnull_29__1974 t5;
- struct array_list_ArrayListAligned_28u8_2cnull_29__1974 t2;
- struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 t6;
- nav__1079_60 t8;
- struct fifo_UnixPipe_Writer__600 *t9;
- struct fifo_UnixPipe_Writer__600 *t0;
- struct fs_File__608 *t10;
+static uint16_t fifo_UnixPipe_Writer_sendCmd__1120(struct fifo_UnixPipe_Writer__628 *const a0, struct shared_Command__2014 const a1) {
+ struct fifo_UnixPipe_Writer__628 *const *t1;
+ struct mem_Allocator__589 *t3;
+ struct mem_Allocator__589 t4;
+ struct array_list_ArrayListAligned_28u8_2cnull_29__2043 t5;
+ struct array_list_ArrayListAligned_28u8_2cnull_29__2043 t2;
+ struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 t6;
+ nav__1120_60 t8;
+ struct fifo_UnixPipe_Writer__628 *t9;
+ struct fifo_UnixPipe_Writer__628 *t0;
+ struct fs_File__636 *t10;
  uintptr_t t12;
  uint32_t const *t15;
  uint8_t const (*t16)[4];
- nav__1079_44 t17;
- struct fs_File__608 t11;
+ nav__1120_44 t17;
+ struct fs_File__636 t11;
  uint32_t t13;
  uint32_t t14;
  uint16_t t7;
  t0 = a0;
- t1 = (struct fifo_UnixPipe_Writer__600 *const *)&t0;
- t3 = (struct mem_Allocator__565 *)&a0->allocator;
+ t1 = (struct fifo_UnixPipe_Writer__628 *const *)&t0;
+ t3 = (struct mem_Allocator__589 *)&a0->allocator;
  t4 = (*t3);
- t5 = array_list_ArrayListAligned_28u8_2cnull_29_init__3890(t4);
+ t5 = array_list_ArrayListAligned_28u8_2cnull_29_init__3926(t4);
  t2 = t5;
- t6 = array_list_ArrayListAligned_28u8_2cnull_29_writer__3915(&t2);
- t7 = bincode_serialize__anon_2015__4064(t6, a1);
+ t6 = array_list_ArrayListAligned_28u8_2cnull_29_writer__3951(&t2);
+ t7 = bincode_serialize__anon_2084__4100(t6, a1);
  if (t7) {
   t5 = t2;
-  array_list_ArrayListAligned_28u8_2cnull_29_deinit__3892(t5);
+  array_list_ArrayListAligned_28u8_2cnull_29_deinit__3928(t5);
   return t7;
  }
  t5 = t2;
  t8 = t5.items;
  t9 = (*t1);
- t10 = (struct fs_File__608 *)&t9->file;
+ t10 = (struct fs_File__636 *)&t9->file;
  t11 = (*t10);
  t12 = t8.len;
  t13 = (uint32_t)t12;
  t14 = t13;
  t15 = (uint32_t const *)&t14;
- t16 = mem_asBytes__anon_2057__4065(t15);
+ t16 = mem_asBytes__anon_2126__4101(t15);
  t17.ptr = &(*t16)[(uintptr_t)0ul];
  t17.len = (uintptr_t)4ul;
- t7 = fs_File_writeAll__1232(t11, t17);
+ t7 = fs_File_writeAll__1273(t11, t17);
  if (t7) {
   t5 = t2;
-  array_list_ArrayListAligned_28u8_2cnull_29_deinit__3892(t5);
+  array_list_ArrayListAligned_28u8_2cnull_29_deinit__3928(t5);
   return t7;
  }
  t9 = (*t1);
- t10 = (struct fs_File__608 *)&t9->file;
+ t10 = (struct fs_File__636 *)&t9->file;
  t11 = (*t10);
- memcpy(&t17, &t8, sizeof(nav__1079_44));
- t7 = fs_File_writeAll__1232(t11, t17);
+ memcpy(&t17, &t8, sizeof(nav__1120_44));
+ t7 = fs_File_writeAll__1273(t11, t17);
  if (t7) {
   t5 = t2;
-  array_list_ArrayListAligned_28u8_2cnull_29_deinit__3892(t5);
+  array_list_ArrayListAligned_28u8_2cnull_29_deinit__3928(t5);
   return t7;
  }
  t5 = t2;
- array_list_ArrayListAligned_28u8_2cnull_29_deinit__3892(t5);
+ array_list_ArrayListAligned_28u8_2cnull_29_deinit__3928(t5);
  return 0;
 }
 
-static nav__4176_38 bincode_deserializeInt__anon_2322__4176(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 const a0) {
- struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 const *t1;
- struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 const *t4;
- struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 t2;
- struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 t0;
- struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 t3;
- struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 const *const *t5;
+static nav__4212_38 bincode_deserializeInt__anon_2396__4212(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 const a0) {
+ struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 const *t1;
+ struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 const *t4;
+ struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 t2;
+ struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 t0;
+ struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 t3;
+ struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 const *const *t5;
  void const **t7;
- struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 *const *t8;
+ struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 *const *t8;
  void const *t9;
- nav__4176_50 (**t10)(void const *, nav__4176_52);
- struct io_Reader__2337 t11;
- struct io_Reader__2337 t6;
- struct io_Reader__2337 t12;
- struct io_Reader__2337 t15;
- struct io_Reader__2337 const *t13;
+ nav__4212_50 (**t10)(void const *, nav__4212_52);
+ struct io_Reader__2411 t11;
+ struct io_Reader__2411 t6;
+ struct io_Reader__2411 t12;
+ struct io_Reader__2411 t15;
+ struct io_Reader__2411 const *t13;
  uint8_t const (*t21)[4];
- nav__4176_38 t14;
- nav__4176_38 t18;
+ nav__4212_38 t14;
+ nav__4212_38 t18;
  uint32_t t22;
- nav__4176_64 t16;
+ nav__4212_64 t16;
  uint16_t t17;
  uint8_t t19[4];
  uint8_t t20[4];
  t0 = a0;
- t1 = (struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 const *)&t0;
+ t1 = (struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 const *)&t0;
  t2 = (*t1);
  t3 = t2;
- t1 = (struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 const *)&t3;
+ t1 = (struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 const *)&t3;
  t4 = t1;
- t5 = (struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 const *const *)&t4;
+ t5 = (struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 const *const *)&t4;
  t7 = (void const **)&t6.context;
  t1 = (*t5);
- t8 = (struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 *const *)&t1->context;
+ t8 = (struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 *const *)&t1->context;
  t9 = (void const *)t8;
  (*t7) = t9;
- t10 = (nav__4176_50 (**)(void const *, nav__4176_52))&t6.readFn;
- (*t10) = &io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29_typeEras__4172;
+ t10 = (nav__4212_50 (**)(void const *, nav__4212_52))&t6.readFn;
+ (*t10) = &io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29_typeEras__4208;
  t11 = t6;
  t12 = t11;
- t13 = (struct io_Reader__2337 const *)&t12;
+ t13 = (struct io_Reader__2411 const *)&t12;
  t11 = (*t13);
  t15 = t11;
- t13 = (struct io_Reader__2337 const *)&t15;
+ t13 = (struct io_Reader__2411 const *)&t15;
  t11 = (*t13);
- t16 = io_Reader_readBytesNoEof__anon_2368__4214(t11);
+ t16 = io_Reader_readBytesNoEof__anon_2442__4250(t11);
  if (t16.error) {
   t17 = t16.error;
   t18.payload = UINT32_C(0xaaaaaaaa);
@@ -1638,7 +1654,7 @@ static nav__4176_38 bincode_deserializeInt__anon_2322__4176(struct io_GenericRea
  goto zig_block_0;
 
  zig_block_0:;
- memcpy(&t18, &t14, sizeof(nav__4176_38));
+ memcpy(&t18, &t14, sizeof(nav__4212_38));
  if (t18.error) {
   t17 = t18.error;
   t18.payload = UINT32_C(0xaaaaaaaa);
@@ -1651,12 +1667,12 @@ static nav__4176_38 bincode_deserializeInt__anon_2322__4176(struct io_GenericRea
  return t18;
 }
 
-static nav__4175_38 bincode_deserializeAlloc__anon_2311__4175(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 const a0, struct mem_Allocator__565 const a1) {
- nav__4175_38 t0;
+static nav__4211_38 bincode_deserializeAlloc__anon_2385__4211(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 const a0, struct mem_Allocator__589 const a1) {
+ nav__4211_38 t0;
  uint32_t t2;
  uint16_t t1;
  (void)a1;
- t0 = bincode_deserializeInt__anon_2322__4176(a0);
+ t0 = bincode_deserializeInt__anon_2396__4212(a0);
  if (t0.error) {
   t1 = t0.error;
   t0.payload = UINT32_C(0xaaaaaaaa);
@@ -1669,71 +1685,71 @@ static nav__4175_38 bincode_deserializeAlloc__anon_2311__4175(struct io_GenericR
  return t0;
 }
 
-static nav__4218_40 bincode_deserializePointerAlloc__anon_2448__4218(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 const a0, struct mem_Allocator__565 const a1) {
- struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 const *t1;
- struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 const *t6;
- struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 const *t7;
- struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 const *t32;
- struct mem_Allocator__565 const *t3;
- struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 t4;
- struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 t0;
- struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 t5;
- struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 t31;
- struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 const *const *t8;
+static nav__4254_40 bincode_deserializePointerAlloc__anon_2522__4254(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 const a0, struct mem_Allocator__589 const a1) {
+ struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 const *t1;
+ struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 const *t6;
+ struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 const *t7;
+ struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 const *t32;
+ struct mem_Allocator__589 const *t3;
+ struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 t4;
+ struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 t0;
+ struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 t5;
+ struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 t31;
+ struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 const *const *t8;
  void const **t10;
- struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 *const *t11;
+ struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 *const *t11;
  void const *t12;
- nav__4218_59 (**t13)(void const *, nav__4218_39);
- struct io_Reader__2337 t14;
- struct io_Reader__2337 t9;
- struct io_Reader__2337 t15;
- struct io_Reader__2337 t18;
- struct io_Reader__2337 t33;
- struct io_Reader__2337 t34;
- struct io_Reader__2337 const *t16;
- nav__4218_69 t17;
- nav__4218_69 t21;
+ nav__4254_59 (**t13)(void const *, nav__4254_39);
+ struct io_Reader__2411 t14;
+ struct io_Reader__2411 t9;
+ struct io_Reader__2411 t15;
+ struct io_Reader__2411 t18;
+ struct io_Reader__2411 t33;
+ struct io_Reader__2411 t34;
+ struct io_Reader__2411 const *t16;
+ nav__4254_69 t17;
+ nav__4254_69 t21;
  uint8_t const (*t24)[8];
  uint64_t t25;
  uint64_t t38;
- nav__4218_40 t26;
+ nav__4254_40 t26;
  uintptr_t t27;
  uintptr_t t37;
- struct mem_Allocator__565 t29;
- struct mem_Allocator__565 t2;
- nav__4218_39 t30;
- nav__4218_39 t28;
- nav__4218_59 t35;
- nav__4218_59 t36;
- nav__4218_72 t19;
+ struct mem_Allocator__589 t29;
+ struct mem_Allocator__589 t2;
+ nav__4254_39 t30;
+ nav__4254_39 t28;
+ nav__4254_59 t35;
+ nav__4254_59 t36;
+ nav__4254_72 t19;
  uint16_t t20;
  uint8_t t22[8];
  uint8_t t23[8];
  bool t39;
  t0 = a0;
- t1 = (struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 const *)&t0;
+ t1 = (struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 const *)&t0;
  t2 = a1;
- t3 = (struct mem_Allocator__565 const *)&t2;
+ t3 = (struct mem_Allocator__589 const *)&t2;
  t4 = (*t1);
  t5 = t4;
- t6 = (struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 const *)&t5;
+ t6 = (struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 const *)&t5;
  t7 = t6;
- t8 = (struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 const *const *)&t7;
+ t8 = (struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 const *const *)&t7;
  t10 = (void const **)&t9.context;
  t6 = (*t8);
- t11 = (struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 *const *)&t6->context;
+ t11 = (struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 *const *)&t6->context;
  t12 = (void const *)t11;
  (*t10) = t12;
- t13 = (nav__4218_59 (**)(void const *, nav__4218_39))&t9.readFn;
- (*t13) = &io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29_typeEras__4172;
+ t13 = (nav__4254_59 (**)(void const *, nav__4254_39))&t9.readFn;
+ (*t13) = &io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29_typeEras__4208;
  t14 = t9;
  t15 = t14;
- t16 = (struct io_Reader__2337 const *)&t15;
+ t16 = (struct io_Reader__2411 const *)&t15;
  t14 = (*t16);
  t18 = t14;
- t16 = (struct io_Reader__2337 const *)&t18;
+ t16 = (struct io_Reader__2411 const *)&t18;
  t14 = (*t16);
- t19 = io_Reader_readBytesNoEof__anon_2461__4219(t14);
+ t19 = io_Reader_readBytesNoEof__anon_2535__4255(t14);
  if (t19.error) {
   t20 = t19.error;
   t21.payload = UINT64_C(0xaaaaaaaaaaaaaaaa);
@@ -1753,20 +1769,20 @@ static nav__4218_40 bincode_deserializePointerAlloc__anon_2448__4218(struct io_G
  goto zig_block_0;
 
  zig_block_0:;
- memcpy(&t21, &t17, sizeof(nav__4218_69));
+ memcpy(&t21, &t17, sizeof(nav__4254_69));
  if (t21.error) {
   t20 = t21.error;
-  t26.payload = (nav__4218_39){(uint8_t *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul};
+  t26.payload = (nav__4254_39){(uint8_t *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul};
   t26.error = t20;
   return t26;
  }
  t25 = t21.payload;
  t27 = t25;
  t29 = (*t3);
- t26 = mem_Allocator_alloc__anon_2153__4106(t29, t27);
+ t26 = mem_Allocator_alloc__anon_2216__4142(t29, t27);
  if (t26.error) {
   t20 = t26.error;
-  t26.payload = (nav__4218_39){(uint8_t *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul};
+  t26.payload = (nav__4254_39){(uint8_t *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul};
   t26.error = t20;
   return t26;
  }
@@ -1775,28 +1791,28 @@ static nav__4218_40 bincode_deserializePointerAlloc__anon_2448__4218(struct io_G
  t4 = (*t1);
  t30 = t28;
  t31 = t4;
- t1 = (struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 const *)&t31;
+ t1 = (struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 const *)&t31;
  t32 = t1;
- t8 = (struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 const *const *)&t32;
+ t8 = (struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 const *const *)&t32;
  t10 = (void const **)&t33.context;
  t1 = (*t8);
- t11 = (struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 *const *)&t1->context;
+ t11 = (struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 *const *)&t1->context;
  t12 = (void const *)t11;
  (*t10) = t12;
- t13 = (nav__4218_59 (**)(void const *, nav__4218_39))&t33.readFn;
- (*t13) = &io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29_typeEras__4172;
+ t13 = (nav__4254_59 (**)(void const *, nav__4254_39))&t33.readFn;
+ (*t13) = &io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29_typeEras__4208;
  t14 = t33;
  t34 = t14;
- t16 = (struct io_Reader__2337 const *)&t34;
+ t16 = (struct io_Reader__2411 const *)&t34;
  t14 = (*t16);
- t35 = io_Reader_readAll__4179(t14, t30);
- memcpy(&t36, &t35, sizeof(nav__4218_59));
+ t35 = io_Reader_readAll__4215(t14, t30);
+ memcpy(&t36, &t35, sizeof(nav__4254_59));
  t37 = t36.payload;
  t25 = t37;
  t38 = t27;
  t39 = t25 != t38;
  if (t39) {
-  bincode_invalidProtocol__anon_2485__4220();
+  bincode_invalidProtocol__anon_2559__4256();
   zig_unreachable();
  }
  goto zig_block_1;
@@ -1808,52 +1824,52 @@ static nav__4218_40 bincode_deserializePointerAlloc__anon_2448__4218(struct io_G
  return t26;
 }
 
-static nav__4217_40 bincode_deserializeAlloc__anon_2435__4217(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 const a0, struct mem_Allocator__565 const a1) {
- nav__4217_57 t0;
- nav__4217_40 t2;
- nav__4217_55 t3;
- nav__4217_39 t4;
+static nav__4253_40 bincode_deserializeAlloc__anon_2509__4253(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 const a0, struct mem_Allocator__589 const a1) {
+ nav__4253_57 t0;
+ nav__4253_40 t2;
+ nav__4253_55 t3;
+ nav__4253_39 t4;
  uint16_t t1;
- t0 = bincode_deserializePointerAlloc__anon_2448__4218(a0, a1);
+ t0 = bincode_deserializePointerAlloc__anon_2522__4254(a0, a1);
  if (t0.error) {
   t1 = t0.error;
-  t2.payload = (nav__4217_39){(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul};
+  t2.payload = (nav__4253_39){(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul};
   t2.error = t1;
   return t2;
  }
  t3 = t0.payload;
- memcpy(&t4, &t3, sizeof(nav__4217_39));
+ memcpy(&t4, &t3, sizeof(nav__4253_39));
  t2.payload = t4;
  t2.error = UINT16_C(0);
  return t2;
 }
 
-static nav__4216_39 bincode_deserializeStructAlloc__anon_2410__4216(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 const a0, struct mem_Allocator__565 const a1) {
+static nav__4252_39 bincode_deserializeStructAlloc__anon_2484__4252(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 const a0, struct mem_Allocator__589 const a1) {
  uint32_t *t1;
- nav__4216_39 t4;
- nav__4216_44 *t6;
- nav__4216_60 t7;
- nav__4216_44 t8;
- struct shared_Command__struct_1949__1949 t9;
- struct shared_Command__struct_1949__1949 t0;
- nav__4216_57 t2;
+ nav__4252_39 t4;
+ nav__4252_44 *t6;
+ nav__4252_60 t7;
+ nav__4252_44 t8;
+ struct shared_Command__struct_2017__2017 t9;
+ struct shared_Command__struct_2017__2017 t0;
+ nav__4252_57 t2;
  uint32_t t5;
  uint16_t t3;
  t1 = (uint32_t *)&t0.pid;
- t2 = bincode_deserializeAlloc__anon_2311__4175(a0, a1);
+ t2 = bincode_deserializeAlloc__anon_2385__4211(a0, a1);
  if (t2.error) {
   t3 = t2.error;
-  t4.payload = (struct shared_Command__struct_1949__1949){{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)};
+  t4.payload = (struct shared_Command__struct_2017__2017){{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)};
   t4.error = t3;
   return t4;
  }
  t5 = t2.payload;
  (*t1) = t5;
- t6 = (nav__4216_44 *)&t0.uri;
- t7 = bincode_deserializeAlloc__anon_2435__4217(a0, a1);
+ t6 = (nav__4252_44 *)&t0.uri;
+ t7 = bincode_deserializeAlloc__anon_2509__4253(a0, a1);
  if (t7.error) {
   t3 = t7.error;
-  t4.payload = (struct shared_Command__struct_1949__1949){{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)};
+  t4.payload = (struct shared_Command__struct_2017__2017){{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)};
   t4.error = t3;
   return t4;
  }
@@ -1865,14 +1881,14 @@ static nav__4216_39 bincode_deserializeStructAlloc__anon_2410__4216(struct io_Ge
  return t4;
 }
 
-static nav__4215_39 bincode_deserializeAlloc__anon_2381__4215(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 const a0, struct mem_Allocator__565 const a1) {
- nav__4215_39 t0;
- struct shared_Command__struct_1949__1949 t2;
+static nav__4251_39 bincode_deserializeAlloc__anon_2455__4251(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 const a0, struct mem_Allocator__589 const a1) {
+ nav__4251_39 t0;
+ struct shared_Command__struct_2017__2017 t2;
  uint16_t t1;
- t0 = bincode_deserializeStructAlloc__anon_2410__4216(a0, a1);
+ t0 = bincode_deserializeStructAlloc__anon_2484__4252(a0, a1);
  if (t0.error) {
   t1 = t0.error;
-  t0.payload = (struct shared_Command__struct_1949__1949){{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)};
+  t0.payload = (struct shared_Command__struct_2017__2017){{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)};
   t0.error = t1;
   return t0;
  }
@@ -1882,35 +1898,35 @@ static nav__4215_39 bincode_deserializeAlloc__anon_2381__4215(struct io_GenericR
  return t0;
 }
 
-static uint16_t bincode_deserializeAlloc__anon_2500__4221(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 const a0, struct mem_Allocator__565 const a1) {
+static uint16_t bincode_deserializeAlloc__anon_2574__4257(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 const a0, struct mem_Allocator__589 const a1) {
  (void)a0;
  (void)a1;
  return 0;
 }
 
-static nav__4223_39 bincode_deserializeStructAlloc__anon_2564__4223(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 const a0, struct mem_Allocator__565 const a1) {
- nav__4223_44 *t1;
- nav__4223_57 t2;
- nav__4223_39 t4;
- nav__4223_44 t5;
- struct shared_Command__struct_1950__1950 t6;
- struct shared_Command__struct_1950__1950 t0;
+static nav__4259_39 bincode_deserializeStructAlloc__anon_2638__4259(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 const a0, struct mem_Allocator__589 const a1) {
+ nav__4259_44 *t1;
+ nav__4259_57 t2;
+ nav__4259_39 t4;
+ nav__4259_44 t5;
+ struct shared_Command__struct_2018__2018 t6;
+ struct shared_Command__struct_2018__2018 t0;
  uint16_t t3;
- t1 = (nav__4223_44 *)&t0.name;
- t2 = bincode_deserializeAlloc__anon_2435__4217(a0, a1);
+ t1 = (nav__4259_44 *)&t0.name;
+ t2 = bincode_deserializeAlloc__anon_2509__4253(a0, a1);
  if (t2.error) {
   t3 = t2.error;
-  t4.payload = (struct shared_Command__struct_1950__1950){{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul}};
+  t4.payload = (struct shared_Command__struct_2018__2018){{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul}};
   t4.error = t3;
   return t4;
  }
  t5 = t2.payload;
  (*t1) = t5;
- t1 = (nav__4223_44 *)&t0.version;
- t2 = bincode_deserializeAlloc__anon_2435__4217(a0, a1);
+ t1 = (nav__4259_44 *)&t0.version;
+ t2 = bincode_deserializeAlloc__anon_2509__4253(a0, a1);
  if (t2.error) {
   t3 = t2.error;
-  t4.payload = (struct shared_Command__struct_1950__1950){{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul}};
+  t4.payload = (struct shared_Command__struct_2018__2018){{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul}};
   t4.error = t3;
   return t4;
  }
@@ -1922,14 +1938,14 @@ static nav__4223_39 bincode_deserializeStructAlloc__anon_2564__4223(struct io_Ge
  return t4;
 }
 
-static nav__4222_39 bincode_deserializeAlloc__anon_2545__4222(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 const a0, struct mem_Allocator__565 const a1) {
- nav__4222_39 t0;
- struct shared_Command__struct_1950__1950 t2;
+static nav__4258_39 bincode_deserializeAlloc__anon_2619__4258(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 const a0, struct mem_Allocator__589 const a1) {
+ nav__4258_39 t0;
+ struct shared_Command__struct_2018__2018 t2;
  uint16_t t1;
- t0 = bincode_deserializeStructAlloc__anon_2564__4223(a0, a1);
+ t0 = bincode_deserializeStructAlloc__anon_2638__4259(a0, a1);
  if (t0.error) {
   t1 = t0.error;
-  t0.payload = (struct shared_Command__struct_1950__1950){{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul}};
+  t0.payload = (struct shared_Command__struct_2018__2018){{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul}};
   t0.error = t1;
   return t0;
  }
@@ -1939,52 +1955,52 @@ static nav__4222_39 bincode_deserializeAlloc__anon_2545__4222(struct io_GenericR
  return t0;
 }
 
-static nav__4229_38 bincode_deserializeInt__anon_2687__4229(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 const a0) {
- struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 const *t1;
- struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 const *t4;
- struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 t2;
- struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 t0;
- struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 t3;
- struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 const *const *t5;
+static nav__4265_38 bincode_deserializeInt__anon_2761__4265(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 const a0) {
+ struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 const *t1;
+ struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 const *t4;
+ struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 t2;
+ struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 t0;
+ struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 t3;
+ struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 const *const *t5;
  void const **t7;
- struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 *const *t8;
+ struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 *const *t8;
  void const *t9;
- nav__4229_50 (**t10)(void const *, nav__4229_52);
- struct io_Reader__2337 t11;
- struct io_Reader__2337 t6;
- struct io_Reader__2337 t12;
- struct io_Reader__2337 t15;
- struct io_Reader__2337 const *t13;
- nav__4229_38 t14;
- nav__4229_38 t18;
+ nav__4265_50 (**t10)(void const *, nav__4265_52);
+ struct io_Reader__2411 t11;
+ struct io_Reader__2411 t6;
+ struct io_Reader__2411 t12;
+ struct io_Reader__2411 t15;
+ struct io_Reader__2411 const *t13;
+ nav__4265_38 t14;
+ nav__4265_38 t18;
  uint8_t const (*t21)[8];
  uint64_t t22;
- nav__4229_64 t16;
+ nav__4265_64 t16;
  uint16_t t17;
  uint8_t t19[8];
  uint8_t t20[8];
  t0 = a0;
- t1 = (struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 const *)&t0;
+ t1 = (struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 const *)&t0;
  t2 = (*t1);
  t3 = t2;
- t1 = (struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 const *)&t3;
+ t1 = (struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 const *)&t3;
  t4 = t1;
- t5 = (struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 const *const *)&t4;
+ t5 = (struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 const *const *)&t4;
  t7 = (void const **)&t6.context;
  t1 = (*t5);
- t8 = (struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 *const *)&t1->context;
+ t8 = (struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 *const *)&t1->context;
  t9 = (void const *)t8;
  (*t7) = t9;
- t10 = (nav__4229_50 (**)(void const *, nav__4229_52))&t6.readFn;
- (*t10) = &io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29_typeEras__4172;
+ t10 = (nav__4265_50 (**)(void const *, nav__4265_52))&t6.readFn;
+ (*t10) = &io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29_typeEras__4208;
  t11 = t6;
  t12 = t11;
- t13 = (struct io_Reader__2337 const *)&t12;
+ t13 = (struct io_Reader__2411 const *)&t12;
  t11 = (*t13);
  t15 = t11;
- t13 = (struct io_Reader__2337 const *)&t15;
+ t13 = (struct io_Reader__2411 const *)&t15;
  t11 = (*t13);
- t16 = io_Reader_readBytesNoEof__anon_2461__4219(t11);
+ t16 = io_Reader_readBytesNoEof__anon_2535__4255(t11);
  if (t16.error) {
   t17 = t16.error;
   t18.payload = UINT64_C(0xaaaaaaaaaaaaaaaa);
@@ -2004,7 +2020,7 @@ static nav__4229_38 bincode_deserializeInt__anon_2687__4229(struct io_GenericRea
  goto zig_block_0;
 
  zig_block_0:;
- memcpy(&t18, &t14, sizeof(nav__4229_38));
+ memcpy(&t18, &t14, sizeof(nav__4265_38));
  if (t18.error) {
   t17 = t18.error;
   t18.payload = UINT64_C(0xaaaaaaaaaaaaaaaa);
@@ -2017,12 +2033,12 @@ static nav__4229_38 bincode_deserializeInt__anon_2687__4229(struct io_GenericRea
  return t18;
 }
 
-static nav__4228_38 bincode_deserializeAlloc__anon_2682__4228(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 const a0, struct mem_Allocator__565 const a1) {
- nav__4228_38 t0;
+static nav__4264_38 bincode_deserializeAlloc__anon_2756__4264(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 const a0, struct mem_Allocator__589 const a1) {
+ nav__4264_38 t0;
  uint64_t t2;
  uint16_t t1;
  (void)a1;
- t0 = bincode_deserializeInt__anon_2687__4229(a0);
+ t0 = bincode_deserializeInt__anon_2761__4265(a0);
  if (t0.error) {
   t1 = t0.error;
   t0.payload = UINT64_C(0xaaaaaaaaaaaaaaaa);
@@ -2035,20 +2051,20 @@ static nav__4228_38 bincode_deserializeAlloc__anon_2682__4228(struct io_GenericR
  return t0;
 }
 
-static nav__4227_39 bincode_deserializeUnionAlloc__anon_2669__4227(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 const a0, struct mem_Allocator__565 const a1) {
- nav__4227_39 t2;
- nav__4227_56 t6;
+static nav__4263_39 bincode_deserializeUnionAlloc__anon_2743__4263(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 const a0, struct mem_Allocator__589 const a1) {
+ nav__4263_39 t2;
+ nav__4263_56 t6;
  uint64_t t7;
- struct shared_MarkerType__1953 t8;
- nav__4227_54 t0;
+ struct shared_MarkerType__2021 t8;
+ nav__4263_54 t0;
  uint32_t t3;
  uint16_t t1;
  uint8_t t4;
  bool t5;
- t0 = bincode_deserializeAlloc__anon_2311__4175(a0, a1);
+ t0 = bincode_deserializeAlloc__anon_2385__4211(a0, a1);
  if (t0.error) {
   t1 = t0.error;
-  t2.payload = (struct shared_MarkerType__1953){{UINT64_C(0xaaaaaaaaaaaaaaaa)},UINT8_C(0x2)};
+  t2.payload = (struct shared_MarkerType__2021){{UINT64_C(0xaaaaaaaaaaaaaaaa)},UINT8_C(0x2)};
   t2.error = t1;
   return t2;
  }
@@ -2056,10 +2072,10 @@ static nav__4227_39 bincode_deserializeUnionAlloc__anon_2669__4227(struct io_Gen
  t4 = (uint8_t)t3;
  t5 = t4 == UINT8_C(0);
  if (t5) {
-  t6 = bincode_deserializeAlloc__anon_2682__4228(a0, a1);
+  t6 = bincode_deserializeAlloc__anon_2756__4264(a0, a1);
   if (t6.error) {
    t1 = t6.error;
-   t2.payload = (struct shared_MarkerType__1953){{UINT64_C(0xaaaaaaaaaaaaaaaa)},UINT8_C(0x2)};
+   t2.payload = (struct shared_MarkerType__2021){{UINT64_C(0xaaaaaaaaaaaaaaaa)},UINT8_C(0x2)};
    t2.error = t1;
    return t2;
   }
@@ -2075,10 +2091,10 @@ static nav__4227_39 bincode_deserializeUnionAlloc__anon_2669__4227(struct io_Gen
  zig_block_0:;
  t5 = t4 == UINT8_C(1);
  if (t5) {
-  t6 = bincode_deserializeAlloc__anon_2682__4228(a0, a1);
+  t6 = bincode_deserializeAlloc__anon_2756__4264(a0, a1);
   if (t6.error) {
    t1 = t6.error;
-   t2.payload = (struct shared_MarkerType__1953){{UINT64_C(0xaaaaaaaaaaaaaaaa)},UINT8_C(0x2)};
+   t2.payload = (struct shared_MarkerType__2021){{UINT64_C(0xaaaaaaaaaaaaaaaa)},UINT8_C(0x2)};
    t2.error = t1;
    return t2;
   }
@@ -2094,10 +2110,10 @@ static nav__4227_39 bincode_deserializeUnionAlloc__anon_2669__4227(struct io_Gen
  zig_block_1:;
  t5 = t4 == UINT8_C(2);
  if (t5) {
-  t6 = bincode_deserializeAlloc__anon_2682__4228(a0, a1);
+  t6 = bincode_deserializeAlloc__anon_2756__4264(a0, a1);
   if (t6.error) {
    t1 = t6.error;
-   t2.payload = (struct shared_MarkerType__1953){{UINT64_C(0xaaaaaaaaaaaaaaaa)},UINT8_C(0x2)};
+   t2.payload = (struct shared_MarkerType__2021){{UINT64_C(0xaaaaaaaaaaaaaaaa)},UINT8_C(0x2)};
    t2.error = t1;
    return t2;
   }
@@ -2113,10 +2129,10 @@ static nav__4227_39 bincode_deserializeUnionAlloc__anon_2669__4227(struct io_Gen
  zig_block_2:;
  t5 = t4 == UINT8_C(3);
  if (t5) {
-  t6 = bincode_deserializeAlloc__anon_2682__4228(a0, a1);
+  t6 = bincode_deserializeAlloc__anon_2756__4264(a0, a1);
   if (t6.error) {
    t1 = t6.error;
-   t2.payload = (struct shared_MarkerType__1953){{UINT64_C(0xaaaaaaaaaaaaaaaa)},UINT8_C(0x2)};
+   t2.payload = (struct shared_MarkerType__2021){{UINT64_C(0xaaaaaaaaaaaaaaaa)},UINT8_C(0x2)};
    t2.error = t1;
    return t2;
   }
@@ -2133,14 +2149,14 @@ static nav__4227_39 bincode_deserializeUnionAlloc__anon_2669__4227(struct io_Gen
  zig_unreachable();
 }
 
-static nav__4226_39 bincode_deserializeAlloc__anon_2635__4226(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 const a0, struct mem_Allocator__565 const a1) {
- nav__4226_39 t0;
- struct shared_MarkerType__1953 t2;
+static nav__4262_39 bincode_deserializeAlloc__anon_2709__4262(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 const a0, struct mem_Allocator__589 const a1) {
+ nav__4262_39 t0;
+ struct shared_MarkerType__2021 t2;
  uint16_t t1;
- t0 = bincode_deserializeUnionAlloc__anon_2669__4227(a0, a1);
+ t0 = bincode_deserializeUnionAlloc__anon_2743__4263(a0, a1);
  if (t0.error) {
   t1 = t0.error;
-  t0.payload = (struct shared_MarkerType__1953){{UINT64_C(0xaaaaaaaaaaaaaaaa)},UINT8_C(0x2)};
+  t0.payload = (struct shared_MarkerType__2021){{UINT64_C(0xaaaaaaaaaaaaaaaa)},UINT8_C(0x2)};
   t0.error = t1;
   return t0;
  }
@@ -2150,32 +2166,32 @@ static nav__4226_39 bincode_deserializeAlloc__anon_2635__4226(struct io_GenericR
  return t0;
 }
 
-static nav__4225_39 bincode_deserializeStructAlloc__anon_2617__4225(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 const a0, struct mem_Allocator__565 const a1) {
+static nav__4261_39 bincode_deserializeStructAlloc__anon_2691__4261(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 const a0, struct mem_Allocator__589 const a1) {
  uint32_t *t1;
- nav__4225_39 t4;
- struct shared_MarkerType__1953 *t6;
- nav__4225_60 t7;
- struct shared_MarkerType__1953 t8;
- struct shared_Command__struct_1951__1951 t9;
- struct shared_Command__struct_1951__1951 t0;
- nav__4225_57 t2;
+ nav__4261_39 t4;
+ struct shared_MarkerType__2021 *t6;
+ nav__4261_60 t7;
+ struct shared_MarkerType__2021 t8;
+ struct shared_Command__struct_2019__2019 t9;
+ struct shared_Command__struct_2019__2019 t0;
+ nav__4261_57 t2;
  uint32_t t5;
  uint16_t t3;
  t1 = (uint32_t *)&t0.pid;
- t2 = bincode_deserializeAlloc__anon_2311__4175(a0, a1);
+ t2 = bincode_deserializeAlloc__anon_2385__4211(a0, a1);
  if (t2.error) {
   t3 = t2.error;
-  t4.payload = (struct shared_Command__struct_1951__1951){{{UINT64_C(0xaaaaaaaaaaaaaaaa)},UINT8_C(0x2)},UINT32_C(0xaaaaaaaa)};
+  t4.payload = (struct shared_Command__struct_2019__2019){{{UINT64_C(0xaaaaaaaaaaaaaaaa)},UINT8_C(0x2)},UINT32_C(0xaaaaaaaa)};
   t4.error = t3;
   return t4;
  }
  t5 = t2.payload;
  (*t1) = t5;
- t6 = (struct shared_MarkerType__1953 *)&t0.marker;
- t7 = bincode_deserializeAlloc__anon_2635__4226(a0, a1);
+ t6 = (struct shared_MarkerType__2021 *)&t0.marker;
+ t7 = bincode_deserializeAlloc__anon_2709__4262(a0, a1);
  if (t7.error) {
   t3 = t7.error;
-  t4.payload = (struct shared_Command__struct_1951__1951){{{UINT64_C(0xaaaaaaaaaaaaaaaa)},UINT8_C(0x2)},UINT32_C(0xaaaaaaaa)};
+  t4.payload = (struct shared_Command__struct_2019__2019){{{UINT64_C(0xaaaaaaaaaaaaaaaa)},UINT8_C(0x2)},UINT32_C(0xaaaaaaaa)};
   t4.error = t3;
   return t4;
  }
@@ -2187,14 +2203,14 @@ static nav__4225_39 bincode_deserializeStructAlloc__anon_2617__4225(struct io_Ge
  return t4;
 }
 
-static nav__4224_39 bincode_deserializeAlloc__anon_2603__4224(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 const a0, struct mem_Allocator__565 const a1) {
- nav__4224_39 t0;
- struct shared_Command__struct_1951__1951 t2;
+static nav__4260_39 bincode_deserializeAlloc__anon_2677__4260(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 const a0, struct mem_Allocator__589 const a1) {
+ nav__4260_39 t0;
+ struct shared_Command__struct_2019__2019 t2;
  uint16_t t1;
- t0 = bincode_deserializeStructAlloc__anon_2617__4225(a0, a1);
+ t0 = bincode_deserializeStructAlloc__anon_2691__4261(a0, a1);
  if (t0.error) {
   t1 = t0.error;
-  t0.payload = (struct shared_Command__struct_1951__1951){{{UINT64_C(0xaaaaaaaaaaaaaaaa)},UINT8_C(0x2)},UINT32_C(0xaaaaaaaa)};
+  t0.payload = (struct shared_Command__struct_2019__2019){{{UINT64_C(0xaaaaaaaaaaaaaaaa)},UINT8_C(0x2)},UINT32_C(0xaaaaaaaa)};
   t0.error = t1;
   return t0;
  }
@@ -2204,26 +2220,65 @@ static nav__4224_39 bincode_deserializeAlloc__anon_2603__4224(struct io_GenericR
  return t0;
 }
 
-static nav__4174_39 bincode_deserializeUnionAlloc__anon_2306__4174(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 const a0, struct mem_Allocator__565 const a1) {
- nav__4174_39 t2;
- nav__4174_68 t6;
- struct shared_Command__struct_1949__1949 t7;
- struct shared_Command__1946 t8;
- nav__4174_70 t9;
- struct shared_Command__struct_1950__1950 t10;
- nav__4174_72 t11;
- struct shared_Command__struct_1951__1951 t12;
- nav__4174_74 t13;
- uint64_t t14;
- nav__4174_66 t0;
+static nav__4267_38 bincode_deserializeEnum__anon_2846__4267(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 const a0) {
+ nav__4267_46 t0;
  uint32_t t3;
  uint16_t t1;
+ nav__4267_38 t2;
  uint8_t t4;
- bool t5;
- t0 = bincode_deserializeAlloc__anon_2311__4175(a0, a1);
+ t0 = bincode_deserializeInt__anon_2396__4212(a0);
  if (t0.error) {
   t1 = t0.error;
-  t2.payload = (struct shared_Command__1946){{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(0xa)};
+  t2.payload = UINT8_C(0x2);
+  t2.error = t1;
+  return t2;
+ }
+ t3 = t0.payload;
+ t4 = (uint8_t)t3;
+ t2.payload = t4;
+ t2.error = UINT16_C(0);
+ return t2;
+}
+
+static nav__4266_38 bincode_deserializeAlloc__anon_2817__4266(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 const a0, struct mem_Allocator__589 const a1) {
+ nav__4266_38 t0;
+ uint16_t t1;
+ uint8_t t2;
+ (void)a1;
+ t0 = bincode_deserializeEnum__anon_2846__4267(a0);
+ if (t0.error) {
+  t1 = t0.error;
+  t0.payload = UINT8_C(0x2);
+  t0.error = t1;
+  return t0;
+ }
+ t2 = t0.payload;
+ t0.payload = t2;
+ t0.error = UINT16_C(0);
+ return t0;
+}
+
+static nav__4210_39 bincode_deserializeUnionAlloc__anon_2380__4210(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 const a0, struct mem_Allocator__589 const a1) {
+ nav__4210_39 t2;
+ nav__4210_68 t6;
+ struct shared_Command__struct_2017__2017 t7;
+ struct shared_Command__2014 t8;
+ nav__4210_70 t9;
+ struct shared_Command__struct_2018__2018 t10;
+ nav__4210_72 t11;
+ struct shared_Command__struct_2019__2019 t12;
+ nav__4210_74 t13;
+ uint64_t t14;
+ nav__4210_66 t0;
+ uint32_t t3;
+ uint16_t t1;
+ nav__4210_76 t15;
+ uint8_t t4;
+ bool t5;
+ t0 = bincode_deserializeAlloc__anon_2385__4211(a0, a1);
+ if (t0.error) {
+  t1 = t0.error;
+  t2.payload = (struct shared_Command__2014){{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(0xa)};
   t2.error = t1;
   return t2;
  }
@@ -2231,10 +2286,10 @@ static nav__4174_39 bincode_deserializeUnionAlloc__anon_2306__4174(struct io_Gen
  t4 = (uint8_t)t3;
  t5 = t4 == UINT8_C(0);
  if (t5) {
-  t6 = bincode_deserializeAlloc__anon_2381__4215(a0, a1);
+  t6 = bincode_deserializeAlloc__anon_2455__4251(a0, a1);
   if (t6.error) {
    t1 = t6.error;
-   t2.payload = (struct shared_Command__1946){{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(0xa)};
+   t2.payload = (struct shared_Command__2014){{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(0xa)};
    t2.error = t1;
    return t2;
   }
@@ -2250,42 +2305,42 @@ static nav__4174_39 bincode_deserializeUnionAlloc__anon_2306__4174(struct io_Gen
  zig_block_0:;
  t5 = t4 == UINT8_C(1);
  if (t5) {
-  (void)bincode_deserializeAlloc__anon_2500__4221(a0, a1);
-  return (nav__4174_39){{{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(1)},0};
+  (void)bincode_deserializeAlloc__anon_2574__4257(a0, a1);
+  return (nav__4210_39){{{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(1)},0};
  }
  goto zig_block_1;
 
  zig_block_1:;
  t5 = t4 == UINT8_C(2);
  if (t5) {
-  (void)bincode_deserializeAlloc__anon_2500__4221(a0, a1);
-  return (nav__4174_39){{{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(2)},0};
+  (void)bincode_deserializeAlloc__anon_2574__4257(a0, a1);
+  return (nav__4210_39){{{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(2)},0};
  }
  goto zig_block_2;
 
  zig_block_2:;
  t5 = t4 == UINT8_C(3);
  if (t5) {
-  (void)bincode_deserializeAlloc__anon_2500__4221(a0, a1);
-  return (nav__4174_39){{{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(3)},0};
+  (void)bincode_deserializeAlloc__anon_2574__4257(a0, a1);
+  return (nav__4210_39){{{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(3)},0};
  }
  goto zig_block_3;
 
  zig_block_3:;
  t5 = t4 == UINT8_C(4);
  if (t5) {
-  (void)bincode_deserializeAlloc__anon_2500__4221(a0, a1);
-  return (nav__4174_39){{{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(4)},0};
+  (void)bincode_deserializeAlloc__anon_2574__4257(a0, a1);
+  return (nav__4210_39){{{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(4)},0};
  }
  goto zig_block_4;
 
  zig_block_4:;
  t5 = t4 == UINT8_C(5);
  if (t5) {
-  t9 = bincode_deserializeAlloc__anon_2545__4222(a0, a1);
+  t9 = bincode_deserializeAlloc__anon_2619__4258(a0, a1);
   if (t9.error) {
    t1 = t9.error;
-   t2.payload = (struct shared_Command__1946){{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(0xa)};
+   t2.payload = (struct shared_Command__2014){{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(0xa)};
    t2.error = t1;
    return t2;
   }
@@ -2301,18 +2356,18 @@ static nav__4174_39 bincode_deserializeUnionAlloc__anon_2306__4174(struct io_Gen
  zig_block_5:;
  t5 = t4 == UINT8_C(6);
  if (t5) {
-  (void)bincode_deserializeAlloc__anon_2500__4221(a0, a1);
-  return (nav__4174_39){{{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(6)},0};
+  (void)bincode_deserializeAlloc__anon_2574__4257(a0, a1);
+  return (nav__4210_39){{{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(6)},0};
  }
  goto zig_block_6;
 
  zig_block_6:;
  t5 = t4 == UINT8_C(7);
  if (t5) {
-  t11 = bincode_deserializeAlloc__anon_2603__4224(a0, a1);
+  t11 = bincode_deserializeAlloc__anon_2677__4260(a0, a1);
   if (t11.error) {
    t1 = t11.error;
-   t2.payload = (struct shared_Command__1946){{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(0xa)};
+   t2.payload = (struct shared_Command__2014){{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(0xa)};
    t2.error = t1;
    return t2;
   }
@@ -2328,10 +2383,10 @@ static nav__4174_39 bincode_deserializeUnionAlloc__anon_2306__4174(struct io_Gen
  zig_block_7:;
  t5 = t4 == UINT8_C(8);
  if (t5) {
-  t13 = bincode_deserializeAlloc__anon_2682__4228(a0, a1);
+  t13 = bincode_deserializeAlloc__anon_2756__4264(a0, a1);
   if (t13.error) {
    t1 = t13.error;
-   t2.payload = (struct shared_Command__1946){{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(0xa)};
+   t2.payload = (struct shared_Command__2014){{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(0xa)};
    t2.error = t1;
    return t2;
   }
@@ -2345,17 +2400,44 @@ static nav__4174_39 bincode_deserializeUnionAlloc__anon_2306__4174(struct io_Gen
  goto zig_block_8;
 
  zig_block_8:;
+ t5 = t4 == UINT8_C(9);
+ if (t5) {
+  (void)bincode_deserializeAlloc__anon_2574__4257(a0, a1);
+  return (nav__4210_39){{{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(9)},0};
+ }
+ goto zig_block_9;
+
+ zig_block_9:;
+ t5 = t4 == UINT8_C(10);
+ if (t5) {
+  t15 = bincode_deserializeAlloc__anon_2817__4266(a0, a1);
+  if (t15.error) {
+   t1 = t15.error;
+   t2.payload = (struct shared_Command__2014){{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(0xa)};
+   t2.error = t1;
+   return t2;
+  }
+  t4 = t15.payload;
+  t8.tag = UINT8_C(10);
+  t8.payload.IntegrationModeResponse = t4;
+  t2.payload = t8;
+  t2.error = UINT16_C(0);
+  return t2;
+ }
+ goto zig_block_10;
+
+ zig_block_10:;
  zig_unreachable();
 }
 
-static nav__4173_39 bincode_deserializeAlloc__anon_2209__4173(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 const a0, struct mem_Allocator__565 const a1) {
- nav__4173_39 t0;
- struct shared_Command__1946 t2;
+static nav__4209_39 bincode_deserializeAlloc__anon_2273__4209(struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 const a0, struct mem_Allocator__589 const a1) {
+ nav__4209_39 t0;
+ struct shared_Command__2014 t2;
  uint16_t t1;
- t0 = bincode_deserializeUnionAlloc__anon_2306__4174(a0, a1);
+ t0 = bincode_deserializeUnionAlloc__anon_2380__4210(a0, a1);
  if (t0.error) {
   t1 = t0.error;
-  t0.payload = (struct shared_Command__1946){{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(0xa)};
+  t0.payload = (struct shared_Command__2014){{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(0xa)};
   t0.error = t1;
   return t0;
  }
@@ -2365,41 +2447,41 @@ static nav__4173_39 bincode_deserializeAlloc__anon_2209__4173(struct io_GenericR
  return t0;
 }
 
-static nav__1084_39 fifo_UnixPipe_Reader_recvCmd__1084(struct fifo_UnixPipe_Reader__602 *const a0) {
- struct fifo_UnixPipe_Reader__602 *const *t1;
+static nav__1125_39 fifo_UnixPipe_Reader_recvCmd__1125(struct fifo_UnixPipe_Reader__630 *const a0) {
+ struct fifo_UnixPipe_Reader__630 *const *t1;
  uintptr_t t3;
  uintptr_t t10;
- struct fifo_UnixPipe_Reader__602 *t4;
- struct fifo_UnixPipe_Reader__602 *t0;
- struct fs_File__608 *t5;
- nav__1084_71 t7;
- nav__1084_74 t8;
- nav__1084_39 t12;
- nav__1084_39 t13;
+ struct fifo_UnixPipe_Reader__630 *t4;
+ struct fifo_UnixPipe_Reader__630 *t0;
+ struct fs_File__636 *t5;
+ nav__1125_71 t7;
+ nav__1125_74 t8;
+ nav__1125_39 t12;
+ nav__1125_39 t13;
  uint64_t t14;
  uint64_t t21;
  uint8_t const (*t15)[4];
- struct mem_Allocator__565 *t18;
- struct mem_Allocator__565 t19;
- nav__1084_78 t20;
- struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 t23;
- struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 t22;
- struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 t24;
- struct shared_Command__1946 t25;
- struct fs_File__608 t6;
+ struct mem_Allocator__589 *t18;
+ struct mem_Allocator__589 t19;
+ nav__1125_78 t20;
+ struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 t23;
+ struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 t22;
+ struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 t24;
+ struct shared_Command__2014 t25;
+ struct fs_File__636 t6;
  uint32_t t17;
  uint16_t t11;
  bool t9;
  uint8_t t16[4];
  uint8_t t2[4];
  t0 = a0;
- t1 = (struct fifo_UnixPipe_Reader__602 *const *)&t0;
+ t1 = (struct fifo_UnixPipe_Reader__630 *const *)&t0;
  t4 = (*t1);
- t5 = (struct fs_File__608 *)&t4->file;
+ t5 = (struct fs_File__636 *)&t4->file;
  t6 = (*t5);
  t7.ptr = &t2[(uintptr_t)0ul];
  t7.len = (uintptr_t)4ul;
- t8 = fs_File_readAll__1222(t6, t7);
+ t8 = fs_File_readAll__1263(t6, t7);
  t9 = t8.error == UINT16_C(0);
  if (t9) {
   t10 = t8.payload;
@@ -2410,11 +2492,11 @@ static nav__1084_39 fifo_UnixPipe_Reader_recvCmd__1084(struct fifo_UnixPipe_Read
  switch (t11) {
   case zig_error_WouldBlock:
   case zig_error_BrokenPipe: {
-   t12 = (nav__1084_39){{{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(0xa)},zig_error_NotReady};
+   t12 = (nav__1125_39){{{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(0xa)},zig_error_NotReady};
    goto zig_block_1;
   }
   default: {
-   t13.payload = (struct shared_Command__1946){{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(0xa)};
+   t13.payload = (struct shared_Command__2014){{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(0xa)};
    t13.error = t11;
    t12 = t13;
    goto zig_block_1;
@@ -2428,7 +2510,7 @@ static nav__1084_39 fifo_UnixPipe_Reader_recvCmd__1084(struct fifo_UnixPipe_Read
  t14 = t3;
  t9 = t14 < UINT64_C(4);
  if (t9) {
-  return (nav__1084_39){{{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(0xa)},zig_error_UnexpectedEof};
+  return (nav__1125_39){{{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(0xa)},zig_error_UnexpectedEof};
  }
  goto zig_block_2;
 
@@ -2438,21 +2520,21 @@ static nav__1084_39 fifo_UnixPipe_Reader_recvCmd__1084(struct fifo_UnixPipe_Read
  memcpy(&t17, &t16, sizeof(uint32_t));
  t17 = zig_wrap_u32(t17, UINT8_C(32));
  t4 = (*t1);
- t18 = (struct mem_Allocator__565 *)&t4->allocator;
+ t18 = (struct mem_Allocator__589 *)&t4->allocator;
  t19 = (*t18);
  t3 = (uintptr_t)t17;
- t20 = mem_Allocator_alloc__anon_2153__4106(t19, t3);
+ t20 = mem_Allocator_alloc__anon_2216__4142(t19, t3);
  if (t20.error) {
   t11 = t20.error;
-  t13.payload = (struct shared_Command__1946){{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(0xa)};
+  t13.payload = (struct shared_Command__2014){{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(0xa)};
   t13.error = t11;
   return t13;
  }
  t7 = t20.payload;
  t4 = (*t1);
- t5 = (struct fs_File__608 *)&t4->file;
+ t5 = (struct fs_File__636 *)&t4->file;
  t6 = (*t5);
- t8 = fs_File_readAll__1222(t6, t7);
+ t8 = fs_File_readAll__1263(t6, t7);
  t9 = t8.error == UINT16_C(0);
  if (t9) {
   t10 = t8.payload;
@@ -2463,11 +2545,11 @@ static nav__1084_39 fifo_UnixPipe_Reader_recvCmd__1084(struct fifo_UnixPipe_Read
  switch (t11) {
   case zig_error_WouldBlock:
   case zig_error_BrokenPipe: {
-   t13 = (nav__1084_39){{{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(0xa)},zig_error_NotReady};
+   t13 = (nav__1125_39){{{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(0xa)},zig_error_NotReady};
    goto zig_block_4;
   }
   default: {
-   t12.payload = (struct shared_Command__1946){{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(0xa)};
+   t12.payload = (struct shared_Command__2014){{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(0xa)};
    t12.error = t11;
    t13 = t12;
    goto zig_block_4;
@@ -2476,9 +2558,9 @@ static nav__1084_39 fifo_UnixPipe_Reader_recvCmd__1084(struct fifo_UnixPipe_Read
 
  zig_block_4:;
  t4 = (*t1);
- t18 = (struct mem_Allocator__565 *)&t4->allocator;
+ t18 = (struct mem_Allocator__589 *)&t4->allocator;
  t19 = (*t18);
- mem_Allocator_free__anon_2159__4107(t19, t7);
+ mem_Allocator_free__anon_2222__4143(t19, t7);
  return t13;
 
  zig_block_3:;
@@ -2487,56 +2569,56 @@ static nav__1084_39 fifo_UnixPipe_Reader_recvCmd__1084(struct fifo_UnixPipe_Read
  t9 = t14 < t21;
  if (t9) {
   t4 = (*t1);
-  t18 = (struct mem_Allocator__565 *)&t4->allocator;
+  t18 = (struct mem_Allocator__589 *)&t4->allocator;
   t19 = (*t18);
-  mem_Allocator_free__anon_2159__4107(t19, t7);
-  return (nav__1084_39){{{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(0xa)},zig_error_UnexpectedEof};
+  mem_Allocator_free__anon_2222__4143(t19, t7);
+  return (nav__1125_39){{{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(0xa)},zig_error_UnexpectedEof};
  }
  goto zig_block_5;
 
  zig_block_5:;
- t23 = io_fixed_buffer_stream_fixedBufferStream__anon_2181__4139(t7);
+ t23 = io_fixed_buffer_stream_fixedBufferStream__anon_2244__4175(t7);
  t22 = t23;
- t24 = io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_reader__4128(&t22);
- t18 = (struct mem_Allocator__565 *)&a0->allocator;
+ t24 = io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_reader__4164(&t22);
+ t18 = (struct mem_Allocator__589 *)&a0->allocator;
  t19 = (*t18);
- t13 = bincode_deserializeAlloc__anon_2209__4173(t24, t19);
+ t13 = bincode_deserializeAlloc__anon_2273__4209(t24, t19);
  if (t13.error) {
   t11 = t13.error;
   t4 = (*t1);
-  t18 = (struct mem_Allocator__565 *)&t4->allocator;
+  t18 = (struct mem_Allocator__589 *)&t4->allocator;
   t19 = (*t18);
-  mem_Allocator_free__anon_2159__4107(t19, t7);
-  t13.payload = (struct shared_Command__1946){{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(0xa)};
+  mem_Allocator_free__anon_2222__4143(t19, t7);
+  t13.payload = (struct shared_Command__2014){{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(0xa)};
   t13.error = t11;
   return t13;
  }
  t25 = t13.payload;
  t4 = (*t1);
- t18 = (struct mem_Allocator__565 *)&t4->allocator;
+ t18 = (struct mem_Allocator__589 *)&t4->allocator;
  t19 = (*t18);
- mem_Allocator_free__anon_2159__4107(t19, t7);
+ mem_Allocator_free__anon_2222__4143(t19, t7);
  t13.payload = t25;
  t13.error = UINT16_C(0);
  return t13;
 }
 
-static nav__1085_39 fifo_UnixPipe_Reader_waitForResponse__1085(struct fifo_UnixPipe_Reader__602 *const a0, nav__1085_42 const a1) {
+static nav__1126_39 fifo_UnixPipe_Reader_waitForResponse__1126(struct fifo_UnixPipe_Reader__630 *const a0, nav__1126_42 const a1) {
  zig_i128 t2;
  zig_i128 t6;
- struct fifo_UnixPipe_Reader__602 *const *t1;
+ struct fifo_UnixPipe_Reader__630 *const *t1;
  uint64_t t3;
  uint64_t t5;
- struct shared_Command__1946 t7;
- struct shared_Command__1946 t10;
- struct fifo_UnixPipe_Reader__602 *t8;
- struct fifo_UnixPipe_Reader__602 *t0;
- nav__1085_39 t9;
+ struct shared_Command__2014 t7;
+ struct shared_Command__2014 t10;
+ struct fifo_UnixPipe_Reader__630 *t8;
+ struct fifo_UnixPipe_Reader__630 *t0;
+ nav__1126_39 t9;
  uint16_t t11;
  bool t4;
  t0 = a0;
- t1 = (struct fifo_UnixPipe_Reader__602 *const *)&t0;
- t2 = time_nanoTimestamp__4078();
+ t1 = (struct fifo_UnixPipe_Reader__630 *const *)&t0;
+ t2 = time_nanoTimestamp__4114();
  t4 = a1.is_null != true;
  if (t4) {
   t5 = a1.payload;
@@ -2548,18 +2630,18 @@ static nav__1085_39 fifo_UnixPipe_Reader_waitForResponse__1085(struct fifo_UnixP
 
  zig_block_0:;
  zig_loop_13:
- t6 = time_nanoTimestamp__4078();
+ t6 = time_nanoTimestamp__4114();
  t6 = zig_sub_i128(t6, t2);
  t5 = zig_lo_i128(t6);
  t4 = t5 > t3;
  if (t4) {
-  return (nav__1085_39){{{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(0xa)},zig_error_AckTimeout};
+  return (nav__1126_39){{{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(0xa)},zig_error_AckTimeout};
  }
  goto zig_block_2;
 
  zig_block_2:;
  t8 = (*t1);
- t9 = fifo_UnixPipe_Reader_recvCmd__1084(t8);
+ t9 = fifo_UnixPipe_Reader_recvCmd__1125(t8);
  t4 = t9.error == UINT16_C(0);
  if (t4) {
   t10 = t9.payload;
@@ -2570,11 +2652,11 @@ static nav__1085_39 fifo_UnixPipe_Reader_waitForResponse__1085(struct fifo_UnixP
  switch (t11) {
   case zig_error_NotReady:
   case zig_error_UnexpectedEof: {
-   utils_sleep__3833(UINT64_C(10000000));
+   utils_sleep__3869(UINT64_C(10000000));
    goto zig_block_1;
   }
   default: {
-   t9.payload = (struct shared_Command__1946){{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(0xa)};
+   t9.payload = (struct shared_Command__2014){{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(0xa)};
    t9.error = t11;
    return t9;
   }
@@ -2589,96 +2671,224 @@ static nav__1085_39 fifo_UnixPipe_Reader_waitForResponse__1085(struct fifo_UnixP
  goto zig_loop_13;
 }
 
-static uint16_t fifo_UnixPipe_Reader_waitForAck__1086(struct fifo_UnixPipe_Reader__602 *const a0, nav__1086_40 const a1) {
- struct fifo_UnixPipe_Reader__602 *const *t1;
- struct fifo_UnixPipe_Reader__602 *t2;
- struct fifo_UnixPipe_Reader__602 *t0;
- nav__1086_60 t3;
- struct shared_Command__1946 t5;
- struct shared_Command__1946 t6;
- struct shared_Command__1946 const *t7;
- struct mem_Allocator__565 *t10;
- struct mem_Allocator__565 t11;
+static nav__1093_38 runner_fifo_RunnerFifo_get_integration_mode__1093(struct runner_fifo_RunnerFifo__621 *const a0) {
+ struct runner_fifo_RunnerFifo__621 *const *t1;
+ struct runner_fifo_RunnerFifo__621 *t2;
+ struct runner_fifo_RunnerFifo__621 *t0;
+ struct fifo_UnixPipe_Writer__628 *t3;
+ struct fifo_UnixPipe_Reader__630 *t6;
+ nav__1093_76 t7;
+ struct shared_Command__2014 t8;
+ struct shared_Command__2014 t9;
+ struct shared_Command__2014 const *t10;
+ struct mem_Allocator__589 *t13;
+ struct mem_Allocator__589 t14;
  uint16_t t4;
- uint8_t t8;
- bool t9;
+ nav__1093_38 t5;
+ uint8_t t11;
+ bool t12;
  t0 = a0;
- t1 = (struct fifo_UnixPipe_Reader__602 *const *)&t0;
+ t1 = (struct runner_fifo_RunnerFifo__621 *const *)&t0;
  t2 = (*t1);
- t3 = fifo_UnixPipe_Reader_waitForResponse__1085(t2, a1);
- if (t3.error) {
-  t4 = t3.error;
+ t3 = (struct fifo_UnixPipe_Writer__628 *)&t2->writer;
+ t4 = fifo_UnixPipe_Writer_sendCmd__1120(t3, (struct shared_Command__2014){{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(9)});
+ if (t4) {
+  t5.payload = UINT8_C(0x2);
+  t5.error = t4;
+  return t5;
+ }
+ t2 = (*t1);
+ t6 = (struct fifo_UnixPipe_Reader__630 *)&t2->reader;
+ t7 = fifo_UnixPipe_Reader_waitForResponse__1126(t6, (nav__1093_74){UINT64_C(0xaaaaaaaaaaaaaaaa),true});
+ if (t7.error) {
+  t4 = t7.error;
+  t5.payload = UINT8_C(0x2);
+  t5.error = t4;
+  return t5;
+ }
+ t8 = t7.payload;
+ t9 = t8;
+ t10 = (struct shared_Command__2014 const *)&t9;
+ t11 = t8.tag;
+ t12 = t11 == UINT8_C(10);
+ if (t12) {
+  t11 = t8.payload.IntegrationModeResponse;
+  t8 = (*t10);
+  t13 = (struct mem_Allocator__589 *)&a0->allocator;
+  t14 = (*t13);
+  shared_Command_deinit__3874(t8, t14);
+  t5.payload = t11;
+  t5.error = UINT16_C(0);
+  return t5;
+ }
+ goto zig_block_0;
+
+ zig_block_0:;
+ t8 = (*t10);
+ t13 = (struct mem_Allocator__589 *)&a0->allocator;
+ t14 = (*t13);
+ shared_Command_deinit__3874(t8, t14);
+ return (nav__1093_38){zig_error_UnexpectedResponse,UINT8_C(0x2)};
+}
+
+static nav__773_39 instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29_init__773(struct mem_Allocator__589 const a0) {
+ nav__773_57 t1;
+ nav__773_39 t3;
+ struct runner_fifo_RunnerFifo__621 t4;
+ struct runner_fifo_RunnerFifo__621 t0;
+ struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 t9;
+ uint16_t t2;
+ nav__773_60 t6;
+ uint8_t t5;
+ uint8_t t8;
+ bool t7;
+ t1 = runner_fifo_RunnerFifo_init__1082(a0);
+ if (t1.error) {
+  t2 = t1.error;
+  t3.payload = (struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581){{{((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__592 const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul)},{{((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__592 const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul)},{-INT32_C(0x55555556)}},{{((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__592 const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul)},{-INT32_C(0x55555556)}}}};
+  t3.error = t2;
+  return t3;
+ }
+ t4 = t1.payload;
+ t0 = t4;
+ t6 = runner_fifo_RunnerFifo_get_integration_mode__1093(&t0);
+ t7 = t6.error == UINT16_C(0);
+ if (t7) {
+  t8 = t6.payload;
+  t5 = t8;
+  goto zig_block_0;
+ }
+ t2 = t6.error;
+ runner_fifo_RunnerFifo_deinit__1084(&t0);
+ t3.payload = (struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581){{{((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__592 const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul)},{{((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__592 const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul)},{-INT32_C(0x55555556)}},{{((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__592 const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul)},{-INT32_C(0x55555556)}}}};
+ t3.error = t2;
+ return t3;
+
+ zig_block_0:;
+ t7 = t5 != UINT8_C(2);
+ if (t7) {
+  runner_fifo_RunnerFifo_deinit__1084(&t0);
+  return (nav__773_39){{{{((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__592 const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul)},{{((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__592 const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul)},{-INT32_C(0x55555556)}},{{((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__592 const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul)},{-INT32_C(0x55555556)}}}},zig_error_ModeError};
+ }
+ goto zig_block_1;
+
+ zig_block_1:;
+ t4 = t0;
+ t9.fifo = t4;
+ t3.payload = t9;
+ t3.error = UINT16_C(0);
+ return t3;
+}
+
+static nav__760_39 instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29_init__760(struct mem_Allocator__589 const a0) {
+ nav__760_57 t1;
+ nav__760_39 t3;
+ struct runner_fifo_RunnerFifo__621 t4;
+ struct runner_fifo_RunnerFifo__621 t0;
+ struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 t9;
+ uint16_t t2;
+ nav__760_60 t6;
+ uint8_t t5;
+ uint8_t t8;
+ bool t7;
+ t1 = runner_fifo_RunnerFifo_init__1082(a0);
+ if (t1.error) {
+  t2 = t1.error;
+  t3.payload = (struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572){{{((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__592 const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul)},{{((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__592 const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul)},{-INT32_C(0x55555556)}},{{((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__592 const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul)},{-INT32_C(0x55555556)}}}};
+  t3.error = t2;
+  return t3;
+ }
+ t4 = t1.payload;
+ t0 = t4;
+ t6 = runner_fifo_RunnerFifo_get_integration_mode__1093(&t0);
+ t7 = t6.error == UINT16_C(0);
+ if (t7) {
+  t8 = t6.payload;
+  t5 = t8;
+  goto zig_block_0;
+ }
+ t2 = t6.error;
+ runner_fifo_RunnerFifo_deinit__1084(&t0);
+ t3.payload = (struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572){{{((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__592 const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul)},{{((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__592 const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul)},{-INT32_C(0x55555556)}},{{((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__592 const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul)},{-INT32_C(0x55555556)}}}};
+ t3.error = t2;
+ return t3;
+
+ zig_block_0:;
+ t7 = t5 != UINT8_C(0);
+ if (t7) {
+  runner_fifo_RunnerFifo_deinit__1084(&t0);
+  return (nav__760_39){{{{((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__592 const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul)},{{((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__592 const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul)},{-INT32_C(0x55555556)}},{{((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__592 const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul)},{-INT32_C(0x55555556)}}}},zig_error_ModeError};
+ }
+ goto zig_block_1;
+
+ zig_block_1:;
+ t4 = t0;
+ t9.fifo = t4;
+ t3.payload = t9;
+ t3.error = UINT16_C(0);
+ return t3;
+}
+
+static nav__726_39 instruments_root_InstrumentHooks_init__726(struct mem_Allocator__589 const a0) {
+ nav__726_64 t0;
+ struct instruments_valgrind_ValgrindInstrument__554 t2;
+ struct instruments_root_InstrumentHooks__547 t3;
+ nav__726_39 t4;
+ nav__726_66 t5;
+ struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 t6;
+ nav__726_68 t7;
+ struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 t8;
+ bool t1;
+ t0 = instruments_valgrind_ValgrindInstrument_init__739(a0);
+ t1 = t0.error == UINT16_C(0);
+ if (t1) {
+  t2 = t0.payload;
+  t3.tag = UINT8_C(0);
+  t3.payload.valgrind = t2;
+  t4.payload = t3;
+  t4.error = UINT16_C(0);
   return t4;
  }
- t5 = t3.payload;
- t6 = t5;
- t7 = (struct shared_Command__1946 const *)&t6;
- t8 = t5.tag;
- t9 = t8 == UINT8_C(3);
- if (t9) {
-  t5 = (*t7);
-  t10 = (struct mem_Allocator__565 *)&a0->allocator;
-  t11 = (*t10);
-  shared_Command_deinit__3838(t5, t11);
-  return 0;
+ goto zig_block_0;
+
+ zig_block_0:;
+ t5 = instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29_init__773(a0);
+ t1 = t5.error == UINT16_C(0);
+ if (t1) {
+  t6 = t5.payload;
+  t3.tag = UINT8_C(2);
+  t3.payload.analysis = t6;
+  t4.payload = t3;
+  t4.error = UINT16_C(0);
+  return t4;
  }
- t8 = t5.tag;
- t9 = t8 == UINT8_C(6);
- if (t9) {
-  t5 = (*t7);
-  t10 = (struct mem_Allocator__565 *)&a0->allocator;
-  t11 = (*t10);
-  shared_Command_deinit__3838(t5, t11);
-  return zig_error_UnexpectedError;
+ goto zig_block_1;
+
+ zig_block_1:;
+ t7 = instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29_init__760(a0);
+ t1 = t7.error == UINT16_C(0);
+ if (t1) {
+  t8 = t7.payload;
+  t3.tag = UINT8_C(1);
+  t3.payload.perf = t8;
+  t4.payload = t3;
+  t4.error = UINT16_C(0);
+  return t4;
  }
- t5 = (*t7);
- t10 = (struct mem_Allocator__565 *)&a0->allocator;
- t11 = (*t10);
- shared_Command_deinit__3838(t5, t11);
- return zig_error_UnexpectedResponse;
+ goto zig_block_2;
+
+ zig_block_2:;
+ return (nav__726_39){{{{{((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__592 const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul)}}},UINT8_C(3)},0};
 }
 
-static uint16_t instruments_perf_PerfInstrument_send_version__759(struct instruments_perf_PerfInstrument__559 *const a0, uint64_t const a1) {
- struct instruments_perf_PerfInstrument__559 *const *t1;
- struct instruments_perf_PerfInstrument__559 *t2;
- struct instruments_perf_PerfInstrument__559 *t0;
- struct fifo_UnixPipe_Writer__600 *t3;
- struct shared_Command__1946 t4;
- struct fifo_UnixPipe_Reader__602 *t6;
- uint16_t t5;
- t0 = a0;
- t1 = (struct instruments_perf_PerfInstrument__559 *const *)&t0;
- t2 = (*t1);
- t3 = (struct fifo_UnixPipe_Writer__600 *)&t2->writer;
- t4.tag = UINT8_C(8);
- t4.payload.SetVersion = a1;
- t5 = fifo_UnixPipe_Writer_sendCmd__1079(t3, t4);
- if (t5) {
-  return t5;
- }
- t2 = (*t1);
- t6 = (struct fifo_UnixPipe_Reader__602 *)&t2->reader;
- t5 = fifo_UnixPipe_Reader_waitForAck__1086(t6, (nav__759_71){UINT64_C(0xaaaaaaaaaaaaaaaa),true});
- if (t5) {
-  return t5;
- }
- return 0;
-}
-
-struct instruments_root_InstrumentHooks__547 *c_instrument_hooks_init__238(void) {
+struct instruments_root_InstrumentHooks__547 *c_instrument_hooks_init__237(void) {
  struct instruments_root_InstrumentHooks__547 *t0;
  struct instruments_root_InstrumentHooks__547 *t3;
- struct instruments_root_InstrumentHooks__547 *t4;
- struct instruments_root_InstrumentHooks__547 *t11;
- nav__238_46 t1;
- struct instruments_root_InstrumentHooks__547 *const *t5;
- nav__238_72 t6;
- struct instruments_root_InstrumentHooks__547 t7;
- struct instruments_perf_PerfInstrument__559 *t9;
- uint16_t t10;
+ nav__237_46 t1;
+ nav__237_75 t4;
+ struct instruments_root_InstrumentHooks__547 t5;
  bool t2;
- uint8_t t8;
- t1 = mem_Allocator_create__anon_857__3576((struct mem_Allocator__565){((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__568 const *)&heap_CAllocator_vtable__3564)});
+ t1 = mem_Allocator_create__anon_886__3617((struct mem_Allocator__589){((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__592 const *)&heap_CAllocator_vtable__3605)});
  t2 = t1.error == UINT16_C(0);
  if (t2) {
   t3 = t1.payload;
@@ -2688,75 +2898,28 @@ struct instruments_root_InstrumentHooks__547 *c_instrument_hooks_init__238(void)
  return NULL;
 
  zig_block_0:;
- t4 = t0;
- t5 = (struct instruments_root_InstrumentHooks__547 *const *)&t4;
- t6 = instruments_root_InstrumentHooks_init__725((struct mem_Allocator__565){((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__568 const *)&heap_CAllocator_vtable__3564)});
- t7 = t6.payload;
- (*t0) = t7;
- t7 = (*t0);
- t8 = t7.tag;
- t2 = t8 == UINT8_C(1);
- if (t2) {
-  t3 = (*t5);
-  t9 = (struct instruments_perf_PerfInstrument__559 *)&t3->payload.perf;
-  t10 = instruments_perf_PerfInstrument_send_version__759(t9, UINT64_C(1));
-  t2 = t10 == UINT16_C(0);
-  if (t2) {
-   goto zig_block_2;
-  }
-  utils_print__anon_2763__4230();
-  utils_print__anon_2768__4231();
-  t3 = (*t5);
-  t11 = t3;
-  t5 = (struct instruments_root_InstrumentHooks__547 *const *)&t11;
-  t7 = (*t3);
-  t8 = t7.tag;
-  switch (t8) {
-   case UINT8_C(0): {
-    goto zig_block_3;
-   }
-   case UINT8_C(1): {
-    t3 = (*t5);
-    t9 = (struct instruments_perf_PerfInstrument__559 *)&t3->payload.perf;
-    instruments_perf_PerfInstrument_deinit__751(t9);
-    goto zig_block_3;
-   }
-   case UINT8_C(2): {
-    goto zig_block_3;
-   }
-   default: zig_unreachable();
-  }
-
-  zig_block_3:;
-  mem_Allocator_destroy__anon_2782__4232((struct mem_Allocator__565){((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__568 const *)&heap_CAllocator_vtable__3564)}, t0);
-  posix_exit__1441(UINT8_C(1));
-  zig_unreachable();
-
-  zig_block_2:;
-  goto zig_block_1;
- }
- goto zig_block_1;
-
- zig_block_1:;
+ t4 = instruments_root_InstrumentHooks_init__726((struct mem_Allocator__589){((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__592 const *)&heap_CAllocator_vtable__3605)});
+ t5 = t4.payload;
+ (*t0) = t5;
  t3 = (struct instruments_root_InstrumentHooks__547 *)t0;
  return t3;
 }
 
-static nav__3576_40 mem_Allocator_create__anon_857__3576(struct mem_Allocator__565 const a0) {
- struct mem_Allocator__565 const *t1;
- struct mem_Allocator__565 t2;
- struct mem_Allocator__565 t0;
+static nav__3617_40 mem_Allocator_create__anon_886__3617(struct mem_Allocator__589 const a0) {
+ struct mem_Allocator__589 const *t1;
+ struct mem_Allocator__589 t2;
+ struct mem_Allocator__589 t0;
  uintptr_t t3;
- nav__3576_51 t4;
- nav__3576_40 t6;
+ nav__3617_51 t4;
+ nav__3617_40 t6;
  uint8_t *t7;
  struct instruments_root_InstrumentHooks__547 *t8;
  uint16_t t5;
  t0 = a0;
- t1 = (struct mem_Allocator__565 const *)&t0;
+ t1 = (struct mem_Allocator__589 const *)&t0;
  t2 = (*t1);
  t3 = (uintptr_t)zig_return_address();
- t4 = mem_Allocator_allocBytesWithAlignment__anon_2798__4233(t2, (uintptr_t)72ul, t3);
+ t4 = mem_Allocator_allocBytesWithAlignment__anon_2904__4268(t2, (uintptr_t)72ul, t3);
  if (t4.error) {
   t5 = t4.error;
   t6.payload = ((struct instruments_root_InstrumentHooks__547 *)(uintptr_t)0xaaaaaaaaaaaaaaaaul);
@@ -2770,48 +2933,42 @@ static nav__3576_40 mem_Allocator_create__anon_857__3576(struct mem_Allocator__5
  return t6;
 }
 
-static struct instruments_valgrind_ValgrindInstrument__554 instruments_valgrind_ValgrindInstrument_init__738(struct mem_Allocator__565 const a0) {
- struct instruments_valgrind_ValgrindInstrument__554 t0;
- t0.allocator = a0;
- return t0;
-}
-
-static uint16_t fs_accessAbsolute__1141(nav__1141_39 const a0, struct fs_File_OpenFlags__1858 const a1) {
- struct fs_Dir__1860 const *t3;
- struct fs_Dir__1860 t1;
- struct fs_Dir__1860 t2;
+static uint16_t fs_accessAbsolute__1182(nav__1182_39 const a0, struct fs_File_OpenFlags__1938 const a1) {
+ struct fs_Dir__1940 const *t3;
+ struct fs_Dir__1940 t1;
+ struct fs_Dir__1940 t2;
  uint16_t t4;
  bool t0;
- t0 = fs_path_isAbsolute__4268(a0);
+ t0 = fs_path_isAbsolute__4303(a0);
  debug_assert__180(t0);
- t1 = fs_cwd__1133();
+ t1 = fs_cwd__1174();
  t2 = t1;
- t3 = (struct fs_Dir__1860 const *)&t2;
+ t3 = (struct fs_Dir__1940 const *)&t2;
  t1 = (*t3);
- t4 = fs_Dir_access__3782(t1, a0, a1);
+ t4 = fs_Dir_access__3818(t1, a0, a1);
  if (t4) {
   return t4;
  }
  return 0;
 }
 
-static nav__1138_39 fs_openFileAbsolute__1138(nav__1138_41 const a0, struct fs_File_OpenFlags__1858 const a1) {
- struct fs_Dir__1860 const *t3;
- struct fs_Dir__1860 t1;
- struct fs_Dir__1860 t2;
- nav__1138_39 t4;
+static nav__1179_39 fs_openFileAbsolute__1179(nav__1179_41 const a0, struct fs_File_OpenFlags__1938 const a1) {
+ struct fs_Dir__1940 const *t3;
+ struct fs_Dir__1940 t1;
+ struct fs_Dir__1940 t2;
+ nav__1179_39 t4;
  bool t0;
- t0 = fs_path_isAbsolute__4268(a0);
+ t0 = fs_path_isAbsolute__4303(a0);
  debug_assert__180(t0);
- t1 = fs_cwd__1133();
+ t1 = fs_cwd__1174();
  t2 = t1;
- t3 = (struct fs_Dir__1860 const *)&t2;
+ t3 = (struct fs_Dir__1940 const *)&t2;
  t1 = (*t3);
- t4 = fs_Dir_openFile__3718(t1, a0, a1);
+ t4 = fs_Dir_openFile__3754(t1, a0, a1);
  return t4;
 }
 
-static void utils_setNonBlocking__3834(int32_t const a0) {
+static void utils_setNonBlocking__3870(int32_t const a0) {
  int t0;
  int t1;
  t0 = a0;
@@ -2822,141 +2979,97 @@ static void utils_setNonBlocking__3834(int32_t const a0) {
  return;
 }
 
-static struct fifo_UnixPipe_Writer__600 fifo_UnixPipe_Writer_init__1076(struct fs_File__608 const a0, struct mem_Allocator__565 const a1) {
- struct fs_File__608 *t1;
- struct mem_Allocator__565 *t2;
- struct fifo_UnixPipe_Writer__600 t0;
- t1 = (struct fs_File__608 *)&t0.file;
+static struct fifo_UnixPipe_Writer__628 fifo_UnixPipe_Writer_init__1117(struct fs_File__636 const a0, struct mem_Allocator__589 const a1) {
+ struct fs_File__636 *t1;
+ struct mem_Allocator__589 *t2;
+ struct fifo_UnixPipe_Writer__628 t0;
+ t1 = (struct fs_File__636 *)&t0.file;
  (*t1) = a0;
- t2 = (struct mem_Allocator__565 *)&t0.allocator;
+ t2 = (struct mem_Allocator__589 *)&t0.allocator;
  (*t2) = a1;
  return t0;
 }
 
-static struct fifo_UnixPipe_Reader__602 fifo_UnixPipe_Reader_init__1081(struct fs_File__608 const a0, struct mem_Allocator__565 const a1) {
- struct fs_File__608 *t1;
- struct mem_Allocator__565 *t2;
- struct fifo_UnixPipe_Reader__602 t0;
- t1 = (struct fs_File__608 *)&t0.file;
+static struct fifo_UnixPipe_Reader__630 fifo_UnixPipe_Reader_init__1122(struct fs_File__636 const a0, struct mem_Allocator__589 const a1) {
+ struct fs_File__636 *t1;
+ struct mem_Allocator__589 *t2;
+ struct fifo_UnixPipe_Reader__630 t0;
+ t1 = (struct fs_File__636 *)&t0.file;
  (*t1) = a0;
- t2 = (struct mem_Allocator__565 *)&t0.allocator;
+ t2 = (struct mem_Allocator__589 *)&t0.allocator;
  (*t2) = a1;
  return t0;
 }
 
-static uint16_t instruments_perf_PerfInstrument_send_cmd__752(struct instruments_perf_PerfInstrument__559 *const a0, struct shared_Command__1946 const a1) {
- struct instruments_perf_PerfInstrument__559 *const *t1;
- struct instruments_perf_PerfInstrument__559 *t2;
- struct instruments_perf_PerfInstrument__559 *t0;
- struct fifo_UnixPipe_Writer__600 *t3;
- struct fifo_UnixPipe_Reader__602 *t5;
- uint16_t t4;
- t0 = a0;
- t1 = (struct instruments_perf_PerfInstrument__559 *const *)&t0;
- t2 = (*t1);
- t3 = (struct fifo_UnixPipe_Writer__600 *)&t2->writer;
- t4 = fifo_UnixPipe_Writer_sendCmd__1079(t3, a1);
- if (t4) {
-  return t4;
- }
- t2 = (*t1);
- t5 = (struct fifo_UnixPipe_Reader__602 *)&t2->reader;
- t4 = fifo_UnixPipe_Reader_waitForAck__1086(t5, (nav__752_72){UINT64_C(0xaaaaaaaaaaaaaaaa),true});
- if (t4) {
-  return t4;
- }
- return 0;
-}
-
-static bool instruments_perf_PerfInstrument_is_instrumented__753(struct instruments_perf_PerfInstrument__559 *const a0) {
- struct instruments_perf_PerfInstrument__559 *const *t1;
- struct instruments_perf_PerfInstrument__559 *t2;
- struct instruments_perf_PerfInstrument__559 *t0;
- uint16_t t3;
- bool t4;
- t0 = a0;
- t1 = (struct instruments_perf_PerfInstrument__559 *const *)&t0;
- t2 = (*t1);
- t3 = instruments_perf_PerfInstrument_send_cmd__752(t2, (struct shared_Command__1946){{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(4)});
- t4 = t3 == UINT16_C(0);
- if (t4) {
-  goto zig_block_0;
- }
- return false;
-
- zig_block_0:;
- return true;
-}
-
-static struct array_list_ArrayListAligned_28u8_2cnull_29__1974 array_list_ArrayListAligned_28u8_2cnull_29_init__3890(struct mem_Allocator__565 const a0) {
- struct array_list_ArrayListAligned_28u8_2cnull_29__1974 t0;
- t0.items = (nav__3890_42){(uint8_t *)((void const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),(uintptr_t)0ul};
+static struct array_list_ArrayListAligned_28u8_2cnull_29__2043 array_list_ArrayListAligned_28u8_2cnull_29_init__3926(struct mem_Allocator__589 const a0) {
+ struct array_list_ArrayListAligned_28u8_2cnull_29__2043 t0;
+ t0.items = (nav__3926_42){(uint8_t *)((void const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),(uintptr_t)0ul};
  t0.capacity = (uintptr_t)0ul;
  t0.allocator = a0;
  return t0;
 }
 
-static struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 array_list_ArrayListAligned_28u8_2cnull_29_writer__3915(struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *const a0) {
- struct array_list_ArrayListAligned_28u8_2cnull_29__1974 **t1;
- struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 t0;
- t1 = (struct array_list_ArrayListAligned_28u8_2cnull_29__1974 **)&t0.context;
+static struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 array_list_ArrayListAligned_28u8_2cnull_29_writer__3951(struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *const a0) {
+ struct array_list_ArrayListAligned_28u8_2cnull_29__2043 **t1;
+ struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 t0;
+ t1 = (struct array_list_ArrayListAligned_28u8_2cnull_29__2043 **)&t0.context;
  (*t1) = a0;
  return t0;
 }
 
-static uint16_t bincode_serialize__anon_2015__4064(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 const a0, struct shared_Command__1946 const a1) {
+static uint16_t bincode_serialize__anon_2084__4100(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 const a0, struct shared_Command__2014 const a1) {
  uint16_t t0;
- t0 = bincode_serializeUnion__anon_2865__5251(a0, a1);
+ t0 = bincode_serializeUnion__anon_2964__5298(a0, a1);
  if (t0) {
   return t0;
  }
  return 0;
 }
 
-static void array_list_ArrayListAligned_28u8_2cnull_29_deinit__3892(struct array_list_ArrayListAligned_28u8_2cnull_29__1974 const a0) {
- struct array_list_ArrayListAligned_28u8_2cnull_29__1974 const *t1;
- struct mem_Allocator__565 const *t2;
- struct mem_Allocator__565 t3;
- struct array_list_ArrayListAligned_28u8_2cnull_29__1974 t4;
- struct array_list_ArrayListAligned_28u8_2cnull_29__1974 t0;
- nav__3892_41 t5;
+static void array_list_ArrayListAligned_28u8_2cnull_29_deinit__3928(struct array_list_ArrayListAligned_28u8_2cnull_29__2043 const a0) {
+ struct array_list_ArrayListAligned_28u8_2cnull_29__2043 const *t1;
+ struct mem_Allocator__589 const *t2;
+ struct mem_Allocator__589 t3;
+ struct array_list_ArrayListAligned_28u8_2cnull_29__2043 t4;
+ struct array_list_ArrayListAligned_28u8_2cnull_29__2043 t0;
+ nav__3928_41 t5;
  t0 = a0;
- t1 = (struct array_list_ArrayListAligned_28u8_2cnull_29__1974 const *)&t0;
- t2 = (struct mem_Allocator__565 const *)&t1->allocator;
+ t1 = (struct array_list_ArrayListAligned_28u8_2cnull_29__2043 const *)&t0;
+ t2 = (struct mem_Allocator__589 const *)&t1->allocator;
  t3 = (*t2);
  t4 = (*t1);
- t5 = array_list_ArrayListAligned_28u8_2cnull_29_allocatedSlice__3938(t4);
- mem_Allocator_free__anon_2159__4107(t3, t5);
+ t5 = array_list_ArrayListAligned_28u8_2cnull_29_allocatedSlice__3974(t4);
+ mem_Allocator_free__anon_2222__4143(t3, t5);
  return;
 }
 
-static uint8_t const (*mem_asBytes__anon_2057__4065(uint32_t const *const a0))[4] {
+static uint8_t const (*mem_asBytes__anon_2126__4101(uint32_t const *const a0))[4] {
  uint8_t const (*t0)[4];
  t0 = (uint8_t const (*)[4])a0;
  return t0;
 }
 
-static uint16_t fs_File_writeAll__1232(struct fs_File__608 const a0, nav__1232_40 const a1) {
- struct fs_File__608 const *t1;
- nav__1232_40 const *t3;
+static uint16_t fs_File_writeAll__1273(struct fs_File__636 const a0, nav__1273_40 const a1) {
+ struct fs_File__636 const *t1;
+ nav__1273_40 const *t3;
  uintptr_t t5;
  uintptr_t t6;
  uintptr_t t13;
  uintptr_t t4;
  uint64_t t7;
  uint64_t t8;
- nav__1232_40 t11;
- nav__1232_40 t2;
+ nav__1273_40 t11;
+ nav__1273_40 t2;
  uint8_t const *t12;
- nav__1232_47 t14;
- struct fs_File__608 t10;
- struct fs_File__608 t0;
+ nav__1273_47 t14;
+ struct fs_File__636 t10;
+ struct fs_File__636 t0;
  uint16_t t15;
  bool t9;
  t0 = a0;
- t1 = (struct fs_File__608 const *)&t0;
+ t1 = (struct fs_File__636 const *)&t0;
  t2 = a1;
- t3 = (nav__1232_40 const *)&t2;
+ t3 = (nav__1273_40 const *)&t2;
  t4 = (uintptr_t)0ul;
  zig_loop_11:
  t5 = t4;
@@ -2975,7 +3088,7 @@ static uint16_t fs_File_writeAll__1232(struct fs_File__608 const a0, nav__1232_4
   t5 = t13 - t5;
   t11.ptr = t12;
   t11.len = t5;
-  t14 = fs_File_write__1231(t10, t11);
+  t14 = fs_File_write__1272(t10, t11);
   if (t14.error) {
    t15 = t14.error;
    return t15;
@@ -2994,16 +3107,16 @@ static uint16_t fs_File_writeAll__1232(struct fs_File__608 const a0, nav__1232_4
  return 0;
 }
 
-static zig_i128 time_nanoTimestamp__4078(void) {
+static zig_i128 time_nanoTimestamp__4114(void) {
  zig_i128 t6;
  zig_i128 t7;
- nav__4078_41 t0;
- struct os_linux_timespec__struct_2927__2927 t2;
- struct os_linux_timespec__struct_2927__2927 t3;
+ nav__4114_41 t0;
+ struct os_linux_timespec__struct_3026__3026 t2;
+ struct os_linux_timespec__struct_3026__3026 t3;
  intptr_t t5;
  uint16_t t4;
  bool t1;
- t0 = posix_clock_gettime__1632(UINT32_C(0));
+ t0 = posix_clock_gettime__1673(UINT32_C(0));
  t1 = t0.error == UINT16_C(0);
  if (t1) {
   t3 = t0.payload;
@@ -3029,26 +3142,26 @@ static zig_i128 time_nanoTimestamp__4078(void) {
  return t7;
 }
 
-static nav__1222_38 fs_File_readAll__1222(struct fs_File__608 const a0, nav__1222_41 const a1) {
- struct fs_File__608 const *t1;
- nav__1222_41 const *t3;
+static nav__1263_38 fs_File_readAll__1263(struct fs_File__636 const a0, nav__1263_41 const a1) {
+ struct fs_File__636 const *t1;
+ nav__1263_41 const *t3;
  uintptr_t t5;
  uintptr_t t6;
  uintptr_t t4;
  uint64_t t7;
  uint64_t t8;
- nav__1222_41 t11;
- nav__1222_41 t2;
+ nav__1263_41 t11;
+ nav__1263_41 t2;
  uint8_t *t12;
- nav__1222_38 t13;
- struct fs_File__608 t10;
- struct fs_File__608 t0;
+ nav__1263_38 t13;
+ struct fs_File__636 t10;
+ struct fs_File__636 t0;
  uint16_t t14;
  bool t9;
  t0 = a0;
- t1 = (struct fs_File__608 const *)&t0;
+ t1 = (struct fs_File__636 const *)&t0;
  t2 = a1;
- t3 = (nav__1222_41 const *)&t2;
+ t3 = (nav__1263_41 const *)&t2;
  t4 = (uintptr_t)0ul;
  zig_loop_11:
  t5 = t4;
@@ -3066,7 +3179,7 @@ static nav__1222_38 fs_File_readAll__1222(struct fs_File__608 const a0, nav__122
   t6 = t5 - t6;
   t11.ptr = t12;
   t11.len = t6;
-  t13 = fs_File_read__1221(t10, t11);
+  t13 = fs_File_read__1262(t10, t11);
   if (t13.error) {
    t14 = t13.error;
    t13.payload = (uintptr_t)0xaaaaaaaaaaaaaaaaul;
@@ -3099,31 +3212,31 @@ static nav__1222_38 fs_File_readAll__1222(struct fs_File__608 const a0, nav__122
  return t13;
 }
 
-static nav__4106_40 mem_Allocator_alloc__anon_2153__4106(struct mem_Allocator__565 const a0, uintptr_t const a1) {
- struct mem_Allocator__565 const *t1;
- struct mem_Allocator__565 t2;
- struct mem_Allocator__565 t0;
- struct mem_Allocator__565 t5;
+static nav__4142_40 mem_Allocator_alloc__anon_2216__4142(struct mem_Allocator__589 const a0, uintptr_t const a1) {
+ struct mem_Allocator__589 const *t1;
+ struct mem_Allocator__589 t2;
+ struct mem_Allocator__589 t0;
+ struct mem_Allocator__589 t5;
  uintptr_t t3;
- nav__4106_40 t4;
- nav__4106_40 t8;
- nav__4106_51 t6;
+ nav__4142_40 t4;
+ nav__4142_40 t8;
+ nav__4142_51 t6;
  uint8_t *t9;
  uint8_t *t10;
  uint8_t *const *t11;
- nav__4106_39 t12;
+ nav__4142_39 t12;
  uint16_t t7;
  t0 = a0;
- t1 = (struct mem_Allocator__565 const *)&t0;
+ t1 = (struct mem_Allocator__589 const *)&t0;
  t2 = (*t1);
  t3 = (uintptr_t)zig_return_address();
  t5 = t2;
- t1 = (struct mem_Allocator__565 const *)&t5;
+ t1 = (struct mem_Allocator__589 const *)&t5;
  t2 = (*t1);
- t6 = mem_Allocator_allocWithSizeAndAlignment__anon_2958__5252(t2, a1, t3);
+ t6 = mem_Allocator_allocWithSizeAndAlignment__anon_3057__5299(t2, a1, t3);
  if (t6.error) {
   t7 = t6.error;
-  t8.payload = (nav__4106_39){(uint8_t *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul};
+  t8.payload = (nav__4142_39){(uint8_t *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul};
   t8.error = t7;
   t4 = t8;
   goto zig_block_0;
@@ -3144,28 +3257,28 @@ static nav__4106_40 mem_Allocator_alloc__anon_2153__4106(struct mem_Allocator__5
  return t4;
 }
 
-static void mem_Allocator_free__anon_2159__4107(struct mem_Allocator__565 const a0, nav__4107_40 const a1) {
- struct mem_Allocator__565 const *t1;
- nav__4107_40 t2;
+static void mem_Allocator_free__anon_2222__4143(struct mem_Allocator__589 const a0, nav__4143_40 const a1) {
+ struct mem_Allocator__589 const *t1;
+ nav__4143_40 t2;
  uintptr_t t3;
  uint64_t t4;
  uint8_t *t6;
  uint8_t *t7;
  uint8_t *t8;
  uint8_t *const *t9;
- struct mem_Allocator__565 t10;
- struct mem_Allocator__565 t0;
- struct mem_Allocator__565 t12;
- struct mem_Allocator_VTable__568 const *const *t13;
- struct mem_Allocator_VTable__568 const *t14;
- void (*const *t15)(void *, nav__4107_40, uint8_t, uintptr_t);
- void (*t16)(void *, nav__4107_40, uint8_t, uintptr_t);
+ struct mem_Allocator__589 t10;
+ struct mem_Allocator__589 t0;
+ struct mem_Allocator__589 t12;
+ struct mem_Allocator_VTable__592 const *const *t13;
+ struct mem_Allocator_VTable__592 const *t14;
+ void (*const *t15)(void *, nav__4143_40, uint8_t, uintptr_t);
+ void (*t16)(void *, nav__4143_40, uint8_t, uintptr_t);
  void *t17;
  bool t5;
  uint8_t t11;
  t0 = a0;
- t1 = (struct mem_Allocator__565 const *)&t0;
- t2 = mem_sliceAsBytes__anon_2971__5253(a1);
+ t1 = (struct mem_Allocator__589 const *)&t0;
+ t2 = mem_sliceAsBytes__anon_3070__5300(a1);
  t3 = t2.len;
  t4 = t3;
  t5 = t4 == UINT64_C(0);
@@ -3188,65 +3301,65 @@ static void mem_Allocator_free__anon_2159__4107(struct mem_Allocator__565 const 
  t7 = (uint8_t *)(((uintptr_t)t7) + ((uintptr_t)0ul*sizeof(uint8_t)));
  t2.ptr = t7;
  t2.len = t3;
- t11 = mem_Alignment_fromByteUnits__1045((uintptr_t)1ul);
+ t11 = mem_Alignment_fromByteUnits__1066((uintptr_t)1ul);
  t3 = (uintptr_t)zig_return_address();
  t12 = t10;
- t1 = (struct mem_Allocator__565 const *)&t12;
- t13 = (struct mem_Allocator_VTable__568 const *const *)&t1->vtable;
+ t1 = (struct mem_Allocator__589 const *)&t12;
+ t13 = (struct mem_Allocator_VTable__592 const *const *)&t1->vtable;
  t14 = (*t13);
- t15 = (void (*const *)(void *, nav__4107_40, uint8_t, uintptr_t))&t14->free;
+ t15 = (void (*const *)(void *, nav__4143_40, uint8_t, uintptr_t))&t14->free;
  t16 = (*t15);
  t17 = t10.ptr;
  t16(t17, t2, t11, t3);
  return;
 }
 
-static struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 io_fixed_buffer_stream_fixedBufferStream__anon_2181__4139(nav__4139_40 const a0) {
- nav__4139_40 *t1;
+static struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 io_fixed_buffer_stream_fixedBufferStream__anon_2244__4175(nav__4175_40 const a0) {
+ nav__4175_40 *t1;
  uintptr_t *t2;
- struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 t0;
- t1 = (nav__4139_40 *)&t0.buffer;
+ struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 t0;
+ t1 = (nav__4175_40 *)&t0.buffer;
  (*t1) = a0;
  t2 = (uintptr_t *)&t0.pos;
  (*t2) = (uintptr_t)0ul;
  return t0;
 }
 
-static struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_reader__4128(struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 *const a0) {
- struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 **t1;
- struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2201 t0;
- t1 = (struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 **)&t0.context;
+static struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_reader__4164(struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 *const a0) {
+ struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 **t1;
+ struct io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29__2265 t0;
+ t1 = (struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 **)&t0.context;
  (*t1) = a0;
  return t0;
 }
 
-static nav__4172_38 io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29_typeEras__4172(void const *const a0, nav__4172_41 const a1) {
- struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 *const *t0;
- struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 *t1;
- nav__4172_38 t2;
- nav__4172_38 t3;
- t0 = (struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 *const *)a0;
+static nav__4208_38 io_GenericReader_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7b_7d_2c_28function_20_27read_27_29_29_typeEras__4208(void const *const a0, nav__4208_41 const a1) {
+ struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 *const *t0;
+ struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 *t1;
+ nav__4208_38 t2;
+ nav__4208_38 t3;
+ t0 = (struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 *const *)a0;
  t1 = (*t0);
- t2 = io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_read__4131(t1, a1);
- memcpy(&t3, &t2, sizeof(nav__4172_38));
+ t2 = io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_read__4167(t1, a1);
+ memcpy(&t3, &t2, sizeof(nav__4208_38));
  return t3;
 }
 
-static nav__4214_39 io_Reader_readBytesNoEof__anon_2368__4214(struct io_Reader__2337 const a0) {
- struct io_Reader__2337 const *t1;
- struct io_Reader__2337 t3;
- struct io_Reader__2337 t0;
- nav__4214_46 t4;
+static nav__4250_39 io_Reader_readBytesNoEof__anon_2442__4250(struct io_Reader__2411 const a0) {
+ struct io_Reader__2411 const *t1;
+ struct io_Reader__2411 t3;
+ struct io_Reader__2411 t0;
+ nav__4250_46 t4;
  uint16_t t5;
- nav__4214_39 t6;
+ nav__4250_39 t6;
  uint8_t t7[4];
  uint8_t t2[4];
  t0 = a0;
- t1 = (struct io_Reader__2337 const *)&t0;
+ t1 = (struct io_Reader__2411 const *)&t0;
  t3 = (*t1);
  t4.ptr = &t2[(uintptr_t)0ul];
  t4.len = (uintptr_t)4ul;
- t5 = io_Reader_readNoEof__4181(t3, t4);
+ t5 = io_Reader_readNoEof__4217(t3, t4);
  if (t5) {
   memcpy(t6.payload, "\252\252\252\252", sizeof(uint8_t[4]));
   t6.error = t5;
@@ -3258,21 +3371,21 @@ static nav__4214_39 io_Reader_readBytesNoEof__anon_2368__4214(struct io_Reader__
  return t6;
 }
 
-static nav__4219_39 io_Reader_readBytesNoEof__anon_2461__4219(struct io_Reader__2337 const a0) {
- struct io_Reader__2337 const *t1;
- struct io_Reader__2337 t3;
- struct io_Reader__2337 t0;
- nav__4219_46 t4;
+static nav__4255_39 io_Reader_readBytesNoEof__anon_2535__4255(struct io_Reader__2411 const a0) {
+ struct io_Reader__2411 const *t1;
+ struct io_Reader__2411 t3;
+ struct io_Reader__2411 t0;
+ nav__4255_46 t4;
  uint16_t t5;
- nav__4219_39 t6;
+ nav__4255_39 t6;
  uint8_t t7[8];
  uint8_t t2[8];
  t0 = a0;
- t1 = (struct io_Reader__2337 const *)&t0;
+ t1 = (struct io_Reader__2411 const *)&t0;
  t3 = (*t1);
  t4.ptr = &t2[(uintptr_t)0ul];
  t4.len = (uintptr_t)8ul;
- t5 = io_Reader_readNoEof__4181(t3, t4);
+ t5 = io_Reader_readNoEof__4217(t3, t4);
  if (t5) {
   memcpy(t6.payload, "\252\252\252\252\252\252\252\252", sizeof(uint8_t[8]));
   t6.error = t5;
@@ -3284,39 +3397,39 @@ static nav__4219_39 io_Reader_readBytesNoEof__anon_2461__4219(struct io_Reader__
  return t6;
 }
 
-static nav__4179_38 io_Reader_readAll__4179(struct io_Reader__2337 const a0, nav__4179_41 const a1) {
+static nav__4215_38 io_Reader_readAll__4215(struct io_Reader__2411 const a0, nav__4215_41 const a1) {
  uintptr_t t0;
- nav__4179_38 t1;
+ nav__4215_38 t1;
  t0 = a1.len;
- t1 = io_Reader_readAtLeast__4180(a0, a1, t0);
+ t1 = io_Reader_readAtLeast__4216(a0, a1, t0);
  return t1;
 }
 
-static zig_noreturn void bincode_invalidProtocol__anon_2485__4220(void) {
- utils_print__anon_3010__5254();
- posix_exit__1441(UINT8_C(1));
+static zig_noreturn void bincode_invalidProtocol__anon_2559__4256(void) {
+ utils_print__anon_3113__5301();
+ posix_exit__1482(UINT8_C(1));
  zig_unreachable();
 }
 
-static void utils_sleep__3833(uint64_t const a0) {
+static void utils_sleep__3869(uint64_t const a0) {
  uint64_t t0;
  uint64_t t1;
  long *t3;
  long t4;
  long t7;
- nav__3833_42 t5;
- struct cimport_struct_timespec__3025 const *t9;
- struct cimport_struct_timespec__3025 *t10;
- struct cimport_struct_timespec__3025 t13;
- struct cimport_struct_timespec__3025 t2;
- struct cimport_struct_timespec__3025 t8;
+ nav__3869_42 t5;
+ struct cimport_struct_timespec__3132 const *t9;
+ struct cimport_struct_timespec__3132 *t10;
+ struct cimport_struct_timespec__3132 t13;
+ struct cimport_struct_timespec__3132 t2;
+ struct cimport_struct_timespec__3132 t8;
  int t11;
  int32_t t12;
  bool t6;
  t0 = a0 / UINT64_C(1000000000);
  t1 = a0 % UINT64_C(1000000000);
  t3 = (long *)&t2.tv_sec;
- t5 = math_cast__anon_3038__6176(t0);
+ t5 = math_cast__anon_3145__6235(t0);
  t6 = t5.is_null != true;
  if (t6) {
   t7 = t5.payload;
@@ -3329,7 +3442,7 @@ static void utils_sleep__3833(uint64_t const a0) {
  zig_block_0:;
  (*t3) = t4;
  t3 = (long *)&t2.tv_nsec;
- t5 = math_cast__anon_3038__6176(t1);
+ t5 = math_cast__anon_3145__6235(t1);
  t6 = t5.is_null != true;
  if (t6) {
   t7 = t5.payload;
@@ -3342,8 +3455,8 @@ static void utils_sleep__3833(uint64_t const a0) {
  zig_block_1:;
  (*t3) = t4;
  zig_loop_28:
- t9 = (struct cimport_struct_timespec__3025 const *)&t2;
- t10 = (struct cimport_struct_timespec__3025 *)&t8;
+ t9 = (struct cimport_struct_timespec__3132 const *)&t2;
+ t10 = (struct cimport_struct_timespec__3132 *)&t8;
  t11 = nanosleep(t9, t10);
  t12 = t11;
  t6 = t12 == INT32_C(4);
@@ -3358,36 +3471,42 @@ static void utils_sleep__3833(uint64_t const a0) {
  goto zig_loop_28;
 }
 
-static void shared_Command_deinit__3838(struct shared_Command__1946 const a0, struct mem_Allocator__565 const a1) {
- struct mem_Allocator__565 const *t1;
- struct shared_Command__struct_1950__1950 t3;
- struct mem_Allocator__565 t4;
- struct mem_Allocator__565 t0;
- nav__3838_43 t5;
- struct shared_Command__struct_1949__1949 t6;
+static void shared_Command_deinit__3874(struct shared_Command__2014 const a0, struct mem_Allocator__589 const a1) {
+ struct mem_Allocator__589 const *t1;
+ struct shared_Command__struct_2018__2018 t3;
+ struct mem_Allocator__589 t4;
+ struct mem_Allocator__589 t0;
+ nav__3874_43 t5;
+ struct shared_Command__struct_2017__2017 t6;
  uint8_t t2;
  t0 = a1;
- t1 = (struct mem_Allocator__565 const *)&t0;
+ t1 = (struct mem_Allocator__589 const *)&t0;
  t2 = a0.tag;
  switch (t2) {
   case UINT8_C(5): {
    t3 = a0.payload.SetIntegration;
    t4 = (*t1);
    t5 = t3.name;
-   mem_Allocator_free__anon_3110__6945(t4, t5);
+   mem_Allocator_free__anon_3218__7016(t4, t5);
    t4 = (*t1);
    t5 = t3.version;
-   mem_Allocator_free__anon_3110__6945(t4, t5);
+   mem_Allocator_free__anon_3218__7016(t4, t5);
    goto zig_block_0;
   }
   case UINT8_C(0): {
    t6 = a0.payload.ExecutedBenchmark;
    t4 = (*t1);
    t5 = t6.uri;
-   mem_Allocator_free__anon_3110__6945(t4, t5);
+   mem_Allocator_free__anon_3218__7016(t4, t5);
    goto zig_block_0;
   }
   case UINT8_C(8): {
+   goto zig_block_0;
+  }
+  case UINT8_C(9): {
+   goto zig_block_0;
+  }
+  case UINT8_C(10): {
    goto zig_block_0;
   }
   default: {
@@ -3399,116 +3518,58 @@ static void shared_Command_deinit__3838(struct shared_Command__1946 const a0, st
  return;
 }
 
-static void utils_print__anon_2763__4230(void) {
- (void)printf((char const *)&__anon_3286);
- return;
-}
-
-static void utils_print__anon_2768__4231(void) {
- (void)printf((char const *)&__anon_3405);
- return;
-}
-
-static void instruments_perf_PerfInstrument_deinit__751(struct instruments_perf_PerfInstrument__559 *const a0) {
- struct instruments_perf_PerfInstrument__559 *const *t1;
- struct instruments_perf_PerfInstrument__559 *t2;
- struct instruments_perf_PerfInstrument__559 *t0;
- struct fifo_UnixPipe_Writer__600 *t3;
- struct fifo_UnixPipe_Reader__602 *t4;
+static void runner_fifo_RunnerFifo_deinit__1084(struct runner_fifo_RunnerFifo__621 *const a0) {
+ struct runner_fifo_RunnerFifo__621 *const *t1;
+ struct runner_fifo_RunnerFifo__621 *t2;
+ struct runner_fifo_RunnerFifo__621 *t0;
+ struct fifo_UnixPipe_Writer__628 *t3;
+ struct fifo_UnixPipe_Reader__630 *t4;
  t0 = a0;
- t1 = (struct instruments_perf_PerfInstrument__559 *const *)&t0;
+ t1 = (struct runner_fifo_RunnerFifo__621 *const *)&t0;
  t2 = (*t1);
- t3 = (struct fifo_UnixPipe_Writer__600 *)&t2->writer;
- fifo_UnixPipe_Writer_deinit__1080(t3);
+ t3 = (struct fifo_UnixPipe_Writer__628 *)&t2->writer;
+ fifo_UnixPipe_Writer_deinit__1121(t3);
  t2 = (*t1);
- t4 = (struct fifo_UnixPipe_Reader__602 *)&t2->reader;
- fifo_UnixPipe_Reader_deinit__1087(t4);
+ t4 = (struct fifo_UnixPipe_Reader__630 *)&t2->reader;
+ fifo_UnixPipe_Reader_deinit__1128(t4);
  return;
 }
 
-static void mem_Allocator_destroy__anon_2782__4232(struct mem_Allocator__565 const a0, struct instruments_root_InstrumentHooks__547 *const a1) {
- struct mem_Allocator__565 const *t1;
- uint8_t *t2;
- uint8_t *t3;
- uint8_t *const *t4;
- struct mem_Allocator__565 t5;
- struct mem_Allocator__565 t0;
- struct mem_Allocator__565 t10;
- uint8_t (*t6)[72];
- nav__4232_52 t7;
- uintptr_t t9;
- struct mem_Allocator_VTable__568 const *const *t11;
- struct mem_Allocator_VTable__568 const *t12;
- void (*const *t13)(void *, nav__4232_52, uint8_t, uintptr_t);
- void (*t14)(void *, nav__4232_52, uint8_t, uintptr_t);
- void *t15;
- uint8_t t8;
- t0 = a0;
- t1 = (struct mem_Allocator__565 const *)&t0;
- t2 = (uint8_t *)a1;
- t3 = t2;
- t4 = (uint8_t *const *)&t3;
- t5 = (*t1);
- t2 = (*t4);
- t2 = (uint8_t *)(((uintptr_t)t2) + ((uintptr_t)0ul*sizeof(uint8_t)));
- t6 = (uint8_t (*)[72])t2;
- t7.ptr = &(*t6)[(uintptr_t)0ul];
- t7.len = (uintptr_t)72ul;
- t8 = mem_Alignment_fromByteUnits__1045((uintptr_t)8ul);
- t9 = (uintptr_t)zig_return_address();
- t10 = t5;
- t1 = (struct mem_Allocator__565 const *)&t10;
- t11 = (struct mem_Allocator_VTable__568 const *const *)&t1->vtable;
- t12 = (*t11);
- t13 = (void (*const *)(void *, nav__4232_52, uint8_t, uintptr_t))&t12->free;
- t14 = (*t13);
- t15 = t5.ptr;
- t14(t15, t7, t8, t9);
- return;
-}
-
-static zig_noreturn void posix_exit__1441(uint8_t const a0) {
- int t0;
- t0 = (int)a0;
- exit(t0);
- zig_unreachable();
-}
-
-static nav__4233_39 mem_Allocator_allocBytesWithAlignment__anon_2798__4233(struct mem_Allocator__565 const a0, uintptr_t const a1, uintptr_t const a2) {
- struct mem_Allocator__565 const *t1;
+static nav__4268_39 mem_Allocator_allocBytesWithAlignment__anon_2904__4268(struct mem_Allocator__589 const a0, uintptr_t const a1, uintptr_t const a2) {
+ struct mem_Allocator__589 const *t1;
  uint64_t t2;
  uint8_t *t4;
  uint8_t *t13;
  uint8_t *t14;
  uint8_t *t15;
- struct mem_Allocator__565 t5;
- struct mem_Allocator__565 t0;
- struct mem_Allocator__565 t7;
- struct mem_Allocator_VTable__568 const *const *t8;
- struct mem_Allocator_VTable__568 const *t9;
+ struct mem_Allocator__589 t5;
+ struct mem_Allocator__589 t0;
+ struct mem_Allocator__589 t7;
+ struct mem_Allocator_VTable__592 const *const *t8;
+ struct mem_Allocator_VTable__592 const *t9;
  uint8_t *(*const *t10)(void *, uintptr_t, uint8_t, uintptr_t);
  uint8_t *(*t11)(void *, uintptr_t, uint8_t, uintptr_t);
  void *t12;
  uint8_t *const *t16;
- nav__4233_52 t17;
- nav__4233_39 t18;
+ nav__4268_52 t17;
+ nav__4268_39 t18;
  bool t3;
  uint8_t t6;
  t0 = a0;
- t1 = (struct mem_Allocator__565 const *)&t0;
+ t1 = (struct mem_Allocator__589 const *)&t0;
  t2 = a1;
  t3 = t2 == UINT64_C(0);
  if (t3) {
-  return (nav__4233_39){(uint8_t *)(uintptr_t)0xfffffffffffffff8ul,0};
+  return (nav__4268_39){(uint8_t *)(uintptr_t)0xfffffffffffffff8ul,0};
  }
  goto zig_block_0;
 
  zig_block_0:;
  t5 = (*t1);
- t6 = mem_Alignment_fromByteUnits__1045((uintptr_t)8ul);
+ t6 = mem_Alignment_fromByteUnits__1066((uintptr_t)8ul);
  t7 = t5;
- t1 = (struct mem_Allocator__565 const *)&t7;
- t8 = (struct mem_Allocator_VTable__568 const *const *)&t1->vtable;
+ t1 = (struct mem_Allocator__589 const *)&t7;
+ t8 = (struct mem_Allocator_VTable__592 const *const *)&t1->vtable;
  t9 = (*t8);
  t10 = (uint8_t *(*const *)(void *, uintptr_t, uint8_t, uintptr_t))&t9->alloc;
  t11 = (*t10);
@@ -3520,7 +3581,7 @@ static nav__4233_39 mem_Allocator_allocBytesWithAlignment__anon_2798__4233(struc
   t4 = t14;
   goto zig_block_1;
  }
- return (nav__4233_39){((uint8_t *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),zig_error_OutOfMemory};
+ return (nav__4268_39){((uint8_t *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),zig_error_OutOfMemory};
 
  zig_block_1:;
  t15 = t4;
@@ -3535,31 +3596,31 @@ static nav__4233_39 mem_Allocator_allocBytesWithAlignment__anon_2798__4233(struc
  return t18;
 }
 
-static bool fs_path_isAbsolute__4268(nav__4268_39 const a0) {
+static bool fs_path_isAbsolute__4303(nav__4303_39 const a0) {
  bool t0;
- t0 = fs_path_isAbsolutePosix__4274(a0);
+ t0 = fs_path_isAbsolutePosix__4309(a0);
  return t0;
 }
 
-static struct fs_Dir__1860 fs_cwd__1133(void) {
- struct fs_Dir__1860 t0;
- t0 = (struct fs_Dir__1860){-INT32_C(100)};
+static struct fs_Dir__1940 fs_cwd__1174(void) {
+ struct fs_Dir__1940 t0;
+ t0 = (struct fs_Dir__1940){-INT32_C(100)};
  return t0;
 }
 
-static uint16_t fs_Dir_access__3782(struct fs_Dir__1860 const a0, nav__3782_40 const a1, struct fs_File_OpenFlags__1858 const a2) {
- struct fs_Dir__1860 const *t1;
+static uint16_t fs_Dir_access__3818(struct fs_Dir__1940 const a0, nav__3818_40 const a1, struct fs_File_OpenFlags__1938 const a2) {
+ struct fs_Dir__1940 const *t1;
  uint8_t const (*t6)[4096];
  uint8_t const *t8;
- struct fs_Dir__1860 t7;
- struct fs_Dir__1860 t0;
- nav__3782_49 t2;
+ struct fs_Dir__1940 t7;
+ struct fs_Dir__1940 t0;
+ nav__3818_49 t2;
  uint16_t t3;
  uint8_t t4[4096];
  uint8_t t5[4096];
  t0 = a0;
- t1 = (struct fs_Dir__1860 const *)&t0;
- t2 = posix_toPosixPath__1716(a1);
+ t1 = (struct fs_Dir__1940 const *)&t0;
+ t2 = posix_toPosixPath__1757(a1);
  if (t2.error) {
   t3 = t2.error;
   return t3;
@@ -3569,29 +3630,29 @@ static uint16_t fs_Dir_access__3782(struct fs_Dir__1860 const a0, nav__3782_40 c
  t6 = (uint8_t const (*)[4096])&t5;
  t7 = (*t1);
  t8 = (uint8_t const *)t6;
- t3 = fs_Dir_accessZ__3783(t7, t8, a2);
+ t3 = fs_Dir_accessZ__3819(t7, t8, a2);
  return t3;
 }
 
-static nav__3718_39 fs_Dir_openFile__3718(struct fs_Dir__1860 const a0, nav__3718_42 const a1, struct fs_File_OpenFlags__1858 const a2) {
- struct fs_Dir__1860 const *t1;
+static nav__3754_39 fs_Dir_openFile__3754(struct fs_Dir__1940 const a0, nav__3754_42 const a1, struct fs_File_OpenFlags__1938 const a2) {
+ struct fs_Dir__1940 const *t1;
  uint8_t const (*t8)[4096];
  uint8_t const *t10;
- nav__3718_39 t5;
- struct fs_Dir__1860 t9;
- struct fs_Dir__1860 t0;
- nav__3718_53 t3;
+ nav__3754_39 t5;
+ struct fs_Dir__1940 t9;
+ struct fs_Dir__1940 t0;
+ nav__3754_53 t3;
  uint16_t t4;
  uint8_t t6[4096];
  uint8_t t7[4096];
- struct fs_File_OpenFlags__1858 t2;
+ struct fs_File_OpenFlags__1938 t2;
  t0 = a0;
- t1 = (struct fs_Dir__1860 const *)&t0;
+ t1 = (struct fs_Dir__1940 const *)&t0;
  t2 = a2;
- t3 = posix_toPosixPath__1716(a1);
+ t3 = posix_toPosixPath__1757(a1);
  if (t3.error) {
   t4 = t3.error;
-  t5.payload = (struct fs_File__608){-INT32_C(0x55555556)};
+  t5.payload = (struct fs_File__636){-INT32_C(0x55555556)};
   t5.error = t4;
   return t5;
  }
@@ -3600,14 +3661,14 @@ static nav__3718_39 fs_Dir_openFile__3718(struct fs_Dir__1860 const a0, nav__371
  t8 = (uint8_t const (*)[4096])&t7;
  t9 = (*t1);
  t10 = (uint8_t const *)t8;
- t5 = fs_Dir_openFileZ__3719(t9, t10, a2);
+ t5 = fs_Dir_openFileZ__3755(t9, t10, a2);
  return t5;
 }
 
-static uint16_t bincode_serializeUnion__anon_2865__5251(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 const a0, struct shared_Command__1946 const a1) {
- struct shared_Command__struct_1949__1949 t4;
- struct shared_Command__struct_1950__1950 t5;
- struct shared_Command__struct_1951__1951 t6;
+static uint16_t bincode_serializeUnion__anon_2964__5298(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 const a0, struct shared_Command__2014 const a1) {
+ struct shared_Command__struct_2017__2017 t4;
+ struct shared_Command__struct_2018__2018 t5;
+ struct shared_Command__struct_2019__2019 t6;
  uint64_t t7;
  uint32_t t1;
  uint16_t t2;
@@ -3615,7 +3676,7 @@ static uint16_t bincode_serializeUnion__anon_2865__5251(struct io_GenericWriter_
  bool t3;
  t0 = a1.tag;
  t1 = (uint32_t)t0;
- t2 = bincode_serialize__anon_3500__6960(a0, t1);
+ t2 = bincode_serialize__anon_3300__7029(a0, t1);
  if (t2) {
   return t2;
  }
@@ -3623,7 +3684,7 @@ static uint16_t bincode_serializeUnion__anon_2865__5251(struct io_GenericWriter_
  t3 = t0 == UINT8_C(0);
  if (t3) {
   t4 = a1.payload.ExecutedBenchmark;
-  t2 = bincode_serialize__anon_3502__6961(a0, t4);
+  t2 = bincode_serialize__anon_3302__7030(a0, t4);
   if (t2) {
    return t2;
   }
@@ -3635,7 +3696,7 @@ static uint16_t bincode_serializeUnion__anon_2865__5251(struct io_GenericWriter_
  t0 = a1.tag;
  t3 = t0 == UINT8_C(1);
  if (t3) {
-  t2 = bincode_serialize__anon_3504__6962(a0);
+  t2 = bincode_serialize__anon_3304__7031(a0);
   if (t2) {
    return t2;
   }
@@ -3647,7 +3708,7 @@ static uint16_t bincode_serializeUnion__anon_2865__5251(struct io_GenericWriter_
  t0 = a1.tag;
  t3 = t0 == UINT8_C(2);
  if (t3) {
-  t2 = bincode_serialize__anon_3504__6962(a0);
+  t2 = bincode_serialize__anon_3304__7031(a0);
   if (t2) {
    return t2;
   }
@@ -3659,7 +3720,7 @@ static uint16_t bincode_serializeUnion__anon_2865__5251(struct io_GenericWriter_
  t0 = a1.tag;
  t3 = t0 == UINT8_C(3);
  if (t3) {
-  t2 = bincode_serialize__anon_3504__6962(a0);
+  t2 = bincode_serialize__anon_3304__7031(a0);
   if (t2) {
    return t2;
   }
@@ -3671,7 +3732,7 @@ static uint16_t bincode_serializeUnion__anon_2865__5251(struct io_GenericWriter_
  t0 = a1.tag;
  t3 = t0 == UINT8_C(4);
  if (t3) {
-  t2 = bincode_serialize__anon_3504__6962(a0);
+  t2 = bincode_serialize__anon_3304__7031(a0);
   if (t2) {
    return t2;
   }
@@ -3684,7 +3745,7 @@ static uint16_t bincode_serializeUnion__anon_2865__5251(struct io_GenericWriter_
  t3 = t0 == UINT8_C(5);
  if (t3) {
   t5 = a1.payload.SetIntegration;
-  t2 = bincode_serialize__anon_3506__6963(a0, t5);
+  t2 = bincode_serialize__anon_3306__7032(a0, t5);
   if (t2) {
    return t2;
   }
@@ -3696,7 +3757,7 @@ static uint16_t bincode_serializeUnion__anon_2865__5251(struct io_GenericWriter_
  t0 = a1.tag;
  t3 = t0 == UINT8_C(6);
  if (t3) {
-  t2 = bincode_serialize__anon_3504__6962(a0);
+  t2 = bincode_serialize__anon_3304__7031(a0);
   if (t2) {
    return t2;
   }
@@ -3709,7 +3770,7 @@ static uint16_t bincode_serializeUnion__anon_2865__5251(struct io_GenericWriter_
  t3 = t0 == UINT8_C(7);
  if (t3) {
   t6 = a1.payload.AddMarker;
-  t2 = bincode_serialize__anon_3508__6964(a0, t6);
+  t2 = bincode_serialize__anon_3308__7033(a0, t6);
   if (t2) {
    return t2;
   }
@@ -3722,7 +3783,7 @@ static uint16_t bincode_serializeUnion__anon_2865__5251(struct io_GenericWriter_
  t3 = t0 == UINT8_C(8);
  if (t3) {
   t7 = a1.payload.SetVersion;
-  t2 = bincode_serialize__anon_3510__6965(a0, t7);
+  t2 = bincode_serialize__anon_3310__7034(a0, t7);
   if (t2) {
    return t2;
   }
@@ -3731,20 +3792,45 @@ static uint16_t bincode_serializeUnion__anon_2865__5251(struct io_GenericWriter_
  goto zig_block_8;
 
  zig_block_8:;
+ t0 = a1.tag;
+ t3 = t0 == UINT8_C(9);
+ if (t3) {
+  t2 = bincode_serialize__anon_3304__7031(a0);
+  if (t2) {
+   return t2;
+  }
+  goto zig_block_9;
+ }
+ goto zig_block_9;
+
+ zig_block_9:;
+ t0 = a1.tag;
+ t3 = t0 == UINT8_C(10);
+ if (t3) {
+  t0 = a1.payload.IntegrationModeResponse;
+  t2 = bincode_serialize__anon_3312__7035(a0, t0);
+  if (t2) {
+   return t2;
+  }
+  goto zig_block_10;
+ }
+ goto zig_block_10;
+
+ zig_block_10:;
  return 0;
 }
 
-static nav__3938_39 array_list_ArrayListAligned_28u8_2cnull_29_allocatedSlice__3938(struct array_list_ArrayListAligned_28u8_2cnull_29__1974 const a0) {
- struct array_list_ArrayListAligned_28u8_2cnull_29__1974 const *t1;
- nav__3938_39 const *t2;
+static nav__3974_39 array_list_ArrayListAligned_28u8_2cnull_29_allocatedSlice__3974(struct array_list_ArrayListAligned_28u8_2cnull_29__2043 const a0) {
+ struct array_list_ArrayListAligned_28u8_2cnull_29__2043 const *t1;
+ nav__3974_39 const *t2;
  uint8_t *const *t3;
  uintptr_t t4;
  uint8_t *t5;
- nav__3938_39 t6;
- struct array_list_ArrayListAligned_28u8_2cnull_29__1974 t0;
+ nav__3974_39 t6;
+ struct array_list_ArrayListAligned_28u8_2cnull_29__2043 t0;
  t0 = a0;
- t1 = (struct array_list_ArrayListAligned_28u8_2cnull_29__1974 const *)&t0;
- t2 = (nav__3938_39 const *)&t1->items;
+ t1 = (struct array_list_ArrayListAligned_28u8_2cnull_29__2043 const *)&t0;
+ t2 = (nav__3974_39 const *)&t1->items;
  t3 = &t2->ptr;
  t4 = a0.capacity;
  t5 = (*t3);
@@ -3754,22 +3840,22 @@ static nav__3938_39 array_list_ArrayListAligned_28u8_2cnull_29_allocatedSlice__3
  return t6;
 }
 
-static nav__1231_38 fs_File_write__1231(struct fs_File__608 const a0, nav__1231_41 const a1) {
- nav__1231_38 t1;
+static nav__1272_38 fs_File_write__1272(struct fs_File__636 const a0, nav__1272_41 const a1) {
+ nav__1272_38 t1;
  int32_t t0;
  t0 = a0.handle;
- t1 = posix_write__1451(t0, a1);
+ t1 = posix_write__1492(t0, a1);
  return t1;
 }
 
-static nav__1632_39 posix_clock_gettime__1632(uint32_t const a0) {
- struct os_linux_timespec__struct_2927__2927 t3;
- struct os_linux_timespec__struct_2927__2927 t0;
- nav__1632_39 t4;
+static nav__1673_39 posix_clock_gettime__1673(uint32_t const a0) {
+ struct os_linux_timespec__struct_3026__3026 t3;
+ struct os_linux_timespec__struct_3026__3026 t0;
+ nav__1673_39 t4;
  int t1;
  uint16_t t2;
  t1 = clock_gettime(a0, &t0);
- t2 = posix_errno__anon_3676__7032(t1);
+ t2 = posix_errno__anon_3478__7102(t1);
  switch (t2) {
   case UINT16_C(0): {
    t3 = t0;
@@ -3781,58 +3867,58 @@ static nav__1632_39 posix_clock_gettime__1632(uint32_t const a0) {
    zig_unreachable();
   }
   case UINT16_C(22): {
-   return (nav__1632_39){{-(intptr_t)0x5555555555555556,-(intptr_t)0x5555555555555556},zig_error_UnsupportedClock};
+   return (nav__1673_39){{-(intptr_t)0x5555555555555556,-(intptr_t)0x5555555555555556},zig_error_UnsupportedClock};
   }
   default: {
-   t2 = posix_unexpectedErrno__1715(t2);
-   t4.payload = (struct os_linux_timespec__struct_2927__2927){-(intptr_t)0x5555555555555556,-(intptr_t)0x5555555555555556};
+   t2 = posix_unexpectedErrno__1756(t2);
+   t4.payload = (struct os_linux_timespec__struct_3026__3026){-(intptr_t)0x5555555555555556,-(intptr_t)0x5555555555555556};
    t4.error = t2;
    return t4;
   }
  }
 }
 
-static nav__1221_38 fs_File_read__1221(struct fs_File__608 const a0, nav__1221_41 const a1) {
- nav__1221_38 t1;
+static nav__1262_38 fs_File_read__1262(struct fs_File__636 const a0, nav__1262_41 const a1) {
+ nav__1262_38 t1;
  int32_t t0;
  t0 = a0.handle;
- t1 = posix_read__1443(t0, a1);
+ t1 = posix_read__1484(t0, a1);
  return t1;
 }
 
-static nav__5252_39 mem_Allocator_allocWithSizeAndAlignment__anon_2958__5252(struct mem_Allocator__565 const a0, uintptr_t const a1, uintptr_t const a2) {
- struct mem_Allocator__565 const *t1;
+static nav__5299_39 mem_Allocator_allocWithSizeAndAlignment__anon_3057__5299(struct mem_Allocator__589 const a0, uintptr_t const a1, uintptr_t const a2) {
+ struct mem_Allocator__589 const *t1;
  uintptr_t t2;
  uintptr_t t5;
- nav__5252_49 t3;
- struct mem_Allocator__565 t6;
- struct mem_Allocator__565 t0;
- nav__5252_39 t7;
+ nav__5299_49 t3;
+ struct mem_Allocator__589 t6;
+ struct mem_Allocator__589 t0;
+ nav__5299_39 t7;
  bool t4;
  t0 = a0;
- t1 = (struct mem_Allocator__565 const *)&t0;
- t3 = math_mul__anon_3697__7033((uintptr_t)1ul, a1);
+ t1 = (struct mem_Allocator__589 const *)&t0;
+ t3 = math_mul__anon_3499__7103((uintptr_t)1ul, a1);
  t4 = t3.error == UINT16_C(0);
  if (t4) {
   t5 = t3.payload;
   t2 = t5;
   goto zig_block_0;
  }
- return (nav__5252_39){((uint8_t *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),zig_error_OutOfMemory};
+ return (nav__5299_39){((uint8_t *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),zig_error_OutOfMemory};
 
  zig_block_0:;
  t6 = (*t1);
- t7 = mem_Allocator_allocBytesWithAlignment__anon_3699__7034(t6, t2, a2);
+ t7 = mem_Allocator_allocBytesWithAlignment__anon_3501__7104(t6, t2, a2);
  return t7;
 }
 
-static nav__5253_39 mem_sliceAsBytes__anon_2971__5253(nav__5253_39 const a0) {
+static nav__5300_39 mem_sliceAsBytes__anon_3070__5300(nav__5300_39 const a0) {
  uintptr_t t0;
  uint64_t t1;
  uint8_t *t4;
  uint8_t *t5;
  uint8_t *const *t6;
- nav__5253_39 t7;
+ nav__5300_39 t7;
  bool t2;
  bool t3;
  t0 = a0.len;
@@ -3847,7 +3933,7 @@ static nav__5253_39 mem_sliceAsBytes__anon_2971__5253(nav__5253_39 const a0) {
 
  zig_block_1:;
  if (t3) {
-  return (nav__5253_39){(uint8_t *)((void const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),(uintptr_t)0ul};
+  return (nav__5300_39){(uint8_t *)((void const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),(uintptr_t)0ul};
  }
  goto zig_block_0;
 
@@ -3863,37 +3949,37 @@ static nav__5253_39 mem_sliceAsBytes__anon_2971__5253(nav__5253_39 const a0) {
  return t7;
 }
 
-static uint8_t mem_Alignment_fromByteUnits__1045(uintptr_t const a0) {
+static uint8_t mem_Alignment_fromByteUnits__1066(uintptr_t const a0) {
  bool t0;
  uint8_t t1;
- t0 = math_isPowerOfTwo__anon_3711__7035(a0);
+ t0 = math_isPowerOfTwo__anon_3513__7105(a0);
  debug_assert__180(t0);
  t1 = zig_ctz_u64(a0, UINT8_C(64));
  return t1;
 }
 
-static nav__4131_38 io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_read__4131(struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 *const a0, nav__4131_42 const a1) {
- struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 *const *t1;
- nav__4131_42 const *t3;
+static nav__4167_38 io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_read__4167(struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 *const a0, nav__4167_42 const a1) {
+ struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 *const *t1;
+ nav__4167_42 const *t3;
  uintptr_t t4;
  uintptr_t t7;
  uintptr_t t9;
- nav__4131_42 *t5;
- nav__4131_42 t6;
- nav__4131_42 t13;
- nav__4131_42 t2;
+ nav__4167_42 *t5;
+ nav__4167_42 t6;
+ nav__4167_42 t13;
+ nav__4167_42 t2;
  uintptr_t *t8;
  uint64_t t10;
  uint8_t *t11;
- struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 *t12;
- struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 *t0;
- nav__4131_38 t14;
+ struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 *t12;
+ struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 *t0;
+ nav__4167_38 t14;
  t0 = a0;
- t1 = (struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 *const *)&t0;
+ t1 = (struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 *const *)&t0;
  t2 = a1;
- t3 = (nav__4131_42 const *)&t2;
+ t3 = (nav__4167_42 const *)&t2;
  t4 = a1.len;
- t5 = (nav__4131_42 *)&a0->buffer;
+ t5 = (nav__4167_42 *)&a0->buffer;
  t6 = (*t5);
  t7 = t6.len;
  t8 = (uintptr_t *)&a0->pos;
@@ -3912,7 +3998,7 @@ static nav__4131_38 io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_read_
  t6.ptr = t11;
  t6.len = t9;
  t12 = (*t1);
- t5 = (nav__4131_42 *)&t12->buffer;
+ t5 = (nav__4167_42 *)&t12->buffer;
  t8 = (uintptr_t *)&a0->pos;
  t9 = (*t8);
  t13 = (*t5);
@@ -3932,11 +4018,11 @@ static nav__4131_38 io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_read_
  return t14;
 }
 
-static uint16_t io_Reader_readNoEof__4181(struct io_Reader__2337 const a0, nav__4181_40 const a1) {
- struct io_Reader__2337 const *t1;
- struct io_Reader__2337 t2;
- struct io_Reader__2337 t0;
- nav__4181_43 t3;
+static uint16_t io_Reader_readNoEof__4217(struct io_Reader__2411 const a0, nav__4217_40 const a1) {
+ struct io_Reader__2411 const *t1;
+ struct io_Reader__2411 t2;
+ struct io_Reader__2411 t0;
+ nav__4217_43 t3;
  uintptr_t t5;
  uintptr_t t6;
  uint64_t t7;
@@ -3944,9 +4030,9 @@ static uint16_t io_Reader_readNoEof__4181(struct io_Reader__2337 const a0, nav__
  uint16_t t4;
  bool t9;
  t0 = a0;
- t1 = (struct io_Reader__2337 const *)&t0;
+ t1 = (struct io_Reader__2411 const *)&t0;
  t2 = (*t1);
- t3 = io_Reader_readAll__4179(t2, a1);
+ t3 = io_Reader_readAll__4215(t2, a1);
  if (t3.error) {
   t4 = t3.error;
   return t4;
@@ -3965,26 +4051,26 @@ static uint16_t io_Reader_readNoEof__4181(struct io_Reader__2337 const a0, nav__
  return 0;
 }
 
-static nav__4180_38 io_Reader_readAtLeast__4180(struct io_Reader__2337 const a0, nav__4180_41 const a1, uintptr_t const a2) {
- struct io_Reader__2337 const *t1;
- nav__4180_41 const *t3;
+static nav__4216_38 io_Reader_readAtLeast__4216(struct io_Reader__2411 const a0, nav__4216_41 const a1, uintptr_t const a2) {
+ struct io_Reader__2411 const *t1;
+ nav__4216_41 const *t3;
  uintptr_t t4;
  uintptr_t t12;
  uintptr_t t8;
  uint64_t t5;
  uint64_t t6;
- struct io_Reader__2337 t9;
- struct io_Reader__2337 t0;
- nav__4180_41 t10;
- nav__4180_41 t2;
+ struct io_Reader__2411 t9;
+ struct io_Reader__2411 t0;
+ nav__4216_41 t10;
+ nav__4216_41 t2;
  uint8_t *t11;
- nav__4180_38 t13;
+ nav__4216_38 t13;
  uint16_t t14;
  bool t7;
  t0 = a0;
- t1 = (struct io_Reader__2337 const *)&t0;
+ t1 = (struct io_Reader__2411 const *)&t0;
  t2 = a1;
- t3 = (nav__4180_41 const *)&t2;
+ t3 = (nav__4216_41 const *)&t2;
  t4 = a1.len;
  t5 = a2;
  t6 = t4;
@@ -4006,7 +4092,7 @@ static nav__4180_38 io_Reader_readAtLeast__4180(struct io_Reader__2337 const a0,
   t4 = t12 - t4;
   t10.ptr = t11;
   t10.len = t4;
-  t13 = io_Reader_read__4178(t9, t10);
+  t13 = io_Reader_read__4214(t9, t10);
   if (t13.error) {
    t14 = t13.error;
    t13.payload = (uintptr_t)0xaaaaaaaaaaaaaaaaul;
@@ -4039,18 +4125,25 @@ static nav__4180_38 io_Reader_readAtLeast__4180(struct io_Reader__2337 const a0,
  return t13;
 }
 
-static void utils_print__anon_3010__5254(void) {
- (void)printf((char const *)&__anon_3758, 61, (uint8_t const *)&__anon_2479);
+static void utils_print__anon_3113__5301(void) {
+ (void)printf((char const *)&__anon_3612, 61, (uint8_t const *)&__anon_2553);
  return;
 }
 
-static nav__6176_38 math_cast__anon_3038__6176(uint64_t const a0) {
+static zig_noreturn void posix_exit__1482(uint8_t const a0) {
+ int t0;
+ t0 = (int)a0;
+ exit(t0);
+ zig_unreachable();
+}
+
+static nav__6235_38 math_cast__anon_3145__6235(uint64_t const a0) {
  long t1;
- nav__6176_38 t2;
+ nav__6235_38 t2;
  bool t0;
  t0 = a0 > UINT64_C(9223372036854775807);
  if (t0) {
-  return (nav__6176_38){-0x5555555555555556l,true};
+  return (nav__6235_38){-0x5555555555555556l,true};
  }
  t1 = (long)a0;
  t2.is_null = false;
@@ -4058,29 +4151,29 @@ static nav__6176_38 math_cast__anon_3038__6176(uint64_t const a0) {
  return t2;
 }
 
-static void mem_Allocator_free__anon_3110__6945(struct mem_Allocator__565 const a0, nav__6945_40 const a1) {
- struct mem_Allocator__565 const *t1;
- nav__6945_40 t2;
+static void mem_Allocator_free__anon_3218__7016(struct mem_Allocator__589 const a0, nav__7016_40 const a1) {
+ struct mem_Allocator__589 const *t1;
+ nav__7016_40 t2;
  uintptr_t t3;
  uint64_t t4;
  uint8_t const *t6;
  uint8_t *t7;
  uint8_t *t8;
  uint8_t *const *t9;
- nav__6945_51 t10;
- struct mem_Allocator__565 t11;
- struct mem_Allocator__565 t0;
- struct mem_Allocator__565 t13;
- struct mem_Allocator_VTable__568 const *const *t14;
- struct mem_Allocator_VTable__568 const *t15;
- void (*const *t16)(void *, nav__6945_51, uint8_t, uintptr_t);
- void (*t17)(void *, nav__6945_51, uint8_t, uintptr_t);
+ nav__7016_51 t10;
+ struct mem_Allocator__589 t11;
+ struct mem_Allocator__589 t0;
+ struct mem_Allocator__589 t13;
+ struct mem_Allocator_VTable__592 const *const *t14;
+ struct mem_Allocator_VTable__592 const *t15;
+ void (*const *t16)(void *, nav__7016_51, uint8_t, uintptr_t);
+ void (*t17)(void *, nav__7016_51, uint8_t, uintptr_t);
  void *t18;
  bool t5;
  uint8_t t12;
  t0 = a0;
- t1 = (struct mem_Allocator__565 const *)&t0;
- t2 = mem_sliceAsBytes__anon_3780__7036(a1);
+ t1 = (struct mem_Allocator__589 const *)&t0;
+ t2 = mem_sliceAsBytes__anon_3644__7108(a1);
  t3 = t2.len;
  t4 = t3;
  t5 = t4 == UINT64_C(0);
@@ -4103,50 +4196,50 @@ static void mem_Allocator_free__anon_3110__6945(struct mem_Allocator__565 const 
  t7 = (uint8_t *)(((uintptr_t)t7) + ((uintptr_t)0ul*sizeof(uint8_t)));
  t10.ptr = t7;
  t10.len = t3;
- t12 = mem_Alignment_fromByteUnits__1045((uintptr_t)1ul);
+ t12 = mem_Alignment_fromByteUnits__1066((uintptr_t)1ul);
  t3 = (uintptr_t)zig_return_address();
  t13 = t11;
- t1 = (struct mem_Allocator__565 const *)&t13;
- t14 = (struct mem_Allocator_VTable__568 const *const *)&t1->vtable;
+ t1 = (struct mem_Allocator__589 const *)&t13;
+ t14 = (struct mem_Allocator_VTable__592 const *const *)&t1->vtable;
  t15 = (*t14);
- t16 = (void (*const *)(void *, nav__6945_51, uint8_t, uintptr_t))&t15->free;
+ t16 = (void (*const *)(void *, nav__7016_51, uint8_t, uintptr_t))&t15->free;
  t17 = (*t16);
  t18 = t11.ptr;
  t17(t18, t10, t12, t3);
  return;
 }
 
-static void fifo_UnixPipe_Writer_deinit__1080(struct fifo_UnixPipe_Writer__600 *const a0) {
- struct fifo_UnixPipe_Writer__600 *const *t1;
- struct fifo_UnixPipe_Writer__600 *t2;
- struct fifo_UnixPipe_Writer__600 *t0;
- struct fs_File__608 *t3;
- struct fs_File__608 t4;
+static void fifo_UnixPipe_Writer_deinit__1121(struct fifo_UnixPipe_Writer__628 *const a0) {
+ struct fifo_UnixPipe_Writer__628 *const *t1;
+ struct fifo_UnixPipe_Writer__628 *t2;
+ struct fifo_UnixPipe_Writer__628 *t0;
+ struct fs_File__636 *t3;
+ struct fs_File__636 t4;
  t0 = a0;
- t1 = (struct fifo_UnixPipe_Writer__600 *const *)&t0;
+ t1 = (struct fifo_UnixPipe_Writer__628 *const *)&t0;
  t2 = (*t1);
- t3 = (struct fs_File__608 *)&t2->file;
+ t3 = (struct fs_File__636 *)&t2->file;
  t4 = (*t3);
- fs_File_close__1178(t4);
+ fs_File_close__1219(t4);
  return;
 }
 
-static void fifo_UnixPipe_Reader_deinit__1087(struct fifo_UnixPipe_Reader__602 *const a0) {
- struct fifo_UnixPipe_Reader__602 *const *t1;
- struct fifo_UnixPipe_Reader__602 *t2;
- struct fifo_UnixPipe_Reader__602 *t0;
- struct fs_File__608 *t3;
- struct fs_File__608 t4;
+static void fifo_UnixPipe_Reader_deinit__1128(struct fifo_UnixPipe_Reader__630 *const a0) {
+ struct fifo_UnixPipe_Reader__630 *const *t1;
+ struct fifo_UnixPipe_Reader__630 *t2;
+ struct fifo_UnixPipe_Reader__630 *t0;
+ struct fs_File__636 *t3;
+ struct fs_File__636 t4;
  t0 = a0;
- t1 = (struct fifo_UnixPipe_Reader__602 *const *)&t0;
+ t1 = (struct fifo_UnixPipe_Reader__630 *const *)&t0;
  t2 = (*t1);
- t3 = (struct fs_File__608 *)&t2->file;
+ t3 = (struct fs_File__636 *)&t2->file;
  t4 = (*t3);
- fs_File_close__1178(t4);
+ fs_File_close__1219(t4);
  return;
 }
 
-static bool fs_path_isAbsolutePosix__4274(nav__4274_39 const a0) {
+static bool fs_path_isAbsolutePosix__4309(nav__4309_39 const a0) {
  uintptr_t t0;
  uint64_t t1;
  bool t2;
@@ -4168,13 +4261,13 @@ static bool fs_path_isAbsolutePosix__4274(nav__4274_39 const a0) {
  return t3;
 }
 
-static nav__1716_39 posix_toPosixPath__1716(nav__1716_41 const a0) {
+static nav__1757_39 posix_toPosixPath__1757(nav__1757_41 const a0) {
  uintptr_t t1;
  uint64_t t2;
  uint8_t *t4;
- nav__1716_47 t5;
+ nav__1757_47 t5;
  uint8_t const *t6;
- nav__1716_39 t8;
+ nav__1757_39 t8;
  bool t3;
  uint8_t t7[4096];
  uint8_t t0[4096];
@@ -4182,7 +4275,7 @@ static nav__1716_39 posix_toPosixPath__1716(nav__1716_41 const a0) {
  t2 = t1;
  t3 = t2 >= UINT64_C(4096);
  if (t3) {
-  return (nav__1716_39){zig_error_NameTooLong,{'\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa'}};
+  return (nav__1757_39){zig_error_NameTooLong,{'\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa','\xaa'}};
  }
  goto zig_block_0;
 
@@ -4203,10 +4296,10 @@ static nav__1716_39 posix_toPosixPath__1716(nav__1716_41 const a0) {
  return t8;
 }
 
-static uint16_t fs_Dir_accessZ__3783(struct fs_Dir__1860 const a0, uint8_t const *const a1, struct fs_File_OpenFlags__1858 const a2) {
+static uint16_t fs_Dir_accessZ__3819(struct fs_Dir__1940 const a0, uint8_t const *const a1, struct fs_File_OpenFlags__1938 const a2) {
  uint32_t t2;
  int32_t t3;
- struct fs_Dir__1860 t0;
+ struct fs_Dir__1940 t0;
  uint16_t t4;
  uint8_t t1;
  t0 = a0;
@@ -4229,23 +4322,23 @@ static uint16_t fs_Dir_accessZ__3783(struct fs_Dir__1860 const a0, uint8_t const
 
  zig_block_0:;
  t3 = a0.fd;
- t4 = posix_faccessatZ__1607(t3, a1, t2, UINT32_C(0));
+ t4 = posix_faccessatZ__1648(t3, a1, t2, UINT32_C(0));
  return t4;
 }
 
-static nav__3719_39 fs_Dir_openFileZ__3719(struct fs_Dir__1860 const a0, uint8_t const *const a1, struct fs_File_OpenFlags__1858 const a2) {
+static nav__3755_39 fs_Dir_openFileZ__3755(struct fs_Dir__1940 const a0, uint8_t const *const a1, struct fs_File_OpenFlags__1938 const a2) {
  uint32_t *t2;
- struct fs_File__608 *t14;
+ struct fs_File__636 *t14;
  int32_t *t15;
  int32_t t6;
  int32_t t11;
  int32_t t12;
  uint32_t t7;
  uint32_t t1;
- nav__3719_50 t8;
- nav__3719_39 t10;
- nav__3719_39 t13;
- struct fs_Dir__1860 t0;
+ nav__3755_50 t8;
+ nav__3755_39 t10;
+ nav__3755_39 t13;
+ struct fs_Dir__1940 t0;
  uint16_t t9;
  uint8_t t3;
  uint8_t t4;
@@ -4317,10 +4410,10 @@ static nav__3719_39 fs_Dir_openFileZ__3719(struct fs_Dir__1860 const a0, uint8_t
  (*t2) = zig_or_u32(zig_and_u32((*t2), UINT32_C(0xfffffeff)), zig_shl_u32((uint32_t)t5, UINT8_C(8)));
  t6 = a0.fd;
  t7 = t1;
- t8 = posix_openatZ__1463(t6, a1, t7, (uintptr_t)0ul);
+ t8 = posix_openatZ__1504(t6, a1, t7, (uintptr_t)0ul);
  if (t8.error) {
   t9 = t8.error;
-  t10.payload = (struct fs_File__608){-INT32_C(0x55555556)};
+  t10.payload = (struct fs_File__636){-INT32_C(0x55555556)};
   t10.error = t9;
   return t10;
  }
@@ -4356,10 +4449,10 @@ static nav__3719_39 fs_Dir_openFileZ__3719(struct fs_Dir__1860 const a0, uint8_t
   }
 
   zig_block_3:;
-  t9 = posix_flock__1624(t6, t12);
+  t9 = posix_flock__1665(t6, t12);
   if (t9) {
-   posix_close__1421(t6);
-   t10.payload = (struct fs_File__608){-INT32_C(0x55555556)};
+   posix_close__1462(t6);
+   t10.payload = (struct fs_File__636){-INT32_C(0x55555556)};
    t10.error = t9;
    return t10;
   }
@@ -4375,62 +4468,71 @@ static nav__3719_39 fs_Dir_openFileZ__3719(struct fs_Dir__1860 const a0, uint8_t
  return t13;
 }
 
-static uint16_t bincode_serialize__anon_3500__6960(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 const a0, uint32_t const a1) {
+static uint16_t bincode_serialize__anon_3300__7029(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 const a0, uint32_t const a1) {
  uint16_t t0;
- t0 = bincode_serializeInt__anon_3918__7097(a0, a1);
+ t0 = bincode_serializeInt__anon_3783__7169(a0, a1);
  if (t0) {
   return t0;
  }
  return 0;
 }
 
-static uint16_t bincode_serialize__anon_3502__6961(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 const a0, struct shared_Command__struct_1949__1949 const a1) {
+static uint16_t bincode_serialize__anon_3302__7030(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 const a0, struct shared_Command__struct_2017__2017 const a1) {
  uint16_t t0;
- t0 = bincode_serializeStruct__anon_3923__7098(a0, a1);
+ t0 = bincode_serializeStruct__anon_3788__7170(a0, a1);
  if (t0) {
   return t0;
  }
  return 0;
 }
 
-static uint16_t bincode_serialize__anon_3504__6962(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 const a0) {
+static uint16_t bincode_serialize__anon_3304__7031(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 const a0) {
  (void)a0;
  return 0;
 }
 
-static uint16_t bincode_serialize__anon_3506__6963(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 const a0, struct shared_Command__struct_1950__1950 const a1) {
+static uint16_t bincode_serialize__anon_3306__7032(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 const a0, struct shared_Command__struct_2018__2018 const a1) {
  uint16_t t0;
- t0 = bincode_serializeStruct__anon_3924__7099(a0, a1);
+ t0 = bincode_serializeStruct__anon_3789__7171(a0, a1);
  if (t0) {
   return t0;
  }
  return 0;
 }
 
-static uint16_t bincode_serialize__anon_3508__6964(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 const a0, struct shared_Command__struct_1951__1951 const a1) {
+static uint16_t bincode_serialize__anon_3308__7033(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 const a0, struct shared_Command__struct_2019__2019 const a1) {
  uint16_t t0;
- t0 = bincode_serializeStruct__anon_3925__7100(a0, a1);
+ t0 = bincode_serializeStruct__anon_3790__7172(a0, a1);
  if (t0) {
   return t0;
  }
  return 0;
 }
 
-static uint16_t bincode_serialize__anon_3510__6965(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 const a0, uint64_t const a1) {
+static uint16_t bincode_serialize__anon_3310__7034(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 const a0, uint64_t const a1) {
  uint16_t t0;
- t0 = bincode_serializeInt__anon_3926__7101(a0, a1);
+ t0 = bincode_serializeInt__anon_3791__7173(a0, a1);
  if (t0) {
   return t0;
  }
  return 0;
 }
 
-static nav__1451_38 posix_write__1451(int32_t const a0, nav__1451_40 const a1) {
+static uint16_t bincode_serialize__anon_3312__7035(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 const a0, uint8_t const a1) {
+ uint16_t t0;
+ t0 = bincode_serializeEnum__anon_3794__7174(a0, a1);
+ if (t0) {
+  return t0;
+ }
+ return 0;
+}
+
+static nav__1492_38 posix_write__1492(int32_t const a0, nav__1492_40 const a1) {
  uintptr_t t0;
  uint64_t t1;
  uint8_t const *t3;
  intptr_t t5;
- nav__1451_38 t7;
+ nav__1492_38 t7;
  uint32_t t4;
  uint16_t t6;
  bool t2;
@@ -4438,7 +4540,7 @@ static nav__1451_38 posix_write__1451(int32_t const a0, nav__1451_40 const a1) {
  t1 = t0;
  t2 = t1 == UINT64_C(0);
  if (t2) {
-  return (nav__1451_38){(uintptr_t)0ul,0};
+  return (nav__1492_38){(uintptr_t)0ul,0};
  }
  goto zig_block_0;
 
@@ -4450,7 +4552,7 @@ static nav__1451_38 posix_write__1451(int32_t const a0, nav__1451_40 const a1) {
  t4 = (uint32_t)t0;
  t0 = (uintptr_t)t4;
  t5 = write(a0, t3, t0);
- t6 = posix_errno__anon_3937__7103(t5);
+ t6 = posix_errno__anon_3805__7176(t5);
  switch (t6) {
   case UINT16_C(0): {
    t0 = (uintptr_t)t5;
@@ -4462,55 +4564,55 @@ static nav__1451_38 posix_write__1451(int32_t const a0, nav__1451_40 const a1) {
    goto zig_block_1;
   }
   case UINT16_C(22): {
-   return (nav__1451_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_InvalidArgument};
+   return (nav__1492_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_InvalidArgument};
   }
   case UINT16_C(14): {
    zig_unreachable();
   }
   case UINT16_C(2): {
-   return (nav__1451_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_ProcessNotFound};
+   return (nav__1492_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_ProcessNotFound};
   }
   case UINT16_C(11): {
-   return (nav__1451_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_WouldBlock};
+   return (nav__1492_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_WouldBlock};
   }
   case UINT16_C(9): {
-   return (nav__1451_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_NotOpenForWriting};
+   return (nav__1492_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_NotOpenForWriting};
   }
   case UINT16_C(89): {
    zig_unreachable();
   }
   case UINT16_C(122): {
-   return (nav__1451_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_DiskQuota};
+   return (nav__1492_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_DiskQuota};
   }
   case UINT16_C(27): {
-   return (nav__1451_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_FileTooBig};
+   return (nav__1492_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_FileTooBig};
   }
   case UINT16_C(5): {
-   return (nav__1451_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_InputOutput};
+   return (nav__1492_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_InputOutput};
   }
   case UINT16_C(28): {
-   return (nav__1451_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_NoSpaceLeft};
+   return (nav__1492_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_NoSpaceLeft};
   }
   case UINT16_C(13): {
-   return (nav__1451_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_AccessDenied};
+   return (nav__1492_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_AccessDenied};
   }
   case UINT16_C(1): {
-   return (nav__1451_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_AccessDenied};
+   return (nav__1492_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_AccessDenied};
   }
   case UINT16_C(32): {
-   return (nav__1451_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_BrokenPipe};
+   return (nav__1492_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_BrokenPipe};
   }
   case UINT16_C(104): {
-   return (nav__1451_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_ConnectionResetByPeer};
+   return (nav__1492_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_ConnectionResetByPeer};
   }
   case UINT16_C(16): {
-   return (nav__1451_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_DeviceBusy};
+   return (nav__1492_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_DeviceBusy};
   }
   case UINT16_C(6): {
-   return (nav__1451_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_NoDevice};
+   return (nav__1492_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_NoDevice};
   }
   default: {
-   t6 = posix_unexpectedErrno__1715(t6);
+   t6 = posix_unexpectedErrno__1756(t6);
    t7.payload = (uintptr_t)0xaaaaaaaaaaaaaaaaul;
    t7.error = t6;
    return t7;
@@ -4521,7 +4623,7 @@ static nav__1451_38 posix_write__1451(int32_t const a0, nav__1451_40 const a1) {
  goto zig_loop_16;
 }
 
-static uint16_t posix_errno__anon_3676__7032(int const a0) {
+static uint16_t posix_errno__anon_3478__7102(int const a0) {
  int *t3;
  int32_t t1;
  int t4;
@@ -4544,17 +4646,17 @@ static uint16_t posix_errno__anon_3676__7032(int const a0) {
  return t0;
 }
 
-static uint16_t posix_unexpectedErrno__1715(uint16_t const a0) {
+static uint16_t posix_unexpectedErrno__1756(uint16_t const a0) {
  (void)a0;
  return zig_error_Unexpected;
 }
 
-static nav__1443_38 posix_read__1443(int32_t const a0, nav__1443_40 const a1) {
+static nav__1484_38 posix_read__1484(int32_t const a0, nav__1484_40 const a1) {
  uintptr_t t0;
  uint64_t t1;
  uint8_t *t3;
  intptr_t t5;
- nav__1443_38 t7;
+ nav__1484_38 t7;
  uint32_t t4;
  uint16_t t6;
  bool t2;
@@ -4562,7 +4664,7 @@ static nav__1443_38 posix_read__1443(int32_t const a0, nav__1443_40 const a1) {
  t1 = t0;
  t2 = t1 == UINT64_C(0);
  if (t2) {
-  return (nav__1443_38){(uintptr_t)0ul,0};
+  return (nav__1484_38){(uintptr_t)0ul,0};
  }
  goto zig_block_0;
 
@@ -4574,7 +4676,7 @@ static nav__1443_38 posix_read__1443(int32_t const a0, nav__1443_40 const a1) {
  t4 = (uint32_t)t0;
  t0 = (uintptr_t)t4;
  t5 = read(a0, t3, t0);
- t6 = posix_errno__anon_3937__7103(t5);
+ t6 = posix_errno__anon_3805__7176(t5);
  switch (t6) {
   case UINT16_C(0): {
    t0 = (uintptr_t)t5;
@@ -4592,40 +4694,40 @@ static nav__1443_38 posix_read__1443(int32_t const a0, nav__1443_40 const a1) {
    zig_unreachable();
   }
   case UINT16_C(2): {
-   return (nav__1443_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_ProcessNotFound};
+   return (nav__1484_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_ProcessNotFound};
   }
   case UINT16_C(11): {
-   return (nav__1443_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_WouldBlock};
+   return (nav__1484_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_WouldBlock};
   }
   case UINT16_C(125): {
-   return (nav__1443_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_Canceled};
+   return (nav__1484_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_Canceled};
   }
   case UINT16_C(9): {
-   return (nav__1443_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_NotOpenForReading};
+   return (nav__1484_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_NotOpenForReading};
   }
   case UINT16_C(5): {
-   return (nav__1443_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_InputOutput};
+   return (nav__1484_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_InputOutput};
   }
   case UINT16_C(21): {
-   return (nav__1443_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_IsDir};
+   return (nav__1484_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_IsDir};
   }
   case UINT16_C(105): {
-   return (nav__1443_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_SystemResources};
+   return (nav__1484_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_SystemResources};
   }
   case UINT16_C(12): {
-   return (nav__1443_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_SystemResources};
+   return (nav__1484_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_SystemResources};
   }
   case UINT16_C(107): {
-   return (nav__1443_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_SocketNotConnected};
+   return (nav__1484_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_SocketNotConnected};
   }
   case UINT16_C(104): {
-   return (nav__1443_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_ConnectionResetByPeer};
+   return (nav__1484_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_ConnectionResetByPeer};
   }
   case UINT16_C(110): {
-   return (nav__1443_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_ConnectionTimedOut};
+   return (nav__1484_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_ConnectionTimedOut};
   }
   default: {
-   t6 = posix_unexpectedErrno__1715(t6);
+   t6 = posix_unexpectedErrno__1756(t6);
    t7.payload = (uintptr_t)0xaaaaaaaaaaaaaaaaul;
    t7.error = t6;
    return t7;
@@ -4636,17 +4738,17 @@ static nav__1443_38 posix_read__1443(int32_t const a0, nav__1443_40 const a1) {
  goto zig_loop_16;
 }
 
-static nav__7033_38 math_mul__anon_3697__7033(uintptr_t const a0, uintptr_t const a1) {
- nav__7033_42 t0;
+static nav__7103_38 math_mul__anon_3499__7103(uintptr_t const a0, uintptr_t const a1) {
+ nav__7103_42 t0;
  uintptr_t t3;
- nav__7033_38 t4;
+ nav__7103_38 t4;
  uint8_t t1;
  bool t2;
  t0.f1 = zig_mulo_u64(&t0.f0, a0, a1, UINT8_C(64));
  t1 = t0.f1;
  t2 = t1 != UINT8_C(0);
  if (t2) {
-  return (nav__7033_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_Overflow};
+  return (nav__7103_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_Overflow};
  }
  goto zig_block_0;
 
@@ -4657,41 +4759,41 @@ static nav__7033_38 math_mul__anon_3697__7033(uintptr_t const a0, uintptr_t cons
  return t4;
 }
 
-static nav__7034_39 mem_Allocator_allocBytesWithAlignment__anon_3699__7034(struct mem_Allocator__565 const a0, uintptr_t const a1, uintptr_t const a2) {
- struct mem_Allocator__565 const *t1;
+static nav__7104_39 mem_Allocator_allocBytesWithAlignment__anon_3501__7104(struct mem_Allocator__589 const a0, uintptr_t const a1, uintptr_t const a2) {
+ struct mem_Allocator__589 const *t1;
  uint64_t t2;
  uint8_t *t4;
  uint8_t *t13;
  uint8_t *t14;
  uint8_t *t15;
- struct mem_Allocator__565 t5;
- struct mem_Allocator__565 t0;
- struct mem_Allocator__565 t7;
- struct mem_Allocator_VTable__568 const *const *t8;
- struct mem_Allocator_VTable__568 const *t9;
+ struct mem_Allocator__589 t5;
+ struct mem_Allocator__589 t0;
+ struct mem_Allocator__589 t7;
+ struct mem_Allocator_VTable__592 const *const *t8;
+ struct mem_Allocator_VTable__592 const *t9;
  uint8_t *(*const *t10)(void *, uintptr_t, uint8_t, uintptr_t);
  uint8_t *(*t11)(void *, uintptr_t, uint8_t, uintptr_t);
  void *t12;
  uint8_t *const *t16;
- nav__7034_52 t17;
- nav__7034_39 t18;
+ nav__7104_52 t17;
+ nav__7104_39 t18;
  bool t3;
  uint8_t t6;
  t0 = a0;
- t1 = (struct mem_Allocator__565 const *)&t0;
+ t1 = (struct mem_Allocator__589 const *)&t0;
  t2 = a1;
  t3 = t2 == UINT64_C(0);
  if (t3) {
-  return (nav__7034_39){(uint8_t *)UINTPTR_MAX,0};
+  return (nav__7104_39){(uint8_t *)UINTPTR_MAX,0};
  }
  goto zig_block_0;
 
  zig_block_0:;
  t5 = (*t1);
- t6 = mem_Alignment_fromByteUnits__1045((uintptr_t)1ul);
+ t6 = mem_Alignment_fromByteUnits__1066((uintptr_t)1ul);
  t7 = t5;
- t1 = (struct mem_Allocator__565 const *)&t7;
- t8 = (struct mem_Allocator_VTable__568 const *const *)&t1->vtable;
+ t1 = (struct mem_Allocator__589 const *)&t7;
+ t8 = (struct mem_Allocator_VTable__592 const *const *)&t1->vtable;
  t9 = (*t8);
  t10 = (uint8_t *(*const *)(void *, uintptr_t, uint8_t, uintptr_t))&t9->alloc;
  t11 = (*t10);
@@ -4703,7 +4805,7 @@ static nav__7034_39 mem_Allocator_allocBytesWithAlignment__anon_3699__7034(struc
   t4 = t14;
   goto zig_block_1;
  }
- return (nav__7034_39){((uint8_t *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),zig_error_OutOfMemory};
+ return (nav__7104_39){((uint8_t *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),zig_error_OutOfMemory};
 
  zig_block_1:;
  t15 = t4;
@@ -4717,7 +4819,7 @@ static nav__7034_39 mem_Allocator_allocBytesWithAlignment__anon_3699__7034(struc
  return t18;
 }
 
-static bool math_isPowerOfTwo__anon_3711__7035(uintptr_t const a0) {
+static bool math_isPowerOfTwo__anon_3513__7105(uintptr_t const a0) {
  uint64_t t0;
  uintptr_t t2;
  bool t1;
@@ -4731,29 +4833,29 @@ static bool math_isPowerOfTwo__anon_3711__7035(uintptr_t const a0) {
  return t1;
 }
 
-static nav__4178_38 io_Reader_read__4178(struct io_Reader__2337 const a0, nav__4178_41 const a1) {
- struct io_Reader__2337 const *t1;
- nav__4178_38 (*const *t2)(void const *, nav__4178_41);
- nav__4178_38 (*t3)(void const *, nav__4178_41);
+static nav__4214_38 io_Reader_read__4214(struct io_Reader__2411 const a0, nav__4214_41 const a1) {
+ struct io_Reader__2411 const *t1;
+ nav__4214_38 (*const *t2)(void const *, nav__4214_41);
+ nav__4214_38 (*t3)(void const *, nav__4214_41);
  void const *t4;
- nav__4178_38 t5;
- struct io_Reader__2337 t0;
+ nav__4214_38 t5;
+ struct io_Reader__2411 t0;
  t0 = a0;
- t1 = (struct io_Reader__2337 const *)&t0;
- t2 = (nav__4178_38 (*const *)(void const *, nav__4178_41))&t1->readFn;
+ t1 = (struct io_Reader__2411 const *)&t0;
+ t2 = (nav__4214_38 (*const *)(void const *, nav__4214_41))&t1->readFn;
  t3 = (*t2);
  t4 = a0.context;
  t5 = t3(t4, a1);
  return t5;
 }
 
-static nav__7036_39 mem_sliceAsBytes__anon_3780__7036(nav__7036_39 const a0) {
+static nav__7108_39 mem_sliceAsBytes__anon_3644__7108(nav__7108_39 const a0) {
  uintptr_t t0;
  uint64_t t1;
  uint8_t const *t4;
  uint8_t const *t5;
  uint8_t const *const *t6;
- nav__7036_39 t7;
+ nav__7108_39 t7;
  bool t2;
  bool t3;
  t0 = a0.len;
@@ -4768,7 +4870,7 @@ static nav__7036_39 mem_sliceAsBytes__anon_3780__7036(nav__7036_39 const a0) {
 
  zig_block_1:;
  if (t3) {
-  return (nav__7036_39){(uint8_t const *)((void const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),(uintptr_t)0ul};
+  return (nav__7108_39){(uint8_t const *)((void const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),(uintptr_t)0ul};
  }
  goto zig_block_0;
 
@@ -4784,14 +4886,14 @@ static nav__7036_39 mem_sliceAsBytes__anon_3780__7036(nav__7036_39 const a0) {
  return t7;
 }
 
-static void fs_File_close__1178(struct fs_File__608 const a0) {
+static void fs_File_close__1219(struct fs_File__636 const a0) {
  int32_t t0;
  t0 = a0.handle;
- posix_close__1421(t0);
+ posix_close__1462(t0);
  return;
 }
 
-static uint16_t posix_faccessatZ__1607(int32_t const a0, uint8_t const *const a1, uint32_t const a2, uint32_t const a3) {
+static uint16_t posix_faccessatZ__1648(int32_t const a0, uint8_t const *const a1, uint32_t const a2, uint32_t const a3) {
  unsigned int t0;
  unsigned int t1;
  int t2;
@@ -4799,7 +4901,7 @@ static uint16_t posix_faccessatZ__1607(int32_t const a0, uint8_t const *const a1
  t0 = a2;
  t1 = a3;
  t2 = faccessat(a0, a1, t0, t1);
- t3 = posix_errno__anon_3676__7032(t2);
+ t3 = posix_errno__anon_3478__7102(t2);
  switch (t3) {
   case UINT16_C(0): {
    return 0;
@@ -4841,27 +4943,27 @@ static uint16_t posix_faccessatZ__1607(int32_t const a0, uint8_t const *const a1
    return zig_error_SystemResources;
   }
   case UINT16_C(84): {
-   t3 = posix_unexpectedErrno__1715(t3);
+   t3 = posix_unexpectedErrno__1756(t3);
    return t3;
   }
   default: {
-   t3 = posix_unexpectedErrno__1715(t3);
+   t3 = posix_unexpectedErrno__1756(t3);
    return t3;
   }
  }
 }
 
-static nav__1463_38 posix_openatZ__1463(int32_t const a0, uint8_t const *const a1, uint32_t const a2, uintptr_t const a3) {
+static nav__1504_38 posix_openatZ__1504(int32_t const a0, uint8_t const *const a1, uint32_t const a2, uintptr_t const a3) {
  unsigned long t1;
  int t0;
  int32_t t3;
- nav__1463_38 t4;
+ nav__1504_38 t4;
  uint16_t t2;
  zig_loop_11:
  t0 = a0;
  t1 = a3;
  t0 = openat64(t0, a1, a2, t1);
- t2 = posix_errno__anon_3676__7032(t0);
+ t2 = posix_errno__anon_3478__7102(t0);
  switch (t2) {
   case UINT16_C(0): {
    t3 = t0;
@@ -4876,79 +4978,79 @@ static nav__1463_38 posix_openatZ__1463(int32_t const a0, uint8_t const *const a
    zig_unreachable();
   }
   case UINT16_C(22): {
-   return (nav__1463_38){-INT32_C(0x55555556),zig_error_BadPathName};
+   return (nav__1504_38){-INT32_C(0x55555556),zig_error_BadPathName};
   }
   case UINT16_C(9): {
    zig_unreachable();
   }
   case UINT16_C(13): {
-   return (nav__1463_38){-INT32_C(0x55555556),zig_error_AccessDenied};
+   return (nav__1504_38){-INT32_C(0x55555556),zig_error_AccessDenied};
   }
   case UINT16_C(27): {
-   return (nav__1463_38){-INT32_C(0x55555556),zig_error_FileTooBig};
+   return (nav__1504_38){-INT32_C(0x55555556),zig_error_FileTooBig};
   }
   case UINT16_C(75): {
-   return (nav__1463_38){-INT32_C(0x55555556),zig_error_FileTooBig};
+   return (nav__1504_38){-INT32_C(0x55555556),zig_error_FileTooBig};
   }
   case UINT16_C(21): {
-   return (nav__1463_38){-INT32_C(0x55555556),zig_error_IsDir};
+   return (nav__1504_38){-INT32_C(0x55555556),zig_error_IsDir};
   }
   case UINT16_C(40): {
-   return (nav__1463_38){-INT32_C(0x55555556),zig_error_SymLinkLoop};
+   return (nav__1504_38){-INT32_C(0x55555556),zig_error_SymLinkLoop};
   }
   case UINT16_C(24): {
-   return (nav__1463_38){-INT32_C(0x55555556),zig_error_ProcessFdQuotaExceeded};
+   return (nav__1504_38){-INT32_C(0x55555556),zig_error_ProcessFdQuotaExceeded};
   }
   case UINT16_C(36): {
-   return (nav__1463_38){-INT32_C(0x55555556),zig_error_NameTooLong};
+   return (nav__1504_38){-INT32_C(0x55555556),zig_error_NameTooLong};
   }
   case UINT16_C(23): {
-   return (nav__1463_38){-INT32_C(0x55555556),zig_error_SystemFdQuotaExceeded};
+   return (nav__1504_38){-INT32_C(0x55555556),zig_error_SystemFdQuotaExceeded};
   }
   case UINT16_C(19): {
-   return (nav__1463_38){-INT32_C(0x55555556),zig_error_NoDevice};
+   return (nav__1504_38){-INT32_C(0x55555556),zig_error_NoDevice};
   }
   case UINT16_C(2): {
-   return (nav__1463_38){-INT32_C(0x55555556),zig_error_FileNotFound};
+   return (nav__1504_38){-INT32_C(0x55555556),zig_error_FileNotFound};
   }
   case UINT16_C(12): {
-   return (nav__1463_38){-INT32_C(0x55555556),zig_error_SystemResources};
+   return (nav__1504_38){-INT32_C(0x55555556),zig_error_SystemResources};
   }
   case UINT16_C(28): {
-   return (nav__1463_38){-INT32_C(0x55555556),zig_error_NoSpaceLeft};
+   return (nav__1504_38){-INT32_C(0x55555556),zig_error_NoSpaceLeft};
   }
   case UINT16_C(20): {
-   return (nav__1463_38){-INT32_C(0x55555556),zig_error_NotDir};
+   return (nav__1504_38){-INT32_C(0x55555556),zig_error_NotDir};
   }
   case UINT16_C(1): {
-   return (nav__1463_38){-INT32_C(0x55555556),zig_error_AccessDenied};
+   return (nav__1504_38){-INT32_C(0x55555556),zig_error_AccessDenied};
   }
   case UINT16_C(17): {
-   return (nav__1463_38){-INT32_C(0x55555556),zig_error_PathAlreadyExists};
+   return (nav__1504_38){-INT32_C(0x55555556),zig_error_PathAlreadyExists};
   }
   case UINT16_C(16): {
-   return (nav__1463_38){-INT32_C(0x55555556),zig_error_DeviceBusy};
+   return (nav__1504_38){-INT32_C(0x55555556),zig_error_DeviceBusy};
   }
   case UINT16_C(95): {
-   return (nav__1463_38){-INT32_C(0x55555556),zig_error_FileLocksNotSupported};
+   return (nav__1504_38){-INT32_C(0x55555556),zig_error_FileLocksNotSupported};
   }
   case UINT16_C(11): {
-   return (nav__1463_38){-INT32_C(0x55555556),zig_error_WouldBlock};
+   return (nav__1504_38){-INT32_C(0x55555556),zig_error_WouldBlock};
   }
   case UINT16_C(26): {
-   return (nav__1463_38){-INT32_C(0x55555556),zig_error_FileBusy};
+   return (nav__1504_38){-INT32_C(0x55555556),zig_error_FileBusy};
   }
   case UINT16_C(6): {
-   return (nav__1463_38){-INT32_C(0x55555556),zig_error_NoDevice};
+   return (nav__1504_38){-INT32_C(0x55555556),zig_error_NoDevice};
   }
   case UINT16_C(84): {
-   t2 = posix_unexpectedErrno__1715(t2);
+   t2 = posix_unexpectedErrno__1756(t2);
    t4.payload = -INT32_C(0x55555556);
    t4.error = t2;
    return t4;
   }
   default: {
-   t2 = posix_unexpectedErrno__1715(t2);
+   t2 = posix_unexpectedErrno__1756(t2);
    t4.payload = -INT32_C(0x55555556);
    t4.error = t2;
    return t4;
@@ -4959,13 +5061,13 @@ static nav__1463_38 posix_openatZ__1463(int32_t const a0, uint8_t const *const a
  goto zig_loop_11;
 }
 
-static uint16_t posix_flock__1624(int32_t const a0, int32_t const a1) {
+static uint16_t posix_flock__1665(int32_t const a0, int32_t const a1) {
  int t0;
  uint16_t t1;
  zig_loop_3:
  t0 = a1;
  t0 = flock(a0, t0);
- t1 = posix_errno__anon_3676__7032(t0);
+ t1 = posix_errno__anon_3478__7102(t0);
  switch (t1) {
   case UINT16_C(0): {
    return 0;
@@ -4989,7 +5091,7 @@ static uint16_t posix_flock__1624(int32_t const a0, int32_t const a1) {
    return zig_error_FileLocksNotSupported;
   }
   default: {
-   t1 = posix_unexpectedErrno__1715(t1);
+   t1 = posix_unexpectedErrno__1756(t1);
    return t1;
   }
  }
@@ -4998,11 +5100,11 @@ static uint16_t posix_flock__1624(int32_t const a0, int32_t const a1) {
  goto zig_loop_3;
 }
 
-static void posix_close__1421(int32_t const a0) {
+static void posix_close__1462(int32_t const a0) {
  int t0;
  uint16_t t1;
  t0 = close(a0);
- t1 = posix_errno__anon_3676__7032(t0);
+ t1 = posix_errno__anon_3478__7102(t0);
  switch (t1) {
   case UINT16_C(9): {
    zig_unreachable();
@@ -5016,53 +5118,53 @@ static void posix_close__1421(int32_t const a0) {
  }
 }
 
-static uint16_t bincode_serializeInt__anon_3918__7097(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 const a0, uint32_t const a1) {
- struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 const *t1;
- struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 const *t4;
- struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 t2;
- struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 t0;
- struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 t3;
- struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 const *const *t5;
+static uint16_t bincode_serializeInt__anon_3783__7169(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 const a0, uint32_t const a1) {
+ struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 const *t1;
+ struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 const *t4;
+ struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 t2;
+ struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 t0;
+ struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 t3;
+ struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 const *const *t5;
  void const **t7;
- struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *const *t8;
+ struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *const *t8;
  void const *t9;
- nav__7097_48 (**t10)(void const *, nav__7097_50);
- struct io_Writer__4192 t11;
- struct io_Writer__4192 t6;
- struct io_Writer__4192 t12;
- struct io_Writer__4192 t14;
- struct io_Writer__4192 const *t13;
- nav__7097_50 t17;
+ nav__7169_48 (**t10)(void const *, nav__7169_50);
+ struct io_Writer__4060 t11;
+ struct io_Writer__4060 t6;
+ struct io_Writer__4060 t12;
+ struct io_Writer__4060 t14;
+ struct io_Writer__4060 const *t13;
+ nav__7169_50 t17;
  uint16_t t18;
  uint16_t t19;
  uint8_t t16[4];
  uint8_t t15[4];
  t0 = a0;
- t1 = (struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 const *)&t0;
+ t1 = (struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 const *)&t0;
  t2 = (*t1);
  t3 = t2;
- t1 = (struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 const *)&t3;
+ t1 = (struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 const *)&t3;
  t4 = t1;
- t5 = (struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 const *const *)&t4;
+ t5 = (struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 const *const *)&t4;
  t7 = (void const **)&t6.context;
  t1 = (*t5);
- t8 = (struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *const *)&t1->context;
+ t8 = (struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *const *)&t1->context;
  t9 = (void const *)t8;
  (*t7) = t9;
- t10 = (nav__7097_48 (**)(void const *, nav__7097_50))&t6.writeFn;
- (*t10) = &io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29___4063;
+ t10 = (nav__7169_48 (**)(void const *, nav__7169_50))&t6.writeFn;
+ (*t10) = &io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29___4099;
  t11 = t6;
  t12 = t11;
- t13 = (struct io_Writer__4192 const *)&t12;
+ t13 = (struct io_Writer__4060 const *)&t12;
  t11 = (*t13);
  t14 = t11;
- t13 = (struct io_Writer__4192 const *)&t14;
+ t13 = (struct io_Writer__4060 const *)&t14;
  memcpy(&t16, &a1, sizeof(uint8_t[4]));
  memcpy((char *)&t15, t16, sizeof(uint8_t[4]));
  t11 = (*t13);
  t17.ptr = &t15[(uintptr_t)0ul];
  t17.len = (uintptr_t)4ul;
- t18 = io_Writer_writeAll__7116(t11, t17);
+ t18 = io_Writer_writeAll__7189(t11, t17);
  memcpy(&t19, &t18, sizeof(uint16_t));
  if (t19) {
   return t19;
@@ -5070,103 +5172,103 @@ static uint16_t bincode_serializeInt__anon_3918__7097(struct io_GenericWriter_28
  return 0;
 }
 
-static uint16_t bincode_serializeStruct__anon_3923__7098(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 const a0, struct shared_Command__struct_1949__1949 const a1) {
- nav__7098_45 t2;
+static uint16_t bincode_serializeStruct__anon_3788__7170(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 const a0, struct shared_Command__struct_2017__2017 const a1) {
+ nav__7170_45 t2;
  uint32_t t0;
  uint16_t t1;
  t0 = a1.pid;
- t1 = bincode_serialize__anon_3500__6960(a0, t0);
+ t1 = bincode_serialize__anon_3300__7029(a0, t0);
  if (t1) {
   return t1;
  }
  t2 = a1.uri;
- t1 = bincode_serialize__anon_4228__7125(a0, t2);
+ t1 = bincode_serialize__anon_4096__7198(a0, t2);
  if (t1) {
   return t1;
  }
  return 0;
 }
 
-static uint16_t bincode_serializeStruct__anon_3924__7099(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 const a0, struct shared_Command__struct_1950__1950 const a1) {
- nav__7099_45 t0;
+static uint16_t bincode_serializeStruct__anon_3789__7171(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 const a0, struct shared_Command__struct_2018__2018 const a1) {
+ nav__7171_45 t0;
  uint16_t t1;
  t0 = a1.name;
- t1 = bincode_serialize__anon_4228__7125(a0, t0);
+ t1 = bincode_serialize__anon_4096__7198(a0, t0);
  if (t1) {
   return t1;
  }
  t0 = a1.version;
- t1 = bincode_serialize__anon_4228__7125(a0, t0);
+ t1 = bincode_serialize__anon_4096__7198(a0, t0);
  if (t1) {
   return t1;
  }
  return 0;
 }
 
-static uint16_t bincode_serializeStruct__anon_3925__7100(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 const a0, struct shared_Command__struct_1951__1951 const a1) {
- struct shared_MarkerType__1953 t2;
+static uint16_t bincode_serializeStruct__anon_3790__7172(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 const a0, struct shared_Command__struct_2019__2019 const a1) {
+ struct shared_MarkerType__2021 t2;
  uint32_t t0;
  uint16_t t1;
  t0 = a1.pid;
- t1 = bincode_serialize__anon_3500__6960(a0, t0);
+ t1 = bincode_serialize__anon_3300__7029(a0, t0);
  if (t1) {
   return t1;
  }
  t2 = a1.marker;
- t1 = bincode_serialize__anon_4230__7126(a0, t2);
+ t1 = bincode_serialize__anon_4098__7199(a0, t2);
  if (t1) {
   return t1;
  }
  return 0;
 }
 
-static uint16_t bincode_serializeInt__anon_3926__7101(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 const a0, uint64_t const a1) {
- struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 const *t1;
- struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 const *t4;
- struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 t2;
- struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 t0;
- struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 t3;
- struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 const *const *t5;
+static uint16_t bincode_serializeInt__anon_3791__7173(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 const a0, uint64_t const a1) {
+ struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 const *t1;
+ struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 const *t4;
+ struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 t2;
+ struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 t0;
+ struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 t3;
+ struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 const *const *t5;
  void const **t7;
- struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *const *t8;
+ struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *const *t8;
  void const *t9;
- nav__7101_48 (**t10)(void const *, nav__7101_50);
- struct io_Writer__4192 t11;
- struct io_Writer__4192 t6;
- struct io_Writer__4192 t12;
- struct io_Writer__4192 t14;
- struct io_Writer__4192 const *t13;
- nav__7101_50 t17;
+ nav__7173_48 (**t10)(void const *, nav__7173_50);
+ struct io_Writer__4060 t11;
+ struct io_Writer__4060 t6;
+ struct io_Writer__4060 t12;
+ struct io_Writer__4060 t14;
+ struct io_Writer__4060 const *t13;
+ nav__7173_50 t17;
  uint16_t t18;
  uint16_t t19;
  uint8_t t16[8];
  uint8_t t15[8];
  t0 = a0;
- t1 = (struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 const *)&t0;
+ t1 = (struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 const *)&t0;
  t2 = (*t1);
  t3 = t2;
- t1 = (struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 const *)&t3;
+ t1 = (struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 const *)&t3;
  t4 = t1;
- t5 = (struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 const *const *)&t4;
+ t5 = (struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 const *const *)&t4;
  t7 = (void const **)&t6.context;
  t1 = (*t5);
- t8 = (struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *const *)&t1->context;
+ t8 = (struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *const *)&t1->context;
  t9 = (void const *)t8;
  (*t7) = t9;
- t10 = (nav__7101_48 (**)(void const *, nav__7101_50))&t6.writeFn;
- (*t10) = &io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29___4063;
+ t10 = (nav__7173_48 (**)(void const *, nav__7173_50))&t6.writeFn;
+ (*t10) = &io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29___4099;
  t11 = t6;
  t12 = t11;
- t13 = (struct io_Writer__4192 const *)&t12;
+ t13 = (struct io_Writer__4060 const *)&t12;
  t11 = (*t13);
  t14 = t11;
- t13 = (struct io_Writer__4192 const *)&t14;
+ t13 = (struct io_Writer__4060 const *)&t14;
  memcpy(&t16, &a1, sizeof(uint8_t[8]));
  memcpy((char *)&t15, t16, sizeof(uint8_t[8]));
  t11 = (*t13);
  t17.ptr = &t15[(uintptr_t)0ul];
  t17.len = (uintptr_t)8ul;
- t18 = io_Writer_writeAll__7116(t11, t17);
+ t18 = io_Writer_writeAll__7189(t11, t17);
  memcpy(&t19, &t18, sizeof(uint16_t));
  if (t19) {
   return t19;
@@ -5174,7 +5276,20 @@ static uint16_t bincode_serializeInt__anon_3926__7101(struct io_GenericWriter_28
  return 0;
 }
 
-static uint16_t posix_errno__anon_3937__7103(intptr_t const a0) {
+static uint16_t bincode_serializeEnum__anon_3794__7174(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 const a0, uint8_t const a1) {
+ uint32_t t1;
+ uint16_t t2;
+ uint8_t t0;
+ t0 = a1;
+ t1 = (uint32_t)t0;
+ t2 = bincode_serialize__anon_3300__7029(a0, t1);
+ if (t2) {
+  return t2;
+ }
+ return 0;
+}
+
+static uint16_t posix_errno__anon_3805__7176(intptr_t const a0) {
  int64_t t1;
  int *t3;
  int t4;
@@ -5197,39 +5312,39 @@ static uint16_t posix_errno__anon_3937__7103(intptr_t const a0) {
  return t0;
 }
 
-static nav__4063_38 io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29___4063(void const *const a0, nav__4063_41 const a1) {
- struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *const *t0;
- struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *t1;
- nav__4063_38 t2;
- nav__4063_38 t3;
- t0 = (struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *const *)a0;
+static nav__4099_38 io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29___4099(void const *const a0, nav__4099_41 const a1) {
+ struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *const *t0;
+ struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *t1;
+ nav__4099_38 t2;
+ nav__4099_38 t3;
+ t0 = (struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *const *)a0;
  t1 = (*t0);
- t2 = array_list_ArrayListAligned_28u8_2cnull_29_appendWrite__3916(t1, a1);
- memcpy(&t3, &t2, sizeof(nav__4063_38));
+ t2 = array_list_ArrayListAligned_28u8_2cnull_29_appendWrite__3952(t1, a1);
+ memcpy(&t3, &t2, sizeof(nav__4099_38));
  return t3;
 }
 
-static uint16_t io_Writer_writeAll__7116(struct io_Writer__4192 const a0, nav__7116_40 const a1) {
- struct io_Writer__4192 const *t1;
- nav__7116_40 const *t3;
+static uint16_t io_Writer_writeAll__7189(struct io_Writer__4060 const a0, nav__7189_40 const a1) {
+ struct io_Writer__4060 const *t1;
+ nav__7189_40 const *t3;
  uintptr_t t5;
  uintptr_t t6;
  uintptr_t t13;
  uintptr_t t4;
  uint64_t t7;
  uint64_t t8;
- struct io_Writer__4192 t10;
- struct io_Writer__4192 t0;
- nav__7116_40 t11;
- nav__7116_40 t2;
+ struct io_Writer__4060 t10;
+ struct io_Writer__4060 t0;
+ nav__7189_40 t11;
+ nav__7189_40 t2;
  uint8_t const *t12;
- nav__7116_43 t14;
+ nav__7189_43 t14;
  uint16_t t15;
  bool t9;
  t0 = a0;
- t1 = (struct io_Writer__4192 const *)&t0;
+ t1 = (struct io_Writer__4060 const *)&t0;
  t2 = a1;
- t3 = (nav__7116_40 const *)&t2;
+ t3 = (nav__7189_40 const *)&t2;
  t4 = (uintptr_t)0ul;
  zig_loop_11:
  t5 = t4;
@@ -5248,7 +5363,7 @@ static uint16_t io_Writer_writeAll__7116(struct io_Writer__4192 const a0, nav__7
   t5 = t13 - t5;
   t11.ptr = t12;
   t11.len = t5;
-  t14 = io_Writer_write__7115(t10, t11);
+  t14 = io_Writer_write__7188(t10, t11);
   if (t14.error) {
    t15 = t14.error;
    return t15;
@@ -5267,35 +5382,35 @@ static uint16_t io_Writer_writeAll__7116(struct io_Writer__4192 const a0, nav__7
  return 0;
 }
 
-static uint16_t bincode_serialize__anon_4228__7125(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 const a0, nav__7125_40 const a1) {
+static uint16_t bincode_serialize__anon_4096__7198(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 const a0, nav__7198_40 const a1) {
  uint16_t t0;
- t0 = bincode_serializePointer__anon_4243__7127(a0, a1);
+ t0 = bincode_serializePointer__anon_4111__7200(a0, a1);
  if (t0) {
   return t0;
  }
  return 0;
 }
 
-static uint16_t bincode_serialize__anon_4230__7126(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 const a0, struct shared_MarkerType__1953 const a1) {
+static uint16_t bincode_serialize__anon_4098__7199(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 const a0, struct shared_MarkerType__2021 const a1) {
  uint16_t t0;
- t0 = bincode_serializeUnion__anon_4244__7128(a0, a1);
+ t0 = bincode_serializeUnion__anon_4112__7201(a0, a1);
  if (t0) {
   return t0;
  }
  return 0;
 }
 
-static nav__3916_38 array_list_ArrayListAligned_28u8_2cnull_29_appendWrite__3916(struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *const a0, nav__3916_42 const a1) {
- struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *const *t1;
- struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *t2;
- struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *t0;
- nav__3916_38 t4;
+static nav__3952_38 array_list_ArrayListAligned_28u8_2cnull_29_appendWrite__3952(struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *const a0, nav__3952_42 const a1) {
+ struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *const *t1;
+ struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *t2;
+ struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *t0;
+ nav__3952_38 t4;
  uintptr_t t5;
  uint16_t t3;
  t0 = a0;
- t1 = (struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *const *)&t0;
+ t1 = (struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *const *)&t0;
  t2 = (*t1);
- t3 = array_list_ArrayListAligned_28u8_2cnull_29_appendSlice__3910(t2, a1);
+ t3 = array_list_ArrayListAligned_28u8_2cnull_29_appendSlice__3946(t2, a1);
  if (t3) {
   t4.payload = (uintptr_t)0xaaaaaaaaaaaaaaaaul;
   t4.error = t3;
@@ -5307,99 +5422,99 @@ static nav__3916_38 array_list_ArrayListAligned_28u8_2cnull_29_appendWrite__3916
  return t4;
 }
 
-static nav__7115_38 io_Writer_write__7115(struct io_Writer__4192 const a0, nav__7115_41 const a1) {
- struct io_Writer__4192 const *t1;
- nav__7115_38 (*const *t2)(void const *, nav__7115_41);
- nav__7115_38 (*t3)(void const *, nav__7115_41);
+static nav__7188_38 io_Writer_write__7188(struct io_Writer__4060 const a0, nav__7188_41 const a1) {
+ struct io_Writer__4060 const *t1;
+ nav__7188_38 (*const *t2)(void const *, nav__7188_41);
+ nav__7188_38 (*t3)(void const *, nav__7188_41);
  void const *t4;
- nav__7115_38 t5;
- struct io_Writer__4192 t0;
+ nav__7188_38 t5;
+ struct io_Writer__4060 t0;
  t0 = a0;
- t1 = (struct io_Writer__4192 const *)&t0;
- t2 = (nav__7115_38 (*const *)(void const *, nav__7115_41))&t1->writeFn;
+ t1 = (struct io_Writer__4060 const *)&t0;
+ t2 = (nav__7188_38 (*const *)(void const *, nav__7188_41))&t1->writeFn;
  t3 = (*t2);
  t4 = a0.context;
  t5 = t3(t4, a1);
  return t5;
 }
 
-static uint16_t bincode_serializePointer__anon_4243__7127(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 const a0, nav__7127_40 const a1) {
- struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 const *t1;
- struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 const *t6;
- struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 const *t7;
- struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 const *t24;
- struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 t2;
- struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 t0;
- struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 t5;
- struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 t23;
+static uint16_t bincode_serializePointer__anon_4111__7200(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 const a0, nav__7200_40 const a1) {
+ struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 const *t1;
+ struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 const *t6;
+ struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 const *t7;
+ struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 const *t24;
+ struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 t2;
+ struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 t0;
+ struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 t5;
+ struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 t23;
  uintptr_t t3;
  uint64_t t4;
- struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 const *const *t8;
+ struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 const *const *t8;
  void const **t10;
- struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *const *t11;
+ struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *const *t11;
  void const *t12;
- nav__7127_51 (**t13)(void const *, nav__7127_40);
- struct io_Writer__4192 t14;
- struct io_Writer__4192 t9;
- struct io_Writer__4192 t15;
- struct io_Writer__4192 t17;
- struct io_Writer__4192 t25;
- struct io_Writer__4192 t26;
- struct io_Writer__4192 const *t16;
- nav__7127_40 t20;
+ nav__7200_51 (**t13)(void const *, nav__7200_40);
+ struct io_Writer__4060 t14;
+ struct io_Writer__4060 t9;
+ struct io_Writer__4060 t15;
+ struct io_Writer__4060 t17;
+ struct io_Writer__4060 t25;
+ struct io_Writer__4060 t26;
+ struct io_Writer__4060 const *t16;
+ nav__7200_40 t20;
  uint16_t t21;
  uint16_t t22;
  uint8_t t19[8];
  uint8_t t18[8];
  t0 = a0;
- t1 = (struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 const *)&t0;
+ t1 = (struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 const *)&t0;
  t2 = (*t1);
  t3 = a1.len;
  t4 = t3;
  t5 = t2;
- t6 = (struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 const *)&t5;
+ t6 = (struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 const *)&t5;
  t7 = t6;
- t8 = (struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 const *const *)&t7;
+ t8 = (struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 const *const *)&t7;
  t10 = (void const **)&t9.context;
  t6 = (*t8);
- t11 = (struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *const *)&t6->context;
+ t11 = (struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *const *)&t6->context;
  t12 = (void const *)t11;
  (*t10) = t12;
- t13 = (nav__7127_51 (**)(void const *, nav__7127_40))&t9.writeFn;
- (*t13) = &io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29___4063;
+ t13 = (nav__7200_51 (**)(void const *, nav__7200_40))&t9.writeFn;
+ (*t13) = &io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29___4099;
  t14 = t9;
  t15 = t14;
- t16 = (struct io_Writer__4192 const *)&t15;
+ t16 = (struct io_Writer__4060 const *)&t15;
  t14 = (*t16);
  t17 = t14;
- t16 = (struct io_Writer__4192 const *)&t17;
+ t16 = (struct io_Writer__4060 const *)&t17;
  memcpy(&t19, &t4, sizeof(uint8_t[8]));
  memcpy((char *)&t18, t19, sizeof(uint8_t[8]));
  t14 = (*t16);
  t20.ptr = &t18[(uintptr_t)0ul];
  t20.len = (uintptr_t)8ul;
- t21 = io_Writer_writeAll__7116(t14, t20);
+ t21 = io_Writer_writeAll__7189(t14, t20);
  memcpy(&t22, &t21, sizeof(uint16_t));
  if (t22) {
   return t22;
  }
  t2 = (*t1);
  t23 = t2;
- t1 = (struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 const *)&t23;
+ t1 = (struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 const *)&t23;
  t24 = t1;
- t8 = (struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 const *const *)&t24;
+ t8 = (struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 const *const *)&t24;
  t10 = (void const **)&t25.context;
  t1 = (*t8);
- t11 = (struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *const *)&t1->context;
+ t11 = (struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *const *)&t1->context;
  t12 = (void const *)t11;
  (*t10) = t12;
- t13 = (nav__7127_51 (**)(void const *, nav__7127_40))&t25.writeFn;
- (*t13) = &io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29___4063;
+ t13 = (nav__7200_51 (**)(void const *, nav__7200_40))&t25.writeFn;
+ (*t13) = &io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29___4099;
  t14 = t25;
  t26 = t14;
- t16 = (struct io_Writer__4192 const *)&t26;
+ t16 = (struct io_Writer__4060 const *)&t26;
  t14 = (*t16);
- t22 = io_Writer_writeAll__7116(t14, a1);
+ t22 = io_Writer_writeAll__7189(t14, a1);
  memcpy(&t21, &t22, sizeof(uint16_t));
  if (t21) {
   return t21;
@@ -5407,7 +5522,7 @@ static uint16_t bincode_serializePointer__anon_4243__7127(struct io_GenericWrite
  return 0;
 }
 
-static uint16_t bincode_serializeUnion__anon_4244__7128(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2005 const a0, struct shared_MarkerType__1953 const a1) {
+static uint16_t bincode_serializeUnion__anon_4112__7201(struct io_GenericWriter_28_2aarray_list_ArrayListAligned_28u8_2cnull_29_2cerror_7bOutOfMemory_7d_2c_28function_20_27appendWrite_27_29_29__2074 const a0, struct shared_MarkerType__2021 const a1) {
  uint64_t t4;
  uint32_t t1;
  uint16_t t2;
@@ -5415,7 +5530,7 @@ static uint16_t bincode_serializeUnion__anon_4244__7128(struct io_GenericWriter_
  bool t3;
  t0 = a1.tag;
  t1 = (uint32_t)t0;
- t2 = bincode_serialize__anon_3500__6960(a0, t1);
+ t2 = bincode_serialize__anon_3300__7029(a0, t1);
  if (t2) {
   return t2;
  }
@@ -5423,7 +5538,7 @@ static uint16_t bincode_serializeUnion__anon_4244__7128(struct io_GenericWriter_
  t3 = t0 == UINT8_C(0);
  if (t3) {
   t4 = a1.payload.SampleStart;
-  t2 = bincode_serialize__anon_3510__6965(a0, t4);
+  t2 = bincode_serialize__anon_3310__7034(a0, t4);
   if (t2) {
    return t2;
   }
@@ -5436,7 +5551,7 @@ static uint16_t bincode_serializeUnion__anon_4244__7128(struct io_GenericWriter_
  t3 = t0 == UINT8_C(1);
  if (t3) {
   t4 = a1.payload.SampleEnd;
-  t2 = bincode_serialize__anon_3510__6965(a0, t4);
+  t2 = bincode_serialize__anon_3310__7034(a0, t4);
   if (t2) {
    return t2;
   }
@@ -5449,7 +5564,7 @@ static uint16_t bincode_serializeUnion__anon_4244__7128(struct io_GenericWriter_
  t3 = t0 == UINT8_C(2);
  if (t3) {
   t4 = a1.payload.BenchmarkStart;
-  t2 = bincode_serialize__anon_3510__6965(a0, t4);
+  t2 = bincode_serialize__anon_3310__7034(a0, t4);
   if (t2) {
    return t2;
   }
@@ -5462,7 +5577,7 @@ static uint16_t bincode_serializeUnion__anon_4244__7128(struct io_GenericWriter_
  t3 = t0 == UINT8_C(3);
  if (t3) {
   t4 = a1.payload.BenchmarkEnd;
-  t2 = bincode_serialize__anon_3510__6965(a0, t4);
+  t2 = bincode_serialize__anon_3310__7034(a0, t4);
   if (t2) {
    return t2;
   }
@@ -5474,68 +5589,68 @@ static uint16_t bincode_serializeUnion__anon_4244__7128(struct io_GenericWriter_
  return 0;
 }
 
-static uint16_t array_list_ArrayListAligned_28u8_2cnull_29_appendSlice__3910(struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *const a0, nav__3910_41 const a1) {
- struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *const *t1;
- struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *t2;
- struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *t0;
+static uint16_t array_list_ArrayListAligned_28u8_2cnull_29_appendSlice__3946(struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *const a0, nav__3946_41 const a1) {
+ struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *const *t1;
+ struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *t2;
+ struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *t0;
  uintptr_t t3;
  uint16_t t4;
  t0 = a0;
- t1 = (struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *const *)&t0;
+ t1 = (struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *const *)&t0;
  t2 = (*t1);
  t3 = a1.len;
- t4 = array_list_ArrayListAligned_28u8_2cnull_29_ensureUnusedCapacity__3929(t2, t3);
+ t4 = array_list_ArrayListAligned_28u8_2cnull_29_ensureUnusedCapacity__3965(t2, t3);
  if (t4) {
   return t4;
  }
  t2 = (*t1);
- array_list_ArrayListAligned_28u8_2cnull_29_appendSliceAssumeCapacity__3911(t2, a1);
+ array_list_ArrayListAligned_28u8_2cnull_29_appendSliceAssumeCapacity__3947(t2, a1);
  return 0;
 }
 
-static uint16_t array_list_ArrayListAligned_28u8_2cnull_29_ensureUnusedCapacity__3929(struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *const a0, uintptr_t const a1) {
- struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *const *t1;
- struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *t2;
- struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *t0;
- nav__3929_43 *t3;
- nav__3929_43 t4;
+static uint16_t array_list_ArrayListAligned_28u8_2cnull_29_ensureUnusedCapacity__3965(struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *const a0, uintptr_t const a1) {
+ struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *const *t1;
+ struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *t2;
+ struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *t0;
+ nav__3965_43 *t3;
+ nav__3965_43 t4;
  uintptr_t t5;
- nav__3929_52 t6;
+ nav__3965_52 t6;
  uint16_t t7;
  t0 = a0;
- t1 = (struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *const *)&t0;
+ t1 = (struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *const *)&t0;
  t2 = (*t1);
- t3 = (nav__3929_43 *)&a0->items;
+ t3 = (nav__3965_43 *)&a0->items;
  t4 = (*t3);
  t5 = t4.len;
- t6 = array_list_addOrOom__3854(t5, a1);
+ t6 = array_list_addOrOom__3890(t5, a1);
  if (t6.error) {
   t7 = t6.error;
   return t7;
  }
  t5 = t6.payload;
- t7 = array_list_ArrayListAligned_28u8_2cnull_29_ensureTotalCapacity__3927(t2, t5);
+ t7 = array_list_ArrayListAligned_28u8_2cnull_29_ensureTotalCapacity__3963(t2, t5);
  return t7;
 }
 
-static void array_list_ArrayListAligned_28u8_2cnull_29_appendSliceAssumeCapacity__3911(struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *const a0, nav__3911_41 const a1) {
- struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *const *t1;
- nav__3911_47 *t2;
- nav__3911_47 t3;
+static void array_list_ArrayListAligned_28u8_2cnull_29_appendSliceAssumeCapacity__3947(struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *const a0, nav__3947_41 const a1) {
+ struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *const *t1;
+ nav__3947_47 *t2;
+ nav__3947_47 t3;
  uintptr_t t4;
  uintptr_t t5;
  uintptr_t t7;
  uintptr_t *t6;
  uint64_t t8;
  uint64_t t9;
- struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *t11;
- struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *t0;
+ struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *t11;
+ struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *t0;
  uint8_t *t12;
  uint8_t const *t13;
  bool t10;
  t0 = a0;
- t1 = (struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *const *)&t0;
- t2 = (nav__3911_47 *)&a0->items;
+ t1 = (struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *const *)&t0;
+ t2 = (nav__3947_47 *)&a0->items;
  t3 = (*t2);
  t4 = t3.len;
  t5 = a1.len;
@@ -5547,11 +5662,11 @@ static void array_list_ArrayListAligned_28u8_2cnull_29_appendSliceAssumeCapacity
  t10 = t8 <= t9;
  debug_assert__180(t10);
  t11 = (*t1);
- t2 = (nav__3911_47 *)&t11->items;
+ t2 = (nav__3947_47 *)&t11->items;
  t6 = &t2->len;
  (*t6) = t5;
  t11 = (*t1);
- t2 = (nav__3911_47 *)&t11->items;
+ t2 = (nav__3947_47 *)&t11->items;
  t5 = a1.len;
  t3 = (*t2);
  t12 = t3.ptr;
@@ -5563,13 +5678,13 @@ static void array_list_ArrayListAligned_28u8_2cnull_29_appendSliceAssumeCapacity
  return;
 }
 
-static nav__3854_38 array_list_addOrOom__3854(uintptr_t const a0, uintptr_t const a1) {
- nav__3854_42 t2;
+static nav__3890_38 array_list_addOrOom__3890(uintptr_t const a0, uintptr_t const a1) {
+ nav__3890_42 t2;
  uintptr_t t3;
  uintptr_t t0;
  uintptr_t const *t5;
  uint8_t const *t6;
- nav__3854_38 t8;
+ nav__3890_38 t8;
  uint8_t t4;
  uint8_t t1;
  bool t7;
@@ -5583,7 +5698,7 @@ static nav__3854_38 array_list_addOrOom__3854(uintptr_t const a0, uintptr_t cons
  t4 = (*t6);
  t7 = t4 != UINT8_C(0);
  if (t7) {
-  return (nav__3854_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_OutOfMemory};
+  return (nav__3890_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_OutOfMemory};
  }
  goto zig_block_0;
 
@@ -5594,18 +5709,18 @@ static nav__3854_38 array_list_addOrOom__3854(uintptr_t const a0, uintptr_t cons
  return t8;
 }
 
-static uint16_t array_list_ArrayListAligned_28u8_2cnull_29_ensureTotalCapacity__3927(struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *const a0, uintptr_t const a1) {
- struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *const *t1;
+static uint16_t array_list_ArrayListAligned_28u8_2cnull_29_ensureTotalCapacity__3963(struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *const a0, uintptr_t const a1) {
+ struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *const *t1;
  uintptr_t *t2;
  uintptr_t t3;
  uint64_t t4;
  uint64_t t5;
- struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *t7;
- struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *t0;
+ struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *t7;
+ struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *t0;
  uint16_t t8;
  bool t6;
  t0 = a0;
- t1 = (struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *const *)&t0;
+ t1 = (struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *const *)&t0;
  t2 = (uintptr_t *)&a0->capacity;
  t3 = (*t2);
  t4 = t3;
@@ -5619,13 +5734,13 @@ static uint16_t array_list_ArrayListAligned_28u8_2cnull_29_ensureTotalCapacity__
  zig_block_0:;
  t2 = (uintptr_t *)&a0->capacity;
  t3 = (*t2);
- t3 = array_list_ArrayListAlignedUnmanaged_28u8_2cnull_29_growCapacity__7187(t3, a1);
+ t3 = array_list_ArrayListAlignedUnmanaged_28u8_2cnull_29_growCapacity__7260(t3, a1);
  t7 = (*t1);
- t8 = array_list_ArrayListAligned_28u8_2cnull_29_ensureTotalCapacityPrecise__3928(t7, t3);
+ t8 = array_list_ArrayListAligned_28u8_2cnull_29_ensureTotalCapacityPrecise__3964(t7, t3);
  return t8;
 }
 
-static uintptr_t array_list_ArrayListAlignedUnmanaged_28u8_2cnull_29_growCapacity__7187(uintptr_t const a0, uintptr_t const a1) {
+static uintptr_t array_list_ArrayListAlignedUnmanaged_28u8_2cnull_29_growCapacity__7260(uintptr_t const a0, uintptr_t const a1) {
  uintptr_t t1;
  uintptr_t t2;
  uintptr_t t0;
@@ -5654,31 +5769,31 @@ static uintptr_t array_list_ArrayListAlignedUnmanaged_28u8_2cnull_29_growCapacit
  goto zig_loop_6;
 }
 
-static uint16_t array_list_ArrayListAligned_28u8_2cnull_29_ensureTotalCapacityPrecise__3928(struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *const a0, uintptr_t const a1) {
- struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *const *t1;
+static uint16_t array_list_ArrayListAligned_28u8_2cnull_29_ensureTotalCapacityPrecise__3964(struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *const a0, uintptr_t const a1) {
+ struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *const *t1;
  uintptr_t *t2;
  uintptr_t t3;
  uint64_t t4;
  uint64_t t5;
- struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *t7;
- struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *t0;
- struct array_list_ArrayListAligned_28u8_2cnull_29__1974 t8;
- nav__3928_43 t9;
- nav__3928_43 t12;
- nav__3928_43 t20;
- nav__3928_43 t21;
- nav__3928_43 t18;
- struct mem_Allocator__565 *t10;
- struct mem_Allocator__565 t11;
- nav__3928_43 *t13;
+ struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *t7;
+ struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *t0;
+ struct array_list_ArrayListAligned_28u8_2cnull_29__2043 t8;
+ nav__3964_43 t9;
+ nav__3964_43 t12;
+ nav__3964_43 t20;
+ nav__3964_43 t21;
+ nav__3964_43 t18;
+ struct mem_Allocator__589 *t10;
+ struct mem_Allocator__589 t11;
+ nav__3964_43 *t13;
  uint8_t **t14;
  uint8_t *t15;
- nav__3928_55 t16;
- nav__3928_43 const *t19;
+ nav__3964_55 t16;
+ nav__3964_43 const *t19;
  uint16_t t17;
  bool t6;
  t0 = a0;
- t1 = (struct array_list_ArrayListAligned_28u8_2cnull_29__1974 *const *)&t0;
+ t1 = (struct array_list_ArrayListAligned_28u8_2cnull_29__2043 *const *)&t0;
  t2 = (uintptr_t *)&a0->capacity;
  t3 = (*t2);
  t4 = t3;
@@ -5692,16 +5807,16 @@ static uint16_t array_list_ArrayListAligned_28u8_2cnull_29_ensureTotalCapacityPr
  zig_block_0:;
  t7 = (*t1);
  t8 = (*t7);
- t9 = array_list_ArrayListAligned_28u8_2cnull_29_allocatedSlice__3938(t8);
+ t9 = array_list_ArrayListAligned_28u8_2cnull_29_allocatedSlice__3974(t8);
  t7 = (*t1);
- t10 = (struct mem_Allocator__565 *)&t7->allocator;
+ t10 = (struct mem_Allocator__589 *)&t7->allocator;
  t11 = (*t10);
- t12 = mem_Allocator_remap__anon_4301__7214(t11, t9, a1);
+ t12 = mem_Allocator_remap__anon_4169__7287(t11, t9, a1);
  t6 = t12.ptr != NULL;
  if (t6) {
   t9 = t12;
   t7 = (*t1);
-  t13 = (nav__3928_43 *)&t7->items;
+  t13 = (nav__3964_43 *)&t7->items;
   t14 = &t13->ptr;
   t15 = t9.ptr;
   (*t14) = t15;
@@ -5712,17 +5827,17 @@ static uint16_t array_list_ArrayListAligned_28u8_2cnull_29_ensureTotalCapacityPr
   goto zig_block_1;
  }
  t7 = (*t1);
- t10 = (struct mem_Allocator__565 *)&t7->allocator;
+ t10 = (struct mem_Allocator__589 *)&t7->allocator;
  t11 = (*t10);
- t16 = mem_Allocator_alignedAlloc__anon_4306__7215(t11, a1);
+ t16 = mem_Allocator_alignedAlloc__anon_4174__7288(t11, a1);
  if (t16.error) {
   t17 = t16.error;
   return t17;
  }
  t12 = t16.payload;
  t18 = t12;
- t19 = (nav__3928_43 const *)&t18;
- t13 = (nav__3928_43 *)&a0->items;
+ t19 = (nav__3964_43 const *)&t18;
+ t13 = (nav__3964_43 *)&a0->items;
  t20 = (*t13);
  t3 = t20.len;
  t20 = (*t19);
@@ -5730,16 +5845,16 @@ static uint16_t array_list_ArrayListAligned_28u8_2cnull_29_ensureTotalCapacityPr
  t15 = (uint8_t *)(((uintptr_t)t15) + ((uintptr_t)0ul*sizeof(uint8_t)));
  t20.ptr = t15;
  t20.len = t3;
- t13 = (nav__3928_43 *)&a0->items;
+ t13 = (nav__3964_43 *)&a0->items;
  t21 = (*t13);
  t15 = t21.ptr;
  if (t20.len != 0) memcpy(t20.ptr, t15, t20.len * sizeof(uint8_t));
  t7 = (*t1);
- t10 = (struct mem_Allocator__565 *)&t7->allocator;
+ t10 = (struct mem_Allocator__589 *)&t7->allocator;
  t11 = (*t10);
- mem_Allocator_free__anon_2159__4107(t11, t9);
+ mem_Allocator_free__anon_2222__4143(t11, t9);
  t7 = (*t1);
- t13 = (nav__3928_43 *)&t7->items;
+ t13 = (nav__3964_43 *)&t7->items;
  t14 = &t13->ptr;
  t15 = t12.ptr;
  (*t14) = t15;
@@ -5753,16 +5868,16 @@ static uint16_t array_list_ArrayListAligned_28u8_2cnull_29_ensureTotalCapacityPr
  return 0;
 }
 
-static nav__7214_39 mem_Allocator_remap__anon_4301__7214(struct mem_Allocator__565 const a0, nav__7214_39 const a1, uintptr_t const a2) {
- struct mem_Allocator__565 const *t1;
- nav__7214_39 const *t3;
+static nav__7287_39 mem_Allocator_remap__anon_4169__7287(struct mem_Allocator__589 const a0, nav__7287_39 const a1, uintptr_t const a2) {
+ struct mem_Allocator__589 const *t1;
+ nav__7287_39 const *t3;
  uint64_t t4;
- struct mem_Allocator__565 t6;
- struct mem_Allocator__565 t0;
- struct mem_Allocator__565 t15;
- nav__7214_39 t7;
- nav__7214_39 t10;
- nav__7214_39 t2;
+ struct mem_Allocator__589 t6;
+ struct mem_Allocator__589 t0;
+ struct mem_Allocator__589 t15;
+ nav__7287_39 t7;
+ nav__7287_39 t10;
+ nav__7287_39 t2;
  uint8_t *t8;
  uint8_t *t20;
  uint8_t *t21;
@@ -5770,23 +5885,23 @@ static nav__7214_39 mem_Allocator_remap__anon_4301__7214(struct mem_Allocator__5
  void *t9;
  uintptr_t t11;
  uintptr_t t13;
- nav__7214_50 t12;
- struct mem_Allocator_VTable__568 const *const *t16;
- struct mem_Allocator_VTable__568 const *t17;
- uint8_t *(*const *t18)(void *, nav__7214_39, uint8_t, uintptr_t, uintptr_t);
- uint8_t *(*t19)(void *, nav__7214_39, uint8_t, uintptr_t, uintptr_t);
+ nav__7287_50 t12;
+ struct mem_Allocator_VTable__592 const *const *t16;
+ struct mem_Allocator_VTable__592 const *t17;
+ uint8_t *(*const *t18)(void *, nav__7287_39, uint8_t, uintptr_t, uintptr_t);
+ uint8_t *(*t19)(void *, nav__7287_39, uint8_t, uintptr_t, uintptr_t);
  uint8_t *const *t23;
  bool t5;
  uint8_t t14;
  t0 = a0;
- t1 = (struct mem_Allocator__565 const *)&t0;
+ t1 = (struct mem_Allocator__589 const *)&t0;
  t2 = a1;
- t3 = (nav__7214_39 const *)&t2;
+ t3 = (nav__7287_39 const *)&t2;
  t4 = a2;
  t5 = t4 == UINT64_C(0);
  if (t5) {
   t6 = (*t1);
-  mem_Allocator_free__anon_2159__4107(t6, a1);
+  mem_Allocator_free__anon_2222__4143(t6, a1);
   t7 = (*t3);
   t8 = t7.ptr;
   t8 = (uint8_t *)(((uintptr_t)t8) + ((uintptr_t)0ul*sizeof(uint8_t)));
@@ -5803,30 +5918,30 @@ static nav__7214_39 mem_Allocator_remap__anon_4301__7214(struct mem_Allocator__5
  t4 = t11;
  t5 = t4 == UINT64_C(0);
  if (t5) {
-  return (nav__7214_39){NULL,(uintptr_t)0xaaaaaaaaaaaaaaaaul};
+  return (nav__7287_39){NULL,(uintptr_t)0xaaaaaaaaaaaaaaaaul};
  }
  goto zig_block_1;
 
  zig_block_1:;
- t10 = mem_sliceAsBytes__anon_2971__5253(a1);
- t12 = math_mul__anon_3697__7033((uintptr_t)1ul, a2);
+ t10 = mem_sliceAsBytes__anon_3070__5300(a1);
+ t12 = math_mul__anon_3499__7103((uintptr_t)1ul, a2);
  t5 = t12.error == UINT16_C(0);
  if (t5) {
   t13 = t12.payload;
   t11 = t13;
   goto zig_block_2;
  }
- return (nav__7214_39){NULL,(uintptr_t)0xaaaaaaaaaaaaaaaaul};
+ return (nav__7287_39){NULL,(uintptr_t)0xaaaaaaaaaaaaaaaaul};
 
  zig_block_2:;
  t6 = (*t1);
- t14 = mem_Alignment_fromByteUnits__1045((uintptr_t)1ul);
+ t14 = mem_Alignment_fromByteUnits__1066((uintptr_t)1ul);
  t13 = (uintptr_t)zig_return_address();
  t15 = t6;
- t1 = (struct mem_Allocator__565 const *)&t15;
- t16 = (struct mem_Allocator_VTable__568 const *const *)&t1->vtable;
+ t1 = (struct mem_Allocator__589 const *)&t15;
+ t16 = (struct mem_Allocator_VTable__592 const *const *)&t1->vtable;
  t17 = (*t16);
- t18 = (uint8_t *(*const *)(void *, nav__7214_39, uint8_t, uintptr_t, uintptr_t))&t17->remap;
+ t18 = (uint8_t *(*const *)(void *, nav__7287_39, uint8_t, uintptr_t, uintptr_t))&t17->remap;
  t19 = (*t18);
  t9 = t6.ptr;
  t20 = t19(t9, t10, t14, t11, t13);
@@ -5836,7 +5951,7 @@ static nav__7214_39 mem_Allocator_remap__anon_4301__7214(struct mem_Allocator__5
   t8 = t21;
   goto zig_block_3;
  }
- return (nav__7214_39){NULL,(uintptr_t)0xaaaaaaaaaaaaaaaaul};
+ return (nav__7287_39){NULL,(uintptr_t)0xaaaaaaaaaaaaaaaaul};
 
  zig_block_3:;
  t22 = t8;
@@ -5845,37 +5960,37 @@ static nav__7214_39 mem_Allocator_remap__anon_4301__7214(struct mem_Allocator__5
  t8 = (uint8_t *)(((uintptr_t)t8) + ((uintptr_t)0ul*sizeof(uint8_t)));
  t10.ptr = t8;
  t10.len = t11;
- memcpy(&t7, &t10, sizeof(nav__7214_39));
- t7 = mem_bytesAsSlice__anon_4321__7216(t7);
+ memcpy(&t7, &t10, sizeof(nav__7287_39));
+ t7 = mem_bytesAsSlice__anon_4189__7289(t7);
  t10 = t7;
  return t10;
 }
 
-static nav__7215_40 mem_Allocator_alignedAlloc__anon_4306__7215(struct mem_Allocator__565 const a0, uintptr_t const a1) {
- struct mem_Allocator__565 const *t1;
- struct mem_Allocator__565 t2;
- struct mem_Allocator__565 t0;
- struct mem_Allocator__565 t5;
+static nav__7288_40 mem_Allocator_alignedAlloc__anon_4174__7288(struct mem_Allocator__589 const a0, uintptr_t const a1) {
+ struct mem_Allocator__589 const *t1;
+ struct mem_Allocator__589 t2;
+ struct mem_Allocator__589 t0;
+ struct mem_Allocator__589 t5;
  uintptr_t t3;
- nav__7215_40 t4;
- nav__7215_40 t8;
- nav__7215_51 t6;
+ nav__7288_40 t4;
+ nav__7288_40 t8;
+ nav__7288_51 t6;
  uint8_t *t9;
  uint8_t *t10;
  uint8_t *const *t11;
- nav__7215_39 t12;
+ nav__7288_39 t12;
  uint16_t t7;
  t0 = a0;
- t1 = (struct mem_Allocator__565 const *)&t0;
+ t1 = (struct mem_Allocator__589 const *)&t0;
  t2 = (*t1);
  t3 = (uintptr_t)zig_return_address();
  t5 = t2;
- t1 = (struct mem_Allocator__565 const *)&t5;
+ t1 = (struct mem_Allocator__589 const *)&t5;
  t2 = (*t1);
- t6 = mem_Allocator_allocWithSizeAndAlignment__anon_2958__5252(t2, a1, t3);
+ t6 = mem_Allocator_allocWithSizeAndAlignment__anon_3057__5299(t2, a1, t3);
  if (t6.error) {
   t7 = t6.error;
-  t8.payload = (nav__7215_39){(uint8_t *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul};
+  t8.payload = (nav__7288_39){(uint8_t *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul};
   t8.error = t7;
   t4 = t8;
   goto zig_block_0;
@@ -5896,13 +6011,13 @@ static nav__7215_40 mem_Allocator_alignedAlloc__anon_4306__7215(struct mem_Alloc
  return t4;
 }
 
-static nav__7216_39 mem_bytesAsSlice__anon_4321__7216(nav__7216_39 const a0) {
+static nav__7289_39 mem_bytesAsSlice__anon_4189__7289(nav__7289_39 const a0) {
  uintptr_t t0;
  uint64_t t1;
  uint8_t *t4;
  uint8_t *t5;
  uint8_t *const *t6;
- nav__7216_39 t7;
+ nav__7289_39 t7;
  bool t2;
  bool t3;
  t0 = a0.len;
@@ -5917,7 +6032,7 @@ static nav__7216_39 mem_bytesAsSlice__anon_4321__7216(nav__7216_39 const a0) {
 
  zig_block_1:;
  if (t3) {
-  return (nav__7216_39){(uint8_t *)((void const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),(uintptr_t)0ul};
+  return (nav__7289_39){(uint8_t *)((void const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),(uintptr_t)0ul};
  }
  goto zig_block_0;
 
@@ -5934,14 +6049,15 @@ static nav__7216_39 mem_bytesAsSlice__anon_4321__7216(nav__7216_39 const a0) {
  return t7;
 }
 
-void c_instrument_hooks_deinit__239(struct instruments_root_InstrumentHooks__547 *const a0) {
+void c_instrument_hooks_deinit__238(struct instruments_root_InstrumentHooks__547 *const a0) {
  struct instruments_root_InstrumentHooks__547 *t1;
  struct instruments_root_InstrumentHooks__547 *t4;
  struct instruments_root_InstrumentHooks__547 *t2;
  struct instruments_root_InstrumentHooks__547 *t5;
  struct instruments_root_InstrumentHooks__547 *const *t3;
  struct instruments_root_InstrumentHooks__547 t6;
- struct instruments_perf_PerfInstrument__559 *t8;
+ struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *t8;
+ struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *t9;
  bool t0;
  uint8_t t7;
  t0 = a0 != NULL;
@@ -5960,18 +6076,24 @@ void c_instrument_hooks_deinit__239(struct instruments_root_InstrumentHooks__547
    }
    case UINT8_C(1): {
     t4 = (*t3);
-    t8 = (struct instruments_perf_PerfInstrument__559 *)&t4->payload.perf;
-    instruments_perf_PerfInstrument_deinit__751(t8);
+    t8 = (struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *)&t4->payload.perf;
+    instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29_deinit__761(t8);
     goto zig_block_1;
    }
    case UINT8_C(2): {
+    t4 = (*t3);
+    t9 = (struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *)&t4->payload.analysis;
+    instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29_deinit__774(t9);
+    goto zig_block_1;
+   }
+   case UINT8_C(3): {
     goto zig_block_1;
    }
    default: zig_unreachable();
   }
 
   zig_block_1:;
-  mem_Allocator_destroy__anon_2782__4232((struct mem_Allocator__565){((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__568 const *)&heap_CAllocator_vtable__3564)}, t1);
+  mem_Allocator_destroy__anon_4214__7290((struct mem_Allocator__589){((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__592 const *)&heap_CAllocator_vtable__3605)}, t1);
   goto zig_block_0;
  }
  goto zig_block_0;
@@ -5980,16 +6102,80 @@ void c_instrument_hooks_deinit__239(struct instruments_root_InstrumentHooks__547
  return;
 }
 
-bool c_instrument_hooks_is_instrumented__240(struct instruments_root_InstrumentHooks__547 *const a0) {
+static void instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29_deinit__761(struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *const a0) {
+ struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *const *t1;
+ struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *t2;
+ struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *t0;
+ struct runner_fifo_RunnerFifo__621 *t3;
+ t0 = a0;
+ t1 = (struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *const *)&t0;
+ t2 = (*t1);
+ t3 = (struct runner_fifo_RunnerFifo__621 *)&t2->fifo;
+ runner_fifo_RunnerFifo_deinit__1084(t3);
+ return;
+}
+
+static void instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29_deinit__774(struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *const a0) {
+ struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *const *t1;
+ struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *t2;
+ struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *t0;
+ struct runner_fifo_RunnerFifo__621 *t3;
+ t0 = a0;
+ t1 = (struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *const *)&t0;
+ t2 = (*t1);
+ t3 = (struct runner_fifo_RunnerFifo__621 *)&t2->fifo;
+ runner_fifo_RunnerFifo_deinit__1084(t3);
+ return;
+}
+
+static void mem_Allocator_destroy__anon_4214__7290(struct mem_Allocator__589 const a0, struct instruments_root_InstrumentHooks__547 *const a1) {
+ struct mem_Allocator__589 const *t1;
+ uint8_t *t2;
+ uint8_t *t3;
+ uint8_t *const *t4;
+ struct mem_Allocator__589 t5;
+ struct mem_Allocator__589 t0;
+ struct mem_Allocator__589 t10;
+ uint8_t (*t6)[72];
+ nav__7290_52 t7;
+ uintptr_t t9;
+ struct mem_Allocator_VTable__592 const *const *t11;
+ struct mem_Allocator_VTable__592 const *t12;
+ void (*const *t13)(void *, nav__7290_52, uint8_t, uintptr_t);
+ void (*t14)(void *, nav__7290_52, uint8_t, uintptr_t);
+ void *t15;
+ uint8_t t8;
+ t0 = a0;
+ t1 = (struct mem_Allocator__589 const *)&t0;
+ t2 = (uint8_t *)a1;
+ t3 = t2;
+ t4 = (uint8_t *const *)&t3;
+ t5 = (*t1);
+ t2 = (*t4);
+ t2 = (uint8_t *)(((uintptr_t)t2) + ((uintptr_t)0ul*sizeof(uint8_t)));
+ t6 = (uint8_t (*)[72])t2;
+ t7.ptr = &(*t6)[(uintptr_t)0ul];
+ t7.len = (uintptr_t)72ul;
+ t8 = mem_Alignment_fromByteUnits__1066((uintptr_t)8ul);
+ t9 = (uintptr_t)zig_return_address();
+ t10 = t5;
+ t1 = (struct mem_Allocator__589 const *)&t10;
+ t11 = (struct mem_Allocator_VTable__592 const *const *)&t1->vtable;
+ t12 = (*t11);
+ t13 = (void (*const *)(void *, nav__7290_52, uint8_t, uintptr_t))&t12->free;
+ t14 = (*t13);
+ t15 = t5.ptr;
+ t14(t15, t7, t8, t9);
+ return;
+}
+
+bool c_instrument_hooks_is_instrumented__239(struct instruments_root_InstrumentHooks__547 *const a0) {
  struct instruments_root_InstrumentHooks__547 *t1;
  struct instruments_root_InstrumentHooks__547 *t2;
  struct instruments_root_InstrumentHooks__547 *const *t3;
  struct instruments_root_InstrumentHooks__547 t4;
- struct instruments_perf_PerfInstrument__559 t8;
- struct instruments_perf_PerfInstrument__559 t9;
  bool t0;
  bool t6;
- bool t7;
  uint8_t t5;
  t0 = a0 != NULL;
  if (t0) {
@@ -6002,27 +6188,24 @@ bool c_instrument_hooks_is_instrumented__240(struct instruments_root_InstrumentH
   switch (t5) {
    case UINT8_C(0): {
     t5 = running_on_valgrind();
-    t7 = t5 > UINT8_C(0);
-    t6 = t7;
-    goto zig_block_2;
+    t6 = t5 > UINT8_C(0);
+    t0 = t6;
+    goto zig_block_1;
    }
    case UINT8_C(1): {
-    t8 = t4.payload.perf;
-    t9 = t8;
-    t7 = instruments_perf_PerfInstrument_is_instrumented__753(&t9);
-    t0 = t7;
+    t0 = true;
     goto zig_block_1;
    }
    case UINT8_C(2): {
-    t6 = false;
-    goto zig_block_2;
+    t0 = true;
+    goto zig_block_1;
+   }
+   case UINT8_C(3): {
+    t0 = false;
+    goto zig_block_1;
    }
    default: zig_unreachable();
   }
-
-  zig_block_2:;
-  t0 = t6;
-  goto zig_block_1;
 
   zig_block_1:;
   return t0;
@@ -6033,37 +6216,121 @@ bool c_instrument_hooks_is_instrumented__240(struct instruments_root_InstrumentH
  return false;
 }
 
-static zig_cold uint16_t instruments_perf_PerfInstrument_start_benchmark__754(struct instruments_perf_PerfInstrument__559 *const a0) {
- struct instruments_perf_PerfInstrument__559 *const *t1;
- struct instruments_perf_PerfInstrument__559 *t2;
- struct instruments_perf_PerfInstrument__559 *t0;
- struct fifo_UnixPipe_Writer__600 *t3;
- struct fifo_UnixPipe_Reader__602 *t5;
+static uint16_t fifo_UnixPipe_Reader_waitForAck__1127(struct fifo_UnixPipe_Reader__630 *const a0, nav__1127_40 const a1) {
+ struct fifo_UnixPipe_Reader__630 *const *t1;
+ struct fifo_UnixPipe_Reader__630 *t2;
+ struct fifo_UnixPipe_Reader__630 *t0;
+ nav__1127_60 t3;
+ struct shared_Command__2014 t5;
+ struct shared_Command__2014 t6;
+ struct shared_Command__2014 const *t7;
+ struct mem_Allocator__589 *t10;
+ struct mem_Allocator__589 t11;
+ uint16_t t4;
+ uint8_t t8;
+ bool t9;
+ t0 = a0;
+ t1 = (struct fifo_UnixPipe_Reader__630 *const *)&t0;
+ t2 = (*t1);
+ t3 = fifo_UnixPipe_Reader_waitForResponse__1126(t2, a1);
+ if (t3.error) {
+  t4 = t3.error;
+  return t4;
+ }
+ t5 = t3.payload;
+ t6 = t5;
+ t7 = (struct shared_Command__2014 const *)&t6;
+ t8 = t5.tag;
+ t9 = t8 == UINT8_C(3);
+ if (t9) {
+  t5 = (*t7);
+  t10 = (struct mem_Allocator__589 *)&a0->allocator;
+  t11 = (*t10);
+  shared_Command_deinit__3874(t5, t11);
+  return 0;
+ }
+ t8 = t5.tag;
+ t9 = t8 == UINT8_C(6);
+ if (t9) {
+  t5 = (*t7);
+  t10 = (struct mem_Allocator__589 *)&a0->allocator;
+  t11 = (*t10);
+  shared_Command_deinit__3874(t5, t11);
+  return zig_error_UnexpectedError;
+ }
+ t5 = (*t7);
+ t10 = (struct mem_Allocator__589 *)&a0->allocator;
+ t11 = (*t10);
+ shared_Command_deinit__3874(t5, t11);
+ return zig_error_UnexpectedResponse;
+}
+
+static zig_cold uint16_t runner_fifo_RunnerFifo_start_benchmark__1087(struct runner_fifo_RunnerFifo__621 *const a0) {
+ struct runner_fifo_RunnerFifo__621 *const *t1;
+ struct runner_fifo_RunnerFifo__621 *t2;
+ struct runner_fifo_RunnerFifo__621 *t0;
+ struct fifo_UnixPipe_Writer__628 *t3;
+ struct fifo_UnixPipe_Reader__630 *t5;
  uint16_t t4;
  t0 = a0;
- t1 = (struct instruments_perf_PerfInstrument__559 *const *)&t0;
+ t1 = (struct runner_fifo_RunnerFifo__621 *const *)&t0;
  t2 = (*t1);
- t3 = (struct fifo_UnixPipe_Writer__600 *)&t2->writer;
- t4 = fifo_UnixPipe_Writer_sendCmd__1079(t3, (struct shared_Command__1946){{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(1)});
+ t3 = (struct fifo_UnixPipe_Writer__628 *)&t2->writer;
+ t4 = fifo_UnixPipe_Writer_sendCmd__1120(t3, (struct shared_Command__2014){{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(1)});
  if (t4) {
   return t4;
  }
  t2 = (*t1);
- t5 = (struct fifo_UnixPipe_Reader__602 *)&t2->reader;
- t4 = fifo_UnixPipe_Reader_waitForAck__1086(t5, (nav__754_71){UINT64_C(0xaaaaaaaaaaaaaaaa),true});
+ t5 = (struct fifo_UnixPipe_Reader__630 *)&t2->reader;
+ t4 = fifo_UnixPipe_Reader_waitForAck__1127(t5, (nav__1087_71){UINT64_C(0xaaaaaaaaaaaaaaaa),true});
  if (t4) {
   return t4;
  }
  return 0;
 }
 
-uint8_t c_instrument_hooks_start_benchmark__241(struct instruments_root_InstrumentHooks__547 *const a0) {
+static uint16_t instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29_start_benchmark__763(struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *const a0) {
+ struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *const *t1;
+ struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *t2;
+ struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *t0;
+ struct runner_fifo_RunnerFifo__621 *t3;
+ uint16_t t4;
+ t0 = a0;
+ t1 = (struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *const *)&t0;
+ t2 = (*t1);
+ t3 = (struct runner_fifo_RunnerFifo__621 *)&t2->fifo;
+ t4 = runner_fifo_RunnerFifo_start_benchmark__1087(t3);
+ if (t4) {
+  return t4;
+ }
+ return 0;
+}
+
+static uint16_t instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29_start_benchmark__776(struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *const a0) {
+ struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *const *t1;
+ struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *t2;
+ struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *t0;
+ struct runner_fifo_RunnerFifo__621 *t3;
+ uint16_t t4;
+ t0 = a0;
+ t1 = (struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *const *)&t0;
+ t2 = (*t1);
+ t3 = (struct runner_fifo_RunnerFifo__621 *)&t2->fifo;
+ t4 = runner_fifo_RunnerFifo_start_benchmark__1087(t3);
+ if (t4) {
+  return t4;
+ }
+ return 0;
+}
+
+uint8_t c_instrument_hooks_start_benchmark__240(struct instruments_root_InstrumentHooks__547 *const a0) {
  struct instruments_root_InstrumentHooks__547 *t1;
  struct instruments_root_InstrumentHooks__547 *t2;
  struct instruments_root_InstrumentHooks__547 *t5;
  struct instruments_root_InstrumentHooks__547 *const *t3;
  struct instruments_root_InstrumentHooks__547 t6;
- struct instruments_perf_PerfInstrument__559 *t8;
+ struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *t8;
+ struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *t11;
  uint16_t t4;
  uint16_t t9;
  uint16_t t10;
@@ -6082,8 +6349,8 @@ uint8_t c_instrument_hooks_start_benchmark__241(struct instruments_root_Instrume
   t0 = t7 == UINT8_C(1);
   if (t0) {
    t1 = (*t3);
-   t8 = (struct instruments_perf_PerfInstrument__559 *)&t1->payload.perf;
-   t9 = instruments_perf_PerfInstrument_start_benchmark__754(t8);
+   t8 = (struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *)&t1->payload.perf;
+   t9 = instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29_start_benchmark__763(t8);
    memcpy(&t10, &t9, sizeof(uint16_t));
    t4 = t10;
    goto zig_block_2;
@@ -6092,7 +6359,7 @@ uint8_t c_instrument_hooks_start_benchmark__241(struct instruments_root_Instrume
   t7 = t6.tag;
   t0 = t7 == UINT8_C(0);
   if (t0) {
-   t0 = features_is_feature_enabled__325(UINT64_C(0));
+   t0 = features_is_feature_enabled__324(UINT64_C(0));
    t0 = !t0;
    if (t0) {
     callgrind_zero_stats();
@@ -6105,6 +6372,20 @@ uint8_t c_instrument_hooks_start_benchmark__241(struct instruments_root_Instrume
    t4 = 0;
    goto zig_block_2;
   }
+  t6 = (*t1);
+  t7 = t6.tag;
+  t0 = t7 == UINT8_C(2);
+  if (t0) {
+   t1 = (*t3);
+   t11 = (struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *)&t1->payload.analysis;
+   t10 = instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29_start_benchmark__776(t11);
+   memcpy(&t9, &t10, sizeof(uint16_t));
+   t4 = t9;
+   goto zig_block_2;
+  }
+  goto zig_block_6;
+
+  zig_block_6:;
   goto zig_block_4;
 
   zig_block_4:;
@@ -6131,19 +6412,19 @@ uint8_t c_instrument_hooks_start_benchmark__241(struct instruments_root_Instrume
  return UINT8_C(0);
 }
 
-static bool features_is_feature_enabled__325(uint64_t const a0) {
+static bool features_is_feature_enabled__324(uint64_t const a0) {
  uint64_t t0;
  uint64_t t1;
  uintptr_t t2;
  bool t3;
- t0 = (*&features_features__323);
+ t0 = (*&features_features__322);
  t1 = a0;
  t2 = t1;
- t3 = bit_set_IntegerBitSet_2864_29_isSet__360(t0, t2);
+ t3 = bit_set_IntegerBitSet_2864_29_isSet__359(t0, t2);
  return t3;
 }
 
-static bool bit_set_IntegerBitSet_2864_29_isSet__360(uint64_t const a0, uintptr_t const a1) {
+static bool bit_set_IntegerBitSet_2864_29_isSet__359(uint64_t const a0, uintptr_t const a1) {
  uint64_t t0;
  uint64_t t2;
  bool t1;
@@ -6151,43 +6432,78 @@ static bool bit_set_IntegerBitSet_2864_29_isSet__360(uint64_t const a0, uintptr_
  t1 = t0 < UINT64_C(64);
  debug_assert__180(t1);
  t0 = zig_wrap_u64((uint64_t)a0, UINT8_C(64));
- t2 = bit_set_IntegerBitSet_2864_29_maskBit__384(a1);
+ t2 = bit_set_IntegerBitSet_2864_29_maskBit__383(a1);
  t2 = t0 & t2;
  t1 = t2 != UINT64_C(0);
  return t1;
 }
 
-static zig_cold uint16_t instruments_perf_PerfInstrument_stop_benchmark__755(struct instruments_perf_PerfInstrument__559 *const a0) {
- struct instruments_perf_PerfInstrument__559 *const *t1;
- struct instruments_perf_PerfInstrument__559 *t2;
- struct instruments_perf_PerfInstrument__559 *t0;
- struct fifo_UnixPipe_Writer__600 *t3;
- struct fifo_UnixPipe_Reader__602 *t5;
+static zig_cold uint16_t runner_fifo_RunnerFifo_stop_benchmark__1088(struct runner_fifo_RunnerFifo__621 *const a0) {
+ struct runner_fifo_RunnerFifo__621 *const *t1;
+ struct runner_fifo_RunnerFifo__621 *t2;
+ struct runner_fifo_RunnerFifo__621 *t0;
+ struct fifo_UnixPipe_Writer__628 *t3;
+ struct fifo_UnixPipe_Reader__630 *t5;
  uint16_t t4;
  t0 = a0;
- t1 = (struct instruments_perf_PerfInstrument__559 *const *)&t0;
+ t1 = (struct runner_fifo_RunnerFifo__621 *const *)&t0;
  t2 = (*t1);
- t3 = (struct fifo_UnixPipe_Writer__600 *)&t2->writer;
- t4 = fifo_UnixPipe_Writer_sendCmd__1079(t3, (struct shared_Command__1946){{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(2)});
+ t3 = (struct fifo_UnixPipe_Writer__628 *)&t2->writer;
+ t4 = fifo_UnixPipe_Writer_sendCmd__1120(t3, (struct shared_Command__2014){{{{(uint8_t const *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},UINT32_C(0xaaaaaaaa)}},UINT8_C(2)});
  if (t4) {
   return t4;
  }
  t2 = (*t1);
- t5 = (struct fifo_UnixPipe_Reader__602 *)&t2->reader;
- t4 = fifo_UnixPipe_Reader_waitForAck__1086(t5, (nav__755_71){UINT64_C(0xaaaaaaaaaaaaaaaa),true});
+ t5 = (struct fifo_UnixPipe_Reader__630 *)&t2->reader;
+ t4 = fifo_UnixPipe_Reader_waitForAck__1127(t5, (nav__1088_71){UINT64_C(0xaaaaaaaaaaaaaaaa),true});
  if (t4) {
   return t4;
  }
  return 0;
 }
 
-uint8_t c_instrument_hooks_stop_benchmark__242(struct instruments_root_InstrumentHooks__547 *const a0) {
+static uint16_t instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29_stop_benchmark__764(struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *const a0) {
+ struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *const *t1;
+ struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *t2;
+ struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *t0;
+ struct runner_fifo_RunnerFifo__621 *t3;
+ uint16_t t4;
+ t0 = a0;
+ t1 = (struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *const *)&t0;
+ t2 = (*t1);
+ t3 = (struct runner_fifo_RunnerFifo__621 *)&t2->fifo;
+ t4 = runner_fifo_RunnerFifo_stop_benchmark__1088(t3);
+ if (t4) {
+  return t4;
+ }
+ return 0;
+}
+
+static uint16_t instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29_stop_benchmark__777(struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *const a0) {
+ struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *const *t1;
+ struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *t2;
+ struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *t0;
+ struct runner_fifo_RunnerFifo__621 *t3;
+ uint16_t t4;
+ t0 = a0;
+ t1 = (struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *const *)&t0;
+ t2 = (*t1);
+ t3 = (struct runner_fifo_RunnerFifo__621 *)&t2->fifo;
+ t4 = runner_fifo_RunnerFifo_stop_benchmark__1088(t3);
+ if (t4) {
+  return t4;
+ }
+ return 0;
+}
+
+uint8_t c_instrument_hooks_stop_benchmark__241(struct instruments_root_InstrumentHooks__547 *const a0) {
  struct instruments_root_InstrumentHooks__547 *t1;
  struct instruments_root_InstrumentHooks__547 *t2;
  struct instruments_root_InstrumentHooks__547 *t5;
  struct instruments_root_InstrumentHooks__547 *const *t3;
  struct instruments_root_InstrumentHooks__547 t6;
- struct instruments_perf_PerfInstrument__559 *t8;
+ struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *t8;
+ struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *t11;
  uint16_t t4;
  uint16_t t9;
  uint16_t t10;
@@ -6205,7 +6521,7 @@ uint8_t c_instrument_hooks_stop_benchmark__242(struct instruments_root_Instrumen
   t7 = t6.tag;
   t0 = t7 == UINT8_C(0);
   if (t0) {
-   t0 = features_is_feature_enabled__325(UINT64_C(0));
+   t0 = features_is_feature_enabled__324(UINT64_C(0));
    t0 = !t0;
    if (t0) {
     callgrind_stop_instrumentation();
@@ -6222,12 +6538,26 @@ uint8_t c_instrument_hooks_stop_benchmark__242(struct instruments_root_Instrumen
   t0 = t7 == UINT8_C(1);
   if (t0) {
    t1 = (*t3);
-   t8 = (struct instruments_perf_PerfInstrument__559 *)&t1->payload.perf;
-   t9 = instruments_perf_PerfInstrument_stop_benchmark__755(t8);
+   t8 = (struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *)&t1->payload.perf;
+   t9 = instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29_stop_benchmark__764(t8);
    memcpy(&t10, &t9, sizeof(uint16_t));
    t4 = t10;
    goto zig_block_2;
   }
+  t6 = (*t1);
+  t7 = t6.tag;
+  t0 = t7 == UINT8_C(2);
+  if (t0) {
+   t1 = (*t3);
+   t11 = (struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *)&t1->payload.analysis;
+   t10 = instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29_stop_benchmark__777(t11);
+   memcpy(&t9, &t10, sizeof(uint16_t));
+   t4 = t9;
+   goto zig_block_2;
+  }
+  goto zig_block_6;
+
+  zig_block_6:;
   goto zig_block_5;
 
   zig_block_5:;
@@ -6254,48 +6584,83 @@ uint8_t c_instrument_hooks_stop_benchmark__242(struct instruments_root_Instrumen
  return UINT8_C(0);
 }
 
-static uint16_t instruments_perf_PerfInstrument_set_executed_benchmark__756(struct instruments_perf_PerfInstrument__559 *const a0, uint32_t const a1, uint8_t const *const a2) {
- struct instruments_perf_PerfInstrument__559 *const *t1;
- struct instruments_perf_PerfInstrument__559 *t2;
- struct instruments_perf_PerfInstrument__559 *t0;
- struct fifo_UnixPipe_Writer__600 *t3;
- nav__756_56 t4;
- nav__756_56 t5;
- struct shared_Command__struct_1949__1949 t6;
- struct shared_Command__1946 t7;
- struct fifo_UnixPipe_Reader__602 *t9;
+static uint16_t runner_fifo_RunnerFifo_set_executed_benchmark__1089(struct runner_fifo_RunnerFifo__621 *const a0, uint32_t const a1, uint8_t const *const a2) {
+ struct runner_fifo_RunnerFifo__621 *const *t1;
+ struct runner_fifo_RunnerFifo__621 *t2;
+ struct runner_fifo_RunnerFifo__621 *t0;
+ struct fifo_UnixPipe_Writer__628 *t3;
+ nav__1089_56 t4;
+ nav__1089_56 t5;
+ struct shared_Command__struct_2017__2017 t6;
+ struct shared_Command__2014 t7;
+ struct fifo_UnixPipe_Reader__630 *t9;
  uint16_t t8;
  t0 = a0;
- t1 = (struct instruments_perf_PerfInstrument__559 *const *)&t0;
+ t1 = (struct runner_fifo_RunnerFifo__621 *const *)&t0;
  t2 = (*t1);
- t3 = (struct fifo_UnixPipe_Writer__600 *)&t2->writer;
- t4 = mem_span__anon_4429__7221(a2);
- memcpy(&t5, &t4, sizeof(nav__756_56));
+ t3 = (struct fifo_UnixPipe_Writer__628 *)&t2->writer;
+ t4 = mem_span__anon_4375__7295(a2);
+ memcpy(&t5, &t4, sizeof(nav__1089_56));
  t6.uri = t5;
  t6.pid = a1;
  t7.tag = UINT8_C(0);
  t7.payload.ExecutedBenchmark = t6;
- t8 = fifo_UnixPipe_Writer_sendCmd__1079(t3, t7);
+ t8 = fifo_UnixPipe_Writer_sendCmd__1120(t3, t7);
  if (t8) {
   return t8;
  }
  t2 = (*t1);
- t9 = (struct fifo_UnixPipe_Reader__602 *)&t2->reader;
- t8 = fifo_UnixPipe_Reader_waitForAck__1086(t9, (nav__756_71){UINT64_C(0xaaaaaaaaaaaaaaaa),true});
+ t9 = (struct fifo_UnixPipe_Reader__630 *)&t2->reader;
+ t8 = fifo_UnixPipe_Reader_waitForAck__1127(t9, (nav__1089_71){UINT64_C(0xaaaaaaaaaaaaaaaa),true});
  if (t8) {
   return t8;
  }
  return 0;
 }
 
-uint8_t c_instrument_hooks_set_executed_benchmark__243(struct instruments_root_InstrumentHooks__547 *const a0, uint32_t const a1, uint8_t const *const a2) {
+static uint16_t instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29_set_executed_benchmark__765(struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *const a0, uint32_t const a1, uint8_t const *const a2) {
+ struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *const *t1;
+ struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *t2;
+ struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *t0;
+ struct runner_fifo_RunnerFifo__621 *t3;
+ uint16_t t4;
+ t0 = a0;
+ t1 = (struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *const *)&t0;
+ t2 = (*t1);
+ t3 = (struct runner_fifo_RunnerFifo__621 *)&t2->fifo;
+ t4 = runner_fifo_RunnerFifo_set_executed_benchmark__1089(t3, a1, a2);
+ if (t4) {
+  return t4;
+ }
+ return 0;
+}
+
+static uint16_t instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29_set_executed_benchmark__778(struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *const a0, uint32_t const a1, uint8_t const *const a2) {
+ struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *const *t1;
+ struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *t2;
+ struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *t0;
+ struct runner_fifo_RunnerFifo__621 *t3;
+ uint16_t t4;
+ t0 = a0;
+ t1 = (struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *const *)&t0;
+ t2 = (*t1);
+ t3 = (struct runner_fifo_RunnerFifo__621 *)&t2->fifo;
+ t4 = runner_fifo_RunnerFifo_set_executed_benchmark__1089(t3, a1, a2);
+ if (t4) {
+  return t4;
+ }
+ return 0;
+}
+
+uint8_t c_instrument_hooks_set_executed_benchmark__242(struct instruments_root_InstrumentHooks__547 *const a0, uint32_t const a1, uint8_t const *const a2) {
  struct instruments_root_InstrumentHooks__547 *t1;
  struct instruments_root_InstrumentHooks__547 *t2;
  struct instruments_root_InstrumentHooks__547 *t5;
  struct instruments_root_InstrumentHooks__547 *const *t3;
  struct instruments_root_InstrumentHooks__547 t6;
  uint8_t const *t8;
- struct instruments_perf_PerfInstrument__559 *t9;
+ struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *t9;
+ struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *t11;
  uint16_t t4;
  uint16_t t10;
  bool t0;
@@ -6318,8 +6683,8 @@ uint8_t c_instrument_hooks_set_executed_benchmark__243(struct instruments_root_I
    }
    case UINT8_C(1): {
     t1 = (*t3);
-    t9 = (struct instruments_perf_PerfInstrument__559 *)&t1->payload.perf;
-    t10 = instruments_perf_PerfInstrument_set_executed_benchmark__756(t9, a1, a2);
+    t9 = (struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *)&t1->payload.perf;
+    t10 = instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29_set_executed_benchmark__765(t9, a1, a2);
     if (t10) {
      t4 = t10;
      goto zig_block_2;
@@ -6327,6 +6692,16 @@ uint8_t c_instrument_hooks_set_executed_benchmark__243(struct instruments_root_I
     goto zig_block_3;
    }
    case UINT8_C(2): {
+    t1 = (*t3);
+    t11 = (struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *)&t1->payload.analysis;
+    t10 = instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29_set_executed_benchmark__778(t11, a1, a2);
+    if (t10) {
+     t4 = t10;
+     goto zig_block_2;
+    }
+    goto zig_block_3;
+   }
+   case UINT8_C(3): {
     goto zig_block_3;
    }
    default: zig_unreachable();
@@ -6353,15 +6728,15 @@ uint8_t c_instrument_hooks_set_executed_benchmark__243(struct instruments_root_I
  return UINT8_C(0);
 }
 
-static nav__7221_39 mem_span__anon_4429__7221(uint8_t const *const a0) {
+static nav__7295_39 mem_span__anon_4375__7295(uint8_t const *const a0) {
  uint8_t const *const *t1;
  uintptr_t t2;
  uint8_t const *t3;
  uint8_t const *t0;
- nav__7221_39 t4;
+ nav__7295_39 t4;
  t0 = a0;
  t1 = (uint8_t const *const *)&t0;
- t2 = mem_len__anon_4438__7222(a0);
+ t2 = mem_len__anon_4392__7296(a0);
  t3 = (*t1);
  t3 = (uint8_t const *)(((uintptr_t)t3) + ((uintptr_t)0ul*sizeof(uint8_t)));
  t4.ptr = t3;
@@ -6369,20 +6744,20 @@ static nav__7221_39 mem_span__anon_4429__7221(uint8_t const *const a0) {
  return t4;
 }
 
-static uintptr_t mem_len__anon_4438__7222(uint8_t const *const a0) {
+static uintptr_t mem_len__anon_4392__7296(uint8_t const *const a0) {
  uint8_t const *t1;
  uintptr_t t2;
  bool t0;
  t0 = a0 != NULL;
  debug_assert__180(t0);
  t1 = (uint8_t const *)a0;
- t2 = mem_indexOfSentinel__anon_4446__7223(t1);
+ t2 = mem_indexOfSentinel__anon_4400__7297(t1);
  return t2;
 }
 
-static uintptr_t mem_indexOfSentinel__anon_4446__7223(uint8_t const *const a0) {
- static uint8_t const t11[32] = "\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000";
- static uint8_t const t18[32] = "\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000";
+static uintptr_t mem_indexOfSentinel__anon_4400__7297(uint8_t const *const a0) {
+ static uint8_t const t11[64] = "\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000";
+ static uint8_t const t18[64] = "\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000";
  uint8_t const *const *t1;
  uintptr_t t4;
  uintptr_t t6;
@@ -6391,19 +6766,19 @@ static uintptr_t mem_indexOfSentinel__anon_4446__7223(uint8_t const *const a0) {
  uint8_t const *t5;
  uint8_t const *t0;
  uint64_t t7;
- uint8_t const (*t8)[32];
- uint8_t const (*t17)[32];
+ uint8_t const (*t8)[64];
+ uint8_t const (*t17)[64];
  bool t3;
- uint8_t t9[32];
- uint8_t t10[32];
- bool t12[32];
- nav__7223_45 t13;
- nav__7223_47 t14;
+ uint8_t t9[64];
+ uint8_t t10[64];
+ bool t12[64];
+ nav__7297_45 t13;
+ nav__7297_47 t14;
  uint8_t t15;
  t0 = a0;
  t1 = (uint8_t const *const *)&t0;
  t2 = (uintptr_t)0ul;
- t3 = math_isPowerOfTwo__anon_4457__7224();
+ t3 = math_isPowerOfTwo__anon_4411__7298();
  if (t3) {
   debug_assert__180(true);
   t4 = t2;
@@ -6412,25 +6787,25 @@ static uintptr_t mem_indexOfSentinel__anon_4446__7223(uint8_t const *const a0) {
   t4 = (uintptr_t)t5;
   t6 = t4 & (uintptr_t)4095ul;
   t7 = t6;
-  t3 = t7 <= UINT64_C(4064);
+  t3 = t7 <= UINT64_C(4032);
   if (t3) {
    t6 = t2;
    t5 = (*t1);
    t5 = (uint8_t const *)(((uintptr_t)t5) + (t6*sizeof(uint8_t)));
-   t8 = (uint8_t const (*)[32])t5;
-   memcpy(t9, (const char *)t8, sizeof(uint8_t[32]));
-   memcpy(&t10, &t9, sizeof(uint8_t[32]));
-   for (t6 = (uintptr_t)0ul; t6 < (uintptr_t)32ul; t6 += (uintptr_t)1ul) {
+   t8 = (uint8_t const (*)[64])t5;
+   memcpy(t9, (const char *)t8, sizeof(uint8_t[64]));
+   memcpy(&t10, &t9, sizeof(uint8_t[64]));
+   for (t6 = (uintptr_t)0ul; t6 < (uintptr_t)64ul; t6 += (uintptr_t)1ul) {
     t12[t6] = t10[t6] == t11[t6];
    }
    t3 = false;
-   for (t6 = (uintptr_t)0ul; t6 < (uintptr_t)32ul; t6 += (uintptr_t)1ul) {
+   for (t6 = (uintptr_t)0ul; t6 < (uintptr_t)64ul; t6 += (uintptr_t)1ul) {
     t3 |= t12[t6];
    }
    if (t3) {
     t4 = t2;
-    memcpy(t13.array, t12, sizeof(nav__7223_45));
-    t14 = simd_firstTrue__anon_4671__7589(t13);
+    memcpy(t13.array, t12, sizeof(nav__7297_45));
+    t14 = simd_firstTrue__anon_4623__7663(t13);
     t15 = t14.payload;
     t6 = (uintptr_t)t15;
     t6 = t4 + t6;
@@ -6440,19 +6815,19 @@ static uintptr_t mem_indexOfSentinel__anon_4446__7223(uint8_t const *const a0) {
 
    zig_block_2:;
    t6 = t2;
-   t16 = mem_alignForward__anon_4674__7590(t4, (uintptr_t)32ul);
+   t16 = mem_alignForward__anon_4626__7664(t4, (uintptr_t)64ul);
    t4 = t16 - t4;
    t4 = t4 / (uintptr_t)1ul;
    t4 = t6 + t4;
    t2 = t4;
    goto zig_block_1;
   }
-  zig_loop_79:
+  zig_loop_77:
   t4 = t2;
   t5 = (*t1);
   t5 = (uint8_t const *)&t5[t4];
   t4 = (uintptr_t)t5;
-  t4 = t4 & (uintptr_t)31ul;
+  t4 = t4 & (uintptr_t)63ul;
   t7 = t4;
   t3 = t7 != UINT64_C(0);
   if (t3) {
@@ -6474,7 +6849,7 @@ static uintptr_t mem_indexOfSentinel__anon_4446__7223(uint8_t const *const a0) {
   goto zig_block_3;
 
   zig_block_4:;
-  goto zig_loop_79;
+  goto zig_loop_77;
 
   zig_block_3:;
   goto zig_block_1;
@@ -6484,26 +6859,26 @@ static uintptr_t mem_indexOfSentinel__anon_4446__7223(uint8_t const *const a0) {
   t5 = (*t1);
   t5 = (uint8_t const *)&t5[t6];
   t6 = (uintptr_t)t5;
-  t3 = mem_isAligned__914(t6, (uintptr_t)32ul);
+  t3 = mem_isAligned__935(t6, (uintptr_t)64ul);
   debug_assert__180(t3);
-  zig_loop_114:
+  zig_loop_112:
   t6 = t2;
   t5 = (*t1);
   t5 = (uint8_t const *)(((uintptr_t)t5) + (t6*sizeof(uint8_t)));
-  t8 = (uint8_t const (*)[32])t5;
-  t17 = (uint8_t const (*)[32])t8;
-  memcpy(t10, (const char *)t17, sizeof(uint8_t[32]));
-  for (t6 = (uintptr_t)0ul; t6 < (uintptr_t)32ul; t6 += (uintptr_t)1ul) {
+  t8 = (uint8_t const (*)[64])t5;
+  t17 = (uint8_t const (*)[64])t8;
+  memcpy(t10, (const char *)t17, sizeof(uint8_t[64]));
+  for (t6 = (uintptr_t)0ul; t6 < (uintptr_t)64ul; t6 += (uintptr_t)1ul) {
    t12[t6] = t10[t6] == t18[t6];
   }
   t3 = false;
-  for (t6 = (uintptr_t)0ul; t6 < (uintptr_t)32ul; t6 += (uintptr_t)1ul) {
+  for (t6 = (uintptr_t)0ul; t6 < (uintptr_t)64ul; t6 += (uintptr_t)1ul) {
    t3 |= t12[t6];
   }
   if (t3) {
    t6 = t2;
-   memcpy(t13.array, t12, sizeof(nav__7223_45));
-   t14 = simd_firstTrue__anon_4671__7589(t13);
+   memcpy(t13.array, t12, sizeof(nav__7297_45));
+   t14 = simd_firstTrue__anon_4623__7663(t13);
    t15 = t14.payload;
    t4 = (uintptr_t)t15;
    t4 = t6 + t4;
@@ -6513,14 +6888,14 @@ static uintptr_t mem_indexOfSentinel__anon_4446__7223(uint8_t const *const a0) {
 
   zig_block_6:;
   t6 = t2;
-  t6 = t6 + (uintptr_t)32ul;
+  t6 = t6 + (uintptr_t)64ul;
   t2 = t6;
-  goto zig_loop_114;
+  goto zig_loop_112;
  }
  goto zig_block_0;
 
  zig_block_0:;
- zig_loop_145:
+ zig_loop_143:
  t16 = t2;
  t15 = a0[t16];
  t3 = t15 != UINT8_C(0);
@@ -6533,42 +6908,42 @@ static uintptr_t mem_indexOfSentinel__anon_4446__7223(uint8_t const *const a0) {
  goto zig_block_7;
 
  zig_block_8:;
- goto zig_loop_145;
+ goto zig_loop_143;
 
  zig_block_7:;
  t16 = t2;
  return t16;
 }
 
-static bool math_isPowerOfTwo__anon_4457__7224(void) {
+static bool math_isPowerOfTwo__anon_4411__7298(void) {
  debug_assert__180(true);
  return true;
 }
 
-static nav__7589_38 simd_firstTrue__anon_4671__7589(nav__7589_40 const a0) {
- static uint8_t const t2[32] = {UINT8_C(0),UINT8_C(1),UINT8_C(2),UINT8_C(3),UINT8_C(4),UINT8_C(5),UINT8_C(6),UINT8_C(7),UINT8_C(8),UINT8_C(9),UINT8_C(10),UINT8_C(11),UINT8_C(12),UINT8_C(13),UINT8_C(14),UINT8_C(15),UINT8_C(16),UINT8_C(17),UINT8_C(18),UINT8_C(19),UINT8_C(20),UINT8_C(21),UINT8_C(22),UINT8_C(23),UINT8_C(24),UINT8_C(25),UINT8_C(26),UINT8_C(27),UINT8_C(28),UINT8_C(29),UINT8_C(30),UINT8_C(31)};
- static uint8_t const t3[32] = {UINT8_C(31),UINT8_C(31),UINT8_C(31),UINT8_C(31),UINT8_C(31),UINT8_C(31),UINT8_C(31),UINT8_C(31),UINT8_C(31),UINT8_C(31),UINT8_C(31),UINT8_C(31),UINT8_C(31),UINT8_C(31),UINT8_C(31),UINT8_C(31),UINT8_C(31),UINT8_C(31),UINT8_C(31),UINT8_C(31),UINT8_C(31),UINT8_C(31),UINT8_C(31),UINT8_C(31),UINT8_C(31),UINT8_C(31),UINT8_C(31),UINT8_C(31),UINT8_C(31),UINT8_C(31),UINT8_C(31),UINT8_C(31)};
+static nav__7663_38 simd_firstTrue__anon_4623__7663(nav__7663_40 const a0) {
+ static uint8_t const t2[64] = {UINT8_C(0),UINT8_C(1),UINT8_C(2),UINT8_C(3),UINT8_C(4),UINT8_C(5),UINT8_C(6),UINT8_C(7),UINT8_C(8),UINT8_C(9),UINT8_C(10),UINT8_C(11),UINT8_C(12),UINT8_C(13),UINT8_C(14),UINT8_C(15),UINT8_C(16),UINT8_C(17),UINT8_C(18),UINT8_C(19),UINT8_C(20),UINT8_C(21),UINT8_C(22),UINT8_C(23),UINT8_C(24),UINT8_C(25),UINT8_C(26),UINT8_C(27),UINT8_C(28),UINT8_C(29),UINT8_C(30),UINT8_C(31),UINT8_C(32),UINT8_C(33),UINT8_C(34),UINT8_C(35),UINT8_C(36),UINT8_C(37),UINT8_C(38),UINT8_C(39),UINT8_C(40),UINT8_C(41),UINT8_C(42),UINT8_C(43),UINT8_C(44),UINT8_C(45),UINT8_C(46),UINT8_C(47),UINT8_C(48),UINT8_C(49),UINT8_C(50),UINT8_C(51),UINT8_C(52),UINT8_C(53),UINT8_C(54),UINT8_C(55),UINT8_C(56),UINT8_C(57),UINT8_C(58),UINT8_C(59),UINT8_C(60),UINT8_C(61),UINT8_C(62),UINT8_C(63)};
+ static uint8_t const t3[64] = {UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63),UINT8_C(63)};
  uintptr_t t1;
  bool t0;
- uint8_t t4[32];
+ uint8_t t4[64];
  uint8_t t5;
- nav__7589_38 t6;
+ nav__7663_38 t6;
  t0 = false;
- for (t1 = (uintptr_t)0ul; t1 < (uintptr_t)32ul; t1 += (uintptr_t)1ul) {
+ for (t1 = (uintptr_t)0ul; t1 < (uintptr_t)64ul; t1 += (uintptr_t)1ul) {
   t0 |= a0.array[t1];
  }
  t0 = !t0;
  if (t0) {
-  return (nav__7589_38){true,UINT8_C(0xa)};
+  return (nav__7663_38){true,UINT8_C(0x2a)};
  }
  goto zig_block_0;
 
  zig_block_0:;
- for (t1 = (uintptr_t)0ul; t1 < (uintptr_t)32ul; t1 += (uintptr_t)1ul) {
+ for (t1 = (uintptr_t)0ul; t1 < (uintptr_t)64ul; t1 += (uintptr_t)1ul) {
   t4[t1] = a0.array[t1] ? t2[t1] : t3[t1];
  }
- t5 = UINT8_C(31);
- for (t1 = (uintptr_t)0ul; t1 < (uintptr_t)32ul; t1 += (uintptr_t)1ul) {
+ t5 = UINT8_C(63);
+ for (t1 = (uintptr_t)0ul; t1 < (uintptr_t)64ul; t1 += (uintptr_t)1ul) {
   t5 = t5 < t4[t1] ? t5 : t4[t1];
  }
  t6.is_null = false;
@@ -6576,35 +6951,35 @@ static nav__7589_38 simd_firstTrue__anon_4671__7589(nav__7589_40 const a0) {
  return t6;
 }
 
-static uintptr_t mem_alignForward__anon_4674__7590(uintptr_t const a0, uintptr_t const a1) {
+static uintptr_t mem_alignForward__anon_4626__7664(uintptr_t const a0, uintptr_t const a1) {
  uintptr_t t1;
  bool t0;
- t0 = mem_isValidAlignGeneric__anon_4732__7591(a1);
+ t0 = mem_isValidAlignGeneric__anon_4715__7665(a1);
  debug_assert__180(t0);
  t1 = a1 - (uintptr_t)1ul;
  t1 = a0 + t1;
- t1 = mem_alignBackward__anon_4733__7592(t1, a1);
+ t1 = mem_alignBackward__anon_4716__7666(t1, a1);
  return t1;
 }
 
-static bool mem_isAligned__914(uintptr_t const a0, uintptr_t const a1) {
+static bool mem_isAligned__935(uintptr_t const a0, uintptr_t const a1) {
  uint64_t t0;
  uint64_t t1;
  bool t2;
  t0 = a0;
  t1 = a1;
- t2 = mem_isAlignedGeneric__anon_4739__7593(t0, t1);
+ t2 = mem_isAlignedGeneric__anon_4722__7667(t0, t1);
  return t2;
 }
 
-static bool mem_isValidAlignGeneric__anon_4732__7591(uintptr_t const a0) {
+static bool mem_isValidAlignGeneric__anon_4715__7665(uintptr_t const a0) {
  uint64_t t0;
  bool t1;
  bool t2;
  t0 = a0;
  t1 = t0 > UINT64_C(0);
  if (t1) {
-  t1 = math_isPowerOfTwo__anon_3711__7035(a0);
+  t1 = math_isPowerOfTwo__anon_3513__7105(a0);
   t2 = t1;
   goto zig_block_0;
  }
@@ -6615,10 +6990,10 @@ static bool mem_isValidAlignGeneric__anon_4732__7591(uintptr_t const a0) {
  return t2;
 }
 
-static uintptr_t mem_alignBackward__anon_4733__7592(uintptr_t const a0, uintptr_t const a1) {
+static uintptr_t mem_alignBackward__anon_4716__7666(uintptr_t const a0, uintptr_t const a1) {
  uintptr_t t1;
  bool t0;
- t0 = mem_isValidAlignGeneric__anon_4732__7591(a1);
+ t0 = mem_isValidAlignGeneric__anon_4715__7665(a1);
  debug_assert__180(t0);
  t1 = a1 - (uintptr_t)1ul;
  t1 = zig_not_u64(t1, UINT8_C(64));
@@ -6626,18 +7001,18 @@ static uintptr_t mem_alignBackward__anon_4733__7592(uintptr_t const a0, uintptr_
  return t1;
 }
 
-static bool mem_isAlignedGeneric__anon_4739__7593(uint64_t const a0, uint64_t const a1) {
+static bool mem_isAlignedGeneric__anon_4722__7667(uint64_t const a0, uint64_t const a1) {
  uint64_t t0;
  bool t1;
- t0 = mem_alignBackward__anon_4741__7594(a0, a1);
+ t0 = mem_alignBackward__anon_4724__7668(a0, a1);
  t1 = t0 == a0;
  return t1;
 }
 
-static uint64_t mem_alignBackward__anon_4741__7594(uint64_t const a0, uint64_t const a1) {
+static uint64_t mem_alignBackward__anon_4724__7668(uint64_t const a0, uint64_t const a1) {
  uint64_t t1;
  bool t0;
- t0 = mem_isValidAlignGeneric__anon_4743__7595(a1);
+ t0 = mem_isValidAlignGeneric__anon_4726__7669(a1);
  debug_assert__180(t0);
  t1 = a1 - UINT64_C(1);
  t1 = zig_not_u64(t1, UINT8_C(64));
@@ -6645,12 +7020,12 @@ static uint64_t mem_alignBackward__anon_4741__7594(uint64_t const a0, uint64_t c
  return t1;
 }
 
-static bool mem_isValidAlignGeneric__anon_4743__7595(uint64_t const a0) {
+static bool mem_isValidAlignGeneric__anon_4726__7669(uint64_t const a0) {
  bool t0;
  bool t1;
  t0 = a0 > UINT64_C(0);
  if (t0) {
-  t0 = math_isPowerOfTwo__anon_4744__7596(a0);
+  t0 = math_isPowerOfTwo__anon_4727__7670(a0);
   t1 = t0;
   goto zig_block_0;
  }
@@ -6661,7 +7036,7 @@ static bool mem_isValidAlignGeneric__anon_4743__7595(uint64_t const a0) {
  return t1;
 }
 
-static bool math_isPowerOfTwo__anon_4744__7596(uint64_t const a0) {
+static bool math_isPowerOfTwo__anon_4727__7670(uint64_t const a0) {
  uint64_t t1;
  bool t0;
  t0 = a0 > UINT64_C(0);
@@ -6672,50 +7047,84 @@ static bool math_isPowerOfTwo__anon_4744__7596(uint64_t const a0) {
  return t0;
 }
 
-uint8_t c_instrument_hooks_executed_benchmark__244(struct instruments_root_InstrumentHooks__547 *const a0, uint32_t const a1, uint8_t const *const a2) {
+uint8_t c_instrument_hooks_executed_benchmark__243(struct instruments_root_InstrumentHooks__547 *const a0, uint32_t const a1, uint8_t const *const a2) {
  uint8_t t0;
- t0 = c_instrument_hooks_set_executed_benchmark__243(a0, a1, a2);
+ t0 = c_instrument_hooks_set_executed_benchmark__242(a0, a1, a2);
  return t0;
 }
 
-static uint16_t instruments_perf_PerfInstrument_set_integration__757(struct instruments_perf_PerfInstrument__559 *const a0, uint8_t const *const a1, uint8_t const *const a2) {
- struct instruments_perf_PerfInstrument__559 *const *t1;
- struct instruments_perf_PerfInstrument__559 *t2;
- struct instruments_perf_PerfInstrument__559 *t0;
- struct fifo_UnixPipe_Writer__600 *t3;
- nav__757_56 t4;
- nav__757_56 t5;
- nav__757_56 t6;
- struct shared_Command__struct_1950__1950 t7;
- struct shared_Command__1946 t8;
- struct fifo_UnixPipe_Reader__602 *t10;
+static uint16_t runner_fifo_RunnerFifo_set_integration__1090(struct runner_fifo_RunnerFifo__621 *const a0, uint8_t const *const a1, uint8_t const *const a2) {
+ struct runner_fifo_RunnerFifo__621 *const *t1;
+ struct runner_fifo_RunnerFifo__621 *t2;
+ struct runner_fifo_RunnerFifo__621 *t0;
+ struct fifo_UnixPipe_Writer__628 *t3;
+ nav__1090_56 t4;
+ nav__1090_56 t5;
+ nav__1090_56 t6;
+ struct shared_Command__struct_2018__2018 t7;
+ struct shared_Command__2014 t8;
+ struct fifo_UnixPipe_Reader__630 *t10;
  uint16_t t9;
  t0 = a0;
- t1 = (struct instruments_perf_PerfInstrument__559 *const *)&t0;
+ t1 = (struct runner_fifo_RunnerFifo__621 *const *)&t0;
  t2 = (*t1);
- t3 = (struct fifo_UnixPipe_Writer__600 *)&t2->writer;
- t4 = mem_span__anon_4429__7221(a1);
- t5 = mem_span__anon_4429__7221(a2);
- memcpy(&t6, &t4, sizeof(nav__757_56));
- memcpy(&t4, &t5, sizeof(nav__757_56));
+ t3 = (struct fifo_UnixPipe_Writer__628 *)&t2->writer;
+ t4 = mem_span__anon_4375__7295(a1);
+ t5 = mem_span__anon_4375__7295(a2);
+ memcpy(&t6, &t4, sizeof(nav__1090_56));
+ memcpy(&t4, &t5, sizeof(nav__1090_56));
  t7.name = t6;
  t7.version = t4;
  t8.tag = UINT8_C(5);
  t8.payload.SetIntegration = t7;
- t9 = fifo_UnixPipe_Writer_sendCmd__1079(t3, t8);
+ t9 = fifo_UnixPipe_Writer_sendCmd__1120(t3, t8);
  if (t9) {
   return t9;
  }
  t2 = (*t1);
- t10 = (struct fifo_UnixPipe_Reader__602 *)&t2->reader;
- t9 = fifo_UnixPipe_Reader_waitForAck__1086(t10, (nav__757_71){UINT64_C(0xaaaaaaaaaaaaaaaa),true});
+ t10 = (struct fifo_UnixPipe_Reader__630 *)&t2->reader;
+ t9 = fifo_UnixPipe_Reader_waitForAck__1127(t10, (nav__1090_71){UINT64_C(0xaaaaaaaaaaaaaaaa),true});
  if (t9) {
   return t9;
  }
  return 0;
 }
 
-uint8_t c_instrument_hooks_set_integration__245(struct instruments_root_InstrumentHooks__547 *const a0, uint8_t const *const a1, uint8_t const *const a2) {
+static uint16_t instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29_set_integration__766(struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *const a0, uint8_t const *const a1, uint8_t const *const a2) {
+ struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *const *t1;
+ struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *t2;
+ struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *t0;
+ struct runner_fifo_RunnerFifo__621 *t3;
+ uint16_t t4;
+ t0 = a0;
+ t1 = (struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *const *)&t0;
+ t2 = (*t1);
+ t3 = (struct runner_fifo_RunnerFifo__621 *)&t2->fifo;
+ t4 = runner_fifo_RunnerFifo_set_integration__1090(t3, a1, a2);
+ if (t4) {
+  return t4;
+ }
+ return 0;
+}
+
+static uint16_t instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29_set_integration__779(struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *const a0, uint8_t const *const a1, uint8_t const *const a2) {
+ struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *const *t1;
+ struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *t2;
+ struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *t0;
+ struct runner_fifo_RunnerFifo__621 *t3;
+ uint16_t t4;
+ t0 = a0;
+ t1 = (struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *const *)&t0;
+ t2 = (*t1);
+ t3 = (struct runner_fifo_RunnerFifo__621 *)&t2->fifo;
+ t4 = runner_fifo_RunnerFifo_set_integration__1090(t3, a1, a2);
+ if (t4) {
+  return t4;
+ }
+ return 0;
+}
+
+uint8_t c_instrument_hooks_set_integration__244(struct instruments_root_InstrumentHooks__547 *const a0, uint8_t const *const a1, uint8_t const *const a2) {
  struct instruments_root_InstrumentHooks__547 *t1;
  struct instruments_root_InstrumentHooks__547 *t2;
  struct instruments_root_InstrumentHooks__547 *t5;
@@ -6725,14 +7134,15 @@ uint8_t c_instrument_hooks_set_integration__245(struct instruments_root_Instrume
  struct instruments_valgrind_ValgrindInstrument__554 t9;
  struct instruments_valgrind_ValgrindInstrument__554 t11;
  struct instruments_valgrind_ValgrindInstrument__554 const *t12;
- struct mem_Allocator__565 t13;
- nav__245_62 t14;
- nav__245_67 t15;
- nav__245_65 t17;
+ struct mem_Allocator__589 t13;
+ nav__244_66 t14;
+ nav__244_71 t15;
+ nav__244_69 t17;
  uint8_t *t18;
  uint8_t const *t19;
- struct mem_Allocator__565 const *t20;
- struct instruments_perf_PerfInstrument__559 *t21;
+ struct mem_Allocator__589 const *t20;
+ struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *t21;
+ struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *t22;
  uint16_t t4;
  uint16_t t10;
  uint16_t t16;
@@ -6758,7 +7168,7 @@ uint8_t c_instrument_hooks_set_integration__245(struct instruments_root_Instrume
     t13 = t9.allocator;
     t14.f0 = a1;
     t14.f1 = a2;
-    t15 = fmt_allocPrintZ__anon_4781__7597(t13, t14);
+    t15 = fmt_allocPrintZ__anon_4764__7671(t13, t14);
     if (t15.error) {
      t16 = t15.error;
      t10 = t16;
@@ -6768,9 +7178,9 @@ uint8_t c_instrument_hooks_set_integration__245(struct instruments_root_Instrume
     t18 = t17.ptr;
     t19 = (uint8_t const *)t18;
     callgrind_dump_stats_at(t19);
-    t20 = (struct mem_Allocator__565 const *)&t12->allocator;
+    t20 = (struct mem_Allocator__589 const *)&t12->allocator;
     t13 = (*t20);
-    mem_Allocator_free__anon_4783__7598(t13, t17);
+    mem_Allocator_free__anon_4766__7672(t13, t17);
     t10 = 0;
     goto zig_block_4;
 
@@ -6784,8 +7194,8 @@ uint8_t c_instrument_hooks_set_integration__245(struct instruments_root_Instrume
    }
    case UINT8_C(1): {
     t1 = (*t3);
-    t21 = (struct instruments_perf_PerfInstrument__559 *)&t1->payload.perf;
-    t16 = instruments_perf_PerfInstrument_set_integration__757(t21, a1, a2);
+    t21 = (struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *)&t1->payload.perf;
+    t16 = instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29_set_integration__766(t21, a1, a2);
     if (t16) {
      t4 = t16;
      goto zig_block_2;
@@ -6793,6 +7203,16 @@ uint8_t c_instrument_hooks_set_integration__245(struct instruments_root_Instrume
     goto zig_block_3;
    }
    case UINT8_C(2): {
+    t1 = (*t3);
+    t22 = (struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *)&t1->payload.analysis;
+    t16 = instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29_set_integration__779(t22, a1, a2);
+    if (t16) {
+     t4 = t16;
+     goto zig_block_2;
+    }
+    goto zig_block_3;
+   }
+   case UINT8_C(3): {
     goto zig_block_3;
    }
    default: zig_unreachable();
@@ -6819,24 +7239,24 @@ uint8_t c_instrument_hooks_set_integration__245(struct instruments_root_Instrume
  return UINT8_C(0);
 }
 
-static nav__7597_40 fmt_allocPrintZ__anon_4781__7597(struct mem_Allocator__565 const a0, nav__7597_43 const a1) {
- nav__7597_40 t0;
- nav__7597_39 t2;
- nav__7597_39 t3;
- nav__7597_39 const *t4;
+static nav__7671_40 fmt_allocPrintZ__anon_4764__7671(struct mem_Allocator__589 const a0, nav__7671_43 const a1) {
+ nav__7671_40 t0;
+ nav__7671_39 t2;
+ nav__7671_39 t3;
+ nav__7671_39 const *t4;
  uintptr_t t5;
  uint8_t *t6;
  uint16_t t1;
- t0 = fmt_allocPrint__anon_4808__7599(a0, a1);
+ t0 = fmt_allocPrint__anon_4804__7673(a0, a1);
  if (t0.error) {
   t1 = t0.error;
-  t0.payload = (nav__7597_39){(uint8_t *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul};
+  t0.payload = (nav__7671_39){(uint8_t *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul};
   t0.error = t1;
   return t0;
  }
  t2 = t0.payload;
  t3 = t2;
- t4 = (nav__7597_39 const *)&t3;
+ t4 = (nav__7671_39 const *)&t3;
  t5 = t2.len;
  t5 = t5 - (uintptr_t)1ul;
  t2 = (*t4);
@@ -6849,28 +7269,28 @@ static nav__7597_40 fmt_allocPrintZ__anon_4781__7597(struct mem_Allocator__565 c
  return t0;
 }
 
-static void mem_Allocator_free__anon_4783__7598(struct mem_Allocator__565 const a0, nav__7598_40 const a1) {
- struct mem_Allocator__565 const *t1;
- nav__7598_40 t2;
+static void mem_Allocator_free__anon_4766__7672(struct mem_Allocator__589 const a0, nav__7672_40 const a1) {
+ struct mem_Allocator__589 const *t1;
+ nav__7672_40 t2;
  uintptr_t t3;
  uint64_t t4;
  uint8_t *t6;
  uint8_t *t7;
  uint8_t *t8;
  uint8_t *const *t9;
- struct mem_Allocator__565 t10;
- struct mem_Allocator__565 t0;
- struct mem_Allocator__565 t12;
- struct mem_Allocator_VTable__568 const *const *t13;
- struct mem_Allocator_VTable__568 const *t14;
- void (*const *t15)(void *, nav__7598_40, uint8_t, uintptr_t);
- void (*t16)(void *, nav__7598_40, uint8_t, uintptr_t);
+ struct mem_Allocator__589 t10;
+ struct mem_Allocator__589 t0;
+ struct mem_Allocator__589 t12;
+ struct mem_Allocator_VTable__592 const *const *t13;
+ struct mem_Allocator_VTable__592 const *t14;
+ void (*const *t15)(void *, nav__7672_40, uint8_t, uintptr_t);
+ void (*t16)(void *, nav__7672_40, uint8_t, uintptr_t);
  void *t17;
  bool t5;
  uint8_t t11;
  t0 = a0;
- t1 = (struct mem_Allocator__565 const *)&t0;
- t2 = mem_sliceAsBytes__anon_4815__7600(a1);
+ t1 = (struct mem_Allocator__589 const *)&t0;
+ t2 = mem_sliceAsBytes__anon_4811__7674(a1);
  t3 = t2.len;
  t3 = t3 + (uintptr_t)1ul;
  t4 = t3;
@@ -6894,55 +7314,55 @@ static void mem_Allocator_free__anon_4783__7598(struct mem_Allocator__565 const 
  t7 = (uint8_t *)(((uintptr_t)t7) + ((uintptr_t)0ul*sizeof(uint8_t)));
  t2.ptr = t7;
  t2.len = t3;
- t11 = mem_Alignment_fromByteUnits__1045((uintptr_t)1ul);
+ t11 = mem_Alignment_fromByteUnits__1066((uintptr_t)1ul);
  t3 = (uintptr_t)zig_return_address();
  t12 = t10;
- t1 = (struct mem_Allocator__565 const *)&t12;
- t13 = (struct mem_Allocator_VTable__568 const *const *)&t1->vtable;
+ t1 = (struct mem_Allocator__589 const *)&t12;
+ t13 = (struct mem_Allocator_VTable__592 const *const *)&t1->vtable;
  t14 = (*t13);
- t15 = (void (*const *)(void *, nav__7598_40, uint8_t, uintptr_t))&t14->free;
+ t15 = (void (*const *)(void *, nav__7672_40, uint8_t, uintptr_t))&t14->free;
  t16 = (*t15);
  t17 = t10.ptr;
  t16(t17, t2, t11, t3);
  return;
 }
 
-static nav__7599_40 fmt_allocPrint__anon_4808__7599(struct mem_Allocator__565 const a0, nav__7599_43 const a1) {
- struct mem_Allocator__565 const *t1;
+static nav__7673_40 fmt_allocPrint__anon_4804__7673(struct mem_Allocator__589 const a0, nav__7673_43 const a1) {
+ struct mem_Allocator__589 const *t1;
  uintptr_t t2;
  uintptr_t t6;
  uint64_t t3;
- nav__7599_54 t4;
- struct mem_Allocator__565 t7;
- struct mem_Allocator__565 t0;
- nav__7599_40 t8;
- nav__7599_40 t11;
- nav__7599_39 t10;
+ nav__7673_54 t4;
+ struct mem_Allocator__589 t7;
+ struct mem_Allocator__589 t0;
+ nav__7673_40 t8;
+ nav__7673_40 t11;
+ nav__7673_39 t10;
  uint16_t t9;
  bool t5;
  t0 = a0;
- t1 = (struct mem_Allocator__565 const *)&t0;
- t3 = fmt_count__anon_4822__7601(a1);
- t4 = math_cast__anon_4824__7602(t3);
+ t1 = (struct mem_Allocator__589 const *)&t0;
+ t3 = fmt_count__anon_4818__7675(a1);
+ t4 = math_cast__anon_4820__7676(t3);
  t5 = t4.is_null != true;
  if (t5) {
   t6 = t4.payload;
   t2 = t6;
   goto zig_block_0;
  }
- return (nav__7599_40){{(uint8_t *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},zig_error_OutOfMemory};
+ return (nav__7673_40){{(uint8_t *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},zig_error_OutOfMemory};
 
  zig_block_0:;
  t7 = (*t1);
- t8 = mem_Allocator_alloc__anon_2153__4106(t7, t2);
+ t8 = mem_Allocator_alloc__anon_2216__4142(t7, t2);
  if (t8.error) {
   t9 = t8.error;
-  t8.payload = (nav__7599_39){(uint8_t *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul};
+  t8.payload = (nav__7673_39){(uint8_t *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul};
   t8.error = t9;
   return t8;
  }
  t10 = t8.payload;
- t8 = fmt_bufPrint__anon_4833__7603(t10, a1);
+ t8 = fmt_bufPrint__anon_4829__7677(t10, a1);
  t5 = t8.error == UINT16_C(0);
  if (t5) {
   t10 = t8.payload;
@@ -6963,14 +7383,14 @@ static nav__7599_40 fmt_allocPrint__anon_4808__7599(struct mem_Allocator__565 co
  return t11;
 }
 
-static nav__7600_39 mem_sliceAsBytes__anon_4815__7600(nav__7600_39 const a0) {
+static nav__7674_39 mem_sliceAsBytes__anon_4811__7674(nav__7674_39 const a0) {
  uintptr_t t0;
  uint64_t t1;
  uint8_t *t3;
  uint8_t *t4;
  uint8_t *t5;
  uint8_t *const *t6;
- nav__7600_39 t7;
+ nav__7674_39 t7;
  bool t2;
  t0 = a0.len;
  t1 = t0;
@@ -6993,75 +7413,75 @@ static nav__7600_39 mem_sliceAsBytes__anon_4815__7600(nav__7600_39 const a0) {
  return t7;
 }
 
-static uint16_t fmt_format__anon_4890__7642(struct io_Writer__4192 const a0, nav__7642_40 const a1) {
- struct io_Writer__4192 const *t1;
- struct io_Writer__4192 t2;
- struct io_Writer__4192 t0;
+static uint16_t fmt_format__anon_4886__7716(struct io_Writer__4060 const a0, nav__7716_40 const a1) {
+ struct io_Writer__4060 const *t1;
+ struct io_Writer__4060 t2;
+ struct io_Writer__4060 t0;
  uint8_t const *t4;
  uint16_t t3;
  t0 = a0;
- t1 = (struct io_Writer__4192 const *)&t0;
+ t1 = (struct io_Writer__4060 const *)&t0;
  t2 = (*t1);
- t3 = io_Writer_writeAll__7116(t2, (nav__7642_44){(uint8_t const *)&__anon_4942,(uintptr_t)10ul});
+ t3 = io_Writer_writeAll__7189(t2, (nav__7716_44){(uint8_t const *)&__anon_4938,(uintptr_t)10ul});
  if (t3) {
   return t3;
  }
  t4 = a1.f0;
- t3 = fmt_formatType__anon_5215__7810(t4, (struct fmt_FormatOptions__5201){{(uintptr_t)0xaaaaaaaaaaaaaaaaul,true},{(uintptr_t)0xaaaaaaaaaaaaaaaaul,true},UINT32_C(32),UINT8_C(2)}, a0, (uintptr_t)3ul);
+ t3 = fmt_formatType__anon_5210__7884(t4, (struct fmt_FormatOptions__5196){{(uintptr_t)0xaaaaaaaaaaaaaaaaul,true},{(uintptr_t)0xaaaaaaaaaaaaaaaaul,true},UINT32_C(32),UINT8_C(2)}, a0, (uintptr_t)3ul);
  if (t3) {
   return t3;
  }
  t2 = (*t1);
- t3 = io_Writer_writeAll__7116(t2, (nav__7642_44){(uint8_t const *)&__anon_5223,(uintptr_t)1ul});
+ t3 = io_Writer_writeAll__7189(t2, (nav__7716_44){(uint8_t const *)&__anon_5218,(uintptr_t)1ul});
  if (t3) {
   return t3;
  }
  t4 = a1.f1;
- t3 = fmt_formatType__anon_5215__7810(t4, (struct fmt_FormatOptions__5201){{(uintptr_t)0xaaaaaaaaaaaaaaaaul,true},{(uintptr_t)0xaaaaaaaaaaaaaaaaul,true},UINT32_C(32),UINT8_C(2)}, a0, (uintptr_t)3ul);
+ t3 = fmt_formatType__anon_5210__7884(t4, (struct fmt_FormatOptions__5196){{(uintptr_t)0xaaaaaaaaaaaaaaaaul,true},{(uintptr_t)0xaaaaaaaaaaaaaaaaul,true},UINT32_C(32),UINT8_C(2)}, a0, (uintptr_t)3ul);
  if (t3) {
   return t3;
  }
  t2 = (*t1);
- t3 = io_Writer_writeAll__7116(t2, (nav__7642_44){(uint8_t const *)&__anon_5243,(uintptr_t)1ul});
+ t3 = io_Writer_writeAll__7189(t2, (nav__7716_44){(uint8_t const *)&__anon_5238,(uintptr_t)1ul});
  if (t3) {
   return t3;
  }
  return 0;
 }
 
-static uint64_t fmt_count__anon_4822__7601(nav__7601_39 const a0) {
- struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4851 t1;
- struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4851 t0;
- struct io_GenericWriter_28_2aio_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29_2cerror_7b_7d_2c_28function_20_27write_27_29_29__4871 t2;
- struct io_GenericWriter_28_2aio_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29_2cerror_7b_7d_2c_28function_20_27write_27_29_29__4871 t3;
- struct io_GenericWriter_28_2aio_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29_2cerror_7b_7d_2c_28function_20_27write_27_29_29__4871 const *t4;
- struct io_GenericWriter_28_2aio_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29_2cerror_7b_7d_2c_28function_20_27write_27_29_29__4871 const *t5;
- struct io_GenericWriter_28_2aio_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29_2cerror_7b_7d_2c_28function_20_27write_27_29_29__4871 const *const *t6;
+static uint64_t fmt_count__anon_4818__7675(nav__7675_39 const a0) {
+ struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4847 t1;
+ struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4847 t0;
+ struct io_GenericWriter_28_2aio_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29_2cerror_7b_7d_2c_28function_20_27write_27_29_29__4867 t2;
+ struct io_GenericWriter_28_2aio_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29_2cerror_7b_7d_2c_28function_20_27write_27_29_29__4867 t3;
+ struct io_GenericWriter_28_2aio_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29_2cerror_7b_7d_2c_28function_20_27write_27_29_29__4867 const *t4;
+ struct io_GenericWriter_28_2aio_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29_2cerror_7b_7d_2c_28function_20_27write_27_29_29__4867 const *t5;
+ struct io_GenericWriter_28_2aio_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29_2cerror_7b_7d_2c_28function_20_27write_27_29_29__4867 const *const *t6;
  void const **t8;
- struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4851 *const *t9;
+ struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4847 *const *t9;
  void const *t10;
- nav__7601_53 (**t11)(void const *, nav__7601_54);
- struct io_Writer__4192 t12;
- struct io_Writer__4192 t7;
+ nav__7675_53 (**t11)(void const *, nav__7675_54);
+ struct io_Writer__4060 t12;
+ struct io_Writer__4060 t7;
  uint64_t t15;
  uint16_t t13;
  bool t14;
- t1 = io_counting_writer_countingWriter__anon_4854__7628();
+ t1 = io_counting_writer_countingWriter__anon_4850__7702();
  t0 = t1;
- t2 = io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29_writer__7627(&t0);
+ t2 = io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29_writer__7701(&t0);
  t3 = t2;
- t4 = (struct io_GenericWriter_28_2aio_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29_2cerror_7b_7d_2c_28function_20_27write_27_29_29__4871 const *)&t3;
+ t4 = (struct io_GenericWriter_28_2aio_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29_2cerror_7b_7d_2c_28function_20_27write_27_29_29__4867 const *)&t3;
  t5 = t4;
- t6 = (struct io_GenericWriter_28_2aio_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29_2cerror_7b_7d_2c_28function_20_27write_27_29_29__4871 const *const *)&t5;
+ t6 = (struct io_GenericWriter_28_2aio_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29_2cerror_7b_7d_2c_28function_20_27write_27_29_29__4867 const *const *)&t5;
  t8 = (void const **)&t7.context;
  t4 = (*t6);
- t9 = (struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4851 *const *)&t4->context;
+ t9 = (struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4847 *const *)&t4->context;
  t10 = (void const *)t9;
  (*t8) = t10;
- t11 = (nav__7601_53 (**)(void const *, nav__7601_54))&t7.writeFn;
- (*t11) = &io_GenericWriter_28_2aio_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWr__7641;
+ t11 = (nav__7675_53 (**)(void const *, nav__7675_54))&t7.writeFn;
+ (*t11) = &io_GenericWriter_28_2aio_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWr__7715;
  t12 = t7;
- t13 = fmt_format__anon_4890__7642(t12, a0);
+ t13 = fmt_format__anon_4886__7716(t12, a0);
  t14 = t13 == UINT16_C(0);
  if (t14) {
   goto zig_block_0;
@@ -7074,56 +7494,56 @@ static uint64_t fmt_count__anon_4822__7601(nav__7601_39 const a0) {
  return t15;
 }
 
-static nav__7602_38 math_cast__anon_4824__7602(uint64_t const a0) {
+static nav__7676_38 math_cast__anon_4820__7676(uint64_t const a0) {
  uintptr_t t0;
- nav__7602_38 t1;
+ nav__7676_38 t1;
  t0 = a0;
  t1.is_null = false;
  t1.payload = t0;
  return t1;
 }
 
-static nav__7603_40 fmt_bufPrint__anon_4833__7603(nav__7603_39 const a0, nav__7603_42 const a1) {
- struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 t1;
- struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 t0;
- struct io_GenericWriter_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7bNoSpaceLeft_7d_2c_28function_20_27write_27_29_29__5259 t2;
- struct io_GenericWriter_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7bNoSpaceLeft_7d_2c_28function_20_27write_27_29_29__5259 t3;
- struct io_GenericWriter_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7bNoSpaceLeft_7d_2c_28function_20_27write_27_29_29__5259 const *t4;
- struct io_GenericWriter_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7bNoSpaceLeft_7d_2c_28function_20_27write_27_29_29__5259 const *t5;
- struct io_GenericWriter_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7bNoSpaceLeft_7d_2c_28function_20_27write_27_29_29__5259 const *const *t6;
+static nav__7677_40 fmt_bufPrint__anon_4829__7677(nav__7677_39 const a0, nav__7677_42 const a1) {
+ struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 t1;
+ struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 t0;
+ struct io_GenericWriter_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7bNoSpaceLeft_7d_2c_28function_20_27write_27_29_29__5254 t2;
+ struct io_GenericWriter_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7bNoSpaceLeft_7d_2c_28function_20_27write_27_29_29__5254 t3;
+ struct io_GenericWriter_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7bNoSpaceLeft_7d_2c_28function_20_27write_27_29_29__5254 const *t4;
+ struct io_GenericWriter_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7bNoSpaceLeft_7d_2c_28function_20_27write_27_29_29__5254 const *t5;
+ struct io_GenericWriter_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7bNoSpaceLeft_7d_2c_28function_20_27write_27_29_29__5254 const *const *t6;
  void const **t8;
- struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 *const *t9;
+ struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 *const *t9;
  void const *t10;
- nav__7603_57 (**t11)(void const *, nav__7603_58);
- struct io_Writer__4192 t12;
- struct io_Writer__4192 t7;
- nav__7603_39 t15;
- nav__7603_40 t16;
+ nav__7677_57 (**t11)(void const *, nav__7677_58);
+ struct io_Writer__4060 t12;
+ struct io_Writer__4060 t7;
+ nav__7677_39 t15;
+ nav__7677_40 t16;
  uint16_t t13;
  bool t14;
- t1 = io_fixed_buffer_stream_fixedBufferStream__anon_2181__4139(a0);
+ t1 = io_fixed_buffer_stream_fixedBufferStream__anon_2244__4175(a0);
  t0 = t1;
- t2 = io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_writer__4129(&t0);
+ t2 = io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_writer__4165(&t0);
  t3 = t2;
- t4 = (struct io_GenericWriter_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7bNoSpaceLeft_7d_2c_28function_20_27write_27_29_29__5259 const *)&t3;
+ t4 = (struct io_GenericWriter_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7bNoSpaceLeft_7d_2c_28function_20_27write_27_29_29__5254 const *)&t3;
  t5 = t4;
- t6 = (struct io_GenericWriter_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7bNoSpaceLeft_7d_2c_28function_20_27write_27_29_29__5259 const *const *)&t5;
+ t6 = (struct io_GenericWriter_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7bNoSpaceLeft_7d_2c_28function_20_27write_27_29_29__5254 const *const *)&t5;
  t8 = (void const **)&t7.context;
  t4 = (*t6);
- t9 = (struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 *const *)&t4->context;
+ t9 = (struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 *const *)&t4->context;
  t10 = (void const *)t9;
  (*t8) = t10;
- t11 = (nav__7603_57 (**)(void const *, nav__7603_58))&t7.writeFn;
- (*t11) = &io_GenericWriter_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7bNoSpaceLeft_7d_2c_28function_20_27write__7823;
+ t11 = (nav__7677_57 (**)(void const *, nav__7677_58))&t7.writeFn;
+ (*t11) = &io_GenericWriter_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7bNoSpaceLeft_7d_2c_28function_20_27write__7897;
  t12 = t7;
- t13 = fmt_format__anon_4890__7642(t12, a1);
+ t13 = fmt_format__anon_4886__7716(t12, a1);
  t14 = t13 == UINT16_C(0);
  if (t14) {
   goto zig_block_0;
  }
  switch (t13) {
   case zig_error_NoSpaceLeft: {
-   return (nav__7603_40){{(uint8_t *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},zig_error_NoSpaceLeft};
+   return (nav__7677_40){{(uint8_t *)(uintptr_t)0xaaaaaaaaaaaaaaaaul, (uintptr_t)0xaaaaaaaaaaaaaaaaul},zig_error_NoSpaceLeft};
   }
   default: {
    zig_unreachable();
@@ -7132,85 +7552,85 @@ static nav__7603_40 fmt_bufPrint__anon_4833__7603(nav__7603_39 const a0, nav__76
 
  zig_block_0:;
  t1 = t0;
- t15 = io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_getWritten__4137(t1);
+ t15 = io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_getWritten__4173(t1);
  t16.payload = t15;
  t16.error = UINT16_C(0);
  return t16;
 }
 
-static struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4851 io_counting_writer_countingWriter__anon_4854__7628(void) {
- struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4851 t0;
- t0 = (struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4851){UINT64_C(0)};
+static struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4847 io_counting_writer_countingWriter__anon_4850__7702(void) {
+ struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4847 t0;
+ t0 = (struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4847){UINT64_C(0)};
  return t0;
 }
 
-static struct io_GenericWriter_28_2aio_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29_2cerror_7b_7d_2c_28function_20_27write_27_29_29__4871 io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29_writer__7627(struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4851 *const a0) {
- struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4851 **t1;
- struct io_GenericWriter_28_2aio_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29_2cerror_7b_7d_2c_28function_20_27write_27_29_29__4871 t0;
- t1 = (struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4851 **)&t0.context;
+static struct io_GenericWriter_28_2aio_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29_2cerror_7b_7d_2c_28function_20_27write_27_29_29__4867 io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29_writer__7701(struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4847 *const a0) {
+ struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4847 **t1;
+ struct io_GenericWriter_28_2aio_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29_2cerror_7b_7d_2c_28function_20_27write_27_29_29__4867 t0;
+ t1 = (struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4847 **)&t0.context;
  (*t1) = a0;
  return t0;
 }
 
-static nav__7641_38 io_GenericWriter_28_2aio_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWr__7641(void const *const a0, nav__7641_41 const a1) {
- struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4851 *const *t0;
- struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4851 *t1;
- nav__7641_38 t2;
- nav__7641_38 t3;
- t0 = (struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4851 *const *)a0;
+static nav__7715_38 io_GenericWriter_28_2aio_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWr__7715(void const *const a0, nav__7715_41 const a1) {
+ struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4847 *const *t0;
+ struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4847 *t1;
+ nav__7715_38 t2;
+ nav__7715_38 t3;
+ t0 = (struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4847 *const *)a0;
  t1 = (*t0);
- t2 = io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29_write__7626(t1, a1);
- memcpy(&t3, &t2, sizeof(nav__7641_38));
+ t2 = io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29_write__7700(t1, a1);
+ memcpy(&t3, &t2, sizeof(nav__7715_38));
  return t3;
 }
 
-static uint16_t fmt_formatType__anon_5215__7810(uint8_t const *const a0, struct fmt_FormatOptions__5201 const a1, struct io_Writer__4192 const a2, uintptr_t const a3) {
- nav__7810_47 t2;
- nav__7810_47 t3;
+static uint16_t fmt_formatType__anon_5210__7884(uint8_t const *const a0, struct fmt_FormatOptions__5196 const a1, struct io_Writer__4060 const a2, uintptr_t const a3) {
+ nav__7884_47 t2;
+ nav__7884_47 t3;
  uint8_t const *t0;
- struct io_Writer__4192 t1;
+ struct io_Writer__4060 t1;
  uint16_t t4;
  uint16_t t5;
  (void)a3;
  t0 = a0;
  t1 = a2;
- t2 = mem_span__anon_4429__7221(a0);
- memcpy(&t3, &t2, sizeof(nav__7810_47));
- t4 = fmt_formatBuf__anon_5315__7824(t3, a1, a2);
+ t2 = mem_span__anon_4375__7295(a0);
+ memcpy(&t3, &t2, sizeof(nav__7884_47));
+ t4 = fmt_formatBuf__anon_5310__7898(t3, a1, a2);
  memcpy(&t5, &t4, sizeof(uint16_t));
  return t5;
 }
 
-static struct io_GenericWriter_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7bNoSpaceLeft_7d_2c_28function_20_27write_27_29_29__5259 io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_writer__4129(struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 *const a0) {
- struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 **t1;
- struct io_GenericWriter_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7bNoSpaceLeft_7d_2c_28function_20_27write_27_29_29__5259 t0;
- t1 = (struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 **)&t0.context;
+static struct io_GenericWriter_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7bNoSpaceLeft_7d_2c_28function_20_27write_27_29_29__5254 io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_writer__4165(struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 *const a0) {
+ struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 **t1;
+ struct io_GenericWriter_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7bNoSpaceLeft_7d_2c_28function_20_27write_27_29_29__5254 t0;
+ t1 = (struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 **)&t0.context;
  (*t1) = a0;
  return t0;
 }
 
-static nav__7823_38 io_GenericWriter_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7bNoSpaceLeft_7d_2c_28function_20_27write__7823(void const *const a0, nav__7823_41 const a1) {
- struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 *const *t0;
- struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 *t1;
- nav__7823_38 t2;
- nav__7823_38 t3;
- t0 = (struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 *const *)a0;
+static nav__7897_38 io_GenericWriter_28_2aio_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_2cerror_7bNoSpaceLeft_7d_2c_28function_20_27write__7897(void const *const a0, nav__7897_41 const a1) {
+ struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 *const *t0;
+ struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 *t1;
+ nav__7897_38 t2;
+ nav__7897_38 t3;
+ t0 = (struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 *const *)a0;
  t1 = (*t0);
- t2 = io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_write__4132(t1, a1);
- memcpy(&t3, &t2, sizeof(nav__7823_38));
+ t2 = io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_write__4168(t1, a1);
+ memcpy(&t3, &t2, sizeof(nav__7897_38));
  return t3;
 }
 
-static nav__4137_39 io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_getWritten__4137(struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 const a0) {
- struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 const *t1;
- nav__4137_39 const *t2;
+static nav__4173_39 io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_getWritten__4173(struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 const a0) {
+ struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 const *t1;
+ nav__4173_39 const *t2;
  uintptr_t t3;
- nav__4137_39 t4;
+ nav__4173_39 t4;
  uint8_t *t5;
- struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 t0;
+ struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 t0;
  t0 = a0;
- t1 = (struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 const *)&t0;
- t2 = (nav__4137_39 const *)&t1->buffer;
+ t1 = (struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 const *)&t0;
+ t2 = (nav__4173_39 const *)&t1->buffer;
  t3 = a0.pos;
  t4 = (*t2);
  t5 = t4.ptr;
@@ -7220,18 +7640,18 @@ static nav__4137_39 io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_getWr
  return t4;
 }
 
-static nav__7626_38 io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29_write__7626(struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4851 *const a0, nav__7626_42 const a1) {
- struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4851 *const *t1;
- nav__7626_38 t2;
+static nav__7700_38 io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29_write__7700(struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4847 *const a0, nav__7700_42 const a1) {
+ struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4847 *const *t1;
+ nav__7700_38 t2;
  uintptr_t t3;
- struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4851 *t4;
- struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4851 *t0;
+ struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4847 *t4;
+ struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4847 *t0;
  uint64_t *t5;
  uint64_t t6;
  uint64_t t7;
  t0 = a0;
- t1 = (struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4851 *const *)&t0;
- t2 = io_dummyWrite__4041(a1);
+ t1 = (struct io_counting_writer_CountingWriter_28io_GenericWriter_28void_2cerror_7b_7d_2c_28function_20_27dummyWrite_27_29_29_29__4847 *const *)&t0;
+ t2 = io_dummyWrite__4077(a1);
  t3 = t2.payload;
  t4 = (*t1);
  t5 = (uint64_t *)&t4->bytes_written;
@@ -7244,23 +7664,23 @@ static nav__7626_38 io_counting_writer_CountingWriter_28io_GenericWriter_28void_
  return t2;
 }
 
-static nav__7654_38 unicode_utf8ByteSequenceLength__7654(uint8_t const a0) {
- nav__7654_38 t0;
+static nav__7728_38 unicode_utf8ByteSequenceLength__7728(uint8_t const a0) {
+ nav__7728_38 t0;
  switch (a0) {
   default: if ((a0 >= UINT8_C(0) && a0 <= UINT8_C(127))) {
-   t0 = (nav__7654_38){0,UINT8_C(1)};
+   t0 = (nav__7728_38){0,UINT8_C(1)};
    goto zig_block_0;
   }if ((a0 >= UINT8_C(192) && a0 <= UINT8_C(223))) {
-   t0 = (nav__7654_38){0,UINT8_C(2)};
+   t0 = (nav__7728_38){0,UINT8_C(2)};
    goto zig_block_0;
   }if ((a0 >= UINT8_C(224) && a0 <= UINT8_C(239))) {
-   t0 = (nav__7654_38){0,UINT8_C(3)};
+   t0 = (nav__7728_38){0,UINT8_C(3)};
    goto zig_block_0;
   }if ((a0 >= UINT8_C(240) && a0 <= UINT8_C(247))) {
-   t0 = (nav__7654_38){0,UINT8_C(4)};
+   t0 = (nav__7728_38){0,UINT8_C(4)};
    goto zig_block_0;
   }{
-   t0 = (nav__7654_38){zig_error_Utf8InvalidStartByte,UINT8_C(0x2)};
+   t0 = (nav__7728_38){zig_error_Utf8InvalidStartByte,UINT8_C(0x2)};
    goto zig_block_0;
   }
  }
@@ -7269,27 +7689,27 @@ static nav__7654_38 unicode_utf8ByteSequenceLength__7654(uint8_t const a0) {
  return t0;
 }
 
-static nav__7670_38 unicode_utf8CountCodepoints__7670(nav__7670_40 const a0) {
- nav__7670_40 const *t1;
+static nav__7744_38 unicode_utf8CountCodepoints__7744(nav__7744_40 const a0) {
+ nav__7744_40 const *t1;
  uintptr_t t4;
  uintptr_t t5;
  uintptr_t t2;
  uintptr_t t3;
  uint64_t t6;
  uint64_t t7;
- nav__7670_40 t9;
- nav__7670_40 t0;
+ nav__7744_40 t9;
+ nav__7744_40 t0;
  uint8_t const *t10;
  uint8_t const (*t11)[8];
- nav__7670_38 t16;
- nav__7670_50 t17;
- nav__7670_48 t14;
+ nav__7744_38 t16;
+ nav__7744_50 t17;
+ nav__7744_48 t14;
  uint16_t t15;
  bool t8;
  uint8_t t12[8];
  uint8_t t13;
  t0 = a0;
- t1 = (nav__7670_40 const *)&t0;
+ t1 = (nav__7744_40 const *)&t0;
  t2 = (uintptr_t)0ul;
  t3 = (uintptr_t)0ul;
  zig_loop_9:
@@ -7346,7 +7766,7 @@ static nav__7670_38 unicode_utf8CountCodepoints__7670(nav__7670_40 const a0) {
   if (t8) {
    t4 = t3;
    t13 = a0.ptr[t4];
-   t14 = unicode_utf8ByteSequenceLength__7654(t13);
+   t14 = unicode_utf8ByteSequenceLength__7728(t13);
    if (t14.error) {
     t15 = t14.error;
     t16.payload = (uintptr_t)0xaaaaaaaaaaaaaaaaul;
@@ -7362,7 +7782,7 @@ static nav__7670_38 unicode_utf8CountCodepoints__7670(nav__7670_40 const a0) {
    t7 = t4;
    t8 = t6 > t7;
    if (t8) {
-    return (nav__7670_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_TruncatedInput};
+    return (nav__7744_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_TruncatedInput};
    }
    goto zig_block_6;
 
@@ -7379,7 +7799,7 @@ static nav__7670_38 unicode_utf8CountCodepoints__7670(nav__7670_40 const a0) {
      t4 = (uintptr_t)t13;
      t9.ptr = t10;
      t9.len = t4;
-     t17 = unicode_utf8Decode__7660(t9);
+     t17 = unicode_utf8Decode__7734(t9);
      if (t17.error) {
       t15 = t17.error;
       t16.payload = (uintptr_t)0xaaaaaaaaaaaaaaaaul;
@@ -7417,35 +7837,35 @@ static nav__7670_38 unicode_utf8CountCodepoints__7670(nav__7670_40 const a0) {
  return t16;
 }
 
-static uint16_t fmt_formatBuf__anon_5315__7824(nav__7824_39 const a0, struct fmt_FormatOptions__5201 const a1, struct io_Writer__4192 const a2) {
- struct io_Writer__4192 const *t1;
- nav__7824_44 t2;
+static uint16_t fmt_formatBuf__anon_5310__7898(nav__7898_39 const a0, struct fmt_FormatOptions__5196 const a1, struct io_Writer__4060 const a2) {
+ struct io_Writer__4060 const *t1;
+ nav__7898_44 t2;
  uintptr_t t4;
  uintptr_t t5;
  uintptr_t t7;
- nav__7824_48 t6;
+ nav__7898_48 t6;
  uint64_t t8;
  uint64_t t9;
- struct io_Writer__4192 t10;
- struct io_Writer__4192 t0;
- nav__7824_57 t15;
- nav__7824_39 t17;
- nav__7824_39 t20;
+ struct io_Writer__4060 t10;
+ struct io_Writer__4060 t0;
+ nav__7898_57 t15;
+ nav__7898_39 t17;
+ nav__7898_39 t20;
  uint8_t *t19;
  uint32_t t14;
  uint16_t t11;
  uint16_t t12;
- nav__7824_60 t16;
+ nav__7898_60 t16;
  bool t3;
  uint8_t t18;
  uint8_t t13[4];
  t0 = a2;
- t1 = (struct io_Writer__4192 const *)&t0;
+ t1 = (struct io_Writer__4060 const *)&t0;
  t2 = a1.width;
  t3 = t2.is_null != true;
  if (t3) {
   t4 = t2.payload;
-  t6 = unicode_utf8CountCodepoints__7670(a0);
+  t6 = unicode_utf8CountCodepoints__7744(a0);
   t3 = t6.error == UINT16_C(0);
   if (t3) {
    t7 = t6.payload;
@@ -7473,7 +7893,7 @@ static uint16_t fmt_formatBuf__anon_5315__7824(nav__7824_39 const a0, struct fmt
   t3 = t9 == UINT64_C(0);
   if (t3) {
    t10 = (*t1);
-   t11 = io_Writer_writeAll__7116(t10, a0);
+   t11 = io_Writer_writeAll__7189(t10, a0);
    memcpy(&t12, &t11, sizeof(uint16_t));
    return t12;
   }
@@ -7483,7 +7903,7 @@ static uint16_t fmt_formatBuf__anon_5315__7824(nav__7824_39 const a0, struct fmt
   t14 = a1.fill;
   t15.ptr = &t13[(uintptr_t)0ul];
   t15.len = (uintptr_t)4ul;
-  t16 = unicode_utf8Encode__7655(t14, t15);
+  t16 = unicode_utf8Encode__7729(t14, t15);
   t3 = t16.error == UINT16_C(0);
   if (t3) {
    t18 = t16.payload;
@@ -7492,7 +7912,7 @@ static uint16_t fmt_formatBuf__anon_5315__7824(nav__7824_39 const a0, struct fmt
    t5 = (uintptr_t)t18;
    t15.ptr = t19;
    t15.len = t5;
-   memcpy(&t20, &t15, sizeof(nav__7824_39));
+   memcpy(&t20, &t15, sizeof(nav__7898_39));
    t17 = t20;
    goto zig_block_4;
 
@@ -7501,7 +7921,7 @@ static uint16_t fmt_formatBuf__anon_5315__7824(nav__7824_39 const a0, struct fmt
   switch (t12) {
    case zig_error_Utf8CannotEncodeSurrogateHalf:
    case zig_error_CodepointTooLarge: {
-    t17 = (nav__7824_39){(uint8_t const *)&__anon_5413,(uintptr_t)3ul};
+    t17 = (nav__7898_39){(uint8_t const *)&__anon_5408,(uintptr_t)3ul};
     goto zig_block_4;
    }
    default: zig_unreachable();
@@ -7512,12 +7932,12 @@ static uint16_t fmt_formatBuf__anon_5315__7824(nav__7824_39 const a0, struct fmt
   switch (t18) {
    case UINT8_C(0): {
     t10 = (*t1);
-    t12 = io_Writer_writeAll__7116(t10, a0);
+    t12 = io_Writer_writeAll__7189(t10, a0);
     if (t12) {
      return t12;
     }
     t10 = (*t1);
-    t12 = io_Writer_writeBytesNTimes__7120(t10, t17, t7);
+    t12 = io_Writer_writeBytesNTimes__7193(t10, t17, t7);
     if (t12) {
      return t12;
     }
@@ -7528,17 +7948,17 @@ static uint16_t fmt_formatBuf__anon_5315__7824(nav__7824_39 const a0, struct fmt
     t7 = t7 + (uintptr_t)1ul;
     t7 = t7 / (uintptr_t)2ul;
     t10 = (*t1);
-    t12 = io_Writer_writeBytesNTimes__7120(t10, t17, t5);
+    t12 = io_Writer_writeBytesNTimes__7193(t10, t17, t5);
     if (t12) {
      return t12;
     }
     t10 = (*t1);
-    t12 = io_Writer_writeAll__7116(t10, a0);
+    t12 = io_Writer_writeAll__7189(t10, a0);
     if (t12) {
      return t12;
     }
     t10 = (*t1);
-    t12 = io_Writer_writeBytesNTimes__7120(t10, t17, t7);
+    t12 = io_Writer_writeBytesNTimes__7193(t10, t17, t7);
     if (t12) {
      return t12;
     }
@@ -7546,12 +7966,12 @@ static uint16_t fmt_formatBuf__anon_5315__7824(nav__7824_39 const a0, struct fmt
    }
    case UINT8_C(2): {
     t10 = (*t1);
-    t12 = io_Writer_writeBytesNTimes__7120(t10, t17, t7);
+    t12 = io_Writer_writeBytesNTimes__7193(t10, t17, t7);
     if (t12) {
      return t12;
     }
     t10 = (*t1);
-    t12 = io_Writer_writeAll__7116(t10, a0);
+    t12 = io_Writer_writeAll__7189(t10, a0);
     if (t12) {
      return t12;
     }
@@ -7564,7 +7984,7 @@ static uint16_t fmt_formatBuf__anon_5315__7824(nav__7824_39 const a0, struct fmt
   goto zig_block_0;
  }
  t10 = (*t1);
- t12 = io_Writer_writeAll__7116(t10, a0);
+ t12 = io_Writer_writeAll__7189(t10, a0);
  if (t12) {
   return t12;
  }
@@ -7574,52 +7994,52 @@ static uint16_t fmt_formatBuf__anon_5315__7824(nav__7824_39 const a0, struct fmt
  return 0;
 }
 
-static nav__4132_38 io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_write__4132(struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 *const a0, nav__4132_42 const a1) {
- struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 *const *t1;
- nav__4132_42 const *t3;
+static nav__4168_38 io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_write__4168(struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 *const a0, nav__4168_42 const a1) {
+ struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 *const *t1;
+ nav__4168_42 const *t3;
  uintptr_t t4;
  uintptr_t t10;
  uint64_t t5;
  uint64_t t11;
  uintptr_t *t7;
- nav__4132_50 *t8;
- nav__4132_50 t9;
- struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 *t12;
- struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 *t0;
+ nav__4168_50 *t8;
+ nav__4168_50 t9;
+ struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 *t12;
+ struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 *t0;
  uint8_t *t13;
- nav__4132_42 t14;
- nav__4132_42 t2;
+ nav__4168_42 t14;
+ nav__4168_42 t2;
  uint8_t const *t15;
- nav__4132_38 t16;
+ nav__4168_38 t16;
  bool t6;
  t0 = a0;
- t1 = (struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2178 *const *)&t0;
+ t1 = (struct io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29__2241 *const *)&t0;
  t2 = a1;
- t3 = (nav__4132_42 const *)&t2;
+ t3 = (nav__4168_42 const *)&t2;
  t4 = a1.len;
  t5 = t4;
  t6 = t5 == UINT64_C(0);
  if (t6) {
-  return (nav__4132_38){(uintptr_t)0ul,0};
+  return (nav__4168_38){(uintptr_t)0ul,0};
  }
  goto zig_block_0;
 
  zig_block_0:;
  t7 = (uintptr_t *)&a0->pos;
  t4 = (*t7);
- t8 = (nav__4132_50 *)&a0->buffer;
+ t8 = (nav__4168_50 *)&a0->buffer;
  t9 = (*t8);
  t10 = t9.len;
  t5 = t4;
  t11 = t10;
  t6 = t5 >= t11;
  if (t6) {
-  return (nav__4132_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_NoSpaceLeft};
+  return (nav__4168_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_NoSpaceLeft};
  }
  goto zig_block_1;
 
  zig_block_1:;
- t8 = (nav__4132_50 *)&a0->buffer;
+ t8 = (nav__4168_50 *)&a0->buffer;
  t9 = (*t8);
  t10 = t9.len;
  t7 = (uintptr_t *)&a0->pos;
@@ -7629,7 +8049,7 @@ static nav__4132_38 io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_write
  t10 = (t4 < t10) ? t4 : t10;
  t11 = t10;
  t12 = (*t1);
- t8 = (nav__4132_50 *)&t12->buffer;
+ t8 = (nav__4168_50 *)&t12->buffer;
  t7 = (uintptr_t *)&a0->pos;
  t10 = (*t7);
  t9 = (*t8);
@@ -7654,7 +8074,7 @@ static nav__4132_38 io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_write
  (*t7) = t4;
  t6 = t11 == UINT64_C(0);
  if (t6) {
-  return (nav__4132_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_NoSpaceLeft};
+  return (nav__4168_38){(uintptr_t)0xaaaaaaaaaaaaaaaaul,zig_error_NoSpaceLeft};
  }
  goto zig_block_2;
 
@@ -7665,37 +8085,37 @@ static nav__4132_38 io_fixed_buffer_stream_FixedBufferStream_28_5b_5du8_29_write
  return t16;
 }
 
-static nav__4041_38 io_dummyWrite__4041(nav__4041_40 const a0) {
+static nav__4077_38 io_dummyWrite__4077(nav__4077_40 const a0) {
  uintptr_t t0;
- nav__4041_38 t1;
+ nav__4077_38 t1;
  t0 = a0.len;
  t1.payload = t0;
  t1.error = UINT16_C(0);
  return t1;
 }
 
-static nav__7660_38 unicode_utf8Decode__7660(nav__7660_40 const a0) {
- nav__7660_40 const *t1;
+static nav__7734_38 unicode_utf8Decode__7734(nav__7734_40 const a0) {
+ nav__7734_40 const *t1;
  uintptr_t t2;
- nav__7660_40 t7;
- nav__7660_40 t0;
+ nav__7734_40 t7;
+ nav__7734_40 t0;
  uint8_t const *t8;
  uint8_t const (*t9)[2];
  uint8_t const (*t13)[3];
  uint8_t const (*t16)[4];
- nav__7660_38 t3;
- nav__7660_38 t6;
- nav__7660_38 t12;
+ nav__7734_38 t3;
+ nav__7734_38 t6;
+ nav__7734_38 t12;
  uint32_t t5;
  uint8_t t4;
  uint8_t t10[2];
- nav__7660_48 t11;
+ nav__7734_48 t11;
  uint8_t t14[3];
- nav__7660_52 t15;
+ nav__7734_52 t15;
  uint8_t t17[4];
- nav__7660_56 t18;
+ nav__7734_56 t18;
  t0 = a0;
- t1 = (nav__7660_40 const *)&t0;
+ t1 = (nav__7734_40 const *)&t0;
  t2 = a0.len;
  switch (t2) {
   case (uintptr_t)1ul: {
@@ -7712,9 +8132,9 @@ static nav__7660_38 unicode_utf8Decode__7660(nav__7660_40 const a0) {
    t8 = (uint8_t const *)(((uintptr_t)t8) + ((uintptr_t)0ul*sizeof(uint8_t)));
    t9 = (uint8_t const (*)[2])t8;
    memcpy(t10, (const char *)t9, sizeof(uint8_t[2]));
-   memcpy(t11.array, t10, sizeof(nav__7660_48));
-   t6 = unicode_utf8Decode2__7662(t11);
-   memcpy(&t12, &t6, sizeof(nav__7660_38));
+   memcpy(t11.array, t10, sizeof(nav__7734_48));
+   t6 = unicode_utf8Decode2__7736(t11);
+   memcpy(&t12, &t6, sizeof(nav__7734_38));
    t3 = t12;
    goto zig_block_0;
   }
@@ -7724,9 +8144,9 @@ static nav__7660_38 unicode_utf8Decode__7660(nav__7660_40 const a0) {
    t8 = (uint8_t const *)(((uintptr_t)t8) + ((uintptr_t)0ul*sizeof(uint8_t)));
    t13 = (uint8_t const (*)[3])t8;
    memcpy(t14, (const char *)t13, sizeof(uint8_t[3]));
-   memcpy(t15.array, t14, sizeof(nav__7660_52));
-   t12 = unicode_utf8Decode3__7664(t15);
-   memcpy(&t6, &t12, sizeof(nav__7660_38));
+   memcpy(t15.array, t14, sizeof(nav__7734_52));
+   t12 = unicode_utf8Decode3__7738(t15);
+   memcpy(&t6, &t12, sizeof(nav__7734_38));
    t3 = t6;
    goto zig_block_0;
   }
@@ -7736,9 +8156,9 @@ static nav__7660_38 unicode_utf8Decode__7660(nav__7660_40 const a0) {
    t8 = (uint8_t const *)(((uintptr_t)t8) + ((uintptr_t)0ul*sizeof(uint8_t)));
    t16 = (uint8_t const (*)[4])t8;
    memcpy(t17, (const char *)t16, sizeof(uint8_t[4]));
-   memcpy(t18.array, t17, sizeof(nav__7660_56));
-   t12 = unicode_utf8Decode4__7668(t18);
-   memcpy(&t6, &t12, sizeof(nav__7660_38));
+   memcpy(t18.array, t17, sizeof(nav__7734_56));
+   t12 = unicode_utf8Decode4__7742(t18);
+   memcpy(&t6, &t12, sizeof(nav__7734_38));
    t3 = t6;
    goto zig_block_0;
   }
@@ -7751,56 +8171,56 @@ static nav__7660_38 unicode_utf8Decode__7660(nav__7660_40 const a0) {
  return t3;
 }
 
-static nav__7653_38 unicode_utf8CodepointSequenceLength__7653(uint32_t const a0) {
+static nav__7727_38 unicode_utf8CodepointSequenceLength__7727(uint32_t const a0) {
  bool t0;
  t0 = a0 < UINT32_C(128);
  if (t0) {
-  return (nav__7653_38){0,UINT8_C(1)};
+  return (nav__7727_38){0,UINT8_C(1)};
  }
  goto zig_block_0;
 
  zig_block_0:;
  t0 = a0 < UINT32_C(2048);
  if (t0) {
-  return (nav__7653_38){0,UINT8_C(2)};
+  return (nav__7727_38){0,UINT8_C(2)};
  }
  goto zig_block_1;
 
  zig_block_1:;
  t0 = a0 < UINT32_C(65536);
  if (t0) {
-  return (nav__7653_38){0,UINT8_C(3)};
+  return (nav__7727_38){0,UINT8_C(3)};
  }
  goto zig_block_2;
 
  zig_block_2:;
  t0 = a0 < UINT32_C(1114112);
  if (t0) {
-  return (nav__7653_38){0,UINT8_C(4)};
+  return (nav__7727_38){0,UINT8_C(4)};
  }
  goto zig_block_3;
 
  zig_block_3:;
- return (nav__7653_38){zig_error_CodepointTooLarge,UINT8_C(0x2)};
+ return (nav__7727_38){zig_error_CodepointTooLarge,UINT8_C(0x2)};
 }
 
-static nav__7825_38 unicode_utf8EncodeImpl__anon_5445__7825(uint32_t const a0, nav__7825_40 const a1) {
- nav__7825_40 const *t1;
+static nav__7899_38 unicode_utf8EncodeImpl__anon_5440__7899(uint32_t const a0, nav__7899_40 const a1) {
+ nav__7899_40 const *t1;
  uintptr_t t5;
  uint64_t t6;
  uint64_t t7;
- nav__7825_40 t9;
- nav__7825_40 t0;
+ nav__7899_40 t9;
+ nav__7899_40 t0;
  uint8_t *t10;
  uint32_t t12;
- nav__7825_38 t2;
+ nav__7899_38 t2;
  uint16_t t3;
  uint8_t t4;
  uint8_t t11;
  bool t8;
  t0 = a1;
- t1 = (nav__7825_40 const *)&t0;
- t2 = unicode_utf8CodepointSequenceLength__7653(a0);
+ t1 = (nav__7899_40 const *)&t0;
+ t2 = unicode_utf8CodepointSequenceLength__7727(a0);
  if (t2.error) {
   t3 = t2.error;
   t2.payload = UINT8_C(0x2);
@@ -7837,9 +8257,9 @@ static nav__7825_38 unicode_utf8EncodeImpl__anon_5445__7825(uint32_t const a0, n
    goto zig_block_0;
   }
   case UINT8_C(3): {
-   t8 = unicode_isSurrogateCodepoint__7733(a0);
+   t8 = unicode_isSurrogateCodepoint__7807(a0);
    if (t8) {
-    return (nav__7825_38){zig_error_Utf8CannotEncodeSurrogateHalf,UINT8_C(0x2)};
+    return (nav__7899_38){zig_error_Utf8CannotEncodeSurrogateHalf,UINT8_C(0x2)};
    }
    goto zig_block_1;
 
@@ -7905,26 +8325,26 @@ static nav__7825_38 unicode_utf8EncodeImpl__anon_5445__7825(uint32_t const a0, n
  return t2;
 }
 
-static nav__7655_38 unicode_utf8Encode__7655(uint32_t const a0, nav__7655_40 const a1) {
- nav__7655_38 t0;
- nav__7655_38 t1;
- t0 = unicode_utf8EncodeImpl__anon_5445__7825(a0, a1);
- memcpy(&t1, &t0, sizeof(nav__7655_38));
+static nav__7729_38 unicode_utf8Encode__7729(uint32_t const a0, nav__7729_40 const a1) {
+ nav__7729_38 t0;
+ nav__7729_38 t1;
+ t0 = unicode_utf8EncodeImpl__anon_5440__7899(a0, a1);
+ memcpy(&t1, &t0, sizeof(nav__7729_38));
  return t1;
 }
 
-static uint16_t io_Writer_writeBytesNTimes__7120(struct io_Writer__4192 const a0, nav__7120_40 const a1, uintptr_t const a2) {
- struct io_Writer__4192 const *t1;
+static uint16_t io_Writer_writeBytesNTimes__7193(struct io_Writer__4060 const a0, nav__7193_40 const a1, uintptr_t const a2) {
+ struct io_Writer__4060 const *t1;
  uintptr_t t3;
  uintptr_t t2;
  uint64_t t4;
  uint64_t t5;
- struct io_Writer__4192 t7;
- struct io_Writer__4192 t0;
+ struct io_Writer__4060 t7;
+ struct io_Writer__4060 t0;
  uint16_t t8;
  bool t6;
  t0 = a0;
- t1 = (struct io_Writer__4192 const *)&t0;
+ t1 = (struct io_Writer__4060 const *)&t0;
  t2 = (uintptr_t)0ul;
  zig_loop_9:
  t3 = t2;
@@ -7933,7 +8353,7 @@ static uint16_t io_Writer_writeBytesNTimes__7120(struct io_Writer__4192 const a0
  t6 = t4 < t5;
  if (t6) {
   t7 = (*t1);
-  t8 = io_Writer_writeAll__7116(t7, a1);
+  t8 = io_Writer_writeAll__7189(t7, a1);
   if (t8) {
    return t8;
   }
@@ -7951,11 +8371,11 @@ static uint16_t io_Writer_writeBytesNTimes__7120(struct io_Writer__4192 const a0
  return 0;
 }
 
-static nav__7662_38 unicode_utf8Decode2__7662(nav__7662_40 const a0) {
+static nav__7736_38 unicode_utf8Decode2__7736(nav__7736_40 const a0) {
  uint32_t t3;
  uint32_t t4;
  uint32_t t2;
- nav__7662_38 t5;
+ nav__7736_38 t5;
  uint8_t t0;
  bool t1;
  t0 = a0.array[(uintptr_t)0ul];
@@ -7970,7 +8390,7 @@ static nav__7662_38 unicode_utf8Decode2__7662(nav__7662_40 const a0) {
  t0 = t0 & UINT8_C(192);
  t1 = t0 != UINT8_C(128);
  if (t1) {
-  return (nav__7662_38){UINT32_C(0xaaaaa),zig_error_Utf8ExpectedContinuation};
+  return (nav__7736_38){UINT32_C(0xaaaaa),zig_error_Utf8ExpectedContinuation};
  }
  goto zig_block_0;
 
@@ -7987,7 +8407,7 @@ static nav__7662_38 unicode_utf8Decode2__7662(nav__7662_40 const a0) {
  t4 = t2;
  t1 = t4 < UINT32_C(128);
  if (t1) {
-  return (nav__7662_38){UINT32_C(0xaaaaa),zig_error_Utf8OverlongEncoding};
+  return (nav__7736_38){UINT32_C(0xaaaaa),zig_error_Utf8OverlongEncoding};
  }
  goto zig_block_1;
 
@@ -7998,15 +8418,15 @@ static nav__7662_38 unicode_utf8Decode2__7662(nav__7662_40 const a0) {
  return t5;
 }
 
-static nav__7664_38 unicode_utf8Decode3__7664(nav__7664_40 const a0) {
- nav__7664_38 t1;
+static nav__7738_38 unicode_utf8Decode3__7738(nav__7738_40 const a0) {
+ nav__7738_38 t1;
  uint32_t t3;
  uint16_t t2;
- nav__7664_40 t0;
+ nav__7738_40 t0;
  bool t4;
  bool t5;
- memcpy(t0.array, a0.array, sizeof(nav__7664_40));
- t1 = unicode_utf8Decode3AllowSurrogateHalf__7666(t0);
+ memcpy(t0.array, a0.array, sizeof(nav__7738_40));
+ t1 = unicode_utf8Decode3AllowSurrogateHalf__7740(t0);
  if (t1.error) {
   t2 = t1.error;
   t1.payload = UINT32_C(0xaaaaa);
@@ -8025,7 +8445,7 @@ static nav__7664_38 unicode_utf8Decode3__7664(nav__7664_40 const a0) {
 
  zig_block_1:;
  if (t5) {
-  return (nav__7664_38){UINT32_C(0xaaaaa),zig_error_Utf8EncodesSurrogateHalf};
+  return (nav__7738_38){UINT32_C(0xaaaaa),zig_error_Utf8EncodesSurrogateHalf};
  }
  goto zig_block_0;
 
@@ -8035,11 +8455,11 @@ static nav__7664_38 unicode_utf8Decode3__7664(nav__7664_40 const a0) {
  return t1;
 }
 
-static nav__7668_38 unicode_utf8Decode4__7668(nav__7668_40 const a0) {
+static nav__7742_38 unicode_utf8Decode4__7742(nav__7742_40 const a0) {
  uint32_t t3;
  uint32_t t4;
  uint32_t t2;
- nav__7668_38 t5;
+ nav__7742_38 t5;
  uint8_t t0;
  bool t1;
  t0 = a0.array[(uintptr_t)0ul];
@@ -8054,7 +8474,7 @@ static nav__7668_38 unicode_utf8Decode4__7668(nav__7668_40 const a0) {
  t0 = t0 & UINT8_C(192);
  t1 = t0 != UINT8_C(128);
  if (t1) {
-  return (nav__7668_38){UINT32_C(0xaaaaa),zig_error_Utf8ExpectedContinuation};
+  return (nav__7742_38){UINT32_C(0xaaaaa),zig_error_Utf8ExpectedContinuation};
  }
  goto zig_block_0;
 
@@ -8072,7 +8492,7 @@ static nav__7668_38 unicode_utf8Decode4__7668(nav__7668_40 const a0) {
  t0 = t0 & UINT8_C(192);
  t1 = t0 != UINT8_C(128);
  if (t1) {
-  return (nav__7668_38){UINT32_C(0xaaaaa),zig_error_Utf8ExpectedContinuation};
+  return (nav__7742_38){UINT32_C(0xaaaaa),zig_error_Utf8ExpectedContinuation};
  }
  goto zig_block_1;
 
@@ -8090,7 +8510,7 @@ static nav__7668_38 unicode_utf8Decode4__7668(nav__7668_40 const a0) {
  t0 = t0 & UINT8_C(192);
  t1 = t0 != UINT8_C(128);
  if (t1) {
-  return (nav__7668_38){UINT32_C(0xaaaaa),zig_error_Utf8ExpectedContinuation};
+  return (nav__7742_38){UINT32_C(0xaaaaa),zig_error_Utf8ExpectedContinuation};
  }
  goto zig_block_2;
 
@@ -8107,7 +8527,7 @@ static nav__7668_38 unicode_utf8Decode4__7668(nav__7668_40 const a0) {
  t4 = t2;
  t1 = t4 < UINT32_C(65536);
  if (t1) {
-  return (nav__7668_38){UINT32_C(0xaaaaa),zig_error_Utf8OverlongEncoding};
+  return (nav__7742_38){UINT32_C(0xaaaaa),zig_error_Utf8OverlongEncoding};
  }
  goto zig_block_3;
 
@@ -8115,7 +8535,7 @@ static nav__7668_38 unicode_utf8Decode4__7668(nav__7668_40 const a0) {
  t4 = t2;
  t1 = t4 > UINT32_C(1114111);
  if (t1) {
-  return (nav__7668_38){UINT32_C(0xaaaaa),zig_error_Utf8CodepointTooLarge};
+  return (nav__7742_38){UINT32_C(0xaaaaa),zig_error_Utf8CodepointTooLarge};
  }
  goto zig_block_4;
 
@@ -8126,7 +8546,7 @@ static nav__7668_38 unicode_utf8Decode4__7668(nav__7668_40 const a0) {
  return t5;
 }
 
-static bool unicode_isSurrogateCodepoint__7733(uint32_t const a0) {
+static bool unicode_isSurrogateCodepoint__7807(uint32_t const a0) {
  bool t0;
  switch (a0) {
   default: if ((a0 >= UINT32_C(55296) && a0 <= UINT32_C(57343))) {
@@ -8142,11 +8562,11 @@ static bool unicode_isSurrogateCodepoint__7733(uint32_t const a0) {
  return t0;
 }
 
-static nav__7666_38 unicode_utf8Decode3AllowSurrogateHalf__7666(nav__7666_40 const a0) {
+static nav__7740_38 unicode_utf8Decode3AllowSurrogateHalf__7740(nav__7740_40 const a0) {
  uint32_t t3;
  uint32_t t4;
  uint32_t t2;
- nav__7666_38 t5;
+ nav__7740_38 t5;
  uint8_t t0;
  bool t1;
  t0 = a0.array[(uintptr_t)0ul];
@@ -8161,7 +8581,7 @@ static nav__7666_38 unicode_utf8Decode3AllowSurrogateHalf__7666(nav__7666_40 con
  t0 = t0 & UINT8_C(192);
  t1 = t0 != UINT8_C(128);
  if (t1) {
-  return (nav__7666_38){UINT32_C(0xaaaaa),zig_error_Utf8ExpectedContinuation};
+  return (nav__7740_38){UINT32_C(0xaaaaa),zig_error_Utf8ExpectedContinuation};
  }
  goto zig_block_0;
 
@@ -8179,7 +8599,7 @@ static nav__7666_38 unicode_utf8Decode3AllowSurrogateHalf__7666(nav__7666_40 con
  t0 = t0 & UINT8_C(192);
  t1 = t0 != UINT8_C(128);
  if (t1) {
-  return (nav__7666_38){UINT32_C(0xaaaaa),zig_error_Utf8ExpectedContinuation};
+  return (nav__7740_38){UINT32_C(0xaaaaa),zig_error_Utf8ExpectedContinuation};
  }
  goto zig_block_1;
 
@@ -8196,7 +8616,7 @@ static nav__7666_38 unicode_utf8Decode3AllowSurrogateHalf__7666(nav__7666_40 con
  t3 = t2;
  t1 = t3 < UINT32_C(2048);
  if (t1) {
-  return (nav__7666_38){UINT32_C(0xaaaaa),zig_error_Utf8OverlongEncoding};
+  return (nav__7740_38){UINT32_C(0xaaaaa),zig_error_Utf8OverlongEncoding};
  }
  goto zig_block_2;
 
@@ -8207,45 +8627,80 @@ static nav__7666_38 unicode_utf8Decode3AllowSurrogateHalf__7666(nav__7666_40 con
  return t5;
 }
 
-static uint16_t instruments_perf_PerfInstrument_add_marker__758(struct instruments_perf_PerfInstrument__559 *const a0, uint32_t const a1, struct shared_MarkerType__1953 const a2) {
- struct instruments_perf_PerfInstrument__559 *const *t1;
- struct instruments_perf_PerfInstrument__559 *t2;
- struct instruments_perf_PerfInstrument__559 *t0;
- struct fifo_UnixPipe_Writer__600 *t3;
- struct shared_Command__struct_1951__1951 t4;
- struct shared_Command__1946 t5;
- struct fifo_UnixPipe_Reader__602 *t7;
+static uint16_t runner_fifo_RunnerFifo_add_marker__1091(struct runner_fifo_RunnerFifo__621 *const a0, uint32_t const a1, struct shared_MarkerType__2021 const a2) {
+ struct runner_fifo_RunnerFifo__621 *const *t1;
+ struct runner_fifo_RunnerFifo__621 *t2;
+ struct runner_fifo_RunnerFifo__621 *t0;
+ struct fifo_UnixPipe_Writer__628 *t3;
+ struct shared_Command__struct_2019__2019 t4;
+ struct shared_Command__2014 t5;
+ struct fifo_UnixPipe_Reader__630 *t7;
  uint16_t t6;
  t0 = a0;
- t1 = (struct instruments_perf_PerfInstrument__559 *const *)&t0;
+ t1 = (struct runner_fifo_RunnerFifo__621 *const *)&t0;
  t2 = (*t1);
- t3 = (struct fifo_UnixPipe_Writer__600 *)&t2->writer;
+ t3 = (struct fifo_UnixPipe_Writer__628 *)&t2->writer;
  t4.marker = a2;
  t4.pid = a1;
  t5.tag = UINT8_C(7);
  t5.payload.AddMarker = t4;
- t6 = fifo_UnixPipe_Writer_sendCmd__1079(t3, t5);
+ t6 = fifo_UnixPipe_Writer_sendCmd__1120(t3, t5);
  if (t6) {
   return t6;
  }
  t2 = (*t1);
- t7 = (struct fifo_UnixPipe_Reader__602 *)&t2->reader;
- t6 = fifo_UnixPipe_Reader_waitForAck__1086(t7, (nav__758_72){UINT64_C(0xaaaaaaaaaaaaaaaa),true});
+ t7 = (struct fifo_UnixPipe_Reader__630 *)&t2->reader;
+ t6 = fifo_UnixPipe_Reader_waitForAck__1127(t7, (nav__1091_72){UINT64_C(0xaaaaaaaaaaaaaaaa),true});
  if (t6) {
   return t6;
  }
  return 0;
 }
 
-uint8_t c_instrument_hooks_add_marker__250(struct instruments_root_InstrumentHooks__547 *const a0, uint32_t const a1, uint8_t const a2, uint64_t const a3) {
+static uint16_t instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29_add_marker__767(struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *const a0, uint32_t const a1, struct shared_MarkerType__2021 const a2) {
+ struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *const *t1;
+ struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *t2;
+ struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *t0;
+ struct runner_fifo_RunnerFifo__621 *t3;
+ uint16_t t4;
+ t0 = a0;
+ t1 = (struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *const *)&t0;
+ t2 = (*t1);
+ t3 = (struct runner_fifo_RunnerFifo__621 *)&t2->fifo;
+ t4 = runner_fifo_RunnerFifo_add_marker__1091(t3, a1, a2);
+ if (t4) {
+  return t4;
+ }
+ return 0;
+}
+
+static uint16_t instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29_add_marker__780(struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *const a0, uint32_t const a1, struct shared_MarkerType__2021 const a2) {
+ struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *const *t1;
+ struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *t2;
+ struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *t0;
+ struct runner_fifo_RunnerFifo__621 *t3;
+ uint16_t t4;
+ t0 = a0;
+ t1 = (struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *const *)&t0;
+ t2 = (*t1);
+ t3 = (struct runner_fifo_RunnerFifo__621 *)&t2->fifo;
+ t4 = runner_fifo_RunnerFifo_add_marker__1091(t3, a1, a2);
+ if (t4) {
+  return t4;
+ }
+ return 0;
+}
+
+uint8_t c_instrument_hooks_add_marker__249(struct instruments_root_InstrumentHooks__547 *const a0, uint32_t const a1, uint8_t const a2, uint64_t const a3) {
  struct instruments_root_InstrumentHooks__547 *t1;
  struct instruments_root_InstrumentHooks__547 *t2;
  struct instruments_root_InstrumentHooks__547 *t7;
  struct instruments_root_InstrumentHooks__547 *const *t3;
- struct shared_MarkerType__1953 t4;
- struct shared_MarkerType__1953 t5;
+ struct shared_MarkerType__2021 t4;
+ struct shared_MarkerType__2021 t5;
  struct instruments_root_InstrumentHooks__547 t8;
- struct instruments_perf_PerfInstrument__559 *t10;
+ struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *t10;
+ struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *t13;
  uint16_t t6;
  uint16_t t11;
  uint16_t t12;
@@ -8295,12 +8750,26 @@ uint8_t c_instrument_hooks_add_marker__250(struct instruments_root_InstrumentHoo
   t0 = t9 == UINT8_C(1);
   if (t0) {
    t1 = (*t3);
-   t10 = (struct instruments_perf_PerfInstrument__559 *)&t1->payload.perf;
-   t11 = instruments_perf_PerfInstrument_add_marker__758(t10, a1, t4);
+   t10 = (struct instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29__572 *)&t1->payload.perf;
+   t11 = instruments_fifo_instrument_FifoInstrument_28_Perf_2cerror_7bModeError_7d_29_add_marker__767(t10, a1, t4);
    memcpy(&t12, &t11, sizeof(uint16_t));
    t6 = t12;
    goto zig_block_3;
   }
+  t8 = (*t1);
+  t9 = t8.tag;
+  t0 = t9 == UINT8_C(2);
+  if (t0) {
+   t1 = (*t3);
+   t13 = (struct instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29__581 *)&t1->payload.analysis;
+   t12 = instruments_fifo_instrument_FifoInstrument_28_Analysis_2cerror_7bModeError_7d_29_add_marker__780(t13, a1, t4);
+   memcpy(&t11, &t12, sizeof(uint16_t));
+   t6 = t11;
+   goto zig_block_3;
+  }
+  goto zig_block_5;
+
+  zig_block_5:;
   goto zig_block_4;
 
   zig_block_4:;
@@ -8324,21 +8793,21 @@ uint8_t c_instrument_hooks_add_marker__250(struct instruments_root_InstrumentHoo
  return UINT8_C(0);
 }
 
-uint64_t c_instrument_hooks_current_timestamp__251(void) {
+uint64_t c_instrument_hooks_current_timestamp__250(void) {
  uint64_t t0;
- t0 = utils_clock_gettime_monotonic__3835();
+ t0 = utils_clock_gettime_monotonic__3871();
  return t0;
 }
 
-static uint64_t utils_clock_gettime_monotonic__3835(void) {
- struct os_linux_timespec__struct_2927__2927 t0;
- struct os_linux_timespec__struct_2927__2927 t3;
- nav__3835_41 t1;
+static uint64_t utils_clock_gettime_monotonic__3871(void) {
+ struct os_linux_timespec__struct_3026__3026 t0;
+ struct os_linux_timespec__struct_3026__3026 t3;
+ nav__3871_41 t1;
  intptr_t t4;
  uint64_t t5;
  uint64_t t6;
  bool t2;
- t1 = posix_clock_gettime__1632(UINT32_C(1));
+ t1 = posix_clock_gettime__1673(UINT32_C(1));
  t2 = t1.error == UINT16_C(0);
  if (t2) {
   t3 = t1.payload;
@@ -8357,31 +8826,31 @@ static uint64_t utils_clock_gettime_monotonic__3835(void) {
  return t6;
 }
 
-static uint64_t const builtin_zig_backend__256 = UINT64_C(3);
+static uint64_t const builtin_zig_backend__255 = UINT64_C(3);
 
 static bool const start_simplified_logic__109 = false;
 
-static uint8_t const builtin_output_mode__257 = UINT8_C(1);
+static uint8_t const builtin_output_mode__256 = UINT8_C(1);
 
-static uint8_t const builtin_link_mode__258 = UINT8_C(0);
+static uint8_t const builtin_link_mode__257 = UINT8_C(0);
 
-static uint64_t features_features__323 = ((uint64_t)UINT64_C(0));
+static uint64_t features_features__322 = ((uint64_t)UINT64_C(0));
 
-static uintptr_t const bit_set_IntegerBitSet_2864_29_bit_length__354 = 64ul;
+static uintptr_t const bit_set_IntegerBitSet_2864_29_bit_length__353 = 64ul;
 
-static bool const builtin_link_libc__268 = true;
+static bool const builtin_link_libc__267 = true;
 
-static bool const posix_use_libc__1284 = true;
+static bool const posix_use_libc__1325 = true;
 
-static struct Target_Os__625 const builtin_os__264 = {{ .linux = {{{6ul,17ul,0ul,{NULL,0xaaaaaaaaaaaaaaaaul},{NULL,0xaaaaaaaaaaaaaaaaul}},{6ul,17ul,0ul,{NULL,0xaaaaaaaaaaaaaaaaul},{NULL,0xaaaaaaaaaaaaaaaaul}}},{2ul,39ul,0ul,{NULL,0xaaaaaaaaaaaaaaaaul},{NULL,0xaaaaaaaaaaaaaaaaul}},UINT32_C(14)} },UINT8_C(9)};
+static struct Target_Os__653 const builtin_os__263 = {{ .linux = {{{6ul,17ul,7ul,{NULL,0xaaaaaaaaaaaaaaaaul},{NULL,0xaaaaaaaaaaaaaaaaul}},{6ul,17ul,7ul,{NULL,0xaaaaaaaaaaaaaaaaul},{NULL,0xaaaaaaaaaaaaaaaaul}}},{2ul,39ul,0ul,{NULL,0xaaaaaaaaaaaaaaaaul},{NULL,0xaaaaaaaaaaaaaaaaul}},UINT32_C(14)} },UINT8_C(9)};
 
-static uint8_t const c_native_os__1726 = UINT8_C(9);
+static uint8_t const c_native_os__1767 = UINT8_C(9);
 
-static struct Target_DynamicLinker__799 const Target_DynamicLinker_none__3448 = {"\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252",UINT8_C(0)};
+static struct Target_DynamicLinker__828 const Target_DynamicLinker_none__3489 = {"\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252",UINT8_C(0)};
 
-static bool const builtin_is_test__260 = false;
+static bool const builtin_is_test__259 = false;
 
-static uint8_t *heap_CAllocator_alloc__3572(void *const a0, uintptr_t const a1, uint8_t const a2, uintptr_t const a3) {
+static uint8_t *heap_CAllocator_alloc__3613(void *const a0, uintptr_t const a1, uint8_t const a2, uintptr_t const a3) {
  uint64_t t0;
  uint8_t *t2;
  bool t1;
@@ -8390,11 +8859,11 @@ static uint8_t *heap_CAllocator_alloc__3572(void *const a0, uintptr_t const a1, 
  t0 = a1;
  t1 = t0 > UINT64_C(0);
  debug_assert__180(t1);
- t2 = heap_CAllocator_alignedAlloc__3569(a1, a2);
+ t2 = heap_CAllocator_alignedAlloc__3610(a1, a2);
  return t2;
 }
 
-static bool heap_CAllocator_resize__3573(void *const a0, nav__3573_40 const a1, uint8_t const a2, uintptr_t const a3, uintptr_t const a4) {
+static bool heap_CAllocator_resize__3614(void *const a0, nav__3614_40 const a1, uint8_t const a2, uintptr_t const a3, uintptr_t const a4) {
  uintptr_t t0;
  uint64_t t1;
  uint64_t t2;
@@ -8414,7 +8883,7 @@ static bool heap_CAllocator_resize__3573(void *const a0, nav__3573_40 const a1, 
 
  zig_block_0:;
  t4 = a1.ptr;
- t0 = heap_CAllocator_alignedAllocSize__3571(t4);
+ t0 = heap_CAllocator_alignedAllocSize__3612(t4);
  t2 = a3;
  t1 = t0;
  t3 = t2 <= t1;
@@ -8427,12 +8896,12 @@ static bool heap_CAllocator_resize__3573(void *const a0, nav__3573_40 const a1, 
  return false;
 }
 
-static uint8_t *heap_CAllocator_remap__3574(void *const a0, nav__3574_40 const a1, uint8_t const a2, uintptr_t const a3, uintptr_t const a4) {
+static uint8_t *heap_CAllocator_remap__3615(void *const a0, nav__3615_40 const a1, uint8_t const a2, uintptr_t const a3, uintptr_t const a4) {
  uint8_t *t0;
  uint8_t *t2;
  uint8_t *t3;
  bool t1;
- t1 = heap_CAllocator_resize__3573(a0, a1, a2, a3, a4);
+ t1 = heap_CAllocator_resize__3614(a0, a1, a2, a3, a4);
  if (t1) {
   t2 = a1.ptr;
   t3 = (uint8_t *)t2;
@@ -8446,17 +8915,17 @@ static uint8_t *heap_CAllocator_remap__3574(void *const a0, nav__3574_40 const a
  return t0;
 }
 
-static void heap_CAllocator_free__3575(void *const a0, nav__3575_40 const a1, uint8_t const a2, uintptr_t const a3) {
+static void heap_CAllocator_free__3616(void *const a0, nav__3616_40 const a1, uint8_t const a2, uintptr_t const a3) {
  uint8_t *t0;
  (void)a0;
  (void)a2;
  (void)a3;
  t0 = a1.ptr;
- heap_CAllocator_alignedFree__3570(t0);
+ heap_CAllocator_alignedFree__3611(t0);
  return;
 }
 
-static uint8_t *heap_CAllocator_alignedAlloc__3569(uintptr_t const a0, uint8_t const a1) {
+static uint8_t *heap_CAllocator_alignedAlloc__3610(uintptr_t const a0, uint8_t const a1) {
  uint8_t const *t1;
  uintptr_t t3;
  uint64_t t4;
@@ -8471,7 +8940,7 @@ static uint8_t *heap_CAllocator_alignedAlloc__3569(uintptr_t const a0, uint8_t c
  t0 = a1;
  t1 = (uint8_t const *)&t0;
  t2 = (*t1);
- t3 = mem_Alignment_toByteUnits__1044(t2);
+ t3 = mem_Alignment_toByteUnits__1065(t2);
  t3 = ((uintptr_t)8ul > t3) ? (uintptr_t)8ul : t3;
  t4 = t3;
  t3 = t4;
@@ -8489,7 +8958,7 @@ static uint8_t *heap_CAllocator_alignedAlloc__3569(uintptr_t const a0, uint8_t c
  return t10;
 }
 
-static uintptr_t heap_CAllocator_alignedAllocSize__3571(uint8_t *const a0) {
+static uintptr_t heap_CAllocator_alignedAllocSize__3612(uint8_t *const a0) {
  void const *t0;
  void const *t1;
  uintptr_t t2;
@@ -8499,7 +8968,7 @@ static uintptr_t heap_CAllocator_alignedAllocSize__3571(uint8_t *const a0) {
  return t2;
 }
 
-static void heap_CAllocator_alignedFree__3570(uint8_t *const a0) {
+static void heap_CAllocator_alignedFree__3611(uint8_t *const a0) {
  void *t0;
  void *t1;
  t0 = (void *)a0;
@@ -8508,7 +8977,7 @@ static void heap_CAllocator_alignedFree__3570(uint8_t *const a0) {
  return;
 }
 
-static uintptr_t mem_Alignment_toByteUnits__1044(uint8_t const a0) {
+static uintptr_t mem_Alignment_toByteUnits__1065(uint8_t const a0) {
  uintptr_t t1;
  uint8_t t0;
  t0 = a0;
@@ -8516,99 +8985,97 @@ static uintptr_t mem_Alignment_toByteUnits__1044(uint8_t const a0) {
  return t1;
 }
 
-static struct mem_Allocator__565 const heap_c_allocator__3537 = {((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__568 const *)&heap_CAllocator_vtable__3564)};
+static struct mem_Allocator__589 const heap_c_allocator__3578 = {((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__592 const *)&heap_CAllocator_vtable__3605)};
 
-static struct mem_Allocator__565 const c_allocator__235 = {((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__568 const *)&heap_CAllocator_vtable__3564)};
+static struct mem_Allocator__589 const c_allocator__235 = {((void *)(uintptr_t)0xaaaaaaaaaaaaaaaaul),((struct mem_Allocator_VTable__592 const *)&heap_CAllocator_vtable__3605)};
 
-static struct Target_Cpu_Feature_Set__816 const Target_Cpu_Feature_Set_empty__3493 = {{0ul,0ul,0ul,0ul,0ul}};
+static struct Target_Cpu_Feature_Set__845 const Target_Cpu_Feature_Set_empty__3534 = {{0ul,0ul,0ul,0ul,0ul}};
 
-static struct Target_Cpu__784 const builtin_cpu__263 = {((struct Target_Cpu_Model__811 const *)&Target_x86_cpu_alderlake__3596),{{9528139926881771760ul,4854352088661217417ul,15258802296178673304ul,3ul,0ul}},UINT8_C(42)};
+static struct Target_Cpu__813 const builtin_cpu__262 = {((struct Target_Cpu_Model__840 const *)&Target_x86_cpu_znver4__3733),{{449166724097319152ul,238734216392818280ul,15402363330914092936ul,3ul,0ul}},UINT8_C(42)};
 
-static uint8_t const builtin_abi__262 = UINT8_C(1);
+static uint8_t const builtin_abi__261 = UINT8_C(1);
 
-static uint8_t const builtin_object_format__266 = UINT8_C(0);
+static uint8_t const builtin_object_format__265 = UINT8_C(0);
 
-static struct Target__623 const builtin_target__265 = {{((struct Target_Cpu_Model__811 const *)&Target_x86_cpu_alderlake__3596),{{9528139926881771760ul,4854352088661217417ul,15258802296178673304ul,3ul,0ul}},UINT8_C(42)},{{ .linux = {{{6ul,17ul,0ul,{NULL,0xaaaaaaaaaaaaaaaaul},{NULL,0xaaaaaaaaaaaaaaaaul}},{6ul,17ul,0ul,{NULL,0xaaaaaaaaaaaaaaaaul},{NULL,0xaaaaaaaaaaaaaaaaul}}},{2ul,39ul,0ul,{NULL,0xaaaaaaaaaaaaaaaaul},{NULL,0xaaaaaaaaaaaaaaaaul}},UINT32_C(14)} },UINT8_C(9)},UINT8_C(1),UINT8_C(0),{"/nix/store/zdpby3l6azi78sl83cpad2qjpfj25aqx-glibc-2.40-66/lib/ld-linux-x86-64.so.2\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252",UINT8_C(82)}};
+static struct Target__651 const builtin_target__264 = {{((struct Target_Cpu_Model__840 const *)&Target_x86_cpu_znver4__3733),{{449166724097319152ul,238734216392818280ul,15402363330914092936ul,3ul,0ul}},UINT8_C(42)},{{ .linux = {{{6ul,17ul,7ul,{NULL,0xaaaaaaaaaaaaaaaaul},{NULL,0xaaaaaaaaaaaaaaaaul}},{6ul,17ul,7ul,{NULL,0xaaaaaaaaaaaaaaaaul},{NULL,0xaaaaaaaaaaaaaaaaul}}},{2ul,39ul,0ul,{NULL,0xaaaaaaaaaaaaaaaaul},{NULL,0xaaaaaaaaaaaaaaaaul}},UINT32_C(14)} },UINT8_C(9)},UINT8_C(1),UINT8_C(0),{"/nix/store/zdpby3l6azi78sl83cpad2qjpfj25aqx-glibc-2.40-66/lib/ld-linux-x86-64.so.2\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252\252",UINT8_C(82)}};
 
-static struct builtin_CallingConvention__266 const builtin_CallingConvention_c__464 = {{ .x86_64_sysv = {{UINT64_C(0xaaaaaaaaaaaaaaaa),true}} },UINT8_C(4)};
+static struct builtin_CallingConvention__266 const builtin_CallingConvention_c__463 = {{ .x86_64_sysv = {{UINT64_C(0xaaaaaaaaaaaaaaaa),true}} },UINT8_C(4)};
 
-static uint8_t const (*const shared_RUNNER_CTL_FIFO__3700)[21] = &__anon_1845;
+static uint8_t const (*const shared_RUNNER_CTL_FIFO__754)[21] = &__anon_1925;
 
-static uint8_t const (*const shared_RUNNER_ACK_FIFO__3701)[21] = &__anon_1916;
+static uint8_t const (*const shared_RUNNER_ACK_FIFO__755)[21] = &__anon_1996;
 
-static uint64_t const c_PROTOCOL_VERSION__236 = UINT64_C(1);
+static uint8_t const mem_native_endian__789 = UINT8_C(1);
 
-static uint8_t const mem_native_endian__768 = UINT8_C(1);
+static int const cimport_F_GETFL__5180 = 3;
 
-static int const cimport_F_GETFL__5133 = 3;
+static int const cimport_O_NONBLOCK__5156 = 2048;
 
-static int const cimport_O_NONBLOCK__5109 = 2048;
+static int const cimport_F_SETFL__5181 = 4;
 
-static int const cimport_F_SETFL__5134 = 4;
+static uint8_t const os_linux_native_arch__2673 = UINT8_C(42);
 
-static uint8_t const os_linux_native_arch__2632 = UINT8_C(42);
+static int const cimport_EINTR__6884 = 4;
 
-static int const cimport_EINTR__6813 = 4;
+static uint8_t const fs_path_native_os__4282 = UINT8_C(9);
 
-static uint8_t const fs_path_native_os__4247 = UINT8_C(9);
+static uint8_t const fs_native_os__1137 = UINT8_C(9);
 
-static uint8_t const fs_native_os__1096 = UINT8_C(9);
+static uint8_t const fs_Dir_native_os__3860 = UINT8_C(9);
 
-static uint8_t const fs_Dir_native_os__3824 = UINT8_C(9);
+static bool const fs_File_is_windows__1313 = false;
 
-static bool const fs_File_is_windows__1272 = false;
+static uint8_t const posix_native_os__1323 = UINT8_C(9);
 
-static uint8_t const posix_native_os__1282 = UINT8_C(9);
-
-static uint8_t const builtin_mode__267 = UINT8_C(3);
+static uint8_t const builtin_mode__266 = UINT8_C(3);
 
 static bool const debug_runtime_safety__159 = false;
 
-static bool const fs_Dir_have_flock__3825 = true;
+static bool const fs_Dir_have_flock__3861 = true;
 
-static uint8_t const c_native_abi__1724 = UINT8_C(1);
+static uint8_t const c_native_abi__1765 = UINT8_C(1);
 
-static bool const posix_unexpected_error_tracing__1713 = false;
+static bool const posix_unexpected_error_tracing__1754 = false;
 
-static bool const posix_lfs64_abi__1712 = true;
+static bool const posix_lfs64_abi__1753 = true;
 
-static bool const mem_backend_supports_vectors__796 = true;
+static bool const mem_backend_supports_vectors__817 = true;
 
-static bool const builtin_valgrind_support__271 = false;
+static bool const builtin_valgrind_support__270 = false;
 
 static bool const debug_default_enable_segfault_handler__205 = false;
 
-static uint8_t const log_default_level__7358 = UINT8_C(0);
+static uint8_t const log_default_level__7432 = UINT8_C(0);
 
-static struct std_Options__4542 const std_options__97 = {{0xaaaaaaaaaaaaaaaaul,true},{0xaaaaaaaaaaaaaaaaul,true},3ul,false,UINT8_C(0),false,true,false,false,false,UINT8_C(2)};
+static struct std_Options__4493 const std_options__97 = {{0xaaaaaaaaaaaaaaaaul,true},{0xaaaaaaaaaaaaaaaaul,true},3ul,false,UINT8_C(0),false,true,false,false,false,UINT8_C(2)};
 
-static nav__3553_38 const heap_page_size_min_default__3553 = {4096ul,false};
+static nav__3594_38 const heap_page_size_min_default__3594 = {4096ul,false};
 
-static uintptr_t const heap_page_size_min__3532 = 4096ul;
+static uintptr_t const heap_page_size_min__3573 = 4096ul;
 
-static uint16_t const fmt_max_format_args__7426 = UINT16_C(32);
+static uint16_t const fmt_max_format_args__7500 = UINT16_C(32);
 
-static uint8_t const (*const fmt_ANY__7429)[4] = &__anon_5288;
+static uint8_t const (*const fmt_ANY__7503)[4] = &__anon_5283;
 
-static uint8_t const unicode_native_endian__7651 = UINT8_C(1);
+static uint8_t const unicode_native_endian__7725 = UINT8_C(1);
 
-static uint32_t const unicode_replacement_character__7652 = UINT32_C(65533);
+static uint32_t const unicode_replacement_character__7726 = UINT32_C(65533);
 
-static uint8_t const c_MARKER_TYPE_SAMPLE_START__246 = UINT8_C(0);
+static uint8_t const c_MARKER_TYPE_SAMPLE_START__245 = UINT8_C(0);
 
-static uint8_t const c_MARKER_TYPE_SAMPLE_END__247 = UINT8_C(1);
+static uint8_t const c_MARKER_TYPE_SAMPLE_END__246 = UINT8_C(1);
 
-static uint8_t const c_MARKER_TYPE_BENCHMARK_START__248 = UINT8_C(2);
+static uint8_t const c_MARKER_TYPE_BENCHMARK_START__247 = UINT8_C(2);
 
-static uint8_t const c_MARKER_TYPE_BENCHMARK_END__249 = UINT8_C(3);
+static uint8_t const c_MARKER_TYPE_BENCHMARK_END__248 = UINT8_C(3);
 
-static struct mem_Allocator_VTable__568 const heap_CAllocator_vtable__3564 = {&heap_CAllocator_alloc__3572,&heap_CAllocator_resize__3573,&heap_CAllocator_remap__3574,&heap_CAllocator_free__3575};
+static struct mem_Allocator_VTable__592 const heap_CAllocator_vtable__3605 = {&heap_CAllocator_alloc__3613,&heap_CAllocator_resize__3614,&heap_CAllocator_remap__3615,&heap_CAllocator_free__3616};
 
-static bool const heap_CAllocator_supports_malloc_size__3565 = true;
+static bool const heap_CAllocator_supports_malloc_size__3606 = true;
 
-static bool const heap_CAllocator_supports_posix_memalign__3567 = true;
+static bool const heap_CAllocator_supports_posix_memalign__3608 = true;
 
-static struct Target_Cpu_Model__811 const Target_x86_cpu_alderlake__3596 = {{(uint8_t const *)&__anon_5565,9ul},{(uint8_t const *)&__anon_5565,9ul},{{9516916112185360560ul,4872366487170699401ul,11223533324467504792ul,3ul,0ul}}};
+static struct Target_Cpu_Model__840 const Target_x86_cpu_znver4__3733 = {{(uint8_t const *)&__anon_5575,6ul},{(uint8_t const *)&__anon_5575,6ul},{{149677348868194480ul,220719817882287720ul,10790633606899500936ul,3ul,0ul}}};
 
 #endif
 #ifndef WRAPPER_H
