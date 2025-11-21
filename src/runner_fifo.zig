@@ -91,6 +91,19 @@ pub const RunnerFifo = struct {
         try self.writer.sendCmd(fifo.Command{ .SetVersion = protocol_version });
         try self.reader.waitForAck(null);
     }
+
+    pub fn get_integration_mode(self: *Self) !shared.IntegrationMode {
+        // NOTE: Other messages send data to the runner, and expect an ACK response (see `sendCmd`). This
+        // command expects the runner to respond with data, so have to write and read directly.
+        try self.writer.sendCmd(fifo.Command.GetIntegrationMode);
+        const response = try self.reader.waitForResponse(null);
+        defer response.deinit(self.allocator);
+
+        if (response == .IntegrationModeResponse) {
+            return response.IntegrationModeResponse;
+        }
+        return error.UnexpectedResponse;
+    }
 };
 
 test "test runner fifo" {

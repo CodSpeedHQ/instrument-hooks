@@ -6,7 +6,11 @@ pub const ValgrindInstrument = struct {
     allocator: std.mem.Allocator,
     const Self = @This();
 
-    pub fn init(allocator: std.mem.Allocator) Self {
+    pub fn init(allocator: std.mem.Allocator) !Self {
+        if (!ValgrindInstrument.is_instrumented()) {
+            return error.NotInstrumented;
+        }
+
         return Self{
             .allocator = allocator,
         };

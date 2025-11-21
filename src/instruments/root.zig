@@ -1,28 +1,32 @@
 const std = @import("std");
-const builtin = @import("builtin");
 const perf = @import("perf.zig");
+const analysis = @import("analysis.zig");
 const valgrind = @import("valgrind.zig");
 const shared = @import("../shared.zig");
 const ValgrindInstrument = valgrind.ValgrindInstrument;
+const PerfInstrument = perf.PerfInstrument;
+const AnalysisInstrument = analysis.AnalysisInstrument;
 
 pub const InstrumentHooks = union(enum) {
     valgrind: ValgrindInstrument,
-    perf: perf.PerfInstrument,
+    perf: PerfInstrument,
+    analysis: AnalysisInstrument,
     none: void,
 
     const Self = @This();
 
     pub fn init(allocator: std.mem.Allocator) !Self {
-        if (ValgrindInstrument.is_instrumented()) {
-            return Self{ .valgrind = ValgrindInstrument.init(allocator) };
-        }
+        if (ValgrindInstrument.init(allocator)) |valgrind_inst| {
+            return Self{ .valgrind = valgrind_inst };
+        } else |_| {}
 
-        var perf_inst = perf.PerfInstrument.init(allocator) catch {
-            return Self{ .none = {} };
-        };
-        if (perf_inst.is_instrumented()) {
+        if (AnalysisInstrument.init(allocator)) |analysis_inst| {
+            return Self{ .analysis = analysis_inst };
+        } else |_| {}
+
+        if (PerfInstrument.init(allocator)) |perf_inst| {
             return Self{ .perf = perf_inst };
-        }
+        } else |_| {}
 
         return Self{ .none = {} };
     }
@@ -31,6 +35,7 @@ pub const InstrumentHooks = union(enum) {
         switch (self.*) {
             .valgrind => {},
             .perf => self.perf.deinit(),
+            .analysis => self.analysis.deinit(),
             .none => {},
         }
     }
@@ -38,10 +43,8 @@ pub const InstrumentHooks = union(enum) {
     pub inline fn is_instrumented(self: *Self) bool {
         return switch (self.*) {
             .valgrind => ValgrindInstrument.is_instrumented(),
-            .perf => |perf_inst| {
-                var mutable_perf = perf_inst;
-                return mutable_perf.is_instrumented();
-            },
+            .perf => true,
+            .analysis => true,
             .none => false,
         };
     }
@@ -51,6 +54,8 @@ pub const InstrumentHooks = union(enum) {
             return self.perf.start_benchmark();
         } else if (self.* == .valgrind) {
             return ValgrindInstrument.start_benchmark();
+        } else if (self.* == .analysis) {
+            return self.analysis.start_benchmark();
         }
     }
 
@@ -59,6 +64,8 @@ pub const InstrumentHooks = union(enum) {
             return ValgrindInstrument.stop_benchmark();
         } else if (self.* == .perf) {
             return self.perf.stop_benchmark();
+        } else if (self.* == .analysis) {
+            return self.analysis.stop_benchmark();
         }
     }
 
@@ -66,6 +73,7 @@ pub const InstrumentHooks = union(enum) {
         switch (self.*) {
             .valgrind => ValgrindInstrument.set_executed_benchmark(pid, uri),
             .perf => try self.perf.set_executed_benchmark(pid, uri),
+            .analysis => try self.analysis.set_executed_benchmark(pid, uri),
             .none => {},
         }
     }
@@ -74,6 +82,7 @@ pub const InstrumentHooks = union(enum) {
         switch (self.*) {
             .valgrind => try self.valgrind.set_integration(name, version),
             .perf => try self.perf.set_integration(name, version),
+            .analysis => try self.analysis.set_integration(name, version),
             .none => {},
         }
     }
@@ -81,6 +90,8 @@ pub const InstrumentHooks = union(enum) {
     pub inline fn add_marker(self: *Self, pid: u32, marker: shared.MarkerType) !void {
         if (self.* == .perf) {
             return self.perf.add_marker(pid, marker);
+        } else if (self.* == .analysis) {
+            return self.analysis.add_marker(pid, marker);
         }
     }
 };

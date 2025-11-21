@@ -1,6 +1,6 @@
-const std = @import("std");
-const fifo = @import("../fifo.zig");
 const shared = @import("../shared.zig");
-const runner_fifo = @import("../runner_fifo.zig");
+const fifo_instrument = @import("fifo_instrument.zig");
 
-pub const PerfInstrument = runner_fifo.RunnerFifo;
+const PerfError = error{ModeError};
+
+pub const PerfInstrument = fifo_instrument.FifoInstrument(.Perf, PerfError);
