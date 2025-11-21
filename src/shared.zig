@@ -36,6 +36,12 @@ pub const MarkerType = union(enum) {
     }
 };
 
+pub const IntegrationMode = enum {
+    Perf,
+    Simulation,
+    Analysis,
+};
+
 pub const Command = union(enum) {
     ExecutedBenchmark: struct {
         pid: u32,
@@ -55,6 +61,8 @@ pub const Command = union(enum) {
         marker: MarkerType,
     },
     SetVersion: u64,
+    GetIntegrationMode,
+    IntegrationModeResponse: IntegrationMode,
 
     pub fn deinit(self: Command, allocator: std.mem.Allocator) void {
         switch (self) {
@@ -64,6 +72,8 @@ pub const Command = union(enum) {
             },
             .ExecutedBenchmark => |data| allocator.free(data.uri),
             .SetVersion => {},
+            .GetIntegrationMode => {},
+            .IntegrationModeResponse => {},
             else => {},
         }
     }
@@ -86,6 +96,8 @@ pub const Command = union(enum) {
             .Err => try writer.writeAll("Err"),
             .AddMarker => |data| try writer.print("AddMarker {{ pid: {d}, marker: {} }}", .{ data.pid, data.marker }),
             .SetVersion => |data| try writer.print("SetVersion {{ protocol_version: {d} }}", .{data}),
+            .GetIntegrationMode => try writer.writeAll("GetIntegrationMode"),
+            .IntegrationModeResponse => |mode| try writer.print("IntegrationModeResponse {}", .{mode}),
         }
     }
 
@@ -127,6 +139,14 @@ pub const Command = union(enum) {
             },
             .SetVersion => |self_data| switch (other) {
                 .SetVersion => |other_data| self_data == other_data,
+                else => false,
+            },
+            .GetIntegrationMode => switch (other) {
+                .GetIntegrationMode => true,
+                else => false,
+            },
+            .IntegrationModeResponse => |self_mode| switch (other) {
+                .IntegrationModeResponse => |other_mode| self_mode == other_mode,
                 else => false,
             },
         };
