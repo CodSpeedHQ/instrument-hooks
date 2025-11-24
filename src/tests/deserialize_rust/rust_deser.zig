@@ -28,4 +28,33 @@ test "rust deserialization" {
         .version = "1.0.0",
     } });
     try assert_eq(rust.cmd_err, Command{ .Err = {} });
+
+    // AddMarker commands
+    try assert_eq(rust.cmd_add_marker_sample_start, Command{ .AddMarker = .{
+        .pid = 12345,
+        .marker = shared.MarkerType{ .SampleStart = 1000 },
+    } });
+    try assert_eq(rust.cmd_add_marker_sample_end, Command{ .AddMarker = .{
+        .pid = 12345,
+        .marker = shared.MarkerType{ .SampleEnd = 2000 },
+    } });
+    try assert_eq(rust.cmd_add_marker_benchmark_start, Command{ .AddMarker = .{
+        .pid = 12345,
+        .marker = shared.MarkerType{ .BenchmarkStart = 3000 },
+    } });
+    try assert_eq(rust.cmd_add_marker_benchmark_end, Command{ .AddMarker = .{
+        .pid = 12345,
+        .marker = shared.MarkerType{ .BenchmarkEnd = 4000 },
+    } });
+
+    // SetVersion command
+    try assert_eq(rust.cmd_set_version, Command{ .SetVersion = 1 });
+
+    // GetIntegrationMode command
+    try assert_eq(rust.cmd_get_runner_mode, Command{ .GetIntegrationMode = {} });
+
+    // IntegrationModeResponse commands
+    try assert_eq(rust.cmd_runner_mode_perf, Command{ .IntegrationModeResponse = .Perf });
+    try assert_eq(rust.cmd_runner_mode_simulation, Command{ .IntegrationModeResponse = .Simulation });
+    try assert_eq(rust.cmd_runner_mode_analysis, Command{ .IntegrationModeResponse = .Analysis });
 }
