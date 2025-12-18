@@ -8,6 +8,9 @@ pub const PROTOCOL_VERSION: u64 = 2;
 
 // Note: Using printf to avoid the extra code from std.log/std.debug. Those won't
 // compile because they are internally using syscalls (for Mutexes) which aren't cross-platform.
+//
+// We have to use c_char here, otherwise we redeclare it and cast u8 to char which results in
+// additional warnings (-Wbuiltin-declaration-mismatch and -Wpointer-sign).
 extern "c" fn printf(format: [*c]const c_char, ...) c_int;
 
 pub const RunnerFifo = struct {

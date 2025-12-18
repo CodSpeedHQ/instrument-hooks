@@ -10,6 +10,7 @@ env:
   COMMON_CFLAGS: >-
     -Wall
     -Werror
+    -Wno-format
     -Wno-format-security
     -Wno-unused-but-set-variable
     -Wno-unused-const-variable

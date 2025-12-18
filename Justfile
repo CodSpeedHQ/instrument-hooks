@@ -21,12 +21,15 @@ test:
     zig build test --summary all
 
 test-valgrind:
+    #!/usr/bin/env bash
     rm -f /tmp/runner*.fifo
 
-    clang -O3 example/main.c dist/core.c -I includes/ -o clang-main && ./clang-main
+    export CFLAGS="-Wno-error=format -Wno-error=format-security -Wno-format -Wno-format-security"
+
+    clang $CFLAGS -O3 example/main.c dist/core.c -I includes/ -o clang-main && ./clang-main
     valgrind ./clang-main
 
-    gcc -O3 example/main.c dist/core.c -I includes/ -o gcc-main && ./gcc-main
+    gcc $CFLAGS -O3 example/main.c dist/core.c -I includes/ -o gcc-main && ./gcc-main
     valgrind ./gcc-main
 
     rm -rf clang-main gcc-main
