@@ -2,7 +2,9 @@ const std = @import("std");
 const fifo = @import("fifo.zig");
 const shared = @import("shared.zig");
 
-pub const PROTOCOL_VERSION: u64 = 1;
+// v1: Initial release
+// v2: Added GetIntegrationMode
+pub const PROTOCOL_VERSION: u64 = 2;
 
 // Note: Using printf to avoid the extra code from std.log/std.debug. Those won't
 // compile because they are internally using syscalls (for Mutexes) which aren't cross-platform.

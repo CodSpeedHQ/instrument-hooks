@@ -12,6 +12,9 @@ pub fn FifoInstrument(comptime mode: shared.IntegrationMode, comptime error_type
         pub fn init(allocator: std.mem.Allocator) !Self {
             var fifo = try runner_fifo.RunnerFifo.init(allocator);
 
+            // Ensure both the runner and integration FIFO are compatible
+            try fifo.validate_protocol_version();
+
             // Get the instrumentation mode from the runner
             const detected_mode = fifo.get_integration_mode() catch |err| {
                 fifo.deinit();
