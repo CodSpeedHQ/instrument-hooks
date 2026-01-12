@@ -29,10 +29,19 @@ pub const RunnerFifo = struct {
     }
 
     pub fn validate_protocol_version(self: *Self) !void {
-        self.send_version(PROTOCOL_VERSION) catch {
-            _ = printf(@as([*c]const c_char, @ptrCast("[ERROR] instrument-hooks: failed to communicate with CodSpeed runner\n")));
-            _ = printf(@as([*c]const c_char, @ptrCast("[ERROR] instrument-hooks: please update the CodSpeed action to the latest version\n")));
-            std.posix.exit(1);
+        self.send_version(PROTOCOL_VERSION) catch |err| {
+            switch (err) {
+                error.AckTimeout => {
+                    // Runner not running - silently continue as NOP
+                    _ = printf(@as([*c]const c_char, @ptrCast("[DEBUG] instrument-hooks: CodSpeed runner not detected, continuing without profiling\n")));
+                    return;
+                },
+                else => {
+                    _ = printf(@as([*c]const c_char, @ptrCast("[ERROR] instrument-hooks: failed to communicate with CodSpeed runner\n")));
+                    _ = printf(@as([*c]const c_char, @ptrCast("[ERROR] instrument-hooks: please update the CodSpeed action to the latest version\n")));
+                    std.posix.exit(1);
+                },
+            }
         };
     }
 
