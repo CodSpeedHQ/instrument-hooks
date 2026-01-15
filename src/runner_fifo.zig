@@ -33,7 +33,6 @@ pub const RunnerFifo = struct {
             switch (err) {
                 error.AckTimeout => {
                     // Runner not running - silently continue as NOP
-                    _ = printf(@as([*c]const c_char, @ptrCast("[DEBUG] instrument-hooks: CodSpeed runner not detected, continuing without profiling\n")));
                     return;
                 },
                 else => {
