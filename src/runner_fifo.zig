@@ -1,17 +1,11 @@
 const std = @import("std");
 const fifo = @import("fifo.zig");
 const shared = @import("shared.zig");
+const logger = @import("logger.zig");
 
 // v1: Initial release
 // v2: Added GetIntegrationMode
 pub const PROTOCOL_VERSION: u64 = 2;
-
-// Note: Using printf to avoid the extra code from std.log/std.debug. Those won't
-// compile because they are internally using syscalls (for Mutexes) which aren't cross-platform.
-//
-// We have to use c_char here, otherwise we redeclare it and cast u8 to char which results in
-// additional warnings (-Wbuiltin-declaration-mismatch and -Wpointer-sign).
-extern "c" fn printf(format: [*c]const c_char, ...) c_int;
 
 pub const RunnerFifo = struct {
     allocator: std.mem.Allocator,
@@ -31,13 +25,19 @@ pub const RunnerFifo = struct {
     pub fn validate_protocol_version(self: *Self) !void {
         self.send_version(PROTOCOL_VERSION) catch |err| {
             switch (err) {
-                error.AckTimeout => {
-                    // Runner not running - silently continue as NOP
-                    return;
+                // No runner present - silently continue as NOP
+                error.AckTimeout => return,
+
+                // Runner explicitly rejected version
+                error.UnexpectedError => {
+                    logger.err("instrument-hooks: CodSpeed runner rejected protocol version {}\n", .{PROTOCOL_VERSION});
+                    logger.err("instrument-hooks: please update the CodSpeed action to the latest version\n", .{});
+                    std.posix.exit(1);
                 },
+
+                // All other errors - log and exit
                 else => {
-                    _ = printf(@as([*c]const c_char, @ptrCast("[ERROR] instrument-hooks: failed to communicate with CodSpeed runner\n")));
-                    _ = printf(@as([*c]const c_char, @ptrCast("[ERROR] instrument-hooks: please update the CodSpeed action to the latest version\n")));
+                    logger.err("instrument-hooks: error {s} during version check\n", .{@errorName(err)});
                     std.posix.exit(1);
                 },
             }
