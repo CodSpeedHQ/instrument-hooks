@@ -95,12 +95,14 @@ pub const UnixPipe = struct {
             const response = try self.waitForResponse(timeout_ns);
             defer response.deinit(self.allocator);
 
-            if (response == Command.Ack) {
-                return;
-            } else if (response == Command.Err) {
-                return error.UnexpectedError;
-            } else {
-                return error.UnexpectedResponse;
+            switch (response) {
+                .Ack => return,
+                .Err => return error.UnexpectedError,
+                else => {
+                    const logger = @import("logger.zig");
+                    logger.debug("waitForAck received unexpected response: {}\n", .{response});
+                    return error.UnexpectedResponse;
+                },
             }
         }
 
