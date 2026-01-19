@@ -107,6 +107,16 @@ pub const UnixPipe = struct {
         }
 
         pub fn deinit(self: *Reader) void {
+            // Drain any pending data from the FIFO before closing to prevent
+            // stale messages from being read by subsequent connections.
+            // This is crucial when multiple instrument types probe the same FIFO
+            // (e.g., AnalysisInstrument fails, then PerfInstrument tries).
+            var dummy_buffer: [4096]u8 = undefined;
+            while (true) {
+                const bytes_read = self.file.read(&dummy_buffer) catch break;
+                if (bytes_read == 0) break;
+            }
+
             self.file.close();
         }
     };
@@ -275,4 +285,50 @@ test "unix pipe send without ack" {
     // Writer doesn't send anything, so waitForResponse should timeout
     const result = reader.waitForResponse(std.time.ns_per_ms * 100);
     try std.testing.expectError(error.AckTimeout, result);
+}
+
+test "unix pipe prevents stale messages between connections" {
+    const allocator = std.testing.allocator;
+    const test_path = "/tmp/test_stale_messages.fifo";
+
+    try UnixPipe.create(test_path);
+
+    // Keep writer open throughout to maintain the FIFO
+    var writer = try UnixPipe.openWrite(allocator, test_path);
+    defer writer.deinit();
+
+    // STEP 1: Simulate first connection
+    {
+        var first_reader = try UnixPipe.openRead(allocator, test_path);
+
+        // Send and successfully read first command
+        try writer.sendCmd(Command.StartBenchmark);
+        const cmd1 = try first_reader.recvCmd();
+        defer cmd1.deinit(allocator);
+        try std.testing.expect(cmd1.equal(Command.StartBenchmark));
+
+        // Send second command but DON'T read it
+        try writer.sendCmd(Command.StopBenchmark);
+
+        // Close first reader WITHOUT reading the second command
+        // This should drain the unread StopBenchmark message
+        first_reader.deinit();
+    }
+
+    // STEP 2: Simulate second connection
+    {
+        var second_reader = try UnixPipe.openRead(allocator, test_path);
+        defer second_reader.deinit();
+
+        // Send fresh command
+        try writer.sendCmd(Command.Ack);
+
+        // This should read the fresh Ack, NOT the stale StopBenchmark
+        const cmd2 = try second_reader.recvCmd();
+        defer cmd2.deinit(allocator);
+
+        // CRITICAL ASSERTION: We should receive the fresh Ack
+        // Without the drain logic, this would fail with StopBenchmark
+        try std.testing.expect(cmd2.equal(Command.Ack));
+    }
 }
