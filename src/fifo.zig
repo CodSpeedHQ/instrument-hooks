@@ -11,6 +11,10 @@ pub const Command = shared.Command;
 
 extern "c" fn mkfifo(path: [*:0]const u8, mode: c_uint) c_int;
 
+// Read the message into a fixed-size stack buffer (no heap allocation)
+// This removes additional reads/writes when running with memtrack.
+const MAX_MESSAGE_SIZE = 1024;
+
 pub const UnixPipe = struct {
     pub const Reader = struct {
         file: fs.File,
@@ -47,11 +51,12 @@ pub const UnixPipe = struct {
             }
             const message_len = std.mem.readInt(u32, &len_buffer, std.builtin.Endian.little);
 
-            // Read the message
-            const buffer = try self.allocator.alloc(u8, message_len);
-            defer self.allocator.free(buffer);
+            if (message_len > MAX_MESSAGE_SIZE) {
+                return error.MessageTooLarge;
+            }
 
-            const msg_read = self.file.readAll(buffer) catch |err| {
+            var buffer: [MAX_MESSAGE_SIZE]u8 = undefined;
+            const msg_read = self.file.readAll(buffer[0..message_len]) catch |err| {
                 return switch (err) {
                     error.WouldBlock, error.BrokenPipe => error.NotReady,
                     else => err,
@@ -61,7 +66,7 @@ pub const UnixPipe = struct {
                 return error.UnexpectedEof;
             }
 
-            var stream = std.io.fixedBufferStream(buffer);
+            var stream = std.io.fixedBufferStream(buffer[0..message_len]);
             return try bincode.deserializeAlloc(stream.reader(), self.allocator, Command);
         }
 
@@ -141,12 +146,12 @@ pub const UnixPipe = struct {
         }
 
         pub fn sendCmd(self: *Writer, cmd: Command) !void {
-            var buffer = std.ArrayList(u8).init(self.allocator);
-            defer buffer.deinit();
+            var buffer: [MAX_MESSAGE_SIZE]u8 = undefined;
+            var stream = std.io.fixedBufferStream(&buffer);
 
-            try bincode.serialize(buffer.writer(), cmd);
+            try bincode.serialize(stream.writer(), cmd);
 
-            const bytes = buffer.items;
+            const bytes = stream.getWritten();
             try self.file.writeAll(std.mem.asBytes(&@as(u32, @intCast(bytes.len))));
             try self.file.writeAll(bytes);
         }
