@@ -15,11 +15,16 @@ pub const UnixPipe = struct {
     pub const Reader = struct {
         file: fs.File,
         allocator: Allocator,
+        buffer: std.ArrayList(u8),
 
         pub fn init(file: fs.File, allocator: Allocator) Reader {
+            var buffer = std.ArrayList(u8).init(allocator);
+            // Pre-allocate 1KB to avoid allocations for typical command sizes
+            buffer.ensureTotalCapacity(1024) catch {};
             return .{
                 .file = file,
                 .allocator = allocator,
+                .buffer = buffer,
             };
         }
 
@@ -47,11 +52,10 @@ pub const UnixPipe = struct {
             }
             const message_len = std.mem.readInt(u32, &len_buffer, std.builtin.Endian.little);
 
-            // Read the message
-            const buffer = try self.allocator.alloc(u8, message_len);
-            defer self.allocator.free(buffer);
+            // Resize buffer to fit message (only allocates if growing)
+            try self.buffer.resize(message_len);
 
-            const msg_read = self.file.readAll(buffer) catch |err| {
+            const msg_read = self.file.readAll(self.buffer.items) catch |err| {
                 return switch (err) {
                     error.WouldBlock, error.BrokenPipe => error.NotReady,
                     else => err,
@@ -61,7 +65,7 @@ pub const UnixPipe = struct {
                 return error.UnexpectedEof;
             }
 
-            var stream = std.io.fixedBufferStream(buffer);
+            var stream = std.io.fixedBufferStream(self.buffer.items);
             return try bincode.deserializeAlloc(stream.reader(), self.allocator, Command);
         }
 
@@ -117,6 +121,7 @@ pub const UnixPipe = struct {
                 if (bytes_read == 0) break;
             }
 
+            self.buffer.deinit();
             self.file.close();
         }
     };
@@ -124,11 +129,16 @@ pub const UnixPipe = struct {
     pub const Writer = struct {
         file: fs.File,
         allocator: Allocator,
+        buffer: std.ArrayList(u8),
 
         pub fn init(file: fs.File, allocator: Allocator) Writer {
+            var buffer = std.ArrayList(u8).init(allocator);
+            // Pre-allocate 1KB to avoid allocations for typical command sizes
+            buffer.ensureTotalCapacity(1024) catch {};
             return .{
                 .file = file,
                 .allocator = allocator,
+                .buffer = buffer,
             };
         }
 
@@ -141,17 +151,18 @@ pub const UnixPipe = struct {
         }
 
         pub fn sendCmd(self: *Writer, cmd: Command) !void {
-            var buffer = std.ArrayList(u8).init(self.allocator);
-            defer buffer.deinit();
+            // Clear buffer but keep allocated capacity
+            self.buffer.clearRetainingCapacity();
 
-            try bincode.serialize(buffer.writer(), cmd);
+            try bincode.serialize(self.buffer.writer(), cmd);
 
-            const bytes = buffer.items;
+            const bytes = self.buffer.items;
             try self.file.writeAll(std.mem.asBytes(&@as(u32, @intCast(bytes.len))));
             try self.file.writeAll(bytes);
         }
 
         pub fn deinit(self: *Writer) void {
+            self.buffer.deinit();
             self.file.close();
         }
     };
