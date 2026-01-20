@@ -71,7 +71,7 @@ pub const UnixPipe = struct {
 
         pub fn waitForResponse(self: *Reader, timeout_ns: ?u64) !Command {
             const start = std.time.nanoTimestamp();
-            const timeout = timeout_ns orelse std.time.ns_per_s * 1; // Default 1 second timeout
+            const timeout = timeout_ns orelse std.time.ns_per_s * 5; // Default 5 second timeout
 
             while (true) {
                 const elapsed = @as(u64, @intCast(std.time.nanoTimestamp() - start));
