@@ -45,3 +45,14 @@ uint8_t instrument_hooks_add_marker(InstrumentHooks* hooks, uint32_t pid,
                                     uint8_t marker_type, uint64_t timestamp) {
   return 0;
 }
+
+uint8_t instrument_hooks_set_environment(InstrumentHooks* hooks,
+                                         const char* section_name,
+                                         const char* key, const char* value) {
+  return 0;
+}
+
+uint8_t instrument_hooks_write_environment(InstrumentHooks* hooks,
+                                           uint32_t pid) {
+  return 0;
+}

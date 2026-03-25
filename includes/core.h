@@ -58,6 +58,16 @@ typedef enum {
 void instrument_hooks_set_feature(instrument_hooks_feature_t feature,
                                   bool enabled);
 
+// Environment collection
+// Call set_environment to register key-value pairs grouped by section.
+// Section names and keys will be displayed as is in the frontend, grouped by
+// section. Then call write_environment to flush them to
+// $CODSPEED_PROFILE_FOLDER/environment-<pid>.json.
+uint8_t instrument_hooks_set_environment(InstrumentHooks *,
+                                         const char *section_name,
+                                         const char *key, const char *value);
+uint8_t instrument_hooks_write_environment(InstrumentHooks *, uint32_t pid);
+
 // Header functions that will be inlined. This can be used by languages that
 // directly consume the headers such as C or C++. This will allow for more
 // precise tracking of the benchmark performance.

@@ -7,7 +7,7 @@ const ValgrindInstrument = valgrind.ValgrindInstrument;
 const PerfInstrument = perf.PerfInstrument;
 const AnalysisInstrument = analysis.AnalysisInstrument;
 
-pub const InstrumentHooks = union(enum) {
+pub const Instrument = union(enum) {
     valgrind: ValgrindInstrument,
     perf: PerfInstrument,
     analysis: AnalysisInstrument,

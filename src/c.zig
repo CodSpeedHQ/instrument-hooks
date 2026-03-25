@@ -1,5 +1,5 @@
-const instruments = @import("./instruments/root.zig");
-const InstrumentHooks = instruments.InstrumentHooks;
+const instrument_hooks = @import("./instrument_hooks.zig");
+const InstrumentHooks = instrument_hooks.InstrumentHooks;
 const builtin = @import("builtin");
 const features = @import("./features.zig");
 const shared = @import("./shared.zig");
@@ -36,14 +36,14 @@ pub export fn instrument_hooks_deinit(hooks: ?*InstrumentHooks) void {
 
 pub export fn instrument_hooks_is_instrumented(hooks: ?*InstrumentHooks) bool {
     if (hooks) |h| {
-        return h.is_instrumented();
+        return h.instrument.is_instrumented();
     }
     return false;
 }
 
 pub export fn instrument_hooks_start_benchmark(hooks: ?*InstrumentHooks) u8 {
     if (hooks) |h| {
-        h.start_benchmark() catch {
+        h.instrument.start_benchmark() catch {
             return 1;
         };
     }
@@ -52,7 +52,7 @@ pub export fn instrument_hooks_start_benchmark(hooks: ?*InstrumentHooks) u8 {
 
 pub export fn instrument_hooks_stop_benchmark(hooks: ?*InstrumentHooks) u8 {
     if (hooks) |h| {
-        h.stop_benchmark() catch {
+        h.instrument.stop_benchmark() catch {
             return 1;
         };
     }
@@ -61,7 +61,7 @@ pub export fn instrument_hooks_stop_benchmark(hooks: ?*InstrumentHooks) u8 {
 
 pub export fn instrument_hooks_set_executed_benchmark(hooks: ?*InstrumentHooks, pid: u32, uri: [*c]const u8) u8 {
     if (hooks) |h| {
-        h.set_executed_benchmark(pid, uri) catch {
+        h.instrument.set_executed_benchmark(pid, uri) catch {
             return 1;
         };
     }
@@ -75,7 +75,7 @@ pub export fn instrument_hooks_executed_benchmark(hooks: ?*InstrumentHooks, pid:
 
 pub export fn instrument_hooks_set_integration(hooks: ?*InstrumentHooks, name: [*c]const u8, version: [*c]const u8) u8 {
     if (hooks) |h| {
-        h.set_integration(name, version) catch {
+        h.instrument.set_integration(name, version) catch {
             return 1;
         };
     }
@@ -96,7 +96,7 @@ pub export fn instrument_hooks_add_marker(hooks: ?*InstrumentHooks, pid: u32, ma
             MARKER_TYPE_BENCHMARK_END => shared.MarkerType{ .BenchmarkEnd = timestamp },
             else => return 2, // Invalid marker type
         };
-        h.add_marker(pid, marker_enum) catch {
+        h.instrument.add_marker(pid, marker_enum) catch {
             return 1;
         };
     }
@@ -105,6 +105,27 @@ pub export fn instrument_hooks_add_marker(hooks: ?*InstrumentHooks, pid: u32, ma
 
 pub export fn instrument_hooks_current_timestamp() u64 {
     return utils.clock_gettime_monotonic();
+}
+
+pub export fn instrument_hooks_set_environment(
+    hooks: ?*InstrumentHooks,
+    section_name: [*c]const u8,
+    key: [*c]const u8,
+    value: [*c]const u8,
+) u8 {
+    if (section_name == null or key == null or value == null) return 1;
+    if (hooks) |h| {
+        h.environment.setSection(std.mem.span(section_name), std.mem.span(key), std.mem.span(value)) catch return 1;
+        return 0;
+    }
+    return 1;
+}
+
+pub export fn instrument_hooks_write_environment(hooks: ?*InstrumentHooks, pid: u32) u8 {
+    if (hooks) |h| {
+        return h.environment.writeEnvironment(pid);
+    }
+    return 0;
 }
 
 test "no crash when not instrumented" {
