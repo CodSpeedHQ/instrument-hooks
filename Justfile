@@ -8,9 +8,17 @@ build:
     # Use a fixed traversal seed for reproducible transpilation output
     zig build --seed 12345
 
-build-example:
+cmake-build-example: release
     cd example && mkdir -p build && cd build && cmake .. && make -j
+
+cmake-run-example: cmake-build-example
+    ./example/build/example
+
+bazel-build-example: release
     cd example && bazelisk build //:example
+
+bazel-run-example: bazel-build-example
+    cd example && bazelisk run //:example
 
 release: build
     test -f ./zig-out/lib/zig.h || cp "$(zig env | jq -r .lib_dir)/zig.h" ./includes/zig.h
