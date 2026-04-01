@@ -1,14 +1,15 @@
 const std = @import("std");
 const fs = std.fs;
-const logger = @import("logger.zig");
+const logger = @import("../logger.zig");
 
 extern "c" fn getenv(name: [*:0]const u8) ?[*:0]const u8;
 
-const SectionEntries = std.json.ArrayHashMap([]const u8);
-const SectionsMap = std.json.ArrayHashMap(SectionEntries);
+/// Self-reported environment information provided by integrations (e.g. compiler version, runtime details).
+const IntegrationEnvironmentEntries = std.json.ArrayHashMap([]const u8);
+const IntegrationEnvironmentMap = std.json.ArrayHashMap(IntegrationEnvironmentEntries);
 
 const EnvironmentJson = struct {
-    sections: SectionsMap = .{},
+    integration_environment: IntegrationEnvironmentMap = .{},
 };
 
 pub const Environment = struct {
@@ -22,27 +23,27 @@ pub const Environment = struct {
     }
 
     pub fn deinit(self: *Self) void {
-        var sec_it = self.data.sections.map.iterator();
-        while (sec_it.next()) |sec_entry| {
-            var entry_it = sec_entry.value_ptr.map.iterator();
+        var int_it = self.data.integration_environment.map.iterator();
+        while (int_it.next()) |int_entry| {
+            var entry_it = int_entry.value_ptr.map.iterator();
             while (entry_it.next()) |kv| {
                 self.allocator.free(kv.key_ptr.*);
                 self.allocator.free(kv.value_ptr.*);
             }
-            sec_entry.value_ptr.map.deinit(self.allocator);
-            self.allocator.free(sec_entry.key_ptr.*);
+            int_entry.value_ptr.map.deinit(self.allocator);
+            self.allocator.free(int_entry.key_ptr.*);
         }
-        self.data.sections.map.deinit(self.allocator);
+        self.data.integration_environment.map.deinit(self.allocator);
     }
 
-    pub fn setSection(self: *Self, section_name: []const u8, key: []const u8, value: []const u8) !void {
-        const sec_gop = try self.data.sections.map.getOrPut(self.allocator, section_name);
-        if (!sec_gop.found_existing) {
-            sec_gop.key_ptr.* = try self.allocator.dupe(u8, section_name);
-            sec_gop.value_ptr.* = .{};
+    pub fn setIntegrationEnvironment(self: *Self, integration_name: []const u8, key: []const u8, value: []const u8) !void {
+        const int_gop = try self.data.integration_environment.map.getOrPut(self.allocator, integration_name);
+        if (!int_gop.found_existing) {
+            int_gop.key_ptr.* = try self.allocator.dupe(u8, integration_name);
+            int_gop.value_ptr.* = .{};
         }
 
-        const entry_gop = try sec_gop.value_ptr.map.getOrPut(self.allocator, key);
+        const entry_gop = try int_gop.value_ptr.map.getOrPut(self.allocator, key);
         if (entry_gop.found_existing) {
             self.allocator.free(entry_gop.value_ptr.*);
         } else {
@@ -52,7 +53,7 @@ pub const Environment = struct {
     }
 
     pub fn writeEnvironment(self: *Self, pid: u32) u8 {
-        if (self.data.sections.map.count() == 0) return 0;
+        if (self.data.integration_environment.map.count() == 0) return 0;
 
         const profile_folder = getenv("CODSPEED_PROFILE_FOLDER") orelse {
             return 0;
@@ -94,33 +95,33 @@ test "set and retrieve section entries" {
     var env = Environment.init(std.testing.allocator);
     defer env.deinit();
 
-    try env.setSection("gcc", "version", "14.2.0");
-    try env.setSection("gcc", "build", "g++ (Ubuntu 14.2.0-4ubuntu2) 14.2.0");
-    try env.setSection("clang", "version", "18.1.0");
+    try env.setIntegrationEnvironment("gcc", "version", "14.2.0");
+    try env.setIntegrationEnvironment("gcc", "build", "g++ (Ubuntu 14.2.0-4ubuntu2) 14.2.0");
+    try env.setIntegrationEnvironment("clang", "version", "18.1.0");
 
-    try std.testing.expectEqual(@as(usize, 2), env.data.sections.map.count());
-    try std.testing.expectEqual(@as(usize, 2), env.data.sections.map.get("gcc").?.map.count());
-    try std.testing.expectEqual(@as(usize, 1), env.data.sections.map.get("clang").?.map.count());
+    try std.testing.expectEqual(@as(usize, 2), env.data.integration_environment.map.count());
+    try std.testing.expectEqual(@as(usize, 2), env.data.integration_environment.map.get("gcc").?.map.count());
+    try std.testing.expectEqual(@as(usize, 1), env.data.integration_environment.map.get("clang").?.map.count());
 }
 
 test "overwrite existing entry" {
     var env = Environment.init(std.testing.allocator);
     defer env.deinit();
 
-    try env.setSection("gcc", "version", "13.0.0");
-    try env.setSection("gcc", "version", "14.2.0");
+    try env.setIntegrationEnvironment("gcc", "version", "13.0.0");
+    try env.setIntegrationEnvironment("gcc", "version", "14.2.0");
 
-    try std.testing.expectEqual(@as(usize, 1), env.data.sections.map.count());
-    try std.testing.expectEqualStrings("14.2.0", env.data.sections.map.get("gcc").?.map.get("version").?);
+    try std.testing.expectEqual(@as(usize, 1), env.data.integration_environment.map.count());
+    try std.testing.expectEqualStrings("14.2.0", env.data.integration_environment.map.get("gcc").?.map.get("version").?);
 }
 
 test "json serialization" {
     var env = Environment.init(std.testing.allocator);
     defer env.deinit();
 
-    try env.setSection("gcc", "version", "14.2.0");
-    try env.setSection("gcc", "build", "g++ (Ubuntu 14.2.0)");
-    try env.setSection("clang", "version", "18.1.0");
+    try env.setIntegrationEnvironment("gcc", "version", "14.2.0");
+    try env.setIntegrationEnvironment("gcc", "build", "g++ (Ubuntu 14.2.0)");
+    try env.setIntegrationEnvironment("clang", "version", "18.1.0");
 
     const json = try std.json.stringifyAlloc(std.testing.allocator, env.data, .{ .whitespace = .indent_2 });
     defer std.testing.allocator.free(json);
@@ -128,11 +129,11 @@ test "json serialization" {
     const parsed = try std.json.parseFromSlice(EnvironmentJson, std.testing.allocator, json, .{});
     defer parsed.deinit();
 
-    const gcc = parsed.value.sections.map.get("gcc").?;
+    const gcc = parsed.value.integration_environment.map.get("gcc").?;
     try std.testing.expectEqualStrings("14.2.0", gcc.map.get("version").?);
     try std.testing.expectEqualStrings("g++ (Ubuntu 14.2.0)", gcc.map.get("build").?);
 
-    const clang = parsed.value.sections.map.get("clang").?;
+    const clang = parsed.value.integration_environment.map.get("clang").?;
     try std.testing.expectEqualStrings("18.1.0", clang.map.get("version").?);
 }
 
@@ -146,14 +147,14 @@ test "empty sections" {
     const parsed = try std.json.parseFromSlice(EnvironmentJson, std.testing.allocator, json, .{});
     defer parsed.deinit();
 
-    try std.testing.expectEqual(@as(usize, 0), parsed.value.sections.map.count());
+    try std.testing.expectEqual(@as(usize, 0), parsed.value.integration_environment.map.count());
 }
 
 test "json escaping" {
     var env = Environment.init(std.testing.allocator);
     defer env.deinit();
 
-    try env.setSection("test", "path", "C:\\Program Files\\gcc");
+    try env.setIntegrationEnvironment("test", "path", "C:\\Program Files\\gcc");
 
     const json = try std.json.stringifyAlloc(std.testing.allocator, env.data, .{ .whitespace = .indent_2 });
     defer std.testing.allocator.free(json);
@@ -161,7 +162,7 @@ test "json escaping" {
     const parsed = try std.json.parseFromSlice(EnvironmentJson, std.testing.allocator, json, .{});
     defer parsed.deinit();
 
-    const test_sec = parsed.value.sections.map.get("test").?;
+    const test_sec = parsed.value.integration_environment.map.get("test").?;
     try std.testing.expectEqualStrings("C:\\Program Files\\gcc", test_sec.map.get("path").?);
 }
 
@@ -169,13 +170,10 @@ test "merge preserves existing and adds new" {
     var env = Environment.init(std.testing.allocator);
     defer env.deinit();
 
-    // Simulate existing data parsed from file
-    try env.setSection("python", "version", "3.12.0");
+    try env.setIntegrationEnvironment("python", "version", "3.12.0");
+    try env.setIntegrationEnvironment("cpp", "version", "14.2.0");
 
-    // Add new section
-    try env.setSection("cpp", "version", "14.2.0");
-
-    try std.testing.expectEqual(@as(usize, 2), env.data.sections.map.count());
+    try std.testing.expectEqual(@as(usize, 2), env.data.integration_environment.map.count());
 
     const json = try std.json.stringifyAlloc(std.testing.allocator, env.data, .{ .whitespace = .indent_2 });
     defer std.testing.allocator.free(json);
@@ -190,9 +188,9 @@ test "new entries override existing on merge" {
     var env = Environment.init(std.testing.allocator);
     defer env.deinit();
 
-    try env.setSection("python", "version", "3.12.0");
-    try env.setSection("python", "version", "3.13.0");
+    try env.setIntegrationEnvironment("python", "version", "3.12.0");
+    try env.setIntegrationEnvironment("python", "version", "3.13.0");
 
-    try std.testing.expectEqual(@as(usize, 1), env.data.sections.map.count());
-    try std.testing.expectEqualStrings("3.13.0", env.data.sections.map.get("python").?.map.get("version").?);
+    try std.testing.expectEqual(@as(usize, 1), env.data.integration_environment.map.count());
+    try std.testing.expectEqualStrings("3.13.0", env.data.integration_environment.map.get("python").?.map.get("version").?);
 }

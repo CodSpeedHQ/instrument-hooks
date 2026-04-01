@@ -115,7 +115,7 @@ pub export fn instrument_hooks_set_environment(
 ) u8 {
     if (section_name == null or key == null or value == null) return 1;
     if (hooks) |h| {
-        h.environment.setSection(std.mem.span(section_name), std.mem.span(key), std.mem.span(value)) catch return 1;
+        h.environment.setIntegrationEnvironment(std.mem.span(section_name), std.mem.span(key), std.mem.span(value)) catch return 1;
         return 0;
     }
     return 1;

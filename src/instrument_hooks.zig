@@ -1,6 +1,6 @@
 const std = @import("std");
 const instruments = @import("./instruments/root.zig");
-const environment = @import("./environment.zig");
+const environment = @import("./environment/root.zig");
 
 const Instrument = instruments.Instrument;
 const Environment = environment.Environment;
