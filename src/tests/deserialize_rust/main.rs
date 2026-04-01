@@ -1,22 +1,13 @@
-#!/usr/bin/env rust-script
-
 //! Serializes the shared `Command` enum to test whether Zig deserializes it correctly.
 //!
 //! # Run
 //!
 //! ```bash
-//! ./create_serialized.rs > serialized.zig
-//! ```
-//!
-//! ```cargo
-//! [dependencies]
-//! bincode = "1.3.3"
-//! serde = { version = "1.0.192", features = ["derive"] }
-//! runner-shared = { git = "https://github.com/CodSpeedHQ/runner" }
+//! cargo run > serialized.zig
 //! ```
 
 // Import from runner-shared to ensure we use the same types
-use runner_shared::fifo::{Command, MarkerType, RunnerMode};
+use runner_shared::fifo::{Command, IntegrationMode, MarkerType};
 
 fn dump(name: &str, result: &Vec<u8>) {
     print!("pub const {}: []const u8 = &.{{ ", name);
@@ -32,7 +23,8 @@ fn example<T: serde::Serialize>(name: &str, value: &T) {
 }
 
 fn main() {
-    println!("// This file is generated using 'cargo run > rust_ser.zig'");
+    println!("// This file is generated using 'cargo run > serialized.zig'");
+    println!("// zig fmt: off");
     println!("");
 
     example(
@@ -83,17 +75,17 @@ fn main() {
         },
     );
     example("cmd_set_version", &Command::SetVersion(1));
-    example("cmd_get_runner_mode", &Command::GetRunnerMode);
+    example("cmd_get_runner_mode", &Command::GetIntegrationMode);
     example(
         "cmd_runner_mode_perf",
-        &Command::RunnerModeResponse(RunnerMode::Perf),
+        &Command::IntegrationModeResponse(IntegrationMode::Perf),
     );
     example(
         "cmd_runner_mode_simulation",
-        &Command::RunnerModeResponse(RunnerMode::Simulation),
+        &Command::IntegrationModeResponse(IntegrationMode::Simulation),
     );
     example(
         "cmd_runner_mode_analysis",
-        &Command::RunnerModeResponse(RunnerMode::Analysis),
+        &Command::IntegrationModeResponse(IntegrationMode::Analysis),
     );
 }

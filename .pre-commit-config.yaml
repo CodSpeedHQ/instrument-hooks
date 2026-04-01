@@ -7,6 +7,14 @@ repos:
       - id: end-of-file-fixer
       - id: check-added-large-files
 
+  - repo: local
+    hooks:
+      - id: check-serialized
+        name: Check serialized.zig is up to date
+        entry: bash -c 'cd src/tests/deserialize_rust && diff <(cargo run --quiet 2>/dev/null) serialized.zig'
+        language: system
+        pass_filenames: false
+
   - repo: https://github.com/batmac/pre-commit-zig
     rev: v0.3.0
     hooks:
