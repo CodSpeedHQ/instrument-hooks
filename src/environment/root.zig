@@ -1,6 +1,7 @@
 const std = @import("std");
 const fs = std.fs;
 const logger = @import("../logger.zig");
+const linked_libraries = @import("linked_libraries/root.zig");
 
 extern "c" fn getenv(name: [*:0]const u8) ?[*:0]const u8;
 
@@ -8,18 +9,25 @@ extern "c" fn getenv(name: [*:0]const u8) ?[*:0]const u8;
 const IntegrationEnvironmentEntries = std.json.ArrayHashMap([]const u8);
 const IntegrationEnvironmentMap = std.json.ArrayHashMap(IntegrationEnvironmentEntries);
 
+const LinkedLibrariesMap = std.json.ArrayHashMap(linked_libraries.LibraryEntry);
+
 const EnvironmentJson = struct {
     integration_environment: IntegrationEnvironmentMap = .{},
+    linked_libraries: LinkedLibrariesMap = .{},
 };
 
 pub const Environment = struct {
     allocator: std.mem.Allocator,
     data: EnvironmentJson = .{},
+    libs: linked_libraries.LinkedLibraries,
 
     const Self = @This();
 
     pub fn init(alloc: std.mem.Allocator) Self {
-        return .{ .allocator = alloc };
+        return .{
+            .allocator = alloc,
+            .libs = linked_libraries.LinkedLibraries.init(alloc),
+        };
     }
 
     pub fn deinit(self: *Self) void {
@@ -34,6 +42,14 @@ pub const Environment = struct {
             self.allocator.free(int_entry.key_ptr.*);
         }
         self.data.integration_environment.map.deinit(self.allocator);
+
+        var ll_it = self.data.linked_libraries.map.iterator();
+        while (ll_it.next()) |ll_entry| {
+            self.allocator.free(ll_entry.key_ptr.*);
+        }
+        self.data.linked_libraries.map.deinit(self.allocator);
+
+        self.libs.deinit();
     }
 
     pub fn setIntegrationEnvironment(self: *Self, integration_name: []const u8, key: []const u8, value: []const u8) !void {
@@ -52,8 +68,34 @@ pub const Environment = struct {
         entry_gop.value_ptr.* = try self.allocator.dupe(u8, value);
     }
 
+    fn populateLinkedLibraries(self: *Self) !void {
+        // Clear existing entries
+        var ll_it = self.data.linked_libraries.map.iterator();
+        while (ll_it.next()) |ll_entry| {
+            self.allocator.free(ll_entry.key_ptr.*);
+        }
+        self.data.linked_libraries.map.clearRetainingCapacity();
+
+        for (self.libs.libraries.items) |lib| {
+            const key = lib.soname orelse lib.path;
+            const gop = try self.data.linked_libraries.map.getOrPut(self.allocator, key);
+            gop.key_ptr.* = try self.allocator.dupe(u8, key);
+            gop.value_ptr.* = .{
+                .path = lib.path,
+                .build_id = lib.build_id,
+            };
+        }
+    }
+
     pub fn writeEnvironment(self: *Self, pid: u32) u8 {
-        if (self.data.integration_environment.map.count() == 0) return 0;
+        self.libs.collect() catch {
+            logger.err("instrument-hooks: failed to collect linked libraries\n", .{});
+        };
+        self.populateLinkedLibraries() catch {
+            logger.err("instrument-hooks: failed to populate linked libraries\n", .{});
+        };
+
+        if (self.data.integration_environment.map.count() == 0 and self.data.linked_libraries.map.count() == 0) return 0;
 
         const profile_folder = getenv("CODSPEED_PROFILE_FOLDER") orelse {
             return 0;
@@ -170,7 +212,10 @@ test "merge preserves existing and adds new" {
     var env = Environment.init(std.testing.allocator);
     defer env.deinit();
 
+    // Simulate existing data parsed from file
     try env.setIntegrationEnvironment("python", "version", "3.12.0");
+
+    // Add new section
     try env.setIntegrationEnvironment("cpp", "version", "14.2.0");
 
     try std.testing.expectEqual(@as(usize, 2), env.data.integration_environment.map.count());
@@ -193,4 +238,35 @@ test "new entries override existing on merge" {
 
     try std.testing.expectEqual(@as(usize, 1), env.data.integration_environment.map.count());
     try std.testing.expectEqualStrings("3.13.0", env.data.integration_environment.map.get("python").?.map.get("version").?);
+}
+
+test "linked libraries serialization" {
+    const alloc = std.testing.allocator;
+    var env = Environment.init(alloc);
+    defer env.deinit();
+
+    try env.libs.libraries.append(.{
+        .path = try alloc.dupe(u8, "/usr/lib/libc.so.6"),
+        .soname = try alloc.dupe(u8, "libc.so.6"),
+        .build_id = try alloc.dupe(u8, "abc123"),
+    });
+
+    try env.libs.libraries.append(.{
+        .path = try alloc.dupe(u8, "/usr/lib/libm.so.6"),
+        .soname = null,
+        .build_id = null,
+    });
+
+    try env.populateLinkedLibraries();
+
+    const json = try std.json.stringifyAlloc(alloc, env.data, .{ .whitespace = .indent_2 });
+    defer alloc.free(json);
+
+    // Library with soname is keyed by soname
+    try std.testing.expect(std.mem.indexOf(u8, json, "\"libc.so.6\"") != null);
+    try std.testing.expect(std.mem.indexOf(u8, json, "\"/usr/lib/libc.so.6\"") != null);
+    try std.testing.expect(std.mem.indexOf(u8, json, "\"abc123\"") != null);
+
+    // Library without soname is keyed by path
+    try std.testing.expect(std.mem.indexOf(u8, json, "\"/usr/lib/libm.so.6\"") != null);
 }

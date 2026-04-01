@@ -21,28 +21,28 @@ extern "C" {
 #define CALLGRIND_ZERO_STATS
 #endif
 
-typedef uint64_t *InstrumentHooks;
+typedef uint64_t* InstrumentHooks;
 
-InstrumentHooks *instrument_hooks_init(void);
-void instrument_hooks_deinit(InstrumentHooks *);
+InstrumentHooks* instrument_hooks_init(void);
+void instrument_hooks_deinit(InstrumentHooks*);
 
-bool instrument_hooks_is_instrumented(InstrumentHooks *);
-uint8_t instrument_hooks_start_benchmark(InstrumentHooks *);
-uint8_t instrument_hooks_stop_benchmark(InstrumentHooks *);
-uint8_t instrument_hooks_set_executed_benchmark(InstrumentHooks *, int32_t pid,
-                                                const char *uri);
+bool instrument_hooks_is_instrumented(InstrumentHooks*);
+uint8_t instrument_hooks_start_benchmark(InstrumentHooks*);
+uint8_t instrument_hooks_stop_benchmark(InstrumentHooks*);
+uint8_t instrument_hooks_set_executed_benchmark(InstrumentHooks*, int32_t pid,
+                                                const char* uri);
 // Deprecated: use instrument_hooks_set_executed_benchmark instead
-uint8_t instrument_hooks_executed_benchmark(InstrumentHooks *, int32_t pid,
-                                            const char *uri);
-uint8_t instrument_hooks_set_integration(InstrumentHooks *, const char *name,
-                                         const char *version);
+uint8_t instrument_hooks_executed_benchmark(InstrumentHooks*, int32_t pid,
+                                            const char* uri);
+uint8_t instrument_hooks_set_integration(InstrumentHooks*, const char* name,
+                                         const char* version);
 
 #define MARKER_TYPE_SAMPLE_START 0
 #define MARKER_TYPE_SAMPLE_END 1
 #define MARKER_TYPE_BENCHMARK_START 2
 #define MARKER_TYPE_BENCHMARK_END 3
 
-uint8_t instrument_hooks_add_marker(InstrumentHooks *, uint32_t pid,
+uint8_t instrument_hooks_add_marker(InstrumentHooks*, uint32_t pid,
                                     uint8_t marker_type, uint64_t timestamp);
 uint64_t instrument_hooks_current_timestamp(void);
 
@@ -60,20 +60,20 @@ void instrument_hooks_set_feature(instrument_hooks_feature_t feature,
 
 // Environment collection
 // Call set_environment to register key-value pairs grouped by section.
-// Section names and keys will be displayed as is in the frontend, grouped by
-// section. Then call write_environment to flush them to
+// Call collect_linked_libraries to gather linked library metadata.
+// Then call write_environment to flush everything to
 // $CODSPEED_PROFILE_FOLDER/environment-<pid>.json.
-uint8_t instrument_hooks_set_environment(InstrumentHooks *,
-                                         const char *section_name,
-                                         const char *key, const char *value);
-uint8_t instrument_hooks_write_environment(InstrumentHooks *, uint32_t pid);
+uint8_t instrument_hooks_set_environment(InstrumentHooks*,
+                                         const char* section_name,
+                                         const char* key, const char* value);
+uint8_t instrument_hooks_write_environment(InstrumentHooks*, uint32_t pid);
 
 // Header functions that will be inlined. This can be used by languages that
 // directly consume the headers such as C or C++. This will allow for more
 // precise tracking of the benchmark performance.
 
 static inline uint8_t instrument_hooks_start_benchmark_inline(
-    InstrumentHooks *instance) {
+    InstrumentHooks* instance) {
   instrument_hooks_set_feature(FEATURE_DISABLE_CALLGRIND_MARKERS, true);
   if (instrument_hooks_start_benchmark(instance) != 0) {
     return 1;
@@ -85,7 +85,7 @@ static inline uint8_t instrument_hooks_start_benchmark_inline(
 }
 
 static inline uint8_t instrument_hooks_stop_benchmark_inline(
-    InstrumentHooks *instance) {
+    InstrumentHooks* instance) {
   CALLGRIND_STOP_INSTRUMENTATION;
   return instrument_hooks_stop_benchmark(instance);
 }
