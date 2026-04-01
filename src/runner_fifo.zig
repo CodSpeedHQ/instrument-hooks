@@ -140,7 +140,7 @@ test "test runner fifo" {
         error_occurred: bool = false,
 
         pub fn func(ctx: *@This()) void {
-            const received_cmd = ctx.ctl_pipe.recvCmd() catch |err| {
+            const received_cmd = ctx.ctl_pipe.waitForResponse(null) catch |err| {
                 std.debug.print("Failed to receive command: {}\n", .{err});
                 ctx.error_occurred = true;
                 return;
