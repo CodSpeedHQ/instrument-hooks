@@ -27,10 +27,13 @@ fn logWithPrefix(comptime level: LogLevel, comptime fmt: []const u8, args: anyty
         .Error => "[ERROR] " ++ fmt,
     };
 
-    const msg = std.fmt.bufPrint(&buffer, prefix_fmt, args) catch {
+    const msg = std.fmt.bufPrint(buffer[0 .. buffer.len - 1], prefix_fmt, args) catch {
         _ = printf(@as([*c]const c_char, @ptrCast("[ERROR] logger formatting failed\n")));
         return;
     };
+
+    // Null-terminate for printf
+    buffer[msg.len] = 0;
 
     // Print the formatted message (printf with only format string, no args)
     _ = printf(@as([*c]const c_char, @ptrCast(msg.ptr)));
