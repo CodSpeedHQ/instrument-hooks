@@ -66,6 +66,11 @@ void instrument_hooks_set_feature(instrument_hooks_feature_t feature,
 uint8_t instrument_hooks_set_environment(InstrumentHooks*,
                                          const char* section_name,
                                          const char* key, const char* value);
+uint8_t instrument_hooks_set_environment_list(InstrumentHooks*,
+                                              const char* section_name,
+                                              const char* key,
+                                              const char* const* values,
+                                              uint32_t count);
 uint8_t instrument_hooks_write_environment(InstrumentHooks*, uint32_t pid);
 
 // Header functions that will be inlined. This can be used by languages that

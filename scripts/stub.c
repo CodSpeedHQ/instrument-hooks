@@ -52,6 +52,14 @@ uint8_t instrument_hooks_set_environment(InstrumentHooks* hooks,
   return 0;
 }
 
+uint8_t instrument_hooks_set_environment_list(InstrumentHooks* hooks,
+                                              const char* section_name,
+                                              const char* key,
+                                              const char* const* values,
+                                              uint32_t count) {
+  return 0;
+}
+
 uint8_t instrument_hooks_write_environment(InstrumentHooks* hooks,
                                            uint32_t pid) {
   return 0;

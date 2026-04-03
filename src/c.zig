@@ -121,6 +121,27 @@ pub export fn instrument_hooks_set_environment(
     return 1;
 }
 
+pub export fn instrument_hooks_set_environment_list(
+    hooks: ?*InstrumentHooks,
+    section_name: [*c]const u8,
+    key: [*c]const u8,
+    values: [*c]const [*c]const u8,
+    count: u32,
+) u8 {
+    if (section_name == null or key == null or values == null) return 1;
+    if (hooks) |h| {
+        const slices = allocator.alloc([]const u8, count) catch return 1;
+        defer allocator.free(slices);
+        for (0..count) |i| {
+            if (values[i] == null) return 1;
+            slices[i] = std.mem.span(values[i]);
+        }
+        h.environment.setIntegrationEnvironmentList(std.mem.span(section_name), std.mem.span(key), slices) catch return 1;
+        return 0;
+    }
+    return 1;
+}
+
 pub export fn instrument_hooks_write_environment(hooks: ?*InstrumentHooks, pid: u32) u8 {
     if (hooks) |h| {
         return h.environment.writeEnvironment(pid);
