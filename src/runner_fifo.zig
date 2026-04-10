@@ -76,7 +76,7 @@ pub const RunnerFifo = struct {
         try self.reader.waitForAck(null);
     }
 
-    pub fn set_executed_benchmark(self: *Self, pid: u32, uri: [*c]const u8) !void {
+    pub fn set_executed_benchmark(self: *Self, pid: i32, uri: [*c]const u8) !void {
         try self.writer.sendCmd(fifo.Command{ .ExecutedBenchmark = .{
             .pid = pid,
             .uri = std.mem.span(uri),
@@ -92,7 +92,7 @@ pub const RunnerFifo = struct {
         try self.reader.waitForAck(null);
     }
 
-    pub fn add_marker(self: *Self, pid: u32, marker: shared.MarkerType) !void {
+    pub fn add_marker(self: *Self, pid: i32, marker: shared.MarkerType) !void {
         try self.writer.sendCmd(fifo.Command{ .AddMarker = .{
             .pid = pid,
             .marker = marker,

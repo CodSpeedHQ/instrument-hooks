@@ -19,7 +19,7 @@ target_include_directories(
 )
 
 # Suppress warnings for the instrument_hooks library
-if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+if(CMAKE_C_COMPILER_ID MATCHES "GNU|Clang")
     target_compile_options(
         instrument_hooks
         PRIVATE
@@ -28,8 +28,10 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
         -Wno-unused-parameter
         -Wno-unused-but-set-variable
         -Wno-type-limits
+        -Wno-format
+        -Wno-format-security
     )
-elseif(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+elseif(CMAKE_C_COMPILER_ID STREQUAL "MSVC")
     target_compile_options(
         instrument_hooks
         PRIVATE

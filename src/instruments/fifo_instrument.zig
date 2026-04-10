@@ -46,7 +46,7 @@ pub fn FifoInstrument(comptime mode: shared.IntegrationMode, comptime error_type
             try self.fifo.stop_benchmark();
         }
 
-        pub fn set_executed_benchmark(self: *Self, pid: u32, uri: [*c]const u8) !void {
+        pub fn set_executed_benchmark(self: *Self, pid: i32, uri: [*c]const u8) !void {
             try self.fifo.set_executed_benchmark(pid, uri);
         }
 
@@ -54,7 +54,7 @@ pub fn FifoInstrument(comptime mode: shared.IntegrationMode, comptime error_type
             try self.fifo.set_integration(name, version);
         }
 
-        pub fn add_marker(self: *Self, pid: u32, marker: shared.MarkerType) !void {
+        pub fn add_marker(self: *Self, pid: i32, marker: shared.MarkerType) !void {
             try self.fifo.add_marker(pid, marker);
         }
     };

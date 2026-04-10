@@ -127,7 +127,7 @@ pub const Environment = struct {
         }
     }
 
-    pub fn writeEnvironment(self: *Self, pid: u32) u8 {
+    pub fn writeEnvironment(self: *Self, pid: i32) u8 {
         self.libs.collect() catch {
             logger.err("instrument-hooks: failed to collect linked libraries\n", .{});
         };

@@ -21,7 +21,7 @@ extern "C" {
 #define CALLGRIND_ZERO_STATS
 #endif
 
-typedef uint64_t *InstrumentHooks;
+typedef struct InstrumentHooks InstrumentHooks;
 
 InstrumentHooks *instrument_hooks_init(void);
 void instrument_hooks_deinit(InstrumentHooks *);
@@ -42,7 +42,7 @@ uint8_t instrument_hooks_set_integration(InstrumentHooks *, const char *name,
 #define MARKER_TYPE_BENCHMARK_START 2
 #define MARKER_TYPE_BENCHMARK_END 3
 
-uint8_t instrument_hooks_add_marker(InstrumentHooks *, uint32_t pid,
+uint8_t instrument_hooks_add_marker(InstrumentHooks *, int32_t pid,
                                     uint8_t marker_type, uint64_t timestamp);
 uint64_t instrument_hooks_current_timestamp(void);
 
@@ -55,8 +55,7 @@ typedef enum {
   FEATURE_DISABLE_CALLGRIND_MARKERS = 0,
 } instrument_hooks_feature_t;
 
-void instrument_hooks_set_feature(instrument_hooks_feature_t feature,
-                                  bool enabled);
+void instrument_hooks_set_feature(uint64_t feature, bool enabled);
 
 // Environment collection
 // Call set_environment to register key-value pairs grouped by section.
@@ -71,7 +70,7 @@ uint8_t instrument_hooks_set_environment_list(InstrumentHooks *,
                                               const char *key,
                                               const char *const *values,
                                               uint32_t count);
-uint8_t instrument_hooks_write_environment(InstrumentHooks *, uint32_t pid);
+uint8_t instrument_hooks_write_environment(InstrumentHooks *, int32_t pid);
 
 // Header functions that will be inlined. This can be used by languages that
 // directly consume the headers such as C or C++. This will allow for more

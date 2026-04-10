@@ -69,7 +69,7 @@ pub const Instrument = union(enum) {
         }
     }
 
-    pub inline fn set_executed_benchmark(self: *Self, pid: u32, uri: [*c]const u8) !void {
+    pub inline fn set_executed_benchmark(self: *Self, pid: i32, uri: [*c]const u8) !void {
         switch (self.*) {
             .valgrind => ValgrindInstrument.set_executed_benchmark(pid, uri),
             .perf => try self.perf.set_executed_benchmark(pid, uri),
@@ -87,7 +87,7 @@ pub const Instrument = union(enum) {
         }
     }
 
-    pub inline fn add_marker(self: *Self, pid: u32, marker: shared.MarkerType) !void {
+    pub inline fn add_marker(self: *Self, pid: i32, marker: shared.MarkerType) !void {
         if (self.* == .perf) {
             return self.perf.add_marker(pid, marker);
         } else if (self.* == .analysis) {

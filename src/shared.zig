@@ -44,7 +44,7 @@ pub const IntegrationMode = enum {
 
 pub const Command = union(enum) {
     ExecutedBenchmark: struct {
-        pid: u32,
+        pid: i32,
         uri: []const u8,
     },
     StartBenchmark,
@@ -57,7 +57,7 @@ pub const Command = union(enum) {
     },
     Err,
     AddMarker: struct {
-        pid: u32,
+        pid: i32,
         marker: MarkerType,
     },
     SetVersion: u64,
