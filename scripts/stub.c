@@ -3,6 +3,22 @@
 
 #include "core.h"
 
+#if defined(__APPLE__)
+#include <mach/mach_time.h>
+
+static uint64_t get_timebase_numer(void) {
+  mach_timebase_info_data_t info;
+  mach_timebase_info(&info);
+  return info.numer;
+}
+
+static uint64_t get_timebase_denom(void) {
+  mach_timebase_info_data_t info;
+  mach_timebase_info(&info);
+  return info.denom;
+}
+#endif
+
 struct InstrumentHooks {
   uint64_t _unused;
 };
@@ -59,7 +75,13 @@ void instrument_hooks_set_feature(uint64_t feature, bool enabled) {
   (void)enabled;
 }
 
-uint64_t instrument_hooks_current_timestamp(void) { return 0; }
+uint64_t instrument_hooks_current_timestamp(void) {
+#if defined(__APPLE__)
+  return mach_absolute_time() * get_timebase_numer() / get_timebase_denom();
+#else
+  return 0;
+#endif
+}
 
 uint8_t instrument_hooks_add_marker(InstrumentHooks *hooks, int32_t pid,
                                     uint8_t marker_type, uint64_t timestamp) {
