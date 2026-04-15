@@ -11,7 +11,7 @@ uint8_t running_on_valgrind() { return RUNNING_ON_VALGRIND > 0; }
 
 void callgrind_dump_stats() { CALLGRIND_DUMP_STATS; }
 
-void callgrind_dump_stats_at(uint8_t const* pos_str) {
+void callgrind_dump_stats_at(uint8_t const *pos_str) {
   CALLGRIND_DUMP_STATS_AT(pos_str);
 }
 
@@ -27,7 +27,7 @@ uint8_t running_on_valgrind() { return 0; }
 
 void callgrind_dump_stats() {}
 
-void callgrind_dump_stats_at(uint8_t const* pos_str) {}
+void callgrind_dump_stats_at(uint8_t const *pos_str) {}
 
 void callgrind_zero_stats() {}
 
