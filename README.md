@@ -13,20 +13,9 @@ Zig library to control instrumentations via IPC.
 - **Zig**: 0.14
 - [**Just**](https://github.com/casey/just) (optional): To easily run the build, formatter or tests
 
-## How to add new integration?
+## Adding CodSpeed support for a new language
 
-This library is intended to be used as a C library. The main source file is in `dist/core.c` and the headers are in `includes/`. See `examples/main.c` for an example on how to use it.
-
-To test if it worked, call `is_instrumented` which should return `false` when running without Codspeed. To run with Codspeed, execute the following:
-```
-codspeed run -- <your_cmd>
-```
-
-To make sure your integration is fully working, you have to implement all these hooks:
-- start_benchmark: Call this when the benchmark starts, to start measuring the performance.
-- stop_benchmark: Stop measuring the performance after the benchmark stopped.
-- set_executed_benchmark: Provide metadata about which benchmark was executed.
-- set_integration: Provide metadata about the integration.
+To integrate CodSpeed with a new language or benchmarking framework, you need to build a **custom harness** on top of `instrument-hooks`. See the **[custom harness guide](./CUSTOM_HARNESS.md)** for a step-by-step walkthrough, including a copy-paste prompt for setting it up with an AI agent. A minimal C harness is available in [`example/`](./example/).
 
 ## Run tests
 
