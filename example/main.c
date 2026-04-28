@@ -8,6 +8,12 @@
 
 #include "core.h"
 
+#if defined(_MSC_VER)
+#define CODSPEED_NOINLINE __declspec(noinline)
+#else
+#define CODSPEED_NOINLINE __attribute__((noinline))
+#endif
+
 static int fib(int n) {
   if (n <= 1) return n;
   return fib(n - 1) + fib(n - 2);
@@ -15,16 +21,19 @@ static int fib(int n) {
 
 static void expensive_setup(void) { fib(30); }
 
-void example_function() {
+void example_function(void) {
   // Simulate some work
   for (volatile int i = 0; i < 100000; i++)
     ;
   printf("Benchmark executed\n");
 }
 
-int main() {
-  instrument_hooks_set_feature(FEATURE_DISABLE_CALLGRIND_MARKERS, true);
+CODSPEED_NOINLINE void __codspeed_root_frame__example(
+    void (*benchmark_fn)(void)) {
+  benchmark_fn();
+}
 
+int main() {
   InstrumentHooks *hooks = instrument_hooks_init();
   if (!hooks) {
     printf("Failed to initialize instrument hooks\n");
@@ -37,7 +46,7 @@ int main() {
     printf("Not running under instrumentation\n");
   }
 
-  instrument_hooks_set_integration(hooks, "example", "1.0.0");
+  instrument_hooks_set_integration(hooks, "custom-integration", "1.0.0");
 
   printf("Starting benchmark...\n");
   if (instrument_hooks_start_benchmark_inline(hooks) != 0) {
@@ -53,7 +62,7 @@ int main() {
     expensive_setup();
 
     uint64_t start_time = instrument_hooks_current_timestamp();
-    example_function();
+    __codspeed_root_frame__example(example_function);
     uint64_t end_time = instrument_hooks_current_timestamp();
 
     // Add the markers which mark when the benchmarked function was running
