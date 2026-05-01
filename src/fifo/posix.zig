@@ -9,7 +9,15 @@ const Allocator = std.mem.Allocator;
 const Path = []const u8;
 pub const Command = shared.Command;
 
+const fcntl_h = @cImport(@cInclude("fcntl.h"));
+
 extern "c" fn mkfifo(path: [*:0]const u8, mode: c_uint) c_int;
+
+fn setNonBlocking(fd: std.posix.fd_t) void {
+    const current_flags = fcntl_h.fcntl(fd, fcntl_h.F_GETFL, @as(c_int, 0));
+    const new_flags = current_flags | fcntl_h.O_NONBLOCK;
+    _ = fcntl_h.fcntl(fd, fcntl_h.F_SETFL, new_flags);
+}
 
 pub const Pipe = struct {
     pub const Reader = struct {
@@ -184,8 +192,7 @@ pub const Pipe = struct {
         });
 
         // Zig doesn't set the nonblocking flag correctly, so we have to do it manually.
-        const utils = @import("../utils.zig");
-        utils.setNonBlocking(file.handle);
+        setNonBlocking(file.handle);
 
         return file;
     }

@@ -1,10 +1,13 @@
 const std = @import("std");
+const builtin = @import("builtin");
 const c = @cImport(@cInclude("time.h"));
 const errno = @cImport(@cInclude("errno.h"));
-const fcntl_h = @cImport(@cInclude("fcntl.h"));
 
-extern "c" fn nanosleep(nanos: u64) c_int;
 extern "c" fn printf(format: [*c]const c_char, ...) c_int;
+
+// Win32 Sleep takes milliseconds. Declared here (not pulled from std.os.windows)
+// because std uses inline syscalls / per-arch glue we don't want in transpiled C.
+extern "kernel32" fn Sleep(dwMilliseconds: u32) callconv(.winapi) void;
 
 // Note: Using printf to avoid the extra code from std.log/std.debug. Those won't
 // compile because they are internally using syscalls (for Mutexes) which aren't cross-platform.
@@ -25,10 +28,19 @@ pub fn print(comptime fmt: []const u8, args: anytype) void {
     _ = @call(.auto, printf, .{&fmt_z} ++ args);
 }
 
-// Adaptation of [`std.Thread.sleep`](https://ziglang.org/documentation/0.14.0/std/#std.Thread.sleep)
-// to ensure that the C code is architecture-independent. The stdlib implementation uses inline syscalls,
-// which only works on a single architecture and is not portable.
+// Sleep for at least the given number of nanoseconds.
+//
+// Avoids std.Thread.sleep / std.time.sleep because those use inline syscalls on
+// Linux that aren't portable across architectures. On POSIX we go straight to
+// nanosleep; on Windows we fall back to Sleep (millisecond resolution).
 pub fn sleep(nanoseconds: u64) void {
+    if (builtin.os.tag == .windows) {
+        const ms_u64 = nanoseconds / std.time.ns_per_ms;
+        const ms: u32 = @intCast(@min(ms_u64, std.math.maxInt(u32)));
+        Sleep(ms);
+        return;
+    }
+
     const s = nanoseconds / std.time.ns_per_s;
     const ns = nanoseconds % std.time.ns_per_s;
 
@@ -48,12 +60,6 @@ pub fn sleep(nanoseconds: u64) void {
             return;
         }
     }
-}
-
-pub fn setNonBlocking(fd: std.posix.fd_t) void {
-    const current_flags = fcntl_h.fcntl(fd, fcntl_h.F_GETFL, @as(c_int, 0));
-    const new_flags = current_flags | fcntl_h.O_NONBLOCK;
-    _ = fcntl_h.fcntl(fd, fcntl_h.F_SETFL, new_flags);
 }
 
 test "sleep for at least 1 second" {
