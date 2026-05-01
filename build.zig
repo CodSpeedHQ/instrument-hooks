@@ -1,19 +1,35 @@
 const std = @import("std");
 
 pub fn build(b: *std.Build) void {
-    // Core Library
-    //
-    const libcore = b.addStaticLibrary(.{
-        .name = "core",
-        .root_source_file = b.path("src/c.zig"),
-        .target = b.resolveTargetQuery(.{ .ofmt = .c }),
-        .optimize = .ReleaseSmall,
-        .link_libc = true,
-        .strip = true,
-        .pic = true,
-    });
-    libcore.no_builtin = true;
-    b.installArtifact(libcore);
+    // Core Library — one per OS, transpiled to C via .ofmt = .c.
+    const PerOsTarget = struct { name: []const u8, query: std.Target.Query };
+    const targets = [_]PerOsTarget{
+        .{ .name = "core.linux", .query = .{
+            .cpu_arch = .x86_64,
+            .os_tag = .linux,
+            .abi = .gnu,
+            .ofmt = .c,
+        } },
+        .{ .name = "core.macos", .query = .{
+            .cpu_arch = .x86_64,
+            .os_tag = .macos,
+            .abi = .none,
+            .ofmt = .c,
+        } },
+    };
+    for (targets) |t| {
+        const lib = b.addStaticLibrary(.{
+            .name = t.name,
+            .root_source_file = b.path("src/c.zig"),
+            .target = b.resolveTargetQuery(t.query),
+            .optimize = .ReleaseSmall,
+            .link_libc = true,
+            .strip = true,
+            .pic = true,
+        });
+        lib.no_builtin = true;
+        b.installArtifact(lib);
+    }
 
     // Test shared library fixture
     //
