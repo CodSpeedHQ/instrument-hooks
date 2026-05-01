@@ -1,4 +1,5 @@
 const std = @import("std");
+const builtin = @import("builtin");
 const perf = @import("perf.zig");
 const analysis = @import("analysis.zig");
 const valgrind = @import("valgrind.zig");
@@ -16,9 +17,12 @@ pub const Instrument = union(enum) {
     const Self = @This();
 
     pub fn init(allocator: std.mem.Allocator) !Self {
-        if (ValgrindInstrument.init(allocator)) |valgrind_inst| {
-            return Self{ .valgrind = valgrind_inst };
-        } else |_| {}
+        // Valgrind/Callgrind client requests only work on Linux.
+        if (comptime builtin.os.tag == .linux) {
+            if (ValgrindInstrument.init(allocator)) |valgrind_inst| {
+                return Self{ .valgrind = valgrind_inst };
+            } else |_| {}
+        }
 
         if (AnalysisInstrument.init(allocator)) |analysis_inst| {
             return Self{ .analysis = analysis_inst };
