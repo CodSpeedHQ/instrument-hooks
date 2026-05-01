@@ -56,20 +56,6 @@ pub fn setNonBlocking(fd: std.posix.fd_t) void {
     _ = fcntl_h.fcntl(fd, fcntl_h.F_SETFL, new_flags);
 }
 
-// Returns monotonic time since boot in nanoseconds.
-//
-// NOTE: Maximum representable timestamp is u64::MAX nanoseconds = 18,446,744,073,709,551,615 ns
-//       which equals ~584.94 years from epoch (year 2554-07-21T23:34:33.709551615). Since CLOCK_MONOTONIC
-//       measures time since boot, a system would need to run for ~585 years continuously to overflow this value.
-pub fn clock_gettime_monotonic() u64 {
-    const ts = std.posix.clock_gettime(std.posix.clockid_t.MONOTONIC) catch unreachable;
-
-    const s = @as(u64, @intCast(ts.sec)) * std.time.ns_per_s;
-    const nsec: u64 = @intCast(ts.nsec);
-
-    return s + nsec;
-}
-
 test "sleep for at least 1 second" {
     const start = try std.time.Instant.now();
     sleep(1 * std.time.ns_per_s);

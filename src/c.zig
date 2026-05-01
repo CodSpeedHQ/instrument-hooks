@@ -108,8 +108,32 @@ pub export fn instrument_hooks_add_marker(hooks: ?*InstrumentHooks, pid: i32, ma
     return 0;
 }
 
+// macOS uses Mach absolute time with timebase scaling (mirrors scripts/stub.c).
+const MachTimebaseInfo = extern struct { numer: u32, denom: u32 };
+extern "c" fn mach_absolute_time() u64;
+extern "c" fn mach_timebase_info(info: *MachTimebaseInfo) c_int;
+
+// Returns monotonic time since boot in nanoseconds.
+//
+// NOTE: Maximum representable timestamp is u64::MAX nanoseconds = 18,446,744,073,709,551,615 ns
+//       which equals ~584.94 years from epoch. Since CLOCK_MONOTONIC measures time since boot,
+//       a system would need to run for ~585 years continuously to overflow this value.
 pub export fn instrument_hooks_current_timestamp() u64 {
-    return utils.clock_gettime_monotonic();
+    return switch (builtin.os.tag) {
+        .linux => blk: {
+            const ts = std.posix.clock_gettime(std.posix.clockid_t.MONOTONIC) catch unreachable;
+            const s = @as(u64, @intCast(ts.sec)) * std.time.ns_per_s;
+            const nsec: u64 = @intCast(ts.nsec);
+            break :blk s + nsec;
+        },
+        .macos => blk: {
+            var info: MachTimebaseInfo = undefined;
+            _ = mach_timebase_info(&info);
+            break :blk mach_absolute_time() * info.numer / info.denom;
+        },
+        .windows => 0,
+        else => @compileError("unsupported OS for instrument_hooks_current_timestamp"),
+    };
 }
 
 pub export fn instrument_hooks_set_environment(
