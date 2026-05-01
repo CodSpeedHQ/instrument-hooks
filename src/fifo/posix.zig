@@ -122,7 +122,7 @@ pub const Pipe = struct {
             // Drain any pending data from the FIFO before closing to prevent
             // stale messages from being read by subsequent connections.
             // This is crucial when multiple instrument types probe the same FIFO
-            // (e.g., AnalysisInstrument fails, then PerfInstrument tries).
+            // (e.g., AnalysisInstrument fails, then WalltimeInstrument tries).
             var dummy_buffer: [4096]u8 = undefined;
             while (true) {
                 const bytes_read = self.file.read(&dummy_buffer) catch break;

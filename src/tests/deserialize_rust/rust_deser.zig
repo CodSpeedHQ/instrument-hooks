@@ -22,7 +22,7 @@ test "rust deserialization" {
     try assert_eq(rust.cmd_start_bench, Command{ .StartBenchmark = {} });
     try assert_eq(rust.cmd_stop_bench, Command{ .StopBenchmark = {} });
     try assert_eq(rust.cmd_ack, Command{ .Ack = {} });
-    try assert_eq(rust.cmd_ping_perf, Command{ .PingPerf = {} });
+    try assert_eq(rust.cmd_ping_perf, Command{ .PingProfiler = {} });
     try assert_eq(rust.cmd_set_integration, Command{ .SetIntegration = .{
         .name = "test-integration",
         .version = "1.0.0",
@@ -54,7 +54,7 @@ test "rust deserialization" {
     try assert_eq(rust.cmd_get_runner_mode, Command{ .GetIntegrationMode = {} });
 
     // IntegrationModeResponse commands
-    try assert_eq(rust.cmd_runner_mode_perf, Command{ .IntegrationModeResponse = .Perf });
+    try assert_eq(rust.cmd_runner_mode_perf, Command{ .IntegrationModeResponse = .Walltime });
     try assert_eq(rust.cmd_runner_mode_simulation, Command{ .IntegrationModeResponse = .Simulation });
     try assert_eq(rust.cmd_runner_mode_analysis, Command{ .IntegrationModeResponse = .Analysis });
 }

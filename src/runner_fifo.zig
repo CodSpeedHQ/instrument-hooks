@@ -54,8 +54,8 @@ pub const RunnerFifo = struct {
         try self.reader.waitForAck(null);
     }
 
-    pub fn ping_perf(self: *Self) bool {
-        self.send_cmd(fifo.Command.PingPerf) catch {
+    pub fn ping_profiler(self: *Self) bool {
+        self.send_cmd(fifo.Command.PingProfiler) catch {
             return false;
         };
 

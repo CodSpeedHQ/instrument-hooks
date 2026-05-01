@@ -37,7 +37,8 @@ pub const MarkerType = union(enum) {
 };
 
 pub const IntegrationMode = enum {
-    Perf,
+    // Walltime measurement under any profiler (perf, instruments, etc.).
+    Walltime,
     Simulation,
     Analysis,
 };
@@ -50,7 +51,7 @@ pub const Command = union(enum) {
     StartBenchmark,
     StopBenchmark,
     Ack,
-    PingPerf,
+    PingProfiler,
     SetIntegration: struct {
         name: []const u8,
         version: []const u8,
@@ -91,7 +92,7 @@ pub const Command = union(enum) {
             .StartBenchmark => try writer.writeAll("StartBenchmark"),
             .StopBenchmark => try writer.writeAll("StopBenchmark"),
             .Ack => try writer.writeAll("Ack"),
-            .PingPerf => try writer.writeAll("PingPerf"),
+            .PingProfiler => try writer.writeAll("PingProfiler"),
             .SetIntegration => |data| try writer.print("SetIntegration {{ name: {s}, version: {s} }}", .{ data.name, data.version }),
             .Err => try writer.writeAll("Err"),
             .AddMarker => |data| try writer.print("AddMarker {{ pid: {d}, marker: {} }}", .{ data.pid, data.marker }),
@@ -120,8 +121,8 @@ pub const Command = union(enum) {
                 .Ack => true,
                 else => false,
             },
-            .PingPerf => switch (other) {
-                .PingPerf => true,
+            .PingProfiler => switch (other) {
+                .PingProfiler => true,
                 else => false,
             },
             .SetIntegration => |self_data| switch (other) {
