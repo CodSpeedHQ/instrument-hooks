@@ -1,6 +1,6 @@
-const bincode = @import("bincode.zig");
+const bincode = @import("../bincode.zig");
 const std = @import("std");
-const shared = @import("shared.zig");
+const shared = @import("../shared.zig");
 
 const fs = std.fs;
 const os = std.os;
@@ -11,7 +11,7 @@ pub const Command = shared.Command;
 
 extern "c" fn mkfifo(path: [*:0]const u8, mode: c_uint) c_int;
 
-pub const UnixPipe = struct {
+pub const Pipe = struct {
     pub const Reader = struct {
         file: fs.File,
         allocator: Allocator,
@@ -83,7 +83,7 @@ pub const UnixPipe = struct {
                     // Only retry on transient errors, propagate fatal ones
                     switch (err) {
                         error.NotReady, error.UnexpectedEof => {
-                            const utils = @import("utils.zig");
+                            const utils = @import("../utils.zig");
                             utils.sleep(std.time.ns_per_ms * 10);
                             continue;
                         },
@@ -103,7 +103,7 @@ pub const UnixPipe = struct {
                 .Ack => return,
                 .Err => return error.UnexpectedError,
                 else => {
-                    const logger = @import("logger.zig");
+                    const logger = @import("../logger.zig");
                     logger.debug("waitForAck received unexpected response: {}\n", .{response});
                     return error.UnexpectedResponse;
                 },
@@ -184,7 +184,7 @@ pub const UnixPipe = struct {
         });
 
         // Zig doesn't set the nonblocking flag correctly, so we have to do it manually.
-        const utils = @import("utils.zig");
+        const utils = @import("../utils.zig");
         utils.setNonBlocking(file.handle);
 
         return file;
@@ -202,11 +202,11 @@ pub const UnixPipe = struct {
 };
 
 pub fn sendCmd(allocator: Allocator, cmd: Command) !void {
-    var writer = try UnixPipe.openWrite(allocator, shared.RUNNER_CTL_FIFO);
+    var writer = try Pipe.openWrite(allocator, shared.RUNNER_CTL_FIFO);
     defer writer.deinit();
     try writer.sendCmd(cmd);
 
-    var reader = try UnixPipe.openRead(allocator, shared.RUNNER_ACK_FIFO);
+    var reader = try Pipe.openRead(allocator, shared.RUNNER_ACK_FIFO);
     defer reader.deinit();
     try reader.waitForAck(null);
 }
@@ -225,11 +225,11 @@ test "fail if doesn't exist" {
     fs.deleteFileAbsolute(nonexistent_path) catch {};
 
     // Attempt to open for reading should fail
-    const reader_result = UnixPipe.openRead(allocator, nonexistent_path);
+    const reader_result = Pipe.openRead(allocator, nonexistent_path);
     try std.testing.expectError(error.FileNotFound, reader_result);
 
     // Attempt to open for writing should fail
-    const writer_result = UnixPipe.openWrite(allocator, nonexistent_path);
+    const writer_result = Pipe.openWrite(allocator, nonexistent_path);
     try std.testing.expectError(error.FileNotFound, writer_result);
 
     // Attempt to send cmd to runner fifo
@@ -244,12 +244,12 @@ test "unix pipe write read" {
     const allocator = std.testing.allocator;
     const test_path = "/tmp/test1.fifo";
 
-    try UnixPipe.create(test_path);
+    try Pipe.create(test_path);
 
-    var reader = try UnixPipe.openRead(allocator, test_path);
+    var reader = try Pipe.openRead(allocator, test_path);
     defer reader.deinit();
 
-    var writer = try UnixPipe.openWrite(allocator, test_path);
+    var writer = try Pipe.openWrite(allocator, test_path);
     defer writer.deinit();
 
     const message = "Hello";
@@ -265,12 +265,12 @@ test "unix pipe send recv cmd" {
     const allocator = std.testing.allocator;
     const test_path = "/tmp/test2.fifo";
 
-    try UnixPipe.create(test_path);
+    try Pipe.create(test_path);
 
-    var reader = try UnixPipe.openRead(allocator, test_path);
+    var reader = try Pipe.openRead(allocator, test_path);
     defer reader.deinit();
 
-    var writer = try UnixPipe.openWrite(allocator, test_path);
+    var writer = try Pipe.openWrite(allocator, test_path);
     defer writer.deinit();
 
     try writer.sendCmd(Command.StartBenchmark);
@@ -284,13 +284,13 @@ test "unix pipe send without ack" {
     const allocator = std.testing.allocator;
     const test_path = "/tmp/test_no_ack.fifo";
 
-    try UnixPipe.create(test_path);
+    try Pipe.create(test_path);
 
     // Open both reader and writer so they don't block on open
-    var reader = try UnixPipe.openRead(allocator, test_path);
+    var reader = try Pipe.openRead(allocator, test_path);
     defer reader.deinit();
 
-    var writer = try UnixPipe.openWrite(allocator, test_path);
+    var writer = try Pipe.openWrite(allocator, test_path);
     defer writer.deinit();
 
     // Writer doesn't send anything, so waitForResponse should timeout
@@ -302,15 +302,15 @@ test "unix pipe prevents stale messages between connections" {
     const allocator = std.testing.allocator;
     const test_path = "/tmp/test_stale_messages.fifo";
 
-    try UnixPipe.create(test_path);
+    try Pipe.create(test_path);
 
     // Keep writer open throughout to maintain the FIFO
-    var writer = try UnixPipe.openWrite(allocator, test_path);
+    var writer = try Pipe.openWrite(allocator, test_path);
     defer writer.deinit();
 
     // STEP 1: Simulate first connection
     {
-        var first_reader = try UnixPipe.openRead(allocator, test_path);
+        var first_reader = try Pipe.openRead(allocator, test_path);
 
         // Send and successfully read first command
         try writer.sendCmd(Command.StartBenchmark);
@@ -328,7 +328,7 @@ test "unix pipe prevents stale messages between connections" {
 
     // STEP 2: Simulate second connection
     {
-        var second_reader = try UnixPipe.openRead(allocator, test_path);
+        var second_reader = try Pipe.openRead(allocator, test_path);
         defer second_reader.deinit();
 
         // Send fresh command

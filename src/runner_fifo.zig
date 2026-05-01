@@ -1,5 +1,5 @@
 const std = @import("std");
-const fifo = @import("fifo.zig");
+const fifo = @import("fifo/root.zig");
 const shared = @import("shared.zig");
 const logger = @import("logger.zig");
 
@@ -9,16 +9,16 @@ pub const PROTOCOL_VERSION: u64 = 2;
 
 pub const RunnerFifo = struct {
     allocator: std.mem.Allocator,
-    writer: fifo.UnixPipe.Writer,
-    reader: fifo.UnixPipe.Reader,
+    writer: fifo.Pipe.Writer,
+    reader: fifo.Pipe.Reader,
 
     const Self = @This();
 
     pub fn init(allocator: std.mem.Allocator) !Self {
         return .{
             .allocator = allocator,
-            .writer = try fifo.UnixPipe.openWrite(allocator, shared.RUNNER_CTL_FIFO),
-            .reader = try fifo.UnixPipe.openRead(allocator, shared.RUNNER_ACK_FIFO),
+            .writer = try fifo.Pipe.openWrite(allocator, shared.RUNNER_CTL_FIFO),
+            .reader = try fifo.Pipe.openRead(allocator, shared.RUNNER_ACK_FIFO),
         };
     }
 
@@ -122,19 +122,19 @@ pub const RunnerFifo = struct {
 test "test runner fifo" {
     const allocator = std.testing.allocator;
 
-    try fifo.UnixPipe.create(shared.RUNNER_ACK_FIFO);
-    try fifo.UnixPipe.create(shared.RUNNER_CTL_FIFO);
+    try fifo.Pipe.create(shared.RUNNER_ACK_FIFO);
+    try fifo.Pipe.create(shared.RUNNER_CTL_FIFO);
 
-    var ctl_fifo = try fifo.UnixPipe.openRead(allocator, shared.RUNNER_CTL_FIFO);
+    var ctl_fifo = try fifo.Pipe.openRead(allocator, shared.RUNNER_CTL_FIFO);
     defer ctl_fifo.deinit();
 
-    var ack_fifo = try fifo.UnixPipe.openWrite(allocator, shared.RUNNER_ACK_FIFO);
+    var ack_fifo = try fifo.Pipe.openWrite(allocator, shared.RUNNER_ACK_FIFO);
     defer ack_fifo.deinit();
 
     const FifoTester = struct {
         allocator: std.mem.Allocator,
-        ctl_pipe: *fifo.UnixPipe.Reader,
-        ack_pipe: *fifo.UnixPipe.Writer,
+        ctl_pipe: *fifo.Pipe.Reader,
+        ack_pipe: *fifo.Pipe.Writer,
 
         received_cmd: ?fifo.Command = null,
         error_occurred: bool = false,
