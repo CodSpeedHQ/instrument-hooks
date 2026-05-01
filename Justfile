@@ -2,17 +2,17 @@ clean:
     rm -rf zig-out/
     rm -rf .zig-cache
     rm -rf dist/core.c
-    rm -rf example/build
+    rm -rf example/cmake-build
 
 build:
     # Use a fixed traversal seed for reproducible transpilation output
     zig build --seed 12345
 
 cmake-build-example:
-    cd example && mkdir -p build && cd build && cmake .. && make -j
+    cd example && mkdir -p cmake-build && cd cmake-build && cmake .. && make -j
 
 cmake-run-example: cmake-build-example
-    ./example/build/example
+    ./example/cmake-build/example
 
 bazel-build-example:
     cd example && bazelisk build //:example

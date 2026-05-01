@@ -4,6 +4,7 @@ target/
 ./main
 
 **/build
+**/cmake-build
 
 # Bazel output
 **/bazel-*
