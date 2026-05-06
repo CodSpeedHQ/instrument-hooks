@@ -9,14 +9,24 @@ const Allocator = std.mem.Allocator;
 const Path = []const u8;
 pub const Command = shared.Command;
 
-const fcntl_h = @cImport(@cInclude("fcntl.h"));
-
 extern "c" fn mkfifo(path: [*:0]const u8, mode: c_uint) c_int;
 
-fn setNonBlocking(fd: std.posix.fd_t) void {
-    const current_flags = fcntl_h.fcntl(fd, fcntl_h.F_GETFL, @as(c_int, 0));
-    const new_flags = current_flags | fcntl_h.O_NONBLOCK;
-    _ = fcntl_h.fcntl(fd, fcntl_h.F_SETFL, new_flags);
+/// Wait until `fd` is readable, returning `error.AckTimeout` if no data
+/// arrives within `timeout_ns`. Used to gate blocking reads so we never
+/// consume bytes from a partially-written FIFO frame and lose framing.
+fn waitReadable(fd: std.posix.fd_t, timeout_ns: u64) !void {
+    var pfd = [_]std.posix.pollfd{.{
+        .fd = fd,
+        .events = std.posix.POLL.IN,
+        .revents = 0,
+    }};
+    const ms_total = timeout_ns / std.time.ns_per_ms;
+    const timeout_ms: i32 = if (ms_total > std.math.maxInt(i32))
+        std.math.maxInt(i32)
+    else
+        @intCast(ms_total);
+    const ready = std.posix.poll(&pfd, timeout_ms) catch return error.AckTimeout;
+    if (ready == 0) return error.AckTimeout;
 }
 
 pub const Pipe = struct {
@@ -78,29 +88,9 @@ pub const Pipe = struct {
         }
 
         pub fn waitForResponse(self: *Reader, timeout_ns: ?u64) !Command {
-            const start = std.time.nanoTimestamp();
             const timeout = timeout_ns orelse std.time.ns_per_s * 1; // Default 1 second timeout
-
-            while (true) {
-                const elapsed = @as(u64, @intCast(std.time.nanoTimestamp() - start));
-                if (elapsed > timeout) {
-                    return error.AckTimeout;
-                }
-
-                const cmd = self.recvCmd() catch |err| {
-                    // Only retry on transient errors, propagate fatal ones
-                    switch (err) {
-                        error.NotReady, error.UnexpectedEof => {
-                            const utils = @import("../utils.zig");
-                            utils.sleep(std.time.ns_per_ms * 10);
-                            continue;
-                        },
-                        else => return err,
-                    }
-                };
-
-                return cmd;
-            }
+            try waitReadable(self.file.handle, timeout);
+            return self.recvCmd();
         }
 
         pub fn waitForAck(self: *Reader, timeout_ns: ?u64) !void {
@@ -123,8 +113,17 @@ pub const Pipe = struct {
             // stale messages from being read by subsequent connections.
             // This is crucial when multiple instrument types probe the same FIFO
             // (e.g., AnalysisInstrument fails, then WalltimeInstrument tries).
+            // The fd is blocking, so poll with timeout=0 to consume only what's
+            // currently available without ever blocking on an empty FIFO.
             var dummy_buffer: [4096]u8 = undefined;
             while (true) {
+                var pfd = [_]std.posix.pollfd{.{
+                    .fd = self.file.handle,
+                    .events = std.posix.POLL.IN,
+                    .revents = 0,
+                }};
+                const ready = std.posix.poll(&pfd, 0) catch break;
+                if (ready == 0) break;
                 const bytes_read = self.file.read(&dummy_buffer) catch break;
                 if (bytes_read == 0) break;
             }
@@ -187,14 +186,9 @@ pub const Pipe = struct {
 
     fn openPipe(path: []const u8) !fs.File {
         try fs.accessAbsolute(path, .{ .mode = .read_write });
-        const file = try fs.openFileAbsolute(path, .{
+        return try fs.openFileAbsolute(path, .{
             .mode = .read_write,
         });
-
-        // Zig doesn't set the nonblocking flag correctly, so we have to do it manually.
-        setNonBlocking(file.handle);
-
-        return file;
     }
 
     pub fn openRead(allocator: Allocator, path: []const u8) !Reader {
