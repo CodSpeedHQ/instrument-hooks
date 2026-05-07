@@ -127,9 +127,19 @@ pub export fn instrument_hooks_current_timestamp() u64 {
             break :blk s + nsec;
         },
         .macos => blk: {
-            var info: MachTimebaseInfo = undefined;
-            _ = mach_timebase_info(&info);
-            break :blk mach_absolute_time() * info.numer / info.denom;
+            const S = struct {
+                var cached: MachTimebaseInfo = .{ .numer = 0, .denom = 0 };
+                var once = std.once(init);
+                fn init() void {
+                    var info: MachTimebaseInfo = undefined;
+                    if (mach_timebase_info(&info) != 0 or info.denom == 0) {
+                        info = .{ .numer = 1, .denom = 1 };
+                    }
+                    cached = info;
+                }
+            };
+            S.once.call();
+            break :blk mach_absolute_time() * S.cached.numer / S.cached.denom;
         },
         .windows => 0,
         else => @compileError("unsupported OS for instrument_hooks_current_timestamp"),
