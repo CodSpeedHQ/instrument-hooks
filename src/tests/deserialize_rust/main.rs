@@ -34,10 +34,10 @@ fn main() {
             uri: "http://example.com/benchmark".to_string(),
         },
     );
-    example("cmd_start_bench", &Command::StartBenchmark);
-    example("cmd_stop_bench", &Command::StopBenchmark);
+    example("cmd_start_bench", &Command::StartProfiler);
+    example("cmd_stop_bench", &Command::StopProfiler);
     example("cmd_ack", &Command::Ack);
-    example("cmd_ping_perf", &Command::PingPerf);
+    example("cmd_ping_perf", &Command::PingProfiler);
     example(
         "cmd_set_integration",
         &Command::SetIntegration {
@@ -64,21 +64,21 @@ fn main() {
         "cmd_add_marker_benchmark_start",
         &Command::AddMarker {
             pid: 12345,
-            marker: MarkerType::BenchmarkStart(3000),
+            marker: MarkerType::RoundStart(3000),
         },
     );
     example(
         "cmd_add_marker_benchmark_end",
         &Command::AddMarker {
             pid: 12345,
-            marker: MarkerType::BenchmarkEnd(4000),
+            marker: MarkerType::RoundEnd(4000),
         },
     );
     example("cmd_set_version", &Command::SetVersion(1));
     example("cmd_get_runner_mode", &Command::GetIntegrationMode);
     example(
         "cmd_runner_mode_perf",
-        &Command::IntegrationModeResponse(IntegrationMode::Perf),
+        &Command::IntegrationModeResponse(IntegrationMode::Walltime),
     );
     example(
         "cmd_runner_mode_simulation",

@@ -178,7 +178,7 @@ dependencies = [
 [[package]]
 name = "runner-shared"
 version = "0.1.0"
-source = "git+https://github.com/CodSpeedHQ/runner#be3c3b2502c9aa1155264d5447af3a80c5b90d98"
+source = "git+https://github.com/CodSpeedHQ/runner?rev=214016018bb8ff32014af4ab77e8bc5260fcc878#214016018bb8ff32014af4ab77e8bc5260fcc878"
 dependencies = [
  "anyhow",
  "bincode",

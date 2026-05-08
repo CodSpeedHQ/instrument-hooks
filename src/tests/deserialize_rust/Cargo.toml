@@ -11,4 +11,4 @@ path = "main.rs"
 [dependencies]
 bincode = "1.3.3"
 serde = { version = "1.0.192", features = ["derive"] }
-runner-shared = { git = "https://github.com/CodSpeedHQ/runner" }
+runner-shared = { git = "https://github.com/CodSpeedHQ/runner", rev = "214016018bb8ff32014af4ab77e8bc5260fcc878" }
