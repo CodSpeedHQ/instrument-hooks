@@ -1,9 +1,10 @@
+
 /*
    ----------------------------------------------------------------
 
    Notice that the following BSD-style license applies to this one
    file (callgrind.h) only.  The rest of Valgrind is licensed under the
-   terms of the GNU General Public License, version 2, unless
+   terms of the GNU General Public License, version 3, unless
    otherwise indicated.  See the COPYING file in the source
    distribution for details.
 
@@ -49,7 +50,7 @@
 
    Notice that the above BSD-style license applies to this one file
    (callgrind.h) only.  The entire rest of Valgrind is licensed under
-   the terms of the GNU General Public License, version 2.  See the
+   the terms of the GNU General Public License, version 3.  See the
    COPYING file in the source distribution for details.
 
    ----------------------------------------------------------------
@@ -70,45 +71,50 @@
    clash with cachegrind.
  */
 
-typedef enum {
-  VG_USERREQ__DUMP_STATS = VG_USERREQ_TOOL_BASE('C', 'T'),
-  VG_USERREQ__ZERO_STATS,
-  VG_USERREQ__TOGGLE_COLLECT,
-  VG_USERREQ__DUMP_STATS_AT,
-  VG_USERREQ__START_INSTRUMENTATION,
-  VG_USERREQ__STOP_INSTRUMENTATION
-} Vg_CallgrindClientRequest;
+typedef
+   enum {
+      VG_USERREQ__DUMP_STATS = VG_USERREQ_TOOL_BASE('C','T'),
+      VG_USERREQ__ZERO_STATS,
+      VG_USERREQ__TOGGLE_COLLECT,
+      VG_USERREQ__DUMP_STATS_AT,
+      VG_USERREQ__START_INSTRUMENTATION,
+      VG_USERREQ__STOP_INSTRUMENTATION,
+      VG_USERREQ__ADD_OBJ_SKIP
+   } Vg_CallgrindClientRequest;
 
 /* Dump current state of cost centers, and zero them afterwards */
-#define CALLGRIND_DUMP_STATS                                                   \
-  VALGRIND_DO_CLIENT_REQUEST_STMT(VG_USERREQ__DUMP_STATS, 0, 0, 0, 0, 0)
+#define CALLGRIND_DUMP_STATS                                    \
+  VALGRIND_DO_CLIENT_REQUEST_STMT(VG_USERREQ__DUMP_STATS,       \
+                                  0, 0, 0, 0, 0)
 
 /* Dump current state of cost centers, and zero them afterwards.
    The argument is appended to a string stating the reason which triggered
    the dump. This string is written as a description field into the
    profile data dump. */
-#define CALLGRIND_DUMP_STATS_AT(pos_str)                                       \
-  VALGRIND_DO_CLIENT_REQUEST_STMT(VG_USERREQ__DUMP_STATS_AT, pos_str, 0, 0, 0, \
-                                  0)
+#define CALLGRIND_DUMP_STATS_AT(pos_str)                        \
+  VALGRIND_DO_CLIENT_REQUEST_STMT(VG_USERREQ__DUMP_STATS_AT,    \
+                                  pos_str, 0, 0, 0, 0)
 
 /* Zero cost centers */
-#define CALLGRIND_ZERO_STATS                                                   \
-  VALGRIND_DO_CLIENT_REQUEST_STMT(VG_USERREQ__ZERO_STATS, 0, 0, 0, 0, 0)
+#define CALLGRIND_ZERO_STATS                                    \
+  VALGRIND_DO_CLIENT_REQUEST_STMT(VG_USERREQ__ZERO_STATS,       \
+                                  0, 0, 0, 0, 0)
 
 /* Toggles collection state.
    The collection state specifies whether the happening of events
    should be noted or if they are to be ignored. Events are noted
    by increment of counters in a cost center */
-#define CALLGRIND_TOGGLE_COLLECT                                               \
-  VALGRIND_DO_CLIENT_REQUEST_STMT(VG_USERREQ__TOGGLE_COLLECT, 0, 0, 0, 0, 0)
+#define CALLGRIND_TOGGLE_COLLECT                                \
+  VALGRIND_DO_CLIENT_REQUEST_STMT(VG_USERREQ__TOGGLE_COLLECT,   \
+                                  0, 0, 0, 0, 0)
 
 /* Start full callgrind instrumentation if not already switched on.
    When cache simulation is done, it will flush the simulated cache;
    this will lead to an artificial cache warmup phase afterwards with
    cache misses which would not have happened in reality. */
-#define CALLGRIND_START_INSTRUMENTATION                                        \
-  VALGRIND_DO_CLIENT_REQUEST_STMT(VG_USERREQ__START_INSTRUMENTATION, 0, 0, 0,  \
-                                  0, 0)
+#define CALLGRIND_START_INSTRUMENTATION                              \
+  VALGRIND_DO_CLIENT_REQUEST_STMT(VG_USERREQ__START_INSTRUMENTATION, \
+                                  0, 0, 0, 0, 0)
 
 /* Stop full callgrind instrumentation if not already switched off.
    This flushes Valgrinds translation cache, and does no additional
@@ -117,8 +123,14 @@ typedef enum {
    Use this to bypass Callgrind aggregation for uninteresting code parts.
    To start Callgrind in this mode to ignore the setup phase, use
    the option "--instr-atstart=no". */
-#define CALLGRIND_STOP_INSTRUMENTATION                                         \
-  VALGRIND_DO_CLIENT_REQUEST_STMT(VG_USERREQ__STOP_INSTRUMENTATION, 0, 0, 0,   \
-                                  0, 0)
+#define CALLGRIND_STOP_INSTRUMENTATION                               \
+  VALGRIND_DO_CLIENT_REQUEST_STMT(VG_USERREQ__STOP_INSTRUMENTATION,  \
+                                  0, 0, 0, 0, 0)
+
+/* Add an object file path to the obj-skip list at runtime. Path matching
+   is exact (same as --obj-skip=<path> on the command line). */
+#define CALLGRIND_ADD_OBJ_SKIP(path)                                 \
+  VALGRIND_DO_CLIENT_REQUEST_STMT(VG_USERREQ__ADD_OBJ_SKIP,          \
+                                  path, 0, 0, 0, 0)
 
 #endif /* __CALLGRIND_H */
