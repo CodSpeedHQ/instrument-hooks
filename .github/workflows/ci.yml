@@ -27,6 +27,21 @@ jobs:
         with:
           extra_args: --all-files
 
+  check-callgrind-header:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Diff includes/callgrind.h against valgrind-codspeed main
+        run: |
+          curl -fsSL -o /tmp/callgrind.h \
+            https://raw.githubusercontent.com/CodSpeedHQ/valgrind-codspeed/master/callgrind/callgrind.h
+          if ! diff -u /tmp/callgrind.h includes/callgrind.h; then
+            echo ""
+            echo "::error::includes/callgrind.h is out of sync with CodSpeedHQ/valgrind-codspeed."
+            echo "Copy callgrind/callgrind.h from the fork's default branch into includes/."
+            exit 1
+          fi
+
   tests:
     strategy:
       matrix:
@@ -269,6 +284,7 @@ jobs:
     if: always()
     needs:
       - lint
+      - check-callgrind-header
       - tests
       - build
       - test-build-cmake
