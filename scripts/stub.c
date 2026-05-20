@@ -99,3 +99,8 @@ uint8_t instrument_hooks_write_environment(InstrumentHooks *hooks,
   (void)pid;
   return 0;
 }
+
+uint8_t instrument_hooks_callgrind_add_obj_skip(const char *path) {
+  (void)path;
+  return 0;
+}

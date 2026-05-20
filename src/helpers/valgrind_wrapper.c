@@ -16,6 +16,8 @@ void callgrind_zero_stats() {}
 void callgrind_start_instrumentation() {}
 
 void callgrind_stop_instrumentation() {}
+
+void callgrind_add_obj_skip(uint8_t const *path) { (void)path; }
 #else
 #include "callgrind.h"
 #include "valgrind.h"
@@ -33,6 +35,10 @@ void callgrind_zero_stats() { CALLGRIND_ZERO_STATS; }
 void callgrind_start_instrumentation() { CALLGRIND_START_INSTRUMENTATION; }
 
 void callgrind_stop_instrumentation() { CALLGRIND_STOP_INSTRUMENTATION; }
+
+void callgrind_add_obj_skip(uint8_t const *path) {
+  CALLGRIND_ADD_OBJ_SKIP(path);
+}
 
 #endif
 

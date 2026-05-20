@@ -5,6 +5,7 @@ const features = @import("./features.zig");
 const shared = @import("./shared.zig");
 const std = @import("std");
 const utils = @import("./utils.zig");
+const valgrind_helper = @import("./helpers/valgrind.zig");
 
 pub const panic = if (builtin.is_test) std.debug.FullPanic(std.debug.defaultPanic) else std.debug.no_panic;
 const allocator = if (builtin.is_test) std.testing.allocator else std.heap.c_allocator;
@@ -182,6 +183,21 @@ pub export fn instrument_hooks_set_environment_list(
     return 1;
 }
 
+pub export fn instrument_hooks_callgrind_add_obj_skip(path: [*c]const c_char) u8 {
+    if (path == null) return 1;
+    if (comptime builtin.os.tag != .linux and builtin.os.tag != .macos) return 0;
+
+    // Callgrind matches obj-skip entries via exact strcmp against the name
+    // Valgrind recorded in obj_node, which comes from its debuginfo reader
+    // and is the realpath of the mapped file.
+    const path_slice = std.mem.span(@as([*:0]const u8, @ptrCast(path)));
+    var real_path: [std.fs.max_path_bytes + 1]u8 = @splat(0);
+    _ = std.fs.realpath(path_slice, real_path[0..std.fs.max_path_bytes]) catch return 0;
+
+    valgrind_helper.callgrind_add_obj_skip(@ptrCast(&real_path[0]));
+    return 0;
+}
+
 pub export fn instrument_hooks_write_environment(hooks: ?*InstrumentHooks, pid: i32) u8 {
     if (hooks) |h| {
         return h.environment.writeEnvironment(pid);
@@ -199,4 +215,12 @@ test "no crash when not instrumented" {
     try std.testing.expectEqual(0, instrument_hooks_stop_benchmark(instance));
     try std.testing.expectEqual(0, instrument_hooks_executed_benchmark(instance, 0, @ptrCast("test")));
     try std.testing.expectEqual(0, instrument_hooks_set_integration(instance, @ptrCast("pytest-codspeed"), @ptrCast("1.0")));
+}
+
+test "callgrind_add_obj_skip is a no-op outside valgrind" {
+    // Outside valgrind the macro expands to nothing; we only assert that the
+    // realpath handling and null guard don't crash.
+    try std.testing.expectEqual(@as(u8, 1), instrument_hooks_callgrind_add_obj_skip(null));
+    try std.testing.expectEqual(@as(u8, 0), instrument_hooks_callgrind_add_obj_skip(@ptrCast("/nonexistent/path/that/will/not/resolve")));
+    try std.testing.expectEqual(@as(u8, 0), instrument_hooks_callgrind_add_obj_skip(@ptrCast("/")));
 }

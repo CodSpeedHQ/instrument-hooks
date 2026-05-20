@@ -49,6 +49,11 @@ uint64_t instrument_hooks_current_timestamp(void);
 void callgrind_start_instrumentation();
 void callgrind_stop_instrumentation();
 
+// Register an object file path on callgrind's runtime --obj-skip list.
+// Equivalent to passing --obj-skip=<path> on the valgrind command line.
+// Safe to call outside Valgrind: expands to a no-op.
+uint8_t instrument_hooks_callgrind_add_obj_skip(const char *path);
+
 // Feature flags for instrument hooks
 
 typedef enum {
