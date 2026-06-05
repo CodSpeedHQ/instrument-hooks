@@ -49,6 +49,13 @@ uint64_t instrument_hooks_current_timestamp(void);
 void callgrind_start_instrumentation();
 void callgrind_stop_instrumentation();
 
+// Toggle callgrind cost collection on/off without re-instrumenting.
+// Unlike start/stop instrumentation, this does not flush the simulated
+// cache, so it can be used to exclude code regions from measurement
+// without introducing artificial cold-cache costs.
+// Safe to call outside Valgrind: expands to a no-op.
+void callgrind_toggle_collect();
+
 // Register an object file path on callgrind's runtime --obj-skip list.
 // Equivalent to passing --obj-skip=<path> on the valgrind command line.
 // Safe to call outside Valgrind: expands to a no-op.
