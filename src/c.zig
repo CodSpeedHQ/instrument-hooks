@@ -224,3 +224,86 @@ test "callgrind_add_obj_skip is a no-op outside valgrind" {
     try std.testing.expectEqual(@as(u8, 0), instrument_hooks_callgrind_add_obj_skip(@ptrCast("/nonexistent/path/that/will/not/resolve")));
     try std.testing.expectEqual(@as(u8, 0), instrument_hooks_callgrind_add_obj_skip(@ptrCast("/")));
 }
+
+test "concurrent exports keep runner request/ack pairing" {
+    const fifo = @import("./fifo/root.zig");
+    const thread_count = 4;
+    const markers_per_thread = 50;
+
+    try fifo.Pipe.create(shared.RUNNER_ACK_FIFO);
+    try fifo.Pipe.create(shared.RUNNER_CTL_FIFO);
+
+    var ctl = try fifo.Pipe.openRead(allocator, shared.RUNNER_CTL_FIFO);
+    defer ctl.deinit();
+    var ack = try fifo.Pipe.openWrite(allocator, shared.RUNNER_ACK_FIFO);
+    defer ack.deinit();
+
+    // Answers every command strictly one at a time: a torn or interleaved
+    // request/ack sequence surfaces as an unexpected response on the client side.
+    const Runner = struct {
+        ctl: *fifo.Pipe.Reader,
+        ack: *fifo.Pipe.Writer,
+        markers_seen: usize = 0,
+        failed: bool = false,
+
+        fn run(self: *@This()) void {
+            while (self.markers_seen < thread_count * markers_per_thread) {
+                const cmd = self.ctl.waitForResponse(5 * std.time.ns_per_s) catch {
+                    self.failed = true;
+                    return;
+                };
+                defer cmd.deinit(allocator);
+
+                const reply: fifo.Command = switch (cmd) {
+                    .GetIntegrationMode => .{ .IntegrationModeResponse = .Analysis },
+                    .AddMarker => blk: {
+                        self.markers_seen += 1;
+                        break :blk .Ack;
+                    },
+                    else => .Ack,
+                };
+                self.ack.sendCmd(reply) catch {
+                    self.failed = true;
+                    return;
+                };
+            }
+        }
+    };
+
+    // Each worker owns an instance so init negotiation (whose response is not
+    // an Ack) races against other instances' traffic on the same FIFOs.
+    const Worker = struct {
+        instrumented: bool = false,
+        failures: usize = 0,
+
+        fn run(self: *@This()) void {
+            const instance = instrument_hooks_init();
+            defer instrument_hooks_deinit(instance);
+            self.instrumented = instance != null and instance.?.instrument == .analysis;
+
+            for (0..markers_per_thread) |i| {
+                if (instrument_hooks_add_marker(instance, 0, MARKER_TYPE_SAMPLE_START, @intCast(i)) != 0) {
+                    self.failures += 1;
+                }
+            }
+        }
+    };
+
+    var runner = Runner{ .ctl = &ctl, .ack = &ack };
+    const runner_thread = try std.Thread.spawn(.{}, Runner.run, .{&runner});
+
+    var workers: [thread_count]Worker = @splat(.{});
+    var threads: [thread_count]std.Thread = undefined;
+    for (&workers, &threads) |*worker, *thread| {
+        thread.* = try std.Thread.spawn(.{}, Worker.run, .{worker});
+    }
+    for (threads) |thread| thread.join();
+    runner_thread.join();
+
+    try std.testing.expect(!runner.failed);
+    try std.testing.expectEqual(thread_count * markers_per_thread, runner.markers_seen);
+    for (workers) |worker| {
+        try std.testing.expect(worker.instrumented);
+        try std.testing.expectEqual(@as(usize, 0), worker.failures);
+    }
+}

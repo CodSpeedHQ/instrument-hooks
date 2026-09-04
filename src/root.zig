@@ -5,6 +5,7 @@ test "run all tests" {
     _ = @import("environment/linked_libraries/root.zig");
     _ = @import("environment/linked_libraries/elf_view.zig");
     _ = @import("fifo/root.zig");
+    _ = @import("lock.zig");
     _ = @import("c.zig");
     _ = @import("utils.zig");
 }

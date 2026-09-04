@@ -7,18 +7,20 @@ pub const Feature = enum(u64) {
     disable_callgrind_markers = 0,
 };
 
-var features = std.StaticBitSet(64).initEmpty();
+var features: u64 = 0;
 
 pub fn set_feature(feature: Feature, enabled: bool) void {
+    const bit = @as(u64, 1) << @intCast(@intFromEnum(feature));
     if (enabled) {
-        features.set(@intFromEnum(feature));
+        _ = @atomicRmw(u64, &features, .Or, bit, .monotonic);
     } else {
-        features.unset(@intFromEnum(feature));
+        _ = @atomicRmw(u64, &features, .And, ~bit, .monotonic);
     }
 }
 
 pub fn is_feature_enabled(feature: Feature) bool {
-    return features.isSet(@intFromEnum(feature));
+    const bit = @as(u64, 1) << @intCast(@intFromEnum(feature));
+    return @atomicLoad(u64, &features, .monotonic) & bit != 0;
 }
 
 test "set_feature and is_feature_enabled" {
