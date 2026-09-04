@@ -1,6 +1,7 @@
 const std = @import("std");
 const fifo = @import("fifo/root.zig");
 const shared = @import("shared.zig");
+const Lock = @import("lock.zig").Lock;
 const logger = @import("logger.zig");
 
 // v1: Initial release
@@ -11,6 +12,11 @@ pub const RunnerFifo = struct {
     allocator: std.mem.Allocator,
     writer: fifo.Pipe.Writer,
     reader: fifo.Pipe.Reader,
+
+    /// The runner FIFO paths are process-global, so every handle opens its own
+    /// fds onto the same pipe pair: the lock has to be shared by all of them,
+    /// not per instance.
+    var pipe_lock: Lock = .{};
 
     const Self = @This();
 
@@ -44,14 +50,33 @@ pub const RunnerFifo = struct {
         };
     }
 
+    /// Draining the acknowledgement FIFO must not race another handle's
+    /// in-flight request, so teardown takes the same lock as an exchange.
     pub fn deinit(self: *Self) void {
+        pipe_lock.lock();
+        defer pipe_lock.unlock();
+
         self.writer.deinit();
         self.reader.deinit();
     }
 
+    /// Every handle in the process shares the same two FIFO paths, so a
+    /// request and its reply must not interleave with another handle's traffic.
     pub fn send_cmd(self: *Self, cmd: fifo.Command) !void {
+        pipe_lock.lock();
+        defer pipe_lock.unlock();
+
         try self.writer.sendCmd(cmd);
         try self.reader.waitForAck(null);
+    }
+
+    /// Like send_cmd, but for commands the runner answers with data instead of an Ack.
+    pub fn request(self: *Self, cmd: fifo.Command) !fifo.Command {
+        pipe_lock.lock();
+        defer pipe_lock.unlock();
+
+        try self.writer.sendCmd(cmd);
+        return self.reader.waitForResponse(null);
     }
 
     pub fn ping_profiler(self: *Self) bool {
@@ -65,51 +90,42 @@ pub const RunnerFifo = struct {
     pub noinline fn start_benchmark(self: *Self) !void {
         @branchHint(.cold); // Prevent inline
 
-        try self.writer.sendCmd(fifo.Command.StartBenchmark);
-        try self.reader.waitForAck(null);
+        try self.send_cmd(fifo.Command.StartBenchmark);
     }
 
     pub noinline fn stop_benchmark(self: *Self) !void {
         @branchHint(.cold); // Prevent inline
 
-        try self.writer.sendCmd(fifo.Command.StopBenchmark);
-        try self.reader.waitForAck(null);
+        try self.send_cmd(fifo.Command.StopBenchmark);
     }
 
     pub fn set_executed_benchmark(self: *Self, pid: i32, uri: [*c]const u8) !void {
-        try self.writer.sendCmd(fifo.Command{ .ExecutedBenchmark = .{
+        try self.send_cmd(fifo.Command{ .ExecutedBenchmark = .{
             .pid = pid,
             .uri = std.mem.span(uri),
         } });
-        try self.reader.waitForAck(null);
     }
 
     pub fn set_integration(self: *Self, name: [*c]const u8, version: [*c]const u8) !void {
-        try self.writer.sendCmd(fifo.Command{ .SetIntegration = .{
+        try self.send_cmd(fifo.Command{ .SetIntegration = .{
             .name = std.mem.span(name),
             .version = std.mem.span(version),
         } });
-        try self.reader.waitForAck(null);
     }
 
     pub fn add_marker(self: *Self, pid: i32, marker: shared.MarkerType) !void {
-        try self.writer.sendCmd(fifo.Command{ .AddMarker = .{
+        try self.send_cmd(fifo.Command{ .AddMarker = .{
             .pid = pid,
             .marker = marker,
         } });
-        try self.reader.waitForAck(null);
     }
 
     pub fn send_version(self: *Self, protocol_version: u64) !void {
-        try self.writer.sendCmd(fifo.Command{ .SetVersion = protocol_version });
-        try self.reader.waitForAck(null);
+        try self.send_cmd(fifo.Command{ .SetVersion = protocol_version });
     }
 
     pub fn get_integration_mode(self: *Self) !shared.IntegrationMode {
-        // NOTE: Other messages send data to the runner, and expect an ACK response (see `sendCmd`). This
-        // command expects the runner to respond with data, so have to write and read directly.
-        try self.writer.sendCmd(fifo.Command.GetIntegrationMode);
-        const response = try self.reader.waitForResponse(null);
+        const response = try self.request(fifo.Command.GetIntegrationMode);
         defer response.deinit(self.allocator);
 
         if (response == .IntegrationModeResponse) {

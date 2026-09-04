@@ -2,6 +2,7 @@ const std = @import("std");
 const fs = std.fs;
 const logger = @import("../logger.zig");
 const linked_libraries = @import("linked_libraries/root.zig");
+const Lock = @import("../lock.zig").Lock;
 
 extern "c" fn getenv(name: [*:0]const u8) ?[*:0]const u8;
 
@@ -33,6 +34,7 @@ pub const Environment = struct {
     allocator: std.mem.Allocator,
     data: EnvironmentJson = .{},
     libs: linked_libraries.LinkedLibraries,
+    lock: Lock = .{},
 
     const Self = @This();
 
@@ -66,10 +68,16 @@ pub const Environment = struct {
     }
 
     pub fn setIntegrationEnvironment(self: *Self, integration_name: []const u8, key: []const u8, value: []const u8) !void {
+        self.lock.lock();
+        defer self.lock.unlock();
+
         try self.setIntegrationEnvironmentValue(integration_name, key, .{ .string = try self.allocator.dupe(u8, value) });
     }
 
     pub fn setIntegrationEnvironmentList(self: *Self, integration_name: []const u8, key: []const u8, values: []const []const u8) !void {
+        self.lock.lock();
+        defer self.lock.unlock();
+
         const duped = try self.allocator.alloc([]const u8, values.len);
         var i: usize = 0;
         errdefer {
@@ -128,6 +136,9 @@ pub const Environment = struct {
     }
 
     pub fn writeEnvironment(self: *Self, pid: i32) u8 {
+        self.lock.lock();
+        defer self.lock.unlock();
+
         self.libs.collect() catch {
             logger.err("instrument-hooks: failed to collect linked libraries\n", .{});
         };
@@ -330,4 +341,30 @@ test "linked libraries serialization" {
 
     // Library without soname is keyed by path
     try std.testing.expect(std.mem.indexOf(u8, json, "\"/usr/lib/libm.so.6\"") != null);
+}
+
+test "concurrent setters on one environment keep every entry" {
+    const thread_count = 4;
+    const keys_per_thread = 200;
+
+    var env = Environment.init(std.testing.allocator);
+    defer env.deinit();
+
+    const Worker = struct {
+        fn run(e: *Environment, id: usize) void {
+            var key_buf: [32]u8 = undefined;
+            for (0..keys_per_thread) |i| {
+                const key = std.fmt.bufPrint(&key_buf, "k{d}_{d}", .{ id, i }) catch unreachable;
+                e.setIntegrationEnvironment("section", key, "v") catch unreachable;
+            }
+        }
+    };
+
+    var threads: [thread_count]std.Thread = undefined;
+    for (&threads, 0..) |*thread, id| {
+        thread.* = try std.Thread.spawn(.{}, Worker.run, .{ &env, id });
+    }
+    for (threads) |thread| thread.join();
+
+    try std.testing.expectEqual(@as(usize, thread_count * keys_per_thread), env.data.integration_environment.map.get("section").?.map.count());
 }

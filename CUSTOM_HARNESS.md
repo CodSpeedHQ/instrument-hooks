@@ -219,6 +219,17 @@ pub fn iter<O, R>(&mut self, routine: R) {
 
 The pattern is: your public API method delegates to a `__codspeed_root_frame__`-prefixed implementation that contains all the measurement logic.
 
+## Thread Safety
+
+Every API call is safe to make from any thread, including calls on the same `InstrumentHooks` handle and calls on different handles in the same process. Communication with the runner is serialized internally, so concurrent calls never interleave on the wire.
+
+Serialization is not sequencing. The runner keeps one measurement window and one marker list per process, so two things stay the caller's responsibility:
+
+- `start_benchmark` and `stop_benchmark` delimit a single process-wide window. Overlapping pairs from several threads do not nest: the runner ignores a `start` that arrives while a window is open, and a `stop` that arrives without one.
+- Markers belong to the benchmark as a whole, no matter which thread or process emits them. Scoping a marker to a single thread is not supported.
+
+The one rule the caller owns is handle lifetime: `instrument_hooks_deinit(hooks)` must be ordered after every other call using that handle, exactly like `free()`.
+
 ## URI Convention
 
 The benchmark URI passed to `set_executed_benchmark` should follow this format:
