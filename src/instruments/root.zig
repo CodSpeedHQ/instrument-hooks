@@ -53,6 +53,15 @@ pub const Instrument = union(enum) {
         };
     }
 
+    pub inline fn get_integration_mode(self: *Self) !shared.IntegrationMode {
+        return switch (self.*) {
+            .valgrind => .Simulation,
+            .walltime => .Walltime,
+            .analysis => .Analysis,
+            .none => error.NotInstrumented,
+        };
+    }
+
     pub inline fn start_benchmark(self: *Self) !void {
         if (self.* == .walltime) {
             return self.walltime.start_benchmark();

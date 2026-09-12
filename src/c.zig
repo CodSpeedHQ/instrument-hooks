@@ -47,6 +47,20 @@ pub export fn instrument_hooks_is_instrumented(hooks: ?*InstrumentHooks) bool {
     return false;
 }
 
+pub export fn instrument_hooks_get_integration_mode(hooks: ?*InstrumentHooks, mode: [*c]u8) u8 {
+    if (mode == null) return 1;
+    if (hooks) |h| {
+        const integration_mode = h.instrument.get_integration_mode() catch return 1;
+        mode.* = switch (integration_mode) {
+            .Walltime => 0,
+            .Simulation => 1,
+            .Analysis => 2,
+        };
+        return 0;
+    }
+    return 1;
+}
+
 pub export fn instrument_hooks_start_benchmark(hooks: ?*InstrumentHooks) u8 {
     if (hooks) |h| {
         h.instrument.start_benchmark() catch {
@@ -223,4 +237,27 @@ test "callgrind_add_obj_skip is a no-op outside valgrind" {
     try std.testing.expectEqual(@as(u8, 1), instrument_hooks_callgrind_add_obj_skip(null));
     try std.testing.expectEqual(@as(u8, 0), instrument_hooks_callgrind_add_obj_skip(@ptrCast("/nonexistent/path/that/will/not/resolve")));
     try std.testing.expectEqual(@as(u8, 0), instrument_hooks_callgrind_add_obj_skip(@ptrCast("/")));
+}
+
+test "get integration mode validates arguments and maps modes" {
+    var hooks = InstrumentHooks{ .instrument = .{ .none = {} }, .environment = undefined };
+    var mode: u8 = 0xaa;
+
+    try std.testing.expectEqual(@as(u8, 1), instrument_hooks_get_integration_mode(null, &mode));
+    try std.testing.expectEqual(@as(u8, 0xaa), mode);
+    try std.testing.expectEqual(@as(u8, 1), instrument_hooks_get_integration_mode(&hooks, null));
+    try std.testing.expectEqual(@as(u8, 1), instrument_hooks_get_integration_mode(&hooks, &mode));
+    try std.testing.expectEqual(@as(u8, 0xaa), mode);
+
+    hooks.instrument = .{ .valgrind = undefined };
+    try std.testing.expectEqual(@as(u8, 0), instrument_hooks_get_integration_mode(&hooks, &mode));
+    try std.testing.expectEqual(@as(u8, 1), mode);
+
+    hooks.instrument = .{ .walltime = undefined };
+    try std.testing.expectEqual(@as(u8, 0), instrument_hooks_get_integration_mode(&hooks, &mode));
+    try std.testing.expectEqual(@as(u8, 0), mode);
+
+    hooks.instrument = .{ .analysis = undefined };
+    try std.testing.expectEqual(@as(u8, 0), instrument_hooks_get_integration_mode(&hooks, &mode));
+    try std.testing.expectEqual(@as(u8, 2), mode);
 }
