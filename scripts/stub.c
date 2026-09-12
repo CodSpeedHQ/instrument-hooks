@@ -18,6 +18,13 @@ bool instrument_hooks_is_instrumented(InstrumentHooks *hooks) {
   return false;
 }
 
+uint8_t instrument_hooks_get_integration_mode(InstrumentHooks *hooks,
+                                              uint8_t *mode) {
+  (void)hooks;
+  (void)mode;
+  return 1;
+}
+
 uint8_t instrument_hooks_start_benchmark(InstrumentHooks *hooks) {
   (void)hooks;
   return 0;

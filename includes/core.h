@@ -27,6 +27,11 @@ InstrumentHooks *instrument_hooks_init(void);
 void instrument_hooks_deinit(InstrumentHooks *);
 
 bool instrument_hooks_is_instrumented(InstrumentHooks *);
+// Stable integration mode values for language bindings.
+#define INSTRUMENT_HOOKS_MODE_WALLTIME 0
+#define INSTRUMENT_HOOKS_MODE_SIMULATION 1
+#define INSTRUMENT_HOOKS_MODE_ANALYSIS 2
+uint8_t instrument_hooks_get_integration_mode(InstrumentHooks *, uint8_t *mode);
 uint8_t instrument_hooks_start_benchmark(InstrumentHooks *);
 uint8_t instrument_hooks_stop_benchmark(InstrumentHooks *);
 uint8_t instrument_hooks_set_executed_benchmark(InstrumentHooks *, int32_t pid,
