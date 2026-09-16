@@ -2,6 +2,9 @@
 
 #include <stdarg.h>
 #include <stddef.h>
+#if defined(_MSC_VER)
+#include <intrin.h>
+#endif
 
 #if defined(_MSC_VER)
 #define zig_msvc
@@ -1599,10 +1602,20 @@ static inline zig_i128 zig_sub_i128(zig_i128 lhs, zig_i128 rhs) {
     return res;
 }
 
+#if defined(zig_msvc) && defined(zig_x86_64)
+static zig_i128 zig_mul_i128(zig_i128 lhs, zig_i128 rhs) {
+    unsigned __int64 high;
+    zig_i128 res;
+    res.lo = _umul128(lhs.lo, rhs.lo, &high);
+    res.hi = (int64_t)(high + (uint64_t)lhs.hi * rhs.lo + lhs.lo * (uint64_t)rhs.hi);
+    return res;
+}
+#else
 zig_extern zig_i128 __multi3(zig_i128 lhs, zig_i128 rhs);
 static zig_i128 zig_mul_i128(zig_i128 lhs, zig_i128 rhs) {
     return __multi3(lhs, rhs);
 }
+#endif
 
 static zig_u128 zig_mul_u128(zig_u128 lhs, zig_u128 rhs) {
     return zig_bitCast_u128(zig_mul_i128(zig_bitCast_i128(lhs), zig_bitCast_i128(rhs)));
