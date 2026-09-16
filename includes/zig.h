@@ -2,9 +2,6 @@
 
 #include <stdarg.h>
 #include <stddef.h>
-#if defined(_MSC_VER)
-#include <intrin.h>
-#endif
 
 #if defined(_MSC_VER)
 #define zig_msvc
@@ -1604,10 +1601,16 @@ static inline zig_i128 zig_sub_i128(zig_i128 lhs, zig_i128 rhs) {
 
 #if defined(zig_msvc) && defined(zig_x86_64)
 static zig_i128 zig_mul_i128(zig_i128 lhs, zig_i128 rhs) {
-    unsigned __int64 high;
+    const uint64_t mask = UINT64_C(0xffffffff);
+    const uint64_t p00 = (lhs.lo & mask) * (rhs.lo & mask);
+    const uint64_t p01 = (lhs.lo & mask) * (rhs.lo >> 32);
+    const uint64_t p10 = (lhs.lo >> 32) * (rhs.lo & mask);
+    const uint64_t p11 = (lhs.lo >> 32) * (rhs.lo >> 32);
+    const uint64_t carry = (p00 >> 32) + (uint32_t)p01 + (uint32_t)p10;
     zig_i128 res;
-    res.lo = _umul128(lhs.lo, rhs.lo, &high);
-    res.hi = (int64_t)(high + (uint64_t)lhs.hi * rhs.lo + lhs.lo * (uint64_t)rhs.hi);
+    res.lo = (p00 & mask) | (carry << 32);
+    res.hi = (int64_t)(p11 + (p01 >> 32) + (p10 >> 32) + (carry >> 32)
+        + (uint64_t)lhs.hi * rhs.lo + lhs.lo * (uint64_t)rhs.hi);
     return res;
 }
 #else
