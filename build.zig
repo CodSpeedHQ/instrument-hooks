@@ -19,7 +19,7 @@ pub fn build(b: *std.Build) void {
         .{ .name = "core.windows", .query = .{
             .cpu_arch = .x86_64,
             .os_tag = .windows,
-            .abi = .gnu,
+            .abi = .msvc,
             .ofmt = .c,
         } },
     };
