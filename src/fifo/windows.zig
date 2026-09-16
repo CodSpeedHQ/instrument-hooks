@@ -1,71 +1,121 @@
-//! Windows fifo backend — not yet implemented.
-//!
-//! Real implementation would use Win32 named pipes:
-//!   CreateNamedPipeA(\\.\pipe\runner.ctl, ...) for the runner-side endpoints,
-//!   CreateFileA(\\.\pipe\runner.ctl, ...) on the hooks side, plus
-//!   PeekNamedPipe / SetNamedPipeHandleState(PIPE_NOWAIT) for the non-blocking
-//!   semantics that the POSIX impl gets via O_NONBLOCK + fcntl.
-//!
-//! For now every entry point returns error.Unsupported so callers (runner_fifo,
-//! the C FFI exports) propagate a non-zero status and the runtime falls back to
-//! the "none" instrument backend.
-
+const bincode = @import("../bincode.zig");
 const std = @import("std");
 const shared = @import("../shared.zig");
 
+const fs = std.fs;
 const Allocator = std.mem.Allocator;
 pub const Command = shared.Command;
 
 pub const Pipe = struct {
     pub const Reader = struct {
-        pub fn read(_: *Reader, _: []u8) !usize {
-            return error.Unsupported;
+        file: fs.File,
+        allocator: Allocator,
+        buffer: std.ArrayList(u8),
+
+        pub fn init(file: fs.File, allocator: Allocator) Reader {
+            return .{
+                .file = file,
+                .allocator = allocator,
+                .buffer = std.ArrayList(u8).init(allocator),
+            };
         }
-        pub fn readAll(_: *Reader, _: []u8) !usize {
-            return error.Unsupported;
+
+        pub fn read(self: *Reader, buffer: []u8) !usize {
+            return self.file.read(buffer);
         }
-        pub fn recvCmd(_: *Reader) !Command {
-            return error.Unsupported;
+
+        pub fn readAll(self: *Reader, buffer: []u8) !usize {
+            return self.file.readAll(buffer);
         }
-        pub fn waitForResponse(_: *Reader, _: ?u64) !Command {
-            return error.Unsupported;
+
+        pub fn recvCmd(self: *Reader) !Command {
+            var len_buffer: [4]u8 = undefined;
+            if (try self.file.readAll(&len_buffer) < len_buffer.len) return error.UnexpectedEof;
+
+            const message_len = std.mem.readInt(u32, &len_buffer, .little);
+            try self.buffer.resize(message_len);
+            if (try self.file.readAll(self.buffer.items) < message_len) return error.UnexpectedEof;
+
+            var stream = std.io.fixedBufferStream(self.buffer.items);
+            return bincode.deserializeAlloc(stream.reader(), self.allocator, Command);
         }
-        pub fn waitForAck(_: *Reader, _: ?u64) !void {
-            return error.Unsupported;
+
+        pub fn waitForResponse(self: *Reader, _: ?u64) anyerror!Command {
+            return self.recvCmd();
         }
-        pub fn deinit(_: *Reader) void {}
+
+        pub fn waitForAck(self: *Reader, timeout_ns: ?u64) !void {
+            const response = try self.waitForResponse(timeout_ns);
+            defer response.deinit(self.allocator);
+
+            switch (response) {
+                .Ack => return,
+                .Err => return error.UnexpectedError,
+                else => return error.UnexpectedResponse,
+            }
+        }
+
+        pub fn deinit(self: *Reader) void {
+            self.buffer.deinit();
+            self.file.close();
+        }
     };
 
     pub const Writer = struct {
-        pub fn write(_: *Writer, _: []const u8) !usize {
-            return error.Unsupported;
+        file: fs.File,
+        allocator: Allocator,
+        buffer: std.ArrayList(u8),
+
+        pub fn init(file: fs.File, allocator: Allocator) Writer {
+            return .{
+                .file = file,
+                .allocator = allocator,
+                .buffer = std.ArrayList(u8).init(allocator),
+            };
         }
-        pub fn writeAll(_: *Writer, _: []const u8) !void {
-            return error.Unsupported;
+
+        pub fn write(self: *Writer, buffer: []const u8) !usize {
+            return self.file.write(buffer);
         }
-        pub fn sendCmd(_: *Writer, _: Command) !void {
-            return error.Unsupported;
+
+        pub fn writeAll(self: *Writer, buffer: []const u8) !void {
+            try self.file.writeAll(buffer);
         }
-        pub fn deinit(_: *Writer) void {}
+
+        pub fn sendCmd(self: *Writer, cmd: Command) !void {
+            self.buffer.clearRetainingCapacity();
+            try bincode.serialize(self.buffer.writer(), cmd);
+            try self.file.writeAll(std.mem.asBytes(&@as(u32, @intCast(self.buffer.items.len))));
+            try self.file.writeAll(self.buffer.items);
+        }
+
+        pub fn deinit(self: *Writer) void {
+            self.buffer.deinit();
+            self.file.close();
+        }
     };
 
-    pub fn create(_: [*:0]const u8) !void {
-        return error.Unsupported;
+    pub fn create(_: [*:0]const u8) !void {}
+
+    fn openPipe(path: []const u8) !fs.File {
+        return fs.openFileAbsolute(path, .{ .mode = .read_write });
     }
 
-    pub fn openRead(_: Allocator, _: []const u8) !Reader {
-        return error.Unsupported;
+    pub fn openRead(allocator: Allocator, path: []const u8) !Reader {
+        return .init(try openPipe(path), allocator);
     }
 
-    pub fn openWrite(_: Allocator, _: []const u8) !Writer {
-        return error.Unsupported;
+    pub fn openWrite(allocator: Allocator, path: []const u8) !Writer {
+        return .init(try openPipe(path), allocator);
     }
 };
 
-pub fn sendCmd(_: Allocator, _: Command) !void {
-    return error.Unsupported;
+pub fn sendCmd(allocator: Allocator, cmd: Command) !void {
+    var writer = try Pipe.openWrite(allocator, shared.RUNNER_CTL_FIFO);
+    defer writer.deinit();
+    try writer.sendCmd(cmd);
 }
 
-pub fn sendVersion(_: Allocator, _: u64) !void {
-    return error.Unsupported;
+pub fn sendVersion(allocator: Allocator, version: u64) !void {
+    try sendCmd(allocator, .{ .SetVersion = version });
 }

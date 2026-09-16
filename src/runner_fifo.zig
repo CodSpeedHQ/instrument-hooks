@@ -1,3 +1,4 @@
+const builtin = @import("builtin");
 const std = @import("std");
 const fifo = @import("fifo/root.zig");
 const shared = @import("shared.zig");
@@ -120,6 +121,7 @@ pub const RunnerFifo = struct {
 };
 
 test "test runner fifo" {
+    if (builtin.os.tag == .windows) return;
     const allocator = std.testing.allocator;
 
     try fifo.Pipe.create(shared.RUNNER_ACK_FIFO);

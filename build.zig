@@ -16,6 +16,12 @@ pub fn build(b: *std.Build) void {
             .abi = .none,
             .ofmt = .c,
         } },
+        .{ .name = "core.windows", .query = .{
+            .cpu_arch = .x86_64,
+            .os_tag = .windows,
+            .abi = .gnu,
+            .ofmt = .c,
+        } },
     };
     for (targets) |t| {
         const lib = b.addStaticLibrary(.{

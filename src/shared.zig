@@ -1,9 +1,10 @@
+const builtin = @import("builtin");
 const std = @import("std");
 
 // WARNING: Has to be in sync with `runner`
 
-pub const RUNNER_CTL_FIFO = "/tmp/runner.ctl.fifo";
-pub const RUNNER_ACK_FIFO = "/tmp/runner.ack.fifo";
+pub const RUNNER_CTL_FIFO = if (builtin.os.tag == .windows) "\\\\.\\pipe\\runner.ctl.fifo" else "/tmp/runner.ctl.fifo";
+pub const RUNNER_ACK_FIFO = if (builtin.os.tag == .windows) "\\\\.\\pipe\\runner.ack.fifo" else "/tmp/runner.ack.fifo";
 
 // The different markers that can be set in the perf.data.
 //

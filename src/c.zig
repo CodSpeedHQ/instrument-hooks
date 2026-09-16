@@ -127,12 +127,10 @@ pub export fn instrument_hooks_add_marker(hooks: ?*InstrumentHooks, pid: i32, ma
 const MachTimebaseInfo = extern struct { numer: u32, denom: u32 };
 extern "c" fn mach_absolute_time() u64;
 extern "c" fn mach_timebase_info(info: *MachTimebaseInfo) c_int;
+extern "kernel32" fn QueryPerformanceCounter(performance_count: *i64) callconv(.winapi) i32;
 
-// Returns monotonic time since boot in nanoseconds.
-//
-// NOTE: Maximum representable timestamp is u64::MAX nanoseconds = 18,446,744,073,709,551,615 ns
-//       which equals ~584.94 years from epoch. Since CLOCK_MONOTONIC measures time since boot,
-//       a system would need to run for ~585 years continuously to overflow this value.
+// Returns the profiler's native monotonic clock: nanoseconds on Unix and raw
+// QueryPerformanceCounter ticks on Windows, which Samply converts using the ETW perf frequency.
 pub export fn instrument_hooks_current_timestamp() u64 {
     return switch (builtin.os.tag) {
         .linux => blk: {
@@ -156,7 +154,11 @@ pub export fn instrument_hooks_current_timestamp() u64 {
             S.once.call();
             break :blk mach_absolute_time() * S.cached.numer / S.cached.denom;
         },
-        .windows => 0,
+        .windows => blk: {
+            var ticks: i64 = undefined;
+            if (QueryPerformanceCounter(&ticks) == 0) unreachable;
+            break :blk @intCast(ticks);
+        },
         else => @compileError("unsupported OS for instrument_hooks_current_timestamp"),
     };
 }
