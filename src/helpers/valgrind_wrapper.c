@@ -20,6 +20,8 @@ void callgrind_stop_instrumentation() {}
 void callgrind_toggle_collect() {}
 
 void callgrind_add_obj_skip(uint8_t const *path) { (void)path; }
+
+void callgrind_add_desc(uint8_t const *desc) { (void)desc; }
 #else
 #include "callgrind.h"
 #include "valgrind.h"
@@ -43,6 +45,8 @@ void callgrind_toggle_collect() { CALLGRIND_TOGGLE_COLLECT; }
 void callgrind_add_obj_skip(uint8_t const *path) {
   CALLGRIND_ADD_OBJ_SKIP(path);
 }
+
+void callgrind_add_desc(uint8_t const *desc) { CALLGRIND_ADD_DESC(desc); }
 
 #endif
 

@@ -9,3 +9,4 @@ pub extern "C" fn callgrind_zero_stats() void;
 pub extern "C" fn callgrind_start_instrumentation() void;
 pub extern "C" fn callgrind_stop_instrumentation() void;
 pub extern "C" fn callgrind_add_obj_skip(path: [*:0]const u8) void;
+pub extern "C" fn callgrind_add_desc(desc: [*:0]const u8) void;

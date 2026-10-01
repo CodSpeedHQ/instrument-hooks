@@ -45,7 +45,13 @@ pub const ValgrindInstrument = struct {
     }
 
     pub inline fn set_executed_benchmark(pid: i32, uri: [*c]const u8) void {
-        _ = pid;
+        // The benchmark's pid is declared in the part's header, so when it ran
+        // in another process, this process's own cost in the part can be told
+        // apart.
+        var buf: [32]u8 = undefined;
+        const desc = std.fmt.bufPrintZ(&buf, "Benchmark pid: {d}", .{pid}) catch unreachable;
+        valgrind.callgrind_add_desc(desc.ptr);
+
         valgrind.callgrind_dump_stats_at(uri);
     }
 };
