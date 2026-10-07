@@ -23,7 +23,8 @@ repos:
       - id: zig-build-test
 
   - repo: https://github.com/cpp-linter/cpp-linter-hooks
-    rev: v0.6.1
+    rev: v1.6.1
     hooks:
       - id: clang-format
+        args: [--style=file, --version=13]
         files: \.(c|h)$
