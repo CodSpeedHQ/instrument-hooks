@@ -5,6 +5,7 @@ This guide is for developers building a CodSpeed integration ("custom harness") 
 A minimal working C harness lives in [`example/`](./example/) — refer to it alongside this guide.
 
 For existing integrations you can reference as examples, see:
+
 - [codspeed-rust](https://github.com/CodSpeedHQ/codspeed-rust) (Criterion, Divan)
 - [codspeed-cpp](https://github.com/CodSpeedHQ/codspeed-cpp) (Google Benchmark)
 - [codspeed-go](https://github.com/CodSpeedHQ/codspeed-go)
@@ -78,11 +79,13 @@ If your language's build system doesn't support submodules well, write a small s
 The generated `dist/core.c` produces compiler warnings that are harmless. Suppress them in your build:
 
 **GCC/Clang:**
+
 ```
 -Wno-maybe-uninitialized -Wno-unused-variable -Wno-unused-parameter -Wno-unused-but-set-variable -Wno-type-limits
 ```
 
 **MSVC:**
+
 ```
 /wd4101 /wd4189 /wd4100 /wd4245 /wd4132 /wd4146
 ```
@@ -106,14 +109,14 @@ From your integration's perspective, the lifecycle is:
 
 1. **Initialize** the library
 2. **Check** if running under CodSpeed instrumentation
-3. **Register** your integration's name and version
+3. **Register** your integration's name and version. Version must respect [semantic versioning](https://semver.org)
 4. **For each benchmark:**
    - Start the benchmark measurement
    - Execute the benchmarked code (inside a [`__codspeed_root_frame__`](#codspeed-root-frame))
    - Stop the benchmark measurement
    - Report which benchmark was executed
 
-4. **Clean up**
+5. **Clean up**
 
 ## Integration Walkthrough
 
@@ -181,6 +184,7 @@ instrument_hooks_deinit(hooks);
 For flamegraphs to work correctly, the actual benchmark code must execute inside a function named with the `__codspeed_root_frame__` prefix. This function acts as the root of the flamegraph — everything inside it is attributed to the benchmark, everything outside is filtered out.
 
 **Requirements:**
+
 - The function name must start with `__codspeed_root_frame__`
 - It must **not** be inlined (use `__attribute__((noinline))`, `#[inline(never)]`, or equivalent)
 - It must wrap the actual benchmark execution (the code being measured)
@@ -250,6 +254,7 @@ bench_test.go::BenchmarkSort::BySize[100]
 ```
 
 For reference, see how existing integrations construct URIs:
+
 - **Rust/Criterion**: `{file}::{macro_group}::{bench_id}[::function][params]`
 - **Rust/Divan**: `{file}::{module_path}::{bench_name}[type, arg]`
 - **Go**: `{file}::{sub_bench_components}`
@@ -312,6 +317,7 @@ In CPU Simulation mode, the measurement works differently from walltime. The key
 **`start_benchmark()` and `stop_benchmark()` must be as close as possible to the actual benchmark code.** In simulation mode, the simulator counts every instruction between start and stop — any framework overhead (setup, teardown, bookkeeping) will be included in the measurement and distort the results.
 
 For reference on how existing integrations handle this:
+
 - **Rust/Criterion**: [`crates/criterion_compat/criterion_fork/src/routine.rs`](https://github.com/CodSpeedHQ/codspeed-rust/blob/main/crates/criterion_compat/criterion_fork/src/routine.rs) — `start_benchmark()` and `stop_benchmark()` wrap only the benchmark execution
 - **C++/Google Benchmark**: [`google_benchmark/src/benchmark_runner.cc`](https://github.com/CodSpeedHQ/codspeed-cpp/blob/main/google_benchmark/src/benchmark_runner.cc)
 
@@ -328,6 +334,7 @@ codspeed run --skip-upload -- <your_benchmark_command>
 ```
 
 Check that:
+
 - `is_instrumented()` returns `true`
 - Benchmarks execute without errors
 - The output shows your benchmarks being detected
