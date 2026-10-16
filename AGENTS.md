@@ -52,7 +52,7 @@ Communication with the CodSpeed runner happens over two named pipes (POSIX FIFOs
 - `/tmp/runner.ctl.fifo` — Commands (hooks -> runner)
 - `/tmp/runner.ack.fifo` — Acknowledgments (runner -> hooks)
 
-Messages use bincode serialization with `[u32 length][payload]` framing. Protocol version: 2.
+Messages use bincode serialization with `[u32 length][payload]` framing. Protocol version: 3.
 
 `IntegrationMode` (negotiated via `Command.GetIntegrationMode`/`IntegrationModeResponse`):
 - `Walltime` — any walltime profiler (perf on Linux, Instruments on macOS, etc.).

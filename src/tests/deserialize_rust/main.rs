@@ -88,4 +88,11 @@ fn main() {
         "cmd_runner_mode_analysis",
         &Command::IntegrationModeResponse(IntegrationMode::Analysis),
     );
+    example(
+        "cmd_set_telemetry_monotonic_offset",
+        &Command::SetTelemetryMonotonicOffset {
+            pid: 12345,
+            offset_ns: -1_700_000_000_000_000_000,
+        },
+    );
 }

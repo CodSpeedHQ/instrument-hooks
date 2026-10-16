@@ -6,7 +6,8 @@ const logger = @import("logger.zig");
 
 // v1: Initial release
 // v2: Added GetIntegrationMode
-pub const PROTOCOL_VERSION: u64 = 2;
+// v3: Added SetTelemetryMonotonicOffset
+pub const PROTOCOL_VERSION: u64 = 3;
 
 pub const RunnerFifo = struct {
     allocator: std.mem.Allocator,
@@ -120,6 +121,13 @@ pub const RunnerFifo = struct {
         } });
     }
 
+    pub fn set_telemetry_monotonic_offset(self: *Self, pid: i32, offset_ns: i64) !void {
+        try self.send_cmd(fifo.Command{ .SetTelemetryMonotonicOffset = .{
+            .pid = pid,
+            .offset_ns = offset_ns,
+        } });
+    }
+
     pub fn send_version(self: *Self, protocol_version: u64) !void {
         try self.send_cmd(fifo.Command{ .SetVersion = protocol_version });
     }
@@ -211,4 +219,8 @@ test "test runner fifo" {
     const stop_result = try tester.send(RunnerFifo.stop_benchmark, .{&runner_fifo});
     try std.testing.expect(stop_result.equal(fifo.Command.StopBenchmark));
     stop_result.deinit(allocator);
+
+    const offset_result = try tester.send(RunnerFifo.set_telemetry_monotonic_offset, .{ &runner_fifo, 42, -7 });
+    try std.testing.expect(offset_result.equal(fifo.Command{ .SetTelemetryMonotonicOffset = .{ .pid = 42, .offset_ns = -7 } }));
+    offset_result.deinit(allocator);
 }

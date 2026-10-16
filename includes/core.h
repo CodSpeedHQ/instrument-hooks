@@ -46,6 +46,15 @@ uint8_t instrument_hooks_add_marker(InstrumentHooks *, int32_t pid,
                                     uint8_t marker_type, uint64_t timestamp);
 uint64_t instrument_hooks_current_timestamp(void);
 
+// Offset, in nanoseconds, to add to instrument_hooks_current_timestamp() to
+// read it as a wall clock time since the Unix epoch, or 0 where the monotonic
+// clock is unavailable. Computed on the first call and cached for the process,
+// so subtracting it from a shifted timestamp gives back the exact monotonic
+// timestamp. In analysis mode, it is sent to the runner when the hooks are
+// initialized, to place the OpenTelemetry data timestamped with the shifted
+// clock on the clock of the benchmark markers.
+int64_t instrument_hooks_monotonic_offset(void);
+
 void callgrind_start_instrumentation();
 void callgrind_stop_instrumentation();
 

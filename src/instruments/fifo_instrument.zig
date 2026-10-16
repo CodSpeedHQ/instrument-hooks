@@ -1,6 +1,7 @@
 const std = @import("std");
 const runner_fifo = @import("../runner_fifo.zig");
 const shared = @import("../shared.zig");
+const c = @import("../c.zig");
 
 /// Creates a complete FIFO-based instrument struct that validates a specific integration mode
 pub fn FifoInstrument(comptime mode: shared.IntegrationMode, comptime error_type: anytype) type {
@@ -25,6 +26,18 @@ pub fn FifoInstrument(comptime mode: shared.IntegrationMode, comptime error_type
             if (detected_mode != mode) {
                 fifo.deinit();
                 return error_type.ModeError;
+            }
+
+            // In analysis mode, the runner places the OpenTelemetry data timestamped with the
+            // shifted monotonic clock on the clock of the benchmark markers.
+            if (mode == .Analysis) {
+                const offset_ns = c.instrument_hooks_monotonic_offset();
+                if (offset_ns != 0) {
+                    fifo.set_telemetry_monotonic_offset(std.c.getpid(), offset_ns) catch |err| {
+                        fifo.deinit();
+                        return err;
+                    };
+                }
             }
 
             return Self{ .fifo = fifo };

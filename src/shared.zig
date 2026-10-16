@@ -64,6 +64,11 @@ pub const Command = union(enum) {
     SetVersion: u64,
     GetIntegrationMode,
     IntegrationModeResponse: IntegrationMode,
+    /// The offset the process adds to its monotonic clock to timestamp its OpenTelemetry data.
+    SetTelemetryMonotonicOffset: struct {
+        pid: i32,
+        offset_ns: i64,
+    },
 
     pub fn deinit(self: Command, allocator: std.mem.Allocator) void {
         switch (self) {
@@ -99,6 +104,7 @@ pub const Command = union(enum) {
             .SetVersion => |data| try writer.print("SetVersion {{ protocol_version: {d} }}", .{data}),
             .GetIntegrationMode => try writer.writeAll("GetIntegrationMode"),
             .IntegrationModeResponse => |mode| try writer.print("IntegrationModeResponse {}", .{mode}),
+            .SetTelemetryMonotonicOffset => |data| try writer.print("SetTelemetryMonotonicOffset {{ pid: {d}, offset_ns: {d} }}", .{ data.pid, data.offset_ns }),
         }
     }
 
@@ -148,6 +154,11 @@ pub const Command = union(enum) {
             },
             .IntegrationModeResponse => |self_mode| switch (other) {
                 .IntegrationModeResponse => |other_mode| self_mode == other_mode,
+                else => false,
+            },
+            .SetTelemetryMonotonicOffset => |self_data| switch (other) {
+                .SetTelemetryMonotonicOffset => |other_data| self_data.pid == other_data.pid and
+                    self_data.offset_ns == other_data.offset_ns,
                 else => false,
             },
         };

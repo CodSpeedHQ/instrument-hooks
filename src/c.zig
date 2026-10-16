@@ -147,6 +147,38 @@ pub export fn instrument_hooks_current_timestamp() u64 {
     };
 }
 
+// Returns the offset, in nanoseconds, to add to `instrument_hooks_current_timestamp` to read it
+// as a wall clock time since the Unix epoch, or 0 where the monotonic clock is unavailable.
+//
+// Computed on the first call and cached, so that every caller in the process shifts its
+// timestamps alike and subtracting the offset gives back the exact monotonic timestamp. Wall
+// clock adjustments after the first call make the shifted timestamps drift from the wall clock.
+pub export fn instrument_hooks_monotonic_offset() i64 {
+    const S = struct {
+        var offset: i64 = 0;
+        var once = std.once(init);
+        fn init() void {
+            offset = compute_monotonic_offset();
+        }
+    };
+    S.once.call();
+    return S.offset;
+}
+
+fn compute_monotonic_offset() i64 {
+    switch (builtin.os.tag) {
+        .linux, .macos => {},
+        else => return 0,
+    }
+    // The wall clock is read between two monotonic reads and paired with their midpoint.
+    const before = instrument_hooks_current_timestamp();
+    const wall = std.posix.clock_gettime(std.posix.clockid_t.REALTIME) catch return 0;
+    const after = instrument_hooks_current_timestamp();
+    const wall_ns = @as(i64, @intCast(wall.sec)) * std.time.ns_per_s + @as(i64, @intCast(wall.nsec));
+    const monotonic_ns: i64 = @intCast(before + (after - before) / 2);
+    return wall_ns - monotonic_ns;
+}
+
 pub export fn instrument_hooks_set_environment(
     hooks: ?*InstrumentHooks,
     section_name: [*c]const c_char,
@@ -215,6 +247,17 @@ test "no crash when not instrumented" {
     try std.testing.expectEqual(0, instrument_hooks_stop_benchmark(instance));
     try std.testing.expectEqual(0, instrument_hooks_executed_benchmark(instance, 0, @ptrCast("test")));
     try std.testing.expectEqual(0, instrument_hooks_set_integration(instance, @ptrCast("pytest-codspeed"), @ptrCast("1.0")));
+}
+
+test "monotonic offset is cached" {
+    const offset = instrument_hooks_monotonic_offset();
+    try std.testing.expectEqual(offset, instrument_hooks_monotonic_offset());
+}
+
+test "monotonic offset shifts the monotonic clock to the wall clock" {
+    const shifted_ns = @as(i64, @intCast(instrument_hooks_current_timestamp())) + instrument_hooks_monotonic_offset();
+    const wall_ns: i64 = @intCast(std.time.nanoTimestamp());
+    try std.testing.expect(@abs(wall_ns - shifted_ns) < std.time.ns_per_s);
 }
 
 test "callgrind_add_obj_skip is a no-op outside valgrind" {

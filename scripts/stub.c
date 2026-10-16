@@ -61,6 +61,8 @@ void instrument_hooks_set_feature(uint64_t feature, bool enabled) {
 
 uint64_t instrument_hooks_current_timestamp(void) { return 0; }
 
+int64_t instrument_hooks_monotonic_offset(void) { return 0; }
+
 uint8_t instrument_hooks_add_marker(InstrumentHooks *hooks, int32_t pid,
                                     uint8_t marker_type, uint64_t timestamp) {
   (void)hooks;

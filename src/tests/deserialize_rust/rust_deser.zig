@@ -57,4 +57,10 @@ test "rust deserialization" {
     try assert_eq(rust.cmd_runner_mode_perf, Command{ .IntegrationModeResponse = .Walltime });
     try assert_eq(rust.cmd_runner_mode_simulation, Command{ .IntegrationModeResponse = .Simulation });
     try assert_eq(rust.cmd_runner_mode_analysis, Command{ .IntegrationModeResponse = .Analysis });
+
+    // SetTelemetryMonotonicOffset command
+    try assert_eq(rust.cmd_set_telemetry_monotonic_offset, Command{ .SetTelemetryMonotonicOffset = .{
+        .pid = 12345,
+        .offset_ns = -1_700_000_000_000_000_000,
+    } });
 }
