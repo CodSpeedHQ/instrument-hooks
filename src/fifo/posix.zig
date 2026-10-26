@@ -1,6 +1,7 @@
 const bincode = @import("../bincode.zig");
 const std = @import("std");
 const shared = @import("../shared.zig");
+const logger = @import("../logger.zig");
 
 const fs = std.fs;
 const os = std.os;
@@ -94,14 +95,19 @@ pub const Pipe = struct {
         }
 
         pub fn waitForAck(self: *Reader, timeout_ns: ?u64) !void {
-            const response = try self.waitForResponse(timeout_ns);
+            const response = self.waitForResponse(timeout_ns) catch |err| {
+                if (err == error.AckTimeout) {
+                    const timeout_ms = (timeout_ns orelse std.time.ns_per_s) / std.time.ns_per_ms;
+                    logger.warn("waitForAck timed out after {d}ms without receiving an ack\n", .{timeout_ms});
+                }
+                return err;
+            };
             defer response.deinit(self.allocator);
 
             switch (response) {
                 .Ack => return,
                 .Err => return error.UnexpectedError,
                 else => {
-                    const logger = @import("../logger.zig");
                     logger.debug("waitForAck received unexpected response: {}\n", .{response});
                     return error.UnexpectedResponse;
                 },
