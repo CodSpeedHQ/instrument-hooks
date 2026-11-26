@@ -2206,13 +2206,13 @@ static nav__4191_39 io_Reader_readBytesNoEof__anon_2156__4191(struct io_Reader__
 static nav__4198_39 io_Reader_readBytesNoEof__anon_2262__4198(struct io_Reader__2125);
 static nav__4199_40 mem_Allocator_alloc__anon_2271__4199(struct mem_Allocator__527, uintptr_t);
 static nav__4156_38 io_Reader_readAll__4156(struct io_Reader__2125, nav__4156_41);
-static zig_noreturn void bincode_invalidProtocol__anon_2294__4200(void);
+zig_noreturn static void bincode_invalidProtocol__anon_2294__4200(void);
 static void logger_warn__anon_2603__4221(nav__4221_38);
 static void shared_Command_deinit__3789(struct shared_Command__1145, struct mem_Allocator__527);
 static void logger_debug__anon_2628__4222(nav__4222_39);
 static void logger_err__anon_2652__4223(void);
 static void logger_err__anon_2661__4224(void);
-static zig_noreturn void posix_exit__1700(uint8_t);
+zig_noreturn static void posix_exit__1700(uint8_t);
 static void logger_err__anon_2675__4225(nav__4225_40);
 static void runner_fifo_RunnerFifo_deinit__1081(struct runner_fifo_RunnerFifo__584 *);
 static struct environment_root_Environment__487 environment_root_Environment_init__452(struct mem_Allocator__527);
@@ -2738,7 +2738,7 @@ zig_extern int open(uint8_t const *, uint32_t, ...);
 zig_extern int sched_yield(void);
 static uint8_t const posix_native_os__1541;
 zig_extern int poll(struct c_pollfd__struct_1286__1286 *, uint32_t, int);
-zig_extern zig_noreturn void exit(int);
+zig_noreturn zig_extern void exit(int);
 zig_extern int close_24NOCANCEL(int32_t) zig_mangled(close_24NOCANCEL, "close$NOCANCEL");
 static uint8_t const fs_path_native_os__4241;
 static uint8_t const fs_native_os__1256;
@@ -5501,7 +5501,7 @@ static nav__4156_38 io_Reader_readAll__4156(struct io_Reader__2125 const a0, nav
  return t1;
 }
 
-static zig_noreturn void bincode_invalidProtocol__anon_2294__4200(void) {
+zig_noreturn static void bincode_invalidProtocol__anon_2294__4200(void) {
  utils_print__anon_3076__4695();
  posix_exit__1700(UINT8_C(1));
  zig_unreachable();
@@ -5574,7 +5574,7 @@ static void logger_err__anon_2661__4224(void) {
  return;
 }
 
-static zig_noreturn void posix_exit__1700(uint8_t const a0) {
+zig_noreturn static void posix_exit__1700(uint8_t const a0) {
  int t0;
  t0 = (int)a0;
  exit(t0);
@@ -32712,13 +32712,13 @@ static nav__5031_39 io_Reader_readBytesNoEof__anon_2254__5031(struct io_Reader__
 static nav__5038_39 io_Reader_readBytesNoEof__anon_2360__5038(struct io_Reader__2223);
 static nav__5039_40 mem_Allocator_alloc__anon_2369__5039(struct mem_Allocator__527, uintptr_t);
 static nav__4996_38 io_Reader_readAll__4996(struct io_Reader__2223, nav__4996_41);
-static zig_noreturn void bincode_invalidProtocol__anon_2392__5040(void);
+zig_noreturn static void bincode_invalidProtocol__anon_2392__5040(void);
 static void logger_warn__anon_2701__5061(nav__5061_38);
 static void shared_Command_deinit__4748(struct shared_Command__1765, struct mem_Allocator__527);
 static void logger_debug__anon_2726__5062(nav__5062_39);
 static void logger_err__anon_2750__5063(void);
 static void logger_err__anon_2759__5064(void);
-static zig_noreturn void posix_exit__1700(uint8_t);
+zig_noreturn static void posix_exit__1700(uint8_t);
 static void logger_err__anon_2773__5065(nav__5065_40);
 static void runner_fifo_RunnerFifo_deinit__1081(struct runner_fifo_RunnerFifo__584 *);
 static struct environment_root_Environment__487 environment_root_Environment_init__452(struct mem_Allocator__527);
@@ -33268,7 +33268,7 @@ zig_extern int open(uint8_t const *, uint32_t, ...);
 zig_extern int sched_yield(void);
 static uint8_t const posix_native_os__1541;
 zig_extern int poll(struct os_linux_pollfd__1906 *, uintptr_t, int);
-zig_extern zig_noreturn void exit(int);
+zig_noreturn zig_extern void exit(int);
 zig_extern int close(int32_t);
 static uint8_t const fs_path_native_os__5081;
 static uint8_t const fs_native_os__1256;
@@ -36066,7 +36066,7 @@ static nav__4996_38 io_Reader_readAll__4996(struct io_Reader__2223 const a0, nav
  return t1;
 }
 
-static zig_noreturn void bincode_invalidProtocol__anon_2392__5040(void) {
+zig_noreturn static void bincode_invalidProtocol__anon_2392__5040(void) {
  utils_print__anon_3155__5246();
  posix_exit__1700(UINT8_C(1));
  zig_unreachable();
@@ -36139,7 +36139,7 @@ static void logger_err__anon_2759__5064(void) {
  return;
 }
 
-static zig_noreturn void posix_exit__1700(uint8_t const a0) {
+zig_noreturn static void posix_exit__1700(uint8_t const a0) {
  int t0;
  t0 = (int)a0;
  exit(t0);

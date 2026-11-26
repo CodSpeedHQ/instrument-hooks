@@ -10,6 +10,14 @@ REPLACEMENTS = [
         re.compile(r"struct instrument_hooks_InstrumentHooks__\d+"),
         "struct InstrumentHooks",
     ),
+    # Zig's C backend emits `static zig_noreturn void f(...)`. zig.h expands
+    # zig_noreturn to `[[noreturn]]` under C23 (the default since GCC 15),
+    # and C23 attributes must precede the storage class. Put zig_noreturn
+    # first, which is valid for every expansion in zig.h.
+    (
+        re.compile(r"\b(static|zig_extern) zig_noreturn\b"),
+        r"zig_noreturn \1",
+    ),
 ]
 
 
