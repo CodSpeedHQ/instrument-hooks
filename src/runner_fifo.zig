@@ -21,6 +21,12 @@ pub const RunnerFifo = struct {
     const Self = @This();
 
     pub fn init(allocator: std.mem.Allocator) !Self {
+        // Stale FIFOs from an exited runner have no reader: bail out before
+        // waiting for acks that will never come.
+        if (!fifo.Pipe.hasReader(shared.RUNNER_CTL_FIFO)) {
+            return error.NoRunner;
+        }
+
         return .{
             .allocator = allocator,
             .writer = try fifo.Pipe.openWrite(allocator, shared.RUNNER_CTL_FIFO),
@@ -31,8 +37,8 @@ pub const RunnerFifo = struct {
     pub fn validate_protocol_version(self: *Self) !void {
         self.send_version(PROTOCOL_VERSION) catch |err| {
             switch (err) {
-                // No runner present - silently continue as NOP
-                error.AckTimeout => return,
+                // Nobody answered: no runner, the next request would time out too
+                error.AckTimeout => return err,
 
                 // Runner explicitly rejected version
                 error.UnexpectedError => {
@@ -211,4 +217,11 @@ test "test runner fifo" {
     const stop_result = try tester.send(RunnerFifo.stop_benchmark, .{&runner_fifo});
     try std.testing.expect(stop_result.equal(fifo.Command.StopBenchmark));
     stop_result.deinit(allocator);
+}
+
+test "stale runner fifos without a reader are not a runner" {
+    try fifo.Pipe.create(shared.RUNNER_ACK_FIFO);
+    try fifo.Pipe.create(shared.RUNNER_CTL_FIFO);
+
+    try std.testing.expectError(error.NoRunner, RunnerFifo.init(std.testing.allocator));
 }

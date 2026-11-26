@@ -53,6 +53,10 @@ pub const Pipe = struct {
         return error.Unsupported;
     }
 
+    pub fn hasReader(_: []const u8) bool {
+        return false;
+    }
+
     pub fn openRead(_: Allocator, _: []const u8) !Reader {
         return error.Unsupported;
     }

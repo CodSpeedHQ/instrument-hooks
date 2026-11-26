@@ -190,6 +190,18 @@ pub const Pipe = struct {
         }
     }
 
+    /// Returns whether some process has the FIFO open for reading. `openPipe`
+    /// uses O_RDWR, which succeeds even when the peer is gone, so a FIFO left
+    /// behind by an exited runner looks connected. A non-blocking O_WRONLY
+    /// open fails with ENXIO when there is no reader.
+    pub fn hasReader(path: []const u8) bool {
+        const path_z = std.posix.toPosixPath(path) catch return false;
+        const fd = std.c.open(&path_z, .{ .ACCMODE = .WRONLY, .NONBLOCK = true, .CLOEXEC = true });
+        if (fd < 0) return false;
+        std.posix.close(fd);
+        return true;
+    }
+
     fn openPipe(path: []const u8) !fs.File {
         try fs.accessAbsolute(path, .{ .mode = .read_write });
         return try fs.openFileAbsolute(path, .{

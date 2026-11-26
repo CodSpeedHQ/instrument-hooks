@@ -13,7 +13,10 @@ pub fn FifoInstrument(comptime mode: shared.IntegrationMode, comptime error_type
             var fifo = try runner_fifo.RunnerFifo.init(allocator);
 
             // Ensure both the runner and integration FIFO are compatible
-            try fifo.validate_protocol_version();
+            fifo.validate_protocol_version() catch |err| {
+                fifo.deinit();
+                return err;
+            };
 
             // Get the instrumentation mode from the runner
             const detected_mode = fifo.get_integration_mode() catch |err| {
@@ -58,4 +61,25 @@ pub fn FifoInstrument(comptime mode: shared.IntegrationMode, comptime error_type
             try self.fifo.add_marker(pid, marker);
         }
     };
+}
+
+test "init stops after the version ack times out" {
+    const allocator = std.testing.allocator;
+    const fifo = @import("../fifo/root.zig");
+
+    try fifo.Pipe.create(shared.RUNNER_ACK_FIFO);
+    try fifo.Pipe.create(shared.RUNNER_CTL_FIFO);
+
+    // Hold the control FIFO open like a runner that never replies.
+    var ctl = try fifo.Pipe.openRead(allocator, shared.RUNNER_CTL_FIFO);
+    defer ctl.deinit();
+
+    const Instrument = FifoInstrument(.Walltime, error{ModeError});
+    try std.testing.expectError(error.AckTimeout, Instrument.init(allocator));
+
+    // Only SetVersion was sent: init gave up before GetIntegrationMode.
+    const cmd = try ctl.waitForResponse(null);
+    defer cmd.deinit(allocator);
+    try std.testing.expect(cmd == .SetVersion);
+    try std.testing.expectError(error.AckTimeout, ctl.waitForResponse(std.time.ns_per_ms));
 }
